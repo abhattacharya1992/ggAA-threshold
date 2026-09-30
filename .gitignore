@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+inputs/arXiv-1909.08993/
+manuscript/*.aux
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.fdb_latexmk
+manuscript/*.fls
+manuscript/*.log
+manuscript/*.out
+manuscript/mainNotes.bib
+results/exact_amplitude_cache.json
+results/li22_store.json
+build/
+manuscript/main.pdf

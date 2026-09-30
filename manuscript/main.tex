@@ -1,0 +1,81 @@
+\documentclass[aps,prd,reprint,nofootinbib,longbibliography]{revtex4-2}
+
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage{amsmath,bm}
+\usepackage{graphicx}
+\input{diagram_setup.tex}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{placeins}
+\usepackage[hidelinks]{hyperref}
+
+% Keep two-column paragraphs readable without excessive hyphenation.
+\hyphenpenalty=900
+\exhyphenpenalty=900
+\emergencystretch=1.25em
+\flushbottom
+\setlength{\textfloatsep}{9pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\dbltextfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\dblfloatsep}{8pt plus 2pt minus 2pt}
+
+% Allow REVTeX to use the available page area more effectively.
+\setcounter{topnumber}{4}
+\setcounter{dbltopnumber}{2}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.82}
+\renewcommand{\dblfloatpagefraction}{0.82}
+
+\input{metadata.tex}
+\input{macros.tex}
+\input{numbers.tex}
+
+\hypersetup{
+  pdftitle={\PaperTitlePDF},
+  pdfauthor={\PaperAuthor},
+  pdfsubject={Two-loop Type II amplitudes for gg to AA near threshold and the double parton scattering singularity}
+}
+
+\begin{document}
+
+\title{\PaperTitle}
+\author{\PaperAuthor}
+\thanks{Contact author: \href{mailto:\PaperEmail}{\PaperEmail}}
+\affiliation{\PaperAffiliation}
+\date{\today}
+
+\begin{abstract}
+In the limit of a heavy top quark, the two-loop amplitudes for $gg\to AA$ contain a class of diagrams, Type~II, in which each pseudoscalar couples to the gluons through its own effective vertex. Their finite remainders are known in closed form, but their behaviour near the pair production threshold has not been studied. We expand them in the pseudoscalar velocity $\bA$ at fixed scattering angle through $\bA^6$. Once the endpoint constants are expressed in a basis of \BasisCountWord{} transcendental constants, all inverse powers of $\bA$ and the odd powers through $\bA^5$ cancel identically. At leading power the angle enters only through the logarithm of the transverse momentum $p_T$ of the pseudoscalars. We identify this logarithm with the double parton scattering singularity of one-loop amplitudes: in the forward limit, and with the overall constant fixed at threshold, the velocity dependence of its one-loop coefficient follows the factorised formula of Gaunt and Stirling, including the helicity weights of gluon splitting and the sign structure of a CP-odd coupling, to \DPSMaxDeviation. At two loops the equal helicity amplitude grows as $\ln^3p_T$, and the opposite helicity amplitude, which vanishes as $\bA^2$ at tree level and has no logarithm at one loop, as $\ln^2p_T$. In the finite virtual corrections to the cross section the logarithm cancels at one loop; at two loops $\ln^3p_T$ cancels and the highest power is $\ln^2p_T$, with coefficient $-\tfrac74\pi^2\Nc^2$. We also find that the published two-loop remainders are larger by a factor of \FileFactor{} than the lower orders and that the published one-loop remainders omit their dependence on the renormalisation scale; all results are given in a consistent normalisation. The series reproduce the unexpanded remainders to \PtwoErrLePointTwo{} or better for $\bA\leq\RecommendedBeta$ and are released with an evaluator.
+\end{abstract}
+
+\maketitle
+
+\input{sections/01_introduction.tex}
+\input{sections/02_setup.tex}
+\input{sections/03_expansion.tex}
+\input{sections/04_physics.tex}
+\input{sections/05_rate.tex}
+\input{sections/06_conclusions.tex}
+
+\input{sections/data_availability.tex}
+
+\begin{acknowledgments}
+The author used Claude (Anthropic) to assist with the literature search, the analysis and checking scripts, the figures and the drafting of the text, and has reviewed and verified all results and text.
+\end{acknowledgments}
+
+\appendix
+\input{sections/app_constants.tex}
+\input{sections/app_normalization.tex}
+\input{sections/app_flavour.tex}
+\input{sections/app_data.tex}
+
+% Page markers for scripts/check_layout.py (no output).
+\label{end-of-appendices}
+\FloatBarrier
+\label{start-of-references}
+\bibliography{references}
+
+\end{document}

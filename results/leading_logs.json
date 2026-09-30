@@ -1,0 +1,103 @@
+{
+ "angle_only_through_calL_and_even": true,
+ "coefficients_checked": 24,
+ "inventory": {
+  "M1_nf0": {
+   "inverse_powers_in_construction": [
+    -2,
+    -1
+   ],
+   "leading_power": 0,
+   "calL_powers": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  "M1_nf1": {
+   "inverse_powers_in_construction": [],
+   "leading_power": 0,
+   "calL_powers": [
+    0,
+    1,
+    2
+   ]
+  },
+  "M1_nf2": {
+   "inverse_powers_in_construction": [],
+   "leading_power": 0,
+   "calL_powers": [
+    0
+   ]
+  },
+  "M2_nf0": {
+   "inverse_powers_in_construction": [
+    -4,
+    -3,
+    -2,
+    -1
+   ],
+   "leading_power": 0,
+   "calL_powers": [
+    0,
+    1,
+    2
+   ]
+  },
+  "M2_nf1": {
+   "inverse_powers_in_construction": [
+    -1
+   ],
+   "leading_power": 0,
+   "calL_powers": [
+    0,
+    1
+   ]
+  },
+  "M2_nf2": {
+   "inverse_powers_in_construction": [],
+   "leading_power": 2,
+   "calL_powers": [
+    0
+   ]
+  }
+ },
+ "exact_units_pi_mA2": {
+  "1,1": "Mul(Rational(1, 9), Symbol('nc'), Add(Mul(Integer(126), Symbol('LMU'), Symbol('n_f')), Mul(Integer(-1), Integer(693), Symbol('LMU'), Symbol('nc')), Mul(Integer(252), Pow(Symbol('LN2'), Integer(2)), Symbol('nc')), Mul(Integer(-1), Integer(84), Symbol('LN2'), Symbol('n_f')), Mul(Integer(462), Symbol('LN2'), Symbol('nc')), Mul(Integer(-1), Integer(42), Pow(Symbol('PI'), Integer(2)), Symbol('nc')), Mul(Integer(-1), Integer(126), I, Symbol('PI'), Symbol('n_f')), Mul(Integer(693), I, Symbol('PI'), Symbol('nc')), Mul(Integer(-1), Integer(152), Symbol('n_f')), Mul(Integer(1454), Symbol('nc'))))",
+  "1,2": "Mul(Rational(14, 3), Symbol('nc'), Add(Mul(Integer(2), Symbol('n_f')), Mul(Integer(-1), Integer(11), Symbol('nc'))))",
+  "1,3": "Mul(Integer(-1), Rational(28, 3), Pow(Symbol('nc'), Integer(2)))",
+  "2,1": "Mul(Rational(4, 3), Symbol('nc'), Add(Symbol('n_f'), Mul(Integer(-1), Integer(4), Symbol('nc'))))",
+  "2,2": "Mul(Integer(-1), Integer(2), Pow(Symbol('nc'), Integer(2)))"
+ },
+ "numeric_Nc3_nf5_muR_eq_mA": {
+  "1,0": [
+   -398.21488696832705,
+   -4005.694532160932
+  ],
+  "1,1": [
+   3551.2903699632775,
+   4767.01892572616
+  ],
+  "1,2": [
+   -1011.5928344559135,
+   0.0
+  ],
+  "1,3": [
+   -263.89378290154264,
+   0.0
+  ],
+  "2,0": [
+   312.00746142118743,
+   340.5013518375829
+  ],
+  "2,1": [
+   -87.96459430051421,
+   0.0
+  ],
+  "2,2": [
+   -56.548667764616276,
+   0.0
+  ]
+ }
+}

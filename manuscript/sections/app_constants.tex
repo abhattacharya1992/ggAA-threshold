@@ -1,0 +1,13 @@
+\section{Endpoint constants}
+\label{app:constants}
+
+The boundary values of the expansion contain the constants
+\begin{equation}
+ \mathrm{MB}[p,q,a,w]
+ =\frac{a}{(p-1)!}\int_0^1\dd t\,
+ \frac{[-\ln t]^{p-1}}{1-at}\,\phi_q(wt),
+ \label{eq:mb-definition}
+\end{equation}
+with $\phi_1(z)=-\ln(1-z)$ and $\phi_q(z)=\Li_q(z)$ for $q\geq2$. Besides the elementary values $\mathrm{MB}[2,2,1,1]=\pi^4/120$ and $\mathrm{MB}[2,1,1,1]=\zeta_3$, \ConstantCountWord{} distinct constants occur. They were evaluated by quadrature at high precision, independently of the amplitude data, and reduced to the basis of Eq.~\eqref{eq:constant-basis} with the PSLQ algorithm~\cite{Ferguson:1999} at \PSLQDigits{} digits. Table~\ref{tab:mb-constants} lists the results; the largest residual is \PSLQResidual, and the same relations were obtained in Mathematica.
+
+\input{tables/mb_constants.tex}

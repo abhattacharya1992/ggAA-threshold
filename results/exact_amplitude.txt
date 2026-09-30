@@ -1,0 +1,19 @@
+Complete n_f = 5 coefficients: independent evaluation against the validation table
+  M1  (mA, muR, Nc) = (125, 125, 3)  beta =   1/10  cos =  1/3:  stable at 160 digits, relative difference  1.34e-40   (0 s)
+  M2  (mA, muR, Nc) = (125, 125, 3)  beta =   1/10  cos =  1/3:  stable at 160 digits, relative difference  7.85e-41   (243 s)
+  M1  (mA, muR, Nc) = (125, 125, 3)  beta =   3/10  cos = -2/3:  stable at 160 digits, relative difference  5.65e-41   (0 s)
+  M2  (mA, muR, Nc) = (125, 125, 3)  beta =   3/10  cos = -2/3:  stable at 160 digits, relative difference  3.37e-41   (0 s)
+  M1  (mA, muR, Nc) = (125, 250, 3)  beta =    1/5  cos = -1/3:  stable at 160 digits, relative difference  3.76e-41   (0 s)
+  M2  (mA, muR, Nc) = (125, 250, 3)  beta =    1/5  cos = -1/3:  stable at 160 digits, relative difference  5.62e-41   (0 s)
+  M1  (mA, muR, Nc) = (150, 75, 4)  beta =   1/20  cos =  2/3:  stable at 160 digits, relative difference  1.06e-40   (0 s)
+  M2  (mA, muR, Nc) = (150, 75, 4)  beta =   1/20  cos =  2/3:  stable at 160 digits, relative difference  1.17e-40   (0 s)
+
+Flavour coefficients at (mA, muR, Nc) = (125, 125, 3), beta = 1/10, cos = 1/3 (160 digits)
+  M1, n_f^0: relative difference 8.96e-41
+  M1, n_f^1: relative difference 1.57e-40
+  M1, n_f^2: relative difference 3.66e-41
+  M2, n_f^0: relative difference 6.42e-41
+  M2, n_f^1: relative difference 1.37e-40
+  M2, n_f^2: relative difference 6.33e-41
+
+Largest relative difference: 1.57e-40

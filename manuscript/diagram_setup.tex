@@ -1,0 +1,9 @@
+% Figure 1 is drawn with TikZ-Feynman in the fonts of the paper when the package is installed;
+% otherwise the prebuilt figures/fig0_diagrams.pdf (same source, scripts/make_diagrams.py) is used.
+\IfFileExists{tikz-feynman.sty}{%
+  \usepackage[compat=1.1.0]{tikz-feynman}%
+  \tikzfeynmanset{warn luatex=false}%
+  \newcommand{\diagramsfigure}{\input{figures/fig0_diagrams_tikz.tex}}%
+}{%
+  \newcommand{\diagramsfigure}{\includegraphics{figures/fig0_diagrams.pdf}}%
+}
