@@ -42,8 +42,8 @@ REVTeX 4.2. A Wolfram kernel is needed only for `src/mathematica`.
 python3 scripts/evaluate.py --beta 1/10 --costheta 1/3
 ```
 ```
-M1 = -16288156667.60656256314565 - 3606965796.7563368458778 i
-M2 = 422687529.614420976438706 + 518999803.8227373539893247 i
+M1 = -254502447.9313525400491509 - 56358840.57431776321684063 i
+M2 = 6604492.650225327756854782 + 8109371.934730271156083198 i
 ```
 
 Options: `--mA`, `--muR` (GeV), `--Nc`, `--nf`, `--order 4|6`, `--digits`.
@@ -67,27 +67,29 @@ series.component(2, 1, "1/10", "1/3")          # coefficient of n_f^1 in M_2
 | leading power in terms of ℒ | `make leading-logs` | `results/leading_logs.txt` |
 | one-loop threshold and forward limits | `make inputs one-loop` | `results/one_loop.txt` |
 | independent evaluation of the exact two-loop remainders | `make inputs exact-check` | `results/exact_amplitude.txt` |
-| Table II, error slopes | `make validation` | `manuscript/tables/accuracy.tex`, `results/compare_validation.txt` |
-| Figs. 1, 2 and 5 (validation, DPS weight, flavour); interference and ratio plots for the supplement | `make figures` | `manuscript/figures/fig1, fig7, fig2 (fig3, fig4)` |
-| Figs. 3 and 4 (amplitudes by order, cross section) | `make inputs virtual physics-figures` | `manuscript/figures/fig5, fig6` |
+| Table III, error slopes | `make validation` | `manuscript/tables/accuracy.tex`, `results/compare_validation.txt` |
+| Figs. 2, 3 and 6 (validation, DPS weight, flavour), Fig. 1 (diagrams); interference and ratio plots for the supplement | `make figures` | `manuscript/figures/fig1, fig7, fig2, fig0 (fig3, fig4)` |
+| Figs. 4 and 5 (amplitudes by order, cross section) | `make inputs virtual physics-figures` | `manuscript/figures/fig5, fig6` |
 | one-loop ln p_T coefficient against the DPS helicity weight F_A(x) | `make inputs dps` | `results/dps_check.{txt,json}` |
 | ln p_T terms of V1, V2; coefficient −(7/4)π²N_c²; v0, v1 at three angles and two scales; maximum of V2 | `make inputs rate-logs` | `results/rate_logs.json` |
 | velocity below which the two-loop term of M1 exceeds the one-loop term (Fig. 4) | `make crossover` | `results/amplitude_crossover.json` |
+| one-loop gg → HH forward logarithm against F_S; HH points of Fig. 3 (data in `data/dps_hh`) | `make dps-hh` | `results/dps_hh.json` |
+| earlier 2019 run vs published renormalisation, June 2019 pole record (App. B) | `make renorm-2019` | `results/renorm_2019.json` |
 | diagrams of Fig. 1 | `make diagrams` | `manuscript/figures/fig0_diagrams_tikz.tex`, fallback `fig0_diagrams.pdf` |
 | share of the ln p_T terms in V2 at fixed angle | `make inputs log-share` | `results/log_share.json` |
 | 2019 archive against the published files (one loop: mu_R term; two loops: factor 64) | `make inputs archive` | `results/archive_2019.json` |
 | top quark mass factor of the Type II tree amplitude at threshold | `make top-mass` | `results/top_mass.json` |
 | comparison curves for Fig. 4 of arXiv:1909.08993 | `make fig4-2019` | `results/fig4_2019_check.{txt,pdf}` |
 | forward-angle and constant tables | `make tables` | `manuscript/tables/` |
-| every number quoted in the text | `make numbers` | `manuscript/numbers.tex` |
+| every number quoted in the text | `make inputs numbers` | `manuscript/numbers.tex` |
 | LO partonic cross section (Type II) | `make lo` | `results/lo_cross_section.{txt,csv,pdf}` |
 | finite virtual corrections V1, V2 | `make inputs virtual` | `results/virtual_correction.{txt,csv,pdf}` |
 | normalization of tree, one- and two-loop amplitudes | `make inputs normalization` | `results/normalization.txt` |
-| paper | `make paper` | `manuscript/main.pdf` and the layout report |
+| paper | `make inputs paper` | `manuscript/main.pdf` and the layout report |
 | arXiv submission (after `make paper`) | `make arxiv` | `build/ggAA-threshold-arxiv.tar.gz` |
 
-`make all` runs everything except the one-loop and exact-amplitude checks, which need
-the downloaded inputs; `make exact-check` takes about 45 minutes. `make constants` takes a few minutes at 110 digits; the other targets take
+`make all` needs the downloaded inputs (`make inputs`) for the numbers of the text; it runs everything
+except the one-loop and exact-amplitude checks; `make exact-check` takes about 45 minutes. `make constants` takes a few minutes at 110 digits; the other targets take
 at most a few minutes each.
 
 ## Conventions
@@ -199,7 +201,8 @@ calculations, ran the code and checked the results reported in the paper.
 ## Licence and citation
 
 Code: BSD 3-Clause (`LICENSE`). Data and figures: CC BY 4.0. The exact remainders of
-arXiv:1909.08993 are not redistributed; `inputs/fetch_inputs.sh` downloads them.
+arXiv:1909.08993 are not redistributed; `inputs/fetch_inputs.sh` downloads them. The code used for
+the one-loop gg → HH amplitudes (`data/dps_hh`) is not included; it is available from the author on request.
 Please cite the paper; see `CITATION.cff`.
 
 ## Building the paper and checking the layout

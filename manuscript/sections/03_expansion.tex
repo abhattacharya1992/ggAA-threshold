@@ -7,28 +7,28 @@ After the substitution of Eq.~\eqref{eq:threshold-map}, each flavour coefficient
 \begin{equation}
  \Mflav{i}{r}(\bA,c)
  =\sum_{n=-4}^{p}\sum_k
- C^{(i,r)}_{nk}\,\bA^n L^k
+ C^{(i,r)}_{nk}\,\bA^n\ln^k\bA
  +\mathcal O_{\log}(\bA^{p+1}),
  \label{eq:series-structure}
 \end{equation}
-with $L=\ln\bA$, $r=0,1,2$ and $p=4$ or 6. The coefficients $C^{(i,r)}_{nk}$ depend on $c$, $\mA^2$, $\muR^2$ and $\Nc$, and $\mathcal O_{\log}(\bA^n)$ stands for $\bA^n$ times a polynomial in $L$. Inverse powers appear in intermediate steps because the tensor basis and the rational prefactors contain inverse Gram determinants, Eq.~\eqref{eq:gram-scaling}. They must be kept until all contributions at a given power have been combined.
+with $r=0,1,2$ and $p=4$ or 6. The coefficients $C^{(i,r)}_{nk}$ depend on $c$, $\mA^2$, $\muR^2$ and $\Nc$, and $\mathcal O_{\log}(\bA^n)$ stands for $\bA^n$ times a polynomial in $\ln\bA$. Inverse powers appear in intermediate steps because the tensor basis and the rational prefactors contain inverse Gram determinants, Eq.~\eqref{eq:gram-scaling}. They must be kept until all contributions at a given power have been combined.
 
-The remainders contain logarithms, classical polylogarithms and the function $\Li_{2,2}$ of weight four~\cite{Frellesvig:2016ske,Vollinga:2004sn}, whose arguments approach correlated endpoints as $\bA\to0$. We expand the rational prefactors exactly and obtain the expansions of the special functions from differential equations in $\bA$, with boundary values at $\bA=0$. These equations have the iterated-integral form familiar from harmonic polylogarithms~\cite{RemiddiVermaseren2000} and from canonical differential equations for Feynman integrals~\cite{Henn2013}; the map $x=(1-\bA)/(1+\bA)$ is one of the transformations under which harmonic polylogarithms are closed~\cite{RemiddiVermaseren2000}. We thus expand the known remainders, not the loop integrals, which could instead be expanded near threshold by the method of regions~\cite{BenekeSmirnov1998}. For the dilogarithm, for example, $\dd\Li_2(x)/\dd\bA=2(1-\bA^2)^{-1}\ln[2\bA/(1+\bA)]$ with $\Li_2(1)=\pi^2/6$ gives
+The remainders contain logarithms, classical polylogarithms and the function $\Li_{2,2}$ of weight four~\cite{Frellesvig:2016ske,Vollinga:2004sn}, whose arguments approach correlated endpoints as $\bA\to0$. I expand the rational prefactors exactly and obtain the expansions of the special functions from differential equations in $\bA$, with boundary values at $\bA=0$. These equations have the iterated-integral form familiar from harmonic polylogarithms~\cite{RemiddiVermaseren2000} and from canonical differential equations for Feynman integrals~\cite{Henn2013}; the map $x=(1-\bA)/(1+\bA)$ is one of the transformations under which harmonic polylogarithms are closed~\cite{RemiddiVermaseren2000}. The method thus expands the known remainders, not the loop integrals, which could instead be expanded near threshold by the method of regions~\cite{BenekeSmirnov1998}. For the dilogarithm, for example, $\dd\Li_2(x)/\dd\bA=2(1-\bA^2)^{-1}\ln[2\bA/(1+\bA)]$ with $\Li_2(1)=\pi^2/6$ gives
 \begin{align}
  \Li_2(x)
  &=
  \frac{\pi^2}{6}
- +2\bA\bigl(L+\ln2-1\bigr)
+ +2\bA\bigl[\ln(2\bA)-1\bigr]
  -\bA^2
  \nonumber\\
  &\quad
  +\bA^3
  \left[
-   \frac{2}{3}\bigl(L+\ln2\bigr)
+   \frac{2}{3}\ln(2\bA)
    +\frac{1}{9}
  \right]
  -\frac{2}{3}\bA^4
- +\Ord\!\left(\bA^5L\right).
+ +\Ord\!\left(\bA^5\ln\bA\right).
  \label{eq:li2-threshold-example}
 \end{align}
 Since the prefactors start at $\bA^{-4}$, the special functions have to be expanded four orders beyond the final accuracy. The fourth and sixth order expansions were constructed independently, and all coefficients common to both agree.
@@ -53,10 +53,10 @@ with a largest residual of \PSLQResidual{} (Table~\ref{tab:mb-constants}).
 
 With these reductions, and with the dilogarithms of $(1-c)/2$, $(c-1)/(c+1)$ and $(c+1)/(c-1)$ rewritten through $\Li_2\bigl((1+c)/2\bigr)$ by the reflection and Landen identities, every coefficient $C^{(i,r)}_{nk}$ becomes a polynomial in
 \begin{equation}
- \bigl\{L,\ \ln(1\pm c),\ \Li_2\bigl(\tfrac{1+c}{2}\bigr),\ \ln\tfrac{\mA^2}{\muR^2}\bigr\}\cup\{\ln2,\ \pi,\ \zeta_3,\ \Li_4(\tfrac12)\}
+ \bigl\{\ln\bA,\ \ln(1\pm c),\ \Li_2\bigl(\tfrac{1+c}{2}\bigr),\ \ln\tfrac{\mA^2}{\muR^2}\bigr\}\cup\{\ln2,\ \pi,\ \zeta_3,\ \Li_4(\tfrac12)\}
  \label{eq:function-basis}
 \end{equation}
-with coefficients rational in $c$ and $\Nc$. Treating these quantities as algebraically independent, we find that
+with coefficients rational in $c$ and $\Nc$. Treating these quantities as algebraically independent, I find that
 \begin{enumerate}
  \item the coefficients of $\bA^{-4},\dots,\bA^{-1}$ vanish identically in every flavour coefficient;
  \item the coefficients of $\bA$, $\bA^3$ and $\bA^5$ vanish identically, so that through $\bA^6$ the expansion is a series in $\bA^2$ with logarithms;
@@ -80,23 +80,23 @@ where $K$ does not depend on the angle. It is the only flavour coefficient that 
 \subsection{Accuracy}
 \label{sec:validation}
 
-We compared the series with the unexpanded remainders at \BetaPointCount{} values of $\bA$ between \ValBetaMin{} and $\ValBetaMax$, \AnglePointCount{} angles and \ParameterSetCount{} choices of mass, scale and colour (Table~\ref{tab:validation-grid}). At each of the \GridPointCount{} points we test the six flavour coefficients and the two complete coefficients, \ValidationRows{} comparisons in total. Each unexpanded value is evaluated at increasing working precision until its real and imaginary parts are stable. The parameter set with $\Nc\neq3$ tests the colour dependence; all physical results use $\Nc=\BenchNc$. With the relative truncation error
+I compared the series with the unexpanded remainders at \BetaPointCount{} values of $\bA$ between \ValBetaMin{} and $\ValBetaMax$, \AnglePointCount{} angles and \ParameterSetCount{} choices of mass, scale and colour (Table~\ref{tab:validation-grid}). At each of the \GridPointCount{} points the test covers the six flavour coefficients and the two complete coefficients, \ValidationRows{} comparisons in total. Each unexpanded value is evaluated at increasing working precision until its real and imaginary parts are stable. The parameter set with $\Nc\neq3$ tests the colour dependence; all physical results use $\Nc=\BenchNc$. With the relative truncation error
 \begin{equation}
  E_i^{(p)}
  =
- \frac{\left|\mathcal M_i^{(p)}-\mathcal M_i\right|}
+ \frac{\left|\mathcal M_i^{[p]}-\mathcal M_i\right|}
       {\left|\mathcal M_i\right|},
  \qquad p=4,6,
  \label{eq:relative-error}
 \end{equation}
-Fig.~\ref{fig:validation} shows the maximum over angles and parameter sets at each $\bA$. Fits give $E^{(4)}_i\propto\bA^{\PoneSlopeFour}$ and $\bA^{\PtwoSlopeFour}$, and $E^{(6)}_i\propto\bA^{\PoneSlopeSix}$ and $\bA^{\PtwoSlopeSix}$, as expected for a series in $\bA^2$. The lower panels divide out these powers. The ratios vary only slowly with $\bA$, because the first omitted coefficient contains powers of $L=\ln\bA$, and change most near $\bA=\EdgeBeta$, where the next order is no longer negligible; an error at a lower order would make them grow as an inverse power of $\bA$. For $\bA\leq\RecommendedBeta$ the sixth order series reproduces the complete coefficients with relative errors of at most \PoneErrLePointTwo{} and \PtwoErrLePointTwo; at $\bA=\EdgeBeta$ the errors are \PoneErrAtPointThree{} and \PtwoErrAtPointThree{} (Table~\ref{tab:AA-threshold-accuracy}). The values at $c$ and $-c$ \BoseStatement, in \AngularReferenceChecks{} comparisons of the unexpanded coefficients and \AngularSeriesChecks{} of the series.
+where $\mathcal M_i$ is the unexpanded remainder and $\mathcal M_i^{[p]}$ its series through $\bA^p$. Fig.~\ref{fig:validation} shows the maximum over angles and parameter sets at each $\bA$. Fits give $E^{(4)}_i\propto\bA^{\PoneSlopeFour}$ and $\bA^{\PtwoSlopeFour}$, and $E^{(6)}_i\propto\bA^{\PoneSlopeSix}$ and $\bA^{\PtwoSlopeSix}$, as expected for a series in $\bA^2$. The lower panels divide out these powers. The ratios vary only slowly with $\bA$, because the first omitted coefficient contains powers of $\ln\bA$, and change most near $\bA=\EdgeBeta$, where the next order is no longer negligible; an error at a lower order would make them grow as an inverse power of $\bA$. For $\bA\leq\RecommendedBeta$ the sixth order series reproduces the complete coefficients with relative errors of at most \PoneErrLePointTwo{} and \PtwoErrLePointTwo; at $\bA=\EdgeBeta$ the errors are \PoneErrAtPointThree{} and \PtwoErrAtPointThree{} (Table~\ref{tab:AA-threshold-accuracy}). The values at $c$ and $-c$ \BoseStatement, in \AngularReferenceChecks{} comparisons of the unexpanded coefficients and \AngularSeriesChecks{} of the series.
 
 \input{tables/validation_grid.tex}
 
 \input{tables/accuracy.tex}
 
-The reference values were computed in Mathematica from the published expressions. We also evaluated these expressions with an independent code written in Python with mpmath~\cite{mpmath}, which has its own reader of the published files and computes $\Li_{2,2}$ from its defining double sum, with a one-dimensional integral representation where the sum converges slowly. At \ExactPointCount{} points covering the \ExactParameterSets{} parameter sets, the two complete coefficients agree with the reference values to a relative difference of at most \ExactMaxComplete, the precision to which the latter are stored; the \ExactComponentCount{} flavour coefficients at $\bA=\ExactComponentBeta$, $c=\ExactComponentCos$ agree to \ExactMaxComponent. The published expressions contain removable singularities at $c=0$, where $t=u$, which have to be taken as limits.
+The reference values were computed in Mathematica from the published expressions. I also evaluated these expressions with an independent code written in Python with mpmath~\cite{mpmath}, which has its own reader of the published files and computes $\Li_{2,2}$ from its defining double sum, with a one-dimensional integral representation where the sum converges slowly. At \ExactPointCount{} points covering the \ExactParameterSets{} parameter sets, the two complete coefficients agree with the reference values to a relative difference of at most \ExactMaxComplete, the precision to which the latter are stored; the \ExactComponentCount{} flavour coefficients at $\bA=\ExactComponentBeta$, $c=\ExactComponentCos$ agree to \ExactMaxComponent. The published expressions contain removable singularities at $c=0$, where $t=u$, which have to be taken as limits.
 
-The expansion is carried out at fixed angle, but $p_T$ also vanishes when $c\to\pm1$ at fixed $\bA$. We therefore extended the comparison to $c=$ \ForwardCosList{} at $\bA=$ \ForwardBetaList{} (Table~\ref{tab:forward-angles}). \ForwardSummary{} The series thus remains accurate close to the beam, consistent with the absence of poles at $c=\pm1$ in its coefficients (Sec.~\ref{sec:leading}).
+The expansion is carried out at fixed angle, but $p_T$ also vanishes when $c\to\pm1$ at fixed $\bA$. I therefore extended the comparison to $c=$ \ForwardCosList{} at $\bA=$ \ForwardBetaList{} (Table~\ref{tab:forward-angles}). \ForwardSummary{} The series thus remains accurate close to the beam, consistent with the absence of poles at $c=\pm1$ in its coefficients (Sec.~\ref{sec:leading}).
 
 \input{tables/forward_angles.tex}

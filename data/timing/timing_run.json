@@ -1,19 +1,17 @@
 {
- "representation_bytes": {
-  "unexpanded": 44844413,
-  "beta6": 637268
- },
- "description": {
-  "unexpanded": "Wolfram Language rational-input files of the two complete two-loop coefficients used in the timing run",
-  "beta6": "Wolfram Language files of the two complete sixth-order series used in the timing run"
- },
- "environment": {
-  "wolfram": "\"13.2.0 for Linux x86 (64-bit) (November 18, 2022)\"",
-  "os": "Ubuntu 24.04.2 LTS",
-  "kernel": "Linux 7.0.0-31-generic x86_64 GNU/Linux",
-  "cpu": "AMD Ryzen 9 7950X 16-Core Processor",
-  "ram_gib": "124.9",
-  "hostname": "lhcpheno48"
- },
- "source_run": "/mnt/data/_timing_review/ggAA_timing_benchmark_20260925_162141_standard"
+  "representation_bytes": {
+    "unexpanded": 44844413,
+    "beta6": 637268
+  },
+  "description": {
+    "unexpanded": "Wolfram Language rational-input files of the two complete two-loop coefficients used in the timing run",
+    "beta6": "Wolfram Language files of the two complete sixth-order series used in the timing run"
+  },
+  "environment": {
+    "wolfram": "\"13.2.0 for Linux x86 (64-bit) (November 18, 2022)\"",
+    "os": "Ubuntu 24.04.2 LTS",
+    "kernel": "Linux 7.0.0-31-generic x86_64 GNU/Linux",
+    "cpu": "AMD Ryzen 9 7950X 16-Core Processor",
+    "ram_gib": "124.9"
+  }
 }

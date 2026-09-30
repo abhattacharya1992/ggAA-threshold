@@ -7,8 +7,9 @@
 
    From the shell, `wolframscript -file src/mathematica/evaluate_series.wl` prints the
    benchmark point.  Expected output, through beta^6 with m_A = mu_R = 125 GeV, N_c = 3, n_f = 5:
-       M1 = -1.628815666760656256314565 10^10 - 3.606965796756336845877800 10^9 I
-       M2 =  4.226875296144209764387060 10^8  + 5.189998038227373539893247 10^8 I   *)
+       M1 = -2.545024479313525400491509 10^8 - 5.635884057431776321684063 10^7 I
+       M2 =  6.604492650225327756854782 10^6 + 8.109371934730271156083198 10^6 I
+   (the series files hold the published two-loop remainders divided by 64; see README).   *)
 
 seriesDirectory = FileNameJoin[{DirectoryName[$InputFileName], "..", "..", "data", "series"}];
 

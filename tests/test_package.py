@@ -108,3 +108,27 @@ class OneLoop(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class HiggsPairs(unittest.TestCase):
+    def test_forward_weight(self):
+        """One-loop gg -> HH: the forward logarithm follows F_S (data/dps_hh, scripts/check_dps_hh.py)."""
+        import csv
+        path = pathlib.Path(__file__).resolve().parents[1] / "data" / "dps_hh" / "dps_hh.csv"
+        for r in csv.DictReader(open(path)):
+            x = (1 + float(r["beta"])) / 2
+            fs = 1 / (x * (1 - x)) + 2 * x * (1 - x)
+            fa = 1 / (x * (1 - x)) - 2 * x * (1 - x)
+            self.assertLess(abs(-float(r["HH"]) / fs - 1), 1e-12)
+            self.assertLess(abs(float(r["AA"]) / fa - 1), 1e-12)
+            self.assertLess(float(r["HH_M2/HH_M1"]), 1e-10)
+
+
+class Renormalisation2019(unittest.TestCase):
+    def test_earlier_run_and_pole_record(self):
+        """App. B: the earlier run's Z2 is off by 2 beta1/eps; the June 2019 record fixes FLAG = 1/96."""
+        import subprocess
+        script = pathlib.Path(__file__).resolve().parents[1] / "scripts" / "check_renorm_2019.py"
+        run = subprocess.run([sys.executable, str(script)], capture_output=True, text=True)
+        self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
+

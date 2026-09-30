@@ -1,8 +1,11 @@
 # Reproduce the results of the paper.  `make help` lists the targets.
+# pipefail: a script that fails inside `... | tee file` stops make instead of passing silently.
+SHELL := /bin/bash
+.SHELLFLAGS := -o pipefail -c
 PYTHON ?= python3
 RUN = $(PYTHON) scripts
 
-.PHONY: arxiv crossover layout archive log-share diagrams help all inputs series constants leading-logs one-loop exact-check validation tables figures physics-figures numbers manuscript-data dps fig4-2019 rate-logs top-mass lo virtual normalization test paper clean
+.PHONY: arxiv crossover dps-hh renorm-2019 layout archive log-share diagrams help all inputs series constants leading-logs one-loop exact-check validation tables figures physics-figures numbers manuscript-data dps fig4-2019 rate-logs top-mass lo virtual normalization test paper clean
 
 help:
 	@echo "make inputs        download the arXiv:1909.08993 ancillary files (needed for one-loop)"
@@ -11,24 +14,26 @@ help:
 	@echo "make leading-logs  leading-power structure in terms of calL"
 	@echo "make one-loop      one-loop threshold and forward limits (needs inputs)"
 	@echo "make exact-check   independent evaluation of the exact two-loop remainders (needs inputs, ~45 min)"
-	@echo "make validation    series against the 1080 validation records; Table II"
+	@echo "make validation    series against the 1080 validation records; Table III"
 	@echo "make lo            LO partonic cross section of the Type-II amplitude"
 	@echo "make virtual       finite virtual corrections V1, V2 relative to LO (needs inputs)"
 	@echo "make normalization checks of the tree, one-loop and two-loop normalization (needs inputs)"
 	@echo "make tables        forward-angle and endpoint-constant tables"
-	@echo "make figures       Figs. 1, 3-5"
-	@echo "make physics-figures  Figs. 2 and 6 (needs inputs; Fig. 6 needs make virtual)"
+	@echo "make figures       Figs. 1 (diagrams), 2, 3 and 6"
+	@echo "make physics-figures  Figs. 4 and 5 (needs inputs; Fig. 5 needs make virtual)"
 	@echo "make test          quick tests (under a minute)"
 	@echo "make dps           one-loop ln p_T term against the double-parton-scattering singularity (needs inputs)"
 	@echo "make rate-logs     ln p_T terms of the finite virtual corrections V1, V2 (needs inputs)"
 	@echo "make top-mass      top quark mass factor of the Type II tree amplitude at threshold"
 	@echo "make fig4-2019     ratio curves for comparison with Fig. 4 of arXiv:1909.08993"
-	@echo "make numbers       manuscript/numbers.tex: every number quoted in the text, from data/ and results/"
+	@echo "make numbers       manuscript/numbers.tex: every number quoted in the text, from data/ and results/ (needs inputs)"
 	@echo "make manuscript-data  tables and numbers (fast; uses the stored results)"
-	@echo "make paper         regenerate tables and numbers, build manuscript/main.pdf, print the layout report"
+	@echo "make paper         regenerate tables and numbers, build manuscript/main.pdf, print the layout report (needs inputs)"
 	@echo "make arxiv         after make paper: build/ggAA-threshold-arxiv.tar.gz with main.bbl and anc/"
 	@echo "make crossover     velocity below which the two-loop term of M1 exceeds the one-loop term"
-	@echo "make all           series, constants, leading-logs, validation, tables, figures"
+	@echo "make dps-hh        one-loop gg -> HH: forward logarithm against F_S (data/dps_hh; Fig. 3, Sec. IV C)"
+	@echo "make renorm-2019   earlier 2019 run vs published renormalisation; June 2019 pole record (App. B)"
+	@echo "make all           series, constants, leading-logs, validation, tables, figures, numbers (needs inputs)"
 
 all: series constants leading-logs validation tables figures numbers
 
@@ -95,6 +100,12 @@ rate-logs:
 
 crossover:
 	$(RUN)/check_amplitude_crossover.py
+
+dps-hh:
+	$(RUN)/check_dps_hh.py
+
+renorm-2019:
+	$(RUN)/check_renorm_2019.py
 
 log-share:
 	$(RUN)/check_log_share.py

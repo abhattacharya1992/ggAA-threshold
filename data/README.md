@@ -29,7 +29,7 @@ by `scripts/reduce_series.py`.
 | `quantity` | `M{i}_nf{k}` for the coefficient of n_f^k, `M{i}_nf5` for the complete n_f = 5 sum |
 | `mA_GeV`, `muR_GeV`, `Nc` | (125, 125, 3), (125, 250, 3) or (150, 75, 4) |
 | `beta`, `costheta` | exact rationals: β_A ∈ {1/1000, 1/500, 1/200, 1/100, 1/50, 1/20, 1/10, 1/5, 3/10}, cos θ ∈ {0, ±1/3, ±2/3} |
-| `re_exact`, `im_exact` | unexpanded remainder, stable to 10⁻²⁵ between working precisions of 80–300 digits |
+| `re_exact`, `im_exact` | unexpanded remainder, evaluated at increasing working precision until stable; an independent evaluation at 160 digits (`make exact-check`) reproduces the stored values to 1.6×10⁻⁴⁰, i.e. to the last stored digit |
 | `re_series4`, `im_series4` | series through β_A⁴ |
 | `re_series6`, `im_series6` | series through β_A⁶ |
 
@@ -43,6 +43,11 @@ required by Bose symmetry.
 
 `one_loop_reference.csv`: the published one-loop remainders at six points, evaluated at
 75 digits, used by `scripts/check_one_loop.py` and the tests.
+
+## dps_hh/
+
+One-loop gg → HH through two CP-even effective vertices: forward coefficient of ln p_T² against the scalar
+weight F_S (Sec. IV C, Fig. 3). How the numbers were obtained, the checks and the files: `dps_hh/README.md`.
 
 ## constants/
 

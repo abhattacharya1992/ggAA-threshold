@@ -34,11 +34,19 @@ def manuscript_files():
     return sorted(files)
 
 
+# local caches that .gitignore also leaves out
+SKIP_FILES = {"results/exact_amplitude_cache.json", "results/li22_store.json"}
+
+
 def ancillary_files():
+    """Package files for anc/: no manuscript (arXiv: no TeX in anc/), no hidden files, no caches.
+
+    Data files are kept whatever their extension (data/born/original/BornSqr.log is FORM output)."""
     out = []
     for path in sorted(ROOT.rglob("*")):
         rel = path.relative_to(ROOT)
-        if path.is_dir() or SKIP_DIRS & set(rel.parts) or path.suffix in {".pyc", ".tex", ".aux", ".log"}:
+        if (path.is_dir() or SKIP_DIRS & set(rel.parts) or any(part.startswith(".") for part in rel.parts)
+                or path.suffix in {".pyc", ".tex"} or rel.as_posix() in SKIP_FILES):
             continue
         out.append(rel)
     return out

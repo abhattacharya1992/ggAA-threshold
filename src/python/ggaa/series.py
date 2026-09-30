@@ -6,7 +6,7 @@ coefficient M_i^{II,(2),fin} as a list {c0, c2, c4, c6}:
     M_i,k = c0 + beta^2 c2 + beta^4 c4 + beta^6 c6 + O(beta^8),
 
 where each c_n is a polynomial in ln(beta).  Odd powers and inverse powers of beta
-vanish identically (scripts/check_cancellations.py).  The complete coefficient is
+vanish identically (scripts/reduce_series.py, `make series`).  The complete coefficient is
 M_i = M_i,0 + n_f M_i,1 + n_f^2 M_i,2.  Normalization as in ggaa.normalization: the
 amplitude is C_G^2 [M^(0) + a_s M^(1) + a_s^2 M^(2)] delta^{ab}, which is the expansion of the
 published two-loop files of arXiv:1909.08993 divided by 64.

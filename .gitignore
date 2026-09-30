@@ -9,7 +9,7 @@ manuscript/*.fls
 manuscript/*.log
 manuscript/*.out
 manuscript/mainNotes.bib
+manuscript/main.pdf
+build/
 results/exact_amplitude_cache.json
 results/li22_store.json
-build/
-manuscript/main.pdf

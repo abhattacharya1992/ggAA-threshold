@@ -206,7 +206,7 @@ def fig_ratio(table):
 
 
 def fig_dps():
-    """Forward logarithm of the one-loop M_1 against the Gaunt-Stirling helicity weight."""
+    """Fig. 3: forward coefficient D(beta) of ln pT^2 in the one-loop M_1 against the helicity weights (Eq. 33)."""
     import json
     path = RESULTS / "dps_check.json"
     if not path.exists():
@@ -216,14 +216,19 @@ def fig_dps():
     fig, ax = plt.subplots(figsize=(3.375, 2.5))
     xs = np.linspace(0.0, 0.75, 200)
     x = (1 + xs) / 2
-    ax.plot(xs, 1 / (x * (1 - x)) - 2 * x * (1 - x), color=BLACK, label=r"$F_A(x)$, pseudoscalar")
-    ax.plot(xs, 1 / (x * (1 - x)) + 2 * x * (1 - x), color=BLACK, ls="--", label=r"$F_S(x)$, scalar")
+    ax.plot(xs, 1 / (x * (1 - x)) - 2 * x * (1 - x), color=BLACK, label=r"$F_A(x)$")
+    ax.plot(xs, 1 / (x * (1 - x)) + 2 * x * (1 - x), color=BLACK, ls="--", label=r"$F_S(x)$")
     for (Nc, nf), marker, colour, size in (((3, 5), "o", RED, 6.0), ((4, 2), "s", BLUE, 3.4)):
         pts = [p for p in record["points"] if p["Nc"] == Nc and p["nf"] == nf]
         ax.plot([p["beta"] for p in pts], [p["slope"] / (np.pi * Nc) for p in pts], marker, color=colour, ms=size,
-                mfc="none", mew=0.9, ls="none", label=rf"one loop, $N_c={Nc}$, $n_f={nf}$")
-    ax.set_xlabel(r"$\beta_A$")
-    ax.set_ylabel(r"$(\pi N_c m_A^2)^{-1}\,\partial\,\mathrm{Re}\,\mathcal{M}_1^{(1),\mathrm{fin}}/\partial\ln p_T^2$", fontsize=7.5)
+                mfc="none", mew=0.9, ls="none", label=(r"$gg\to AA$" if (Nc, nf) == (3, 5) else rf"$(N_c,n_f)=({Nc},{nf})$"))
+    hh_path = RESULTS / "dps_hh.json"
+    if hh_path.exists():   # one-loop gg -> HH, CP-even vertices; sign of its tree at threshold (-1) divided out
+        hh = json.load(open(hh_path))["points"]
+        ax.plot([p["beta"] for p in hh], [p["HH_tree_sign"] for p in hh], "^", color=GREEN, ms=5.0,
+                mfc="none", mew=0.9, ls="none", label=r"$gg\to HH$")
+    ax.set_xlabel(r"$\beta$")
+    ax.set_ylabel(r"$D(\beta)$")
     ax.legend(loc="upper left")
     finish_axis(ax, None)
     save(fig, "fig7_dps")

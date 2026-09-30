@@ -49,5 +49,14 @@ unexpanded two-loop remainder in one and the same normalization.
 2 beta0 ln mu_R^2 M^(0) and agree with the corrected remainders to 5e-56, and the published two-loop
 P1 remainder equals 64 x (archive x tree) plus the O_G-O_J counterterm, with real parts agreeing to
 5e-31. The imaginary parts differ by 32 C_F times the one-loop O_G-O_J amplitude (24 C_F n_f M^(0)
-after division by 64): the two versions of the code treat the O_J counterterm differently, which
-changes a_s^2 V2 by 0.03 and is part of the open O_J item.
+after division by 64). This is not an uncertainty of the published remainder: the earlier run's
+renormalisation constant exceeds Z_GG^2 = Z_as^2 by 2 beta1 a_s^2/eps and it has no O_G-O_J
+counterterm, while the published counterterm was normalised by the cancellation of the C_F n_f
+single pole (June 2019 record `archive/two_loop/1byeps_Coef_Num`; `make renorm-2019`). The only
+O_J piece not included in V2 is the physical, m_t-dependent C_J term.
+
+The 2019 originals of the published scripts, `archive/two_loop/Renorm1_N.m` and
+`archive/two_loop/Catani2L1_N.m`, sit next to the earlier run. `Renorm2L_P1_new.m` above is identical
+to `Renorm1_N.m`; `Catani2L_P1_new.m` is `Catani2L1_N.m` without the two lines that write the pole
+residues to files. `archive/README.md` explains why the earlier run is not an alternative result.
+
