@@ -1,0 +1,41 @@
+{
+ "integrity": {
+  "files": 13,
+  "bad": []
+ },
+ "construction": {
+  "M1_nf0": {
+   "files": 11,
+   "files_checked": 11
+  },
+  "M2_nf0": {
+   "files": 11,
+   "files_checked": 11
+  },
+  "M2_nf1": {
+   "files": 9,
+   "files_checked": 9
+  },
+  "M1_nf1": {
+   "files": 4,
+   "files_checked": 4
+  },
+  "M1_nf2": {
+   "files": 4,
+   "files_checked": 4
+  },
+  "M2_nf2": {
+   "files": 3,
+   "files_checked": 3
+  }
+ },
+ "construction_failures": [],
+ "validation": {
+  "records": 1080,
+  "matched": 1080,
+  "only_in_table": 0,
+  "only_in_run": 0,
+  "max_rel_difference": "4.93e-40"
+ },
+ "passed": true
+}

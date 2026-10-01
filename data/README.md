@@ -7,7 +7,12 @@ M_i^{II,(2),fin}, as produced by the threshold construction (n = m4 … m1 denot
 n = −4 … −1). Files are Wolfram Language expressions in `beta` (or `Lb` = ln β_A),
 `costh`, `m2`, `mu2`, `nc`, and contain the endpoint constants `MB[p,q,a,w]`.
 Inverse and odd powers are present in this form; `scripts/reduce_series.py` shows that
-all of them vanish once the constants are reduced.
+all of them vanish once the constants are reduced. The files were produced by the code in
+`src/construction`; `make provenance` checks them against the outputs of those runs in `runs/`.
+
+## runs/
+
+Outputs of the construction and validation runs, compressed with xz; see `runs/README.md`.
 
 ## series/
 

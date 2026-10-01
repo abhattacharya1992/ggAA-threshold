@@ -18,11 +18,13 @@ two loops = published ÷ 64, one loop = published + 2β₀ ln(μ_R²/GeV²) M⁽
 
 ```
 data/construction/   coefficients of β^n (n = -4 ... 6) as produced by the series construction
+data/runs/           outputs of the construction and validation runs
 data/series/         final series M_i = c0 + β² c2 + β⁴ c4 + β⁶ c6, one file per n_f power
 data/validation/     1080 comparisons with the unexpanded remainders; one-loop reference values
 data/constants/      the thirteen endpoint constants MB[p,q,a,w]
 src/python/ggaa/     series evaluator, exact reduction, Li_{2,2}, evaluator of the published remainders
 src/mathematica/     Wolfram Language evaluator of the final series
+src/construction/    code of the threshold construction and of the validation (Wolfram Language, C++, Python)
 scripts/             one script per result of the paper
 tests/               quick consistency tests
 results/             output of the scripts
@@ -34,7 +36,8 @@ inputs/              download script and checksums for the arXiv:1909.08993 anci
 
 Python 3.9 or later with `sympy >= 1.12`, `mpmath`, `numpy` and `matplotlib`
 (`pip install -r requirements.txt`). The manuscript needs a TeX installation with
-REVTeX 4.2. A Wolfram kernel is needed only for `src/mathematica`.
+REVTeX 4.2. A Wolfram kernel is needed only for `src/mathematica` and for rerunning the
+construction (`make reproduce`, which also needs g++ with GMP or Boost.Multiprecision).
 
 ## Quick start
 
@@ -75,6 +78,9 @@ series.component(2, 1, "1/10", "1/3")          # coefficient of n_f^1 in M_2
 | velocity below which the two-loop term of M1 exceeds the one-loop term (Fig. 4) | `make crossover` | `results/amplitude_crossover.json` |
 | one-loop gg → HH forward logarithm against F_S; HH points of Fig. 3 (data in `data/dps_hh`) | `make dps-hh` | `results/dps_hh.json` |
 | earlier 2019 run vs published renormalisation, June 2019 pole record (App. B) | `make renorm-2019` | `results/renorm_2019.json` |
+| construction files and validation records against the outputs of the construction runs | `make provenance` | `results/provenance.json` |
+| inputs of the P1 n_f construction against the published remainder | `make nf1-inputs` | `results/nf1_inputs.txt` |
+| construction rerun from the published files (Mathematica 13.2, several hours) | `make inputs reproduce` | `build/reproduce/` |
 | diagrams of Fig. 1 | `make diagrams` | `manuscript/figures/fig0_diagrams_tikz.tex`, fallback `fig0_diagrams.pdf` |
 | share of the ln p_T terms in V2 at fixed angle | `make inputs log-share` | `results/log_share.json` |
 | 2019 archive against the published files (one loop: mu_R term; two loops: factor 64) | `make inputs archive` | `results/archive_2019.json` |
@@ -178,11 +184,14 @@ Three points limit their interpretation:
 
 ## Provenance
 
-`data/construction` was produced by Wolfram Language code that expands the exact
-remainders of arXiv:1909.08993 about threshold, and the reference values in
-`data/validation` by the same code evaluating the unexpanded remainders at 80–300
-digits. That code will be released in `src/mathematica` in a later version. Everything
-downstream of `data/construction` and `data/validation` is reproduced by this repository.
+`data/construction` was produced by the code in `src/construction`, which expands the exact
+remainders of arXiv:1909.08993 about threshold, and the reference values in `data/validation`
+by a separate run of that code that evaluated the unexpanded remainders at 80–300 digits and
+compared them with the saved series (`src/construction/README.md`). The outputs of these runs
+are kept in `data/runs`; `make provenance` checks that every construction file and every
+validation record agrees with them. `make reproduce` repeats the construction from the
+published files and compares the result with `data/construction`. Everything downstream of
+`data/construction` and `data/validation` is reproduced by this repository with Python alone.
 
 The reference values are checked independently: `ggaa.twoloop` evaluates the published
 two-loop files directly, with its own parser and an implementation of Li_{2,2} from its
@@ -194,14 +203,17 @@ removable 0/0 terms at cos θ = 0 (t = u), so they cannot be evaluated there dir
 
 ## Use of AI tools
 
-AI tools (Claude, Anthropic) were used to help write and check parts of the analysis
-and plotting code and to reorganize this repository. The author defined the
+AI tools (Claude, Anthropic) were used to help write and debug the code of the
+construction and validation (`src/construction`), to help write and check parts of the
+analysis and plotting code, and to reorganize this repository. The author defined the
 calculations, ran the code and checked the results reported in the paper.
 
 ## Licence and citation
 
 Code: BSD 3-Clause (`LICENSE`). Data and figures: CC BY 4.0. The exact remainders of
-arXiv:1909.08993 are not redistributed; `inputs/fetch_inputs.sh` downloads them. The code used for
+arXiv:1909.08993 are not redistributed; `inputs/fetch_inputs.sh` downloads them. The one exception
+is the coefficient of n_f in the P1 two-loop remainder, `src/construction/inputs/P1_nf1.wl` and its compact
+form, which the construction reads. The code used for
 the one-loop gg → HH amplitudes (`data/dps_hh`) is not included; it is available from the author on request.
 Please cite the paper; see `CITATION.cff`.
 
