@@ -7,25 +7,67 @@
 \subsection{Leading power}
 \label{sec:leading}
 
-The leading power coefficients depend on $\ln\bA$ and on $\ln(1\pm c)$. When they are written in terms of
+To determine the leading threshold behaviour of the
+two-loop remainders, I first collect the terms of
+order $\bA^0$, including all powers of $\ln\bA$
+that multiply them. The notation $\big|_{\bA^0}$ used below
+denotes this part of the expansion, rather than
+the value of the remainder at $\bA=0$.
+
+In the explicit result, the logarithms of $\bA$
+and the angular logarithms combine through
+$\ln\bA+\tfrac12\ln(1-c^2)$. It is convenient
+to introduce
 \begin{align}
  \mathcal L
  &=\ln\bA+\tfrac12\ln(1-c^2)+\ln2+\frac{i\pi}{2}
  \nonumber\\
- &=\tfrac12\ln\bigl[-4\bA^2(1-c^2)\bigr]
- =\tfrac12\ln\frac{\mA^4-tu}{\mA^4}+\Ord(\bA^2)
- \nonumber\\
- &=\ln\frac{2p_T}{\mA}+\frac{i\pi}{2}+\Ord(\bA^2),
+ &=\tfrac12\ln\bigl[-4\bA^2(1-c^2)\bigr],
  \label{eq:calL}
 \end{align}
-the dependence on the angle disappears: no $\ln(1\pm c)$ or $\Li_2\bigl((1+c)/2\bigr)$ remains outside $\mathcal L$, and no rational function of $c$ remains. For general $\Nc$ and $\nf$,
+where the second equality uses the branch
+$\ln(-X)=\ln X+i\pi$ for $X>0$.
+
+The relation of $\mathcal L$ to the physical
+kinematics follows from
+Eq.~\eqref{eq:gram-scaling}. Substituting the
+expressions for $tu-\mA^4$ and $p_T^2$ gives
+\begin{align*}
+ \mathcal L
+ &=\tfrac12\ln\frac{\mA^4-tu}{\mA^4}
+   +\ln(1-\bA^2)
+ \\
+ &=\ln\frac{2p_T}{\mA}+\frac{i\pi}{2}
+   +\tfrac12\ln(1-\bA^2).
+\end{align*}
+Since $\ln(1-\bA^2)=\Ord(\bA^2)$, the last
+term contributes only beyond leading power.
+Thus, near threshold, the combination of
+velocity and angular logarithms in
+Eq.~\eqref{eq:calL} is the logarithm of the
+transverse momentum, up to the constant phase
+$i\pi/2$ and power corrections.
+
+When the calculated leading power terms are
+rewritten in terms of $\mathcal L$, no separate
+$\ln(1\pm c)$ or $\Li_2\bigl((1+c)/2\bigr)$
+remains. The rational dependence on $c$ also
+cancels. The angular dependence is therefore
+entirely contained in $\mathcal L$, while the
+coefficients of its powers are independent
+of the scattering angle. For general $\Nc$
+and $\nf$, the result is
 \begin{align}
- \Mfull{1}\big|_{\bA^0}&=\mA^2\sum_{k=0}^{3}\widehat A_{1k}\,\mathcal L^k,
+ \Mfull{1}\big|_{\bA^0}
+ &=\mA^2\sum_{k=0}^{3}
+   \widehat A_{1k}\,\mathcal L^k,
  \nonumber\\
- \Mfull{2}\big|_{\bA^0}&=\mA^2\sum_{k=0}^{2}\widehat A_{2k}\,\mathcal L^k,
+ \Mfull{2}\big|_{\bA^0}
+ &=\mA^2\sum_{k=0}^{2}
+   \widehat A_{2k}\,\mathcal L^k.
  \label{eq:leading-power}
 \end{align}
-with
+The highest logarithmic coefficients are
 \begin{align}
  \widehat A_{13}&=\LeadOneThree,
  &

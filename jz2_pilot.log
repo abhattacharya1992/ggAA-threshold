@@ -1,0 +1,7 @@
+nohup: ignoring input
+2 points, 0 done, 2 to go, 2 workers
+  beta=0.3 1-c=1e-6 dps=140: -2858.813787242228 + 2453.0299990399239 i (1013 s)
+  beta=0.3 1-c=1e-6 dps=180: -2858.813787242228 + 2453.0299990399239 i (1632 s)
+N_c=3 n_f=5 m_A=mu_R=125; threshold value of a2: -2 pi N_c^2 = -56.548668
+  beta          Re a2       Im a2     -4 N_c K1       ratio  fit resid.  check digits
+   0.3  fewer than three points; check digits >50

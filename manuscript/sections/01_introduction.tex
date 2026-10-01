@@ -1,19 +1,151 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Neutral Higgs boson pairs of a two-Higgs-doublet model are produced at the LHC mainly by gluon fusion through top quark loops~\cite{Plehn:1996wb,Baglio:2023euv}. For pairs of pseudoscalars, $gg\to AA$, the next-to-leading order (NLO) QCD corrections were first computed in the limit of a heavy top quark~\cite{DawsonDittmaierSpira1998}, later matched to parton showers~\cite{Hespel:2014sla}, and recently obtained with the full dependence on the top quark mass~\cite{Baglio:2023euv}. In the benchmark point of Ref.~\cite{Baglio:2023euv} the full NLO cross section for $AA$ lies about $5\%$ below the Born-improved heavy top quark approximation at LHC energies, against about $12\%$ for $hH$, so the heavy top quark limit, with the exact mass dependence kept at leading order, is a reasonable starting point for higher orders. Beyond NLO only the two-loop virtual amplitudes in this limit are known~\cite{Bhattacharya:2019bmd}. For Standard Model Higgs pairs the corrections in the same limit are known to N$^3$LO~\cite{deFlorianMazzitelli2013NNLO,Banerjee:2018lfq,ChenEtAl2020}. Pairs of axion-like particles coupled to gluons are produced by the same mechanism, and non-resonant $gg\to aa$ production has recently been shown to constrain their interactions at the LHC~\cite{Brivio:2026alp}.
+Precision tests of the Standard Model (SM) and searches for new particles
+at the Large Hadron Collider (LHC) require theoretical predictions
+for production rates and differential cross sections. The accuracy
+of these predictions is important when comparing different models
+or determining whether a discrepancy with a measurement indicates
+a new interaction. In gluon fusion processes, QCD radiative
+corrections can be sizeable, and calculations beyond leading order (LO)
+are needed to assess their effect on the predicted rates and
+distributions~\cite{Baglio:2023euv}. Loop amplitudes enter the virtual
+contributions to these corrections. Their calculation requires not
+only the evaluation of loop integrals, but also an understanding of
+their behaviour in the physical region. In particular, amplitudes
+can develop singularities at special kinematic configurations even
+when the corresponding tree amplitudes are regular. The location
+and strength of these singularities matter for numerical
+evaluation and for the behaviour of differential cross
+sections~\cite{GauntStirling2011,DixonEsterlis2016}.
+An expansion about such a configuration allows the singular terms
+to be studied explicitly, together with the regular terms needed
+for a quantitative prediction.
 
-When the top quark is integrated out, the pseudoscalar couples to gluons through $G\tilde G$ and to light quarks through the divergence of the axial current. The amplitude for $gg\to AA$ then separates into two classes~\cite{Bhattacharya:2019bmd}. In Type~I both pseudoscalars originate from a single effective vertex. In Type~II each pseudoscalar is emitted from its own vertex and the two vertices are connected by gluon exchange in the $t$ or $u$ channel (Fig.~\ref{fig:diagrams}a). In the full theory the Type~II diagrams correspond to two top quark triangles joined by a gluon, the one-particle reducible contributions of Refs.~\cite{DawsonDittmaierSpira1998,Baglio:2023euv}; for Higgs pairs the corresponding class was computed at two loops in Ref.~\cite{Banerjee:2018lfq}. The two-loop Type~II finite remainders for $gg\to AA$ were obtained in closed form in Ref.~\cite{Bhattacharya:2019bmd}. They contain polylogarithms of weight up to four, among them $\Li_{2,2}$, and inverse powers of the Gram determinant $tu-\mA^4$, which vanishes at the pair threshold. The expressions occupy about \PublishedTwoLoopMB~MB, and large cancellations between their terms make them hard to evaluate close to threshold.
+A relevant example is neutral Higgs boson pair production in
+two-Higgs-doublet models (2HDM). At the LHC, the dominant production
+mechanism is gluon fusion through top quark loops, so that loop
+amplitudes enter already at LO \cite{Plehn:1996wb,Baglio:2023euv}.
+For pseudoscalar pairs,
+$gg\to AA$, the next-to-LO (NLO) QCD corrections were
+first computed in the limit of a heavy top
+quark~\cite{DawsonDittmaierSpira1998}, later matched to parton
+showers~\cite{Hespel:2014sla}, and subsequently obtained with the
+full dependence on the top quark mass~\cite{Baglio:2023euv}.
+In the benchmark considered in Ref.~\cite{Baglio:2023euv}, the
+full NLO cross section for $AA$ lies about $5\%$ below the
+Born-improved heavy top quark approximation at LHC energies,
+compared with about $12\%$ for $hH$. For this benchmark, the
+comparison supports using the heavy top quark limit (HTL) as a
+starting point for higher orders, with the exact mass dependence
+retained at LO. Beyond NLO, only the two-loop virtual
+amplitudes are known in this limit~\cite{Bhattacharya:2019bmd}.
+For SM Higgs pairs, the corrections in the same limit are known to
+N$^3$LO~\cite{deFlorianMazzitelli2013NNLO,Banerjee:2018lfq,ChenEtAl2020}.
+The same effective gluon interactions also contribute to the
+production of axion-like particle pairs, and non-resonant
+$gg\to aa$ production has been used to constrain their
+interactions at the LHC~\cite{Brivio:2026alp}.
 
-There are two reasons to study this region. The first is phenomenological. In the NLO predictions of Ref.~\cite{Baglio:2023euv} for $\mA=134.7$~GeV the invariant mass distribution of the pair is larger at $m_{AA}=300$~GeV, about 30~GeV above threshold, than at 400~GeV, and threshold resummation of this distribution requires at each $m_{AA}$ a hard function obtained from the infrared finite virtual amplitude~\cite{Sterman:1986aj,Catani:1989ne,deFlorian:2012za,deFlorian:2015moa,Bhattacharya:2021nsv}. The second concerns the analytic structure of loop amplitudes. When the transverse momentum $p_T$ of the final state particles vanishes, a one-loop amplitude with massless internal lines can have a Landau singularity~\cite{Landau:1959fi} in which each incoming parton splits into two collinear partons that then take part in two separate $2\to1$ scatterings. Gaunt and Stirling showed that this double parton scattering (DPS) singularity is at most logarithmic in $p_T$ for amplitudes of the Standard Model type, that for the processes they considered it requires the incoming partons to be in a state with $J_z=0$, and they gave a factorised formula for its coefficient~\cite{GauntStirling2011}. Dixon and Esterlis studied the corresponding singularity of six-gluon amplitudes in planar $\mathcal N=4$ super Yang--Mills theory to high loop order~\cite{DixonEsterlis2016}. As far as I am aware, it has not been examined beyond one loop in QCD at the level of amplitudes for a $2\to2$ process with a colour singlet final state; next-to-leading order corrections to the underlying splitting mechanism are known for double parton distributions~\cite{Diehl:2019rdh}. The Type~II amplitude has this topology: each incoming gluon can split into two gluons, which fuse pairwise into the two pseudoscalars at the effective vertices (Fig.~\ref{fig:diagrams}b). At threshold $p_T\to0$ at every scattering angle, so an expansion about threshold probes this region directly. In hadronic collisions the region in which both incoming partons split overlaps with double parton scattering in which both parton pairs arise from perturbative splittings~\cite{Diehl:2019rdh}, and the two contributions have to be combined without double counting~\cite{DiehlGauntSchoenwald2017}; the related contribution with a splitting in one proton has been studied for pairs of Higgs bosons~\cite{GauntMaciulaSzczurek2014}. Double parton scattering has since been observed in same-sign $W$ pair production at the LHC~\cite{CMS:2022pio,ATLAS:2025dps}, and the overlap has been re-examined with two-loop splitting kernels~\cite{DiehlPloessl2026}.
+%In the HTL, the pseudoscalar couples to gluons through $G\tilde G$ and to light quarks through the divergence of the axial current.
+In the limit of a heavy top quark, a pseudoscalar field
+$\Phi^A(x)$ couples to gluons and light quarks through the
+effective Lagrangian~\cite{Chetyrkin:1998mw}
+\begin{equation}
+ \mathcal L^A_{\mathrm{eff}}=\Phi^A(x)\left[
+ -\frac{1}{8}C_G\,O_G(x)-\frac{1}{2}C_J\,O_J(x)\right],
+ \label{eq:EL}
+\end{equation}
+with the gluonic and light quark operators
+\begin{align}
+O_G(x)&=G^{a\mu\nu}\tilde{G}_{\mu\nu}^a=\epsilon_{\mu\nu\rho\sigma}
+G^{a\mu\nu}G^{a\rho\sigma},
+\\
+G^{a\mu\nu}&=\partial^{\mu}G^{a\nu}-\partial^{\nu}G^{a\mu}+g_s f^{abc}
+G_{b}^{\mu}G_{c}^{\nu},
+\end{align}
+where $f^{abc}$ are the structure constants of SU(3) and
+$\epsilon_{\mu\nu\rho\sigma}$ is the Levi-Civita tensor. The
+light quark operator is the divergence of the flavour singlet
+axial vector current,
+\begin{equation}
+O_{J}(x)=\partial_{\mu}\left(\bar{\psi}\gamma^{\mu}\gamma^{5}\psi\right) \,.
+\label{eq:Fields EL}
+\end{equation}
+%The effective Lagrangian is obtained after integrating out the top quark fields in the large top mass limit. Hence, the corresponding Wilson coefficients C$_{G}$ and C$_{J}$ depend on the mass of the top quark $m_t$.
+By the Adler--Bardeen theorem~\cite{Adler:1969gk}, $C_G$ receives
+no QCD corrections beyond one loop, whereas $C_J$ starts at second
+order in the strong coupling $\as\equiv g_s^2/16\pi^2=\alpha_s/4\pi$.
+The Wilson coefficients are
+\begin{align}
+C_{G}\left(a_{s}\right) & =-a_{s}2^{\tfrac{5}{4}}G_{F}^{\tfrac{1}{2}}\cot\beta \,,
+\label{WCG}
+\\
+C_{J}\left(a_{s}\right) & =-\left[a_{s}C_{F}\left(\dfrac{3}{2}-3\ln\dfrac{\mu_{R}^{2}}{m_{t}^{2}}\right)
++a_{s}^{2}C_{J}^{\left(2\right)}+...\right]C_{G}\,,
+\label{WCJ}
+\end{align}
+where $G_F$ is the Fermi constant, $m_t$ the top quark mass and
+$\tan\beta$ the ratio of the vacuum expectation values of the two
+Higgs doublets, in a model without spontaneous CP violation; this
+angle is unrelated to the velocity $\bA$ of Eq.~\eqref{eq:beta_def}.
+$C_F$ is the quadratic Casimir of the fundamental representation and
+$\muR$ the scale at which $\as$ is renormalised. The conventions are those of Ref.~\cite{Bhattacharya:2019bmd}. Operator mixing, ultraviolet renormalisation and the treatment of $\gamma_5$~\cite{Larin1993} follow the original calculation in Ref.~\cite{Bhattacharya:2019bmd}; the same effective theory underlies inclusive pseudoscalar production at NNLO~\cite{HarlanderKilgore2002}.
 
-In this paper I expand the two-loop Type~II finite remainders of Ref.~\cite{Bhattacharya:2019bmd} in the velocity $\bA$ of the pseudoscalars at fixed scattering angle, through $\bA^6$. The main results are the following.
+I consider the dominant gluon fusion subprocess
+\begin{equation}
+ g(p_1)+g(p_2)\to A(p_3)+A(p_4),
+ \label{eq:amp}
+\end{equation}
+with incoming gluon momenta $p_{1,2}^2=0$ and outgoing pseudoscalar momenta $p_{3,4}^2=\mA^2$.
+%
+The amplitude for $gg\to AA$ separates into two classes~\cite{Bhattacharya:2019bmd}. In Type~I both pseudoscalars originate from a single effective vertex. In Type~II each pseudoscalar is emitted from its own vertex and the two vertices are connected by gluon exchange in the $t$ or $u$ channel (Fig.~\ref{fig:diagrams}a). In the full theory the Type~II diagrams correspond to two top quark triangles joined by a gluon, the one-particle reducible contributions of Refs.~\cite{DawsonDittmaierSpira1998,Baglio:2023euv}; for Higgs pairs the corresponding class was computed at two loops in Ref.~\cite{Banerjee:2018lfq}. The two-loop Type~II finite remainders for $gg\to AA$ were obtained in closed form in Ref.~\cite{Bhattacharya:2019bmd}. They contain polylogarithms of weight up to four, among them $\Li_{2,2}$, and inverse powers of the Gram determinant $tu-\mA^4$, which vanishes at the pair threshold. The expressions occupy about \PublishedTwoLoopMB~MB, and large cancellations between their terms make them hard to evaluate close to threshold.
+
+There are two reasons to study this challenging threshold region. The first is phenomenological. In the NLO predictions of Ref.~\cite{Baglio:2023euv} for $\mA=134.7$~GeV the invariant mass distribution of the pair is larger at $m_{AA}=300$~GeV, about 30~GeV above threshold, than at 400~GeV, and threshold resummation of this distribution requires at each $m_{AA}$ a hard function obtained from the infrared (IR) finite virtual amplitude~\cite{Sterman:1986aj,Catani:1989ne,deFlorian:2012za,deFlorian:2015moa,Bhattacharya:2021nsv}. The second concerns the analytic structure of loop amplitudes. When the transverse momentum $p_T$ of the final state particles vanishes, a one-loop amplitude with massless internal lines can have a Landau singularity~\cite{Landau:1959fi} in which each incoming parton splits into two collinear partons that then take part in two separate $2\to1$ scatterings.
+Gaunt and Stirling showed that this double parton scattering (DPS)
+singularity is at most logarithmic in $p_T$ for SM amplitudes and
+that, for the processes they considered, it occurs only when the
+incoming state has $J_z=0$. They also derived a factorised formula
+for its coefficient~\cite{GauntStirling2011}.
+Dixon and Esterlis studied the corresponding singularity of six-gluon amplitudes in planar $\mathcal N=4$ super Yang--Mills theory to high loop order~\cite{DixonEsterlis2016}. As far as I am aware, it has not been examined beyond one loop in QCD at the level of amplitudes for a $2\to2$ process with a colour singlet final state; NLO corrections to the underlying splitting mechanism are known for double parton distributions~\cite{Diehl:2019rdh}. The Type~II amplitude for $gg\to AA$ contains diagrams with this
+topology: each incoming gluon can split into two gluons, which
+fuse pairwise into the two pseudoscalars at the effective vertices
+(Fig.~\ref{fig:diagrams}b). At threshold, $p_T\to0$ at every
+scattering angle, so a threshold expansion probes this
+configuration directly.
+
+In hadronic collisions, a configuration in which a parton from
+each proton splits into two can enter both the single and
+double parton scattering calculations. The overlap must
+therefore be subtracted to avoid counting the same
+contribution twice~\cite{Diehl:2019rdh,DiehlGauntSchoenwald2017}.
+DPS also receives a contribution in which only one of the
+two parton pairs arises from a perturbative splitting,
+while the other proton supplies two partons without such
+a splitting. This contribution has been studied for Higgs
+boson pairs~\cite{GauntMaciulaSzczurek2014}.
+DPS has also been observed
+in same-sign $W$ pair production at the
+LHC~\cite{CMS:2022pio,ATLAS:2025dps}. The overlap between single
+and double parton scattering has been re-examined using two-loop
+splitting kernels~\cite{DiehlPloessl2026}.
+
+In this paper, I expand the two-loop Type~II finite remainders of
+Ref.~\cite{Bhattacharya:2019bmd} in the velocity
+\begin{equation}
+ \bA=\sqrt{1-4\mA^2/\hat s}
+ \label{eq:beta_def}
+\end{equation}
+of the pseudoscalars in the partonic centre of mass frame, at fixed scattering angle, through $\bA^6$. The main results are the following.
 \begin{enumerate}
- \item After the endpoint constants of the expansion are expressed in a basis of \BasisCountWord{} constants, all inverse powers of $\bA$ and the odd powers through $\bA^5$ cancel, and every coefficient is even in $\cos\theta$, as required by Bose symmetry. At leading power the angle enters only through the logarithm of the transverse momentum of the pseudoscalars.
- \item This logarithm is the DPS singularity. At one loop its coefficient follows the factorised formula of Ref.~\cite{GauntStirling2011}, with the helicity weights of the splitting $g\to gg$ and the opposite signs of the amplitudes for $g^+g^+\to A$ and $g^-g^-\to A$. In the forward limit, where the momentum fractions depend on the velocity, and with the overall constant fixed at threshold, the formula reproduces the velocity dependence of the exact one-loop coefficient to \DPSMaxDeviation{} for $\DPSBetaMin\leq\bA\leq\DPSBetaMax$. A one-loop calculation of $gg\to HH$ through two CP-even effective vertices confirms the corresponding scalar weight, with the constant fixed from $AA$.
- \item At two loops the equal helicity amplitude grows as $\ln^3p_T$. The opposite helicity amplitude vanishes as $\bA^2$ at tree level and has no DPS logarithm at one loop, but grows as $\ln^2p_T$ at two loops. The ratio of the leading logarithms at two and one loops is the one found to all orders in planar $\mathcal N=4$ super Yang--Mills theory~\cite{DixonEsterlis2016}.
- \item In the finite virtual corrections to the cross section the one-loop logarithm cancels. At two loops $\ln^3p_T$ cancels, and the highest power is $\ln^2p_T$, with coefficient $-\tfrac74\pi^2\Nc^2$.
+ \item After the constants that arise in the expansion are expressed in a basis of \BasisCountWord{} transcendental constants, all inverse powers of $\bA$ and the odd powers through $\bA^5$ cancel, and every coefficient is even in $\cos\theta$, as required by Bose symmetry. At leading power the angle enters only through the logarithm of the transverse momentum $p_T$ of the pseudoscalars.
+ \item This logarithm is the DPS singularity. At one loop its coefficient follows the factorised formula of Ref.~\cite{GauntStirling2011} for gluon splitting and the opposite signs of the amplitudes for $g^+g^+\to A$ and $g^-g^-\to A$: with the overall constant fixed at threshold, it reproduces the velocity dependence of the exact one-loop coefficient in the forward limit. A one-loop calculation of $gg\to HH$ confirms the corresponding weight for a CP-even coupling.
+ \item At two loops the $J_z=0$ amplitude, with equal gluon helicities, grows as $\ln^3p_T$, and the ratio of the leading logarithms at two and one loops is the one found to all orders in planar $\mathcal N=4$ super Yang--Mills theory~\cite{DixonEsterlis2016}. The $|J_z|=2$ amplitude, with opposite helicities, has no DPS logarithm at one loop but grows as $\ln^2p_T$ at two loops; I leave the origin of this logarithm open.
+ \item In the finite virtual corrections to the cross section the one-loop logarithm cancels. At two loops $\ln^3p_T$ cancels, and the highest power is $\ln^2p_T$.
 \end{enumerate}
-I also find that the two-loop remainders released with Ref.~\cite{Bhattacharya:2019bmd} are larger by a factor of \FileFactor{} than the tree and one-loop amplitudes of the same reference, and that the released one-loop remainders omit their dependence on the renormalisation scale, so that they are correct only for $\muR=1$~GeV. All results are given in a consistent normalisation. The series reproduce the unexpanded remainders with relative errors of at most \PtwoErrLePointTwo{} for $\bA\leq\RecommendedBeta$; they are released together with an evaluator~\cite{SupplementalMaterial}.
+%
+%I also find that the two-loop remainders released with Ref.~\cite{Bhattacharya:2019bmd} are larger by a factor of \FileFactor{} than the tree and one-loop amplitudes of the same reference, and that the released one-loop remainders omit their dependence on the renormalisation scale, so that they are correct only for $\muR=1$~GeV.
+All results are given in a consistent normalisation. The series reproduce the unexpanded remainders with relative errors of at most \PtwoErrLePointTwo{} for $\bA\leq\RecommendedBeta$; they are released together with an evaluator~\cite{SupplementalMaterial}.
 
-The paper is organised as follows. Section~\ref{sec:setup} collects the conventions, the normalisation of the remainders and the counting of orders. Section~\ref{sec:expansion} describes the expansion and its accuracy. Section~\ref{sec:physics} discusses the leading power terms and their relation to the DPS singularity, and Sec.~\ref{sec:rate} their consequences for the cross section. The conclusions are in Sec.~\ref{sec:conclusions}.
+The paper is organised as follows.
+Section~\ref{sec:setup} sets out the conventions, the normalisation of the remainders and the counting of orders. Section~\ref{sec:expansion} summarises the procedure and describes the expansion and its accuracy. Section~\ref{sec:physics} discusses the leading power terms and their relation to the DPS singularity, and Sec.~\ref{sec:rate} their consequences for the cross section. The conclusions are in Sec.~\ref{sec:conclusions}.
