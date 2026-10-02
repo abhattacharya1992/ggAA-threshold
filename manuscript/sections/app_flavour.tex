@@ -4,8 +4,10 @@
 % The timing table is defined here to control its placement.
 \input{tables/timing.tex}
 
-To compare the sizes of the flavour contributions, I evaluate the decomposition of
-Eq.~\eqref{eq:nf-decomposition} at $\nf=\BenchNf$:
+The decomposition of Eq.~\eqref{eq:nf-decomposition} separates the part of
+each remainder that is independent of $\nf$ from the parts proportional to
+$\nf$ and $\nf^2$. To see whether these parts add or cancel in the complete
+remainder, I evaluate it at $\nf=\BenchNf$:
 \begin{align}
  \Mfull{i}(\BenchNf)
  &=\Mflav{i}{0}
@@ -16,49 +18,51 @@ Eq.~\eqref{eq:nf-decomposition} at $\nf=\BenchNf$:
  \qquad i=1,2.
  \label{eq:nf5-sum}
 \end{align}
-The index $i$ is suppressed in $a_r$. The factors $\BenchNf$ and $\BenchNf^2$
-are included in $a_1$ and $a_2$, respectively, so these quantities are the three
-terms entering the complete remainder, rather than the unweighted flavour coefficients.
+The index $i$ is suppressed in $a_r$. The factors $\BenchNf$ and
+$\BenchNf^2$ are included in $a_1$ and $a_2$, so these are the three terms
+of the complete remainder rather than the flavour coefficients themselves.
 
-Figure~\ref{fig:flavour-components} shows the magnitude of each term divided by
-the magnitude of the complete remainder, $|a_r|/|\Mfull{i}(\BenchNf)|$, at
-$c=\BenchCos$, $\mA=\muR=\BenchMA\,\mathrm{GeV}$ and $\Nc=\BenchNc$. Panels~(a) and~(b)
-correspond to $\mathcal M_1$ and $\mathcal M_2$, respectively. Since the terms are
-complex, their magnitudes do not add to the magnitude of their sum.
-The plotted ratios therefore need not add to unity. A value above
-the horizontal line at unity means that an individual term is larger
-in magnitude than the complete remainder and is partly cancelled
-by the other terms.
-
-The term independent of $\nf$ is
-the largest contribution to both coefficients over the plotted
-range. The term linear in $\nf$ is also sizeable. For
-$\mathcal M_1$, it partly cancels the $\nf^0$ contribution.
-The overall cancellation among the three terms can be quantified
-by
+Figure~\ref{fig:flavour-components} shows $|a_r|/|\Mfull{i}(\BenchNf)|$ at
+$c=\BenchCos$, $\Nc=\BenchNc$ and $\mA=\muR=\BenchMA\,\mathrm{GeV}$.
+Since the terms are complex, the ratios need not add to unity;
+a value above unity means that a term is larger in magnitude than the full remainder and is partly cancelled by the others.
+%
+% Float of Appendix C (Fig. 6); see the comment in main.tex. Table VIII is input at the start of App. C.
+\begin{figure}[!ht]
+ \centering
+ \includegraphics[width=\columnwidth]{figures/fig2_flavour.pdf}
+ \caption{Magnitudes of the three terms of Eq.~\eqref{eq:nf5-sum}, divided by the magnitude of the complete coefficient: (a) $\mathcal M_1$, (b) $\mathcal M_2$, for $c=\BenchCos$, $\mA=\muR=\BenchMA\,\mathrm{GeV}$ and $\Nc=\BenchNc$. The horizontal line marks unity.}
+ \label{fig:flavour-components}
+\end{figure}
+%
+The $\nf$ independent term is the largest in both coefficients over the plotted range.
+The term linear in $\nf$ is not small, and for
+$\mathcal M_1$, it partly cancels the $\nf^0$ term. The cancellation among the three terms can be measured by
 \[
  1-\frac{|a_0+a_1+a_2|}
-          {|a_0|+|a_1|+|a_2|}.
+          {|a_0|+|a_1|+|a_2|},
 \]
-This quantity is zero when the terms add with the same phase
-and increases as their sum is reduced by cancellation.
-For $\mathcal M_1$, it lies between \PoneCancellationMin{}
-and \PoneCancellationMax{} over the velocities shown.
-These percentages refer to the reduction in magnitude relative
-to $|a_0|+|a_1|+|a_2|$, not to a reduction in the cross section.
+which vanishes when the terms have the same phase and approaches one when
+they cancel completely. For $\mathcal M_1$, it lies between
+\PoneCancellationMin{} and \PoneCancellationMax{} over the velocities shown,
+so the complete remainder is roughly half the sum of the magnitudes of its
+parts. This refers to the remainder, not to the cross section. The flavour
+terms are therefore not a small correction, and a remainder evaluated at
+one value of $\nf$ cannot be rescaled to another.
+%
+The relative signs can be seen in the leading power coefficients.
+In $\widehat A_{12}$,  the flavour dependence enters through
+$\beta_0=(11\Nc-2\nf)/3$, so there the quark and gluon contributions offset
+each other as in the running of the coupling; $\widehat A_{11}$ and
+$\widehat A_{21}$ contain $\Nc a_{\mathrm A}-\nf a_{\mathrm F}$ and
+$4\Nc-\nf$ [Eqs.~\eqref{eq:leading-coefficients} and
+\eqref{eq:M1-L1}]. These combinations show the relative minus signs; the
+size of the cancellation in the complete remainder also depends on their
+phases and on the powers of $\mathcal L$ that they multiply.
 
-The relative signs of the flavour-dependent and gluonic
-terms can also be seen in the leading power coefficients.
-The combinations $\beta_0=(11\Nc-2\nf)/3$,
-$\Nc a_{\mathrm A}-\nf a_{\mathrm F}$ and $4\Nc-\nf$ enter
-$\widehat A_{12}$, $\widehat A_{11}$ and
-$\widehat A_{21}$, respectively [Eqs.~\eqref{eq:leading-coefficients}
-and \eqref{eq:M1-L1}]. They exhibit the relative minus
-signs in the logarithmic terms; the size of the cancellation
-in the complete remainder also depends on their phases and
-on the powers of $\mathcal L$ that they multiply.
-
-Finally, the $\nf^2$ contribution to $\mathcal M_2$ starts at
-$\bA^2(1-c^2)$, as shown in Eq.~\eqref{eq:nf2-leading-two}.
-This suppression explains why its relative contribution in
-panel~(b) becomes small near threshold.
+Finally, the $\nf^2$ term of $\mathcal M_2$ starts at $\bA^2(1-c^2)$
+[Eq.~\eqref{eq:nf2-leading-two}]. At leading power, this term is
+proportional to the tree amplitude, with the same factor in both tensor
+structures (Sec.~\ref{sec:cancellations}), so in $\mathcal M_2$,  it shares
+the centrifugal suppression of the $|J_z|=2$ tree amplitude. This is why
+its relative contribution in panel~(b) becomes small near threshold.

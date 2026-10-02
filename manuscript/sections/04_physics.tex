@@ -11,13 +11,11 @@ To determine the leading threshold behaviour of the
 two-loop remainders, I first collect the terms of
 order $\bA^0$, including all powers of $\ln\bA$
 that multiply them. The notation $\big|_{\bA^0}$ used below
-denotes this part of the expansion, rather than
-the value of the remainder at $\bA=0$.
+denotes this part of the expansion.
 
-In the explicit result, the logarithms of $\bA$
-and the angular logarithms combine through
-$\ln\bA+\tfrac12\ln(1-c^2)$.
-It is convenient to introduce
+In the expanded remainders, the logarithms of $\bA$ and of the angular
+variables appear at leading power in the combination
+$\ln\bA+\tfrac12\ln(1-c^2)$. I therefore introduce
 \begin{align}
  \mathcal L
  &=\ln\bA+\tfrac12\ln(1-c^2)+\ln2+\frac{i\pi}{2}
@@ -25,42 +23,36 @@ It is convenient to introduce
  &=\tfrac12\ln\bigl[-4\bA^2(1-c^2)\bigr],
  \label{eq:calL}
 \end{align}
-where the second equality uses the branch $\ln(-X)=\ln X+i\pi$ for $X>0$. As shown below, $\mathcal L$ is the logarithm of the transverse momentum of the pseudoscalars, $\ln(2p_T/\mA)$, up to the constant phase $i\pi/2$ and terms of order $\bA^2$.
-%
-The relation of $\mathcal L$ to the physical
-kinematics follows from
-Eq.~\eqref{eq:gram-scaling}. Substituting the
-expressions for $tu-\mA^4$ and $p_T^2$ gives
-\begin{align*}
+where the logarithm of the negative argument is taken on the branch
+$\ln(-X)=\ln X+i\pi$ for $X>0$, which is the one followed by the remainders
+in the physical region.
+
+The meaning of $\mathcal L$ follows from Eq.~\eqref{eq:gram-scaling}.
+Substituting the expressions for $tu-\mA^4$ and $p_T^2$ gives
+\begin{align}
+ \nonumber
  \mathcal L
  &=\tfrac12\ln\frac{\mA^4-tu}{\mA^4}
    +\ln(1-\bA^2)
  \\
  &=\ln\frac{2p_T}{\mA}+\frac{i\pi}{2}
    +\tfrac12\ln(1-\bA^2).
-\end{align*}
-Since $\ln(1-\bA^2)=\Ord(\bA^2)$, the last
-term contributes only beyond leading power.
-Thus, near threshold, the combination of
-velocity and angular logarithms in
-Eq.~\eqref{eq:calL} is the logarithm of the
-transverse momentum, up to the constant phase
-$i\pi/2$ and power corrections.
+ \label{eq:calL-pT}
+\end{align}
+The last term is of order $\bA^2$. Near threshold, $\mathcal L$ is therefore
+the logarithm of the transverse momentum of the pseudoscalars, up to the
+constant phase $i\pi/2$ and power corrections.
 
-When the calculated leading power terms are
-rewritten in terms of $\mathcal L$, no separate
-$\ln(1\pm c)$ or $\Li_2\bigl((1+c)/2\bigr)$
-remains. The rational dependence on $c$ also
-cancels. The angular dependence is therefore
-entirely contained in $\mathcal L$, while the
-coefficients of its powers are independent
-of the scattering angle. For general $\Nc$
-and $\nf$, the result is
+When the leading power terms are rewritten in terms of $\mathcal L$, no
+separate $\ln(1\pm c)$ or $\Li_2\bigl((1+c)/2\bigr)$ remains, and the
+rational dependence on $c$ cancels. All dependence on the scattering angle
+is then contained in $\mathcal L$, and the coefficients of its powers are
+independent of $c$. For general $\Nc$ and $\nf$,
 \begin{align}
  \Mfull{1}\big|_{\bA^0}
  &=\mA^2\sum_{k=0}^{3}
    \widehat A_{1k}\,\mathcal L^k,
- \nonumber\\
+ \\
  \Mfull{2}\big|_{\bA^0}
  &=\mA^2\sum_{k=0}^{2}
    \widehat A_{2k}\,\mathcal L^k.
@@ -92,7 +84,12 @@ where
 and $L_\mu=\ln(\mA^2/\muR^2)$. Table~\ref{tab:leading-log-benchmark} gives all coefficients for $\Nc=\BenchNc$, $\nf=\BenchNf$ and $\muR=\mA$. At $\bA^2$, $\bA^4$ and $\bA^6$ the same substitution again removes every $\ln(1\pm c)$ and $\Li_2$; the remaining dependence on the angle is rational, even in $c$ and free of poles at $c=\pm1$.
 
 
-Up to the constant $i\pi/2$ and power corrections, $\mathcal L$ is the logarithm of the transverse momentum of the pseudoscalars or, equivalently, of the Gram determinant $tu-\mA^4$. The exact one-loop remainders already contain it, since they depend on $\ln(y-x)+\ln(z-x)$ and $(y-x)(z-x)=yz-1=(tu-\mA^4)/\mA^4$ by Eq.~\eqref{eq:xyz-definition}. The two-loop coefficients have no finite limit as $\bA\to0$; they grow as $\mathcal L^3$ and $\mathcal L^2$.
+Up to the constant $i\pi/2$ and power corrections, $\mathcal L$ is the logarithm of the transverse momentum of the pseudoscalars or, equivalently, of the Gram determinant $tu-\mA^4$. The exact one-loop remainders already contain it, since they depend on
+\begin{align*}
+ &\ln(y-x)+\ln(z-x) \text{ and }\\
+ &(y-x)(z-x)=yz-1=(tu-\mA^4)/\mA^4
+\end{align*}
+by Eq.~\eqref{eq:xyz-definition}. The two-loop coefficients have no finite limit as $\bA\to0$; they grow as $\mathcal L^3$ and $\mathcal L^2$.
 
 \subsection{One loop}
 \label{sec:one-loop}
@@ -124,31 +121,15 @@ The $|J_z|=2$ amplitude is suppressed near threshold only at tree level. Accordi
 \subsection{The double parton scattering singularity}
 \label{sec:dps}
 
-% Defined ahead of the citing text: a page-wide float can only appear at the top of a later page.
-\begin{figure*}[!htb]
- \centering
- \includegraphics[width=0.94\textwidth]{figures/fig5_amplitudes.pdf}
- \caption{Tree-level, one-loop and two-loop terms of the Type~II amplitude, $|\as^n\mathcal M_i^{(n)}|/\mA^2$ with $\as=\BenchAs$ ($\alpha_s=\BenchAlphaS$), at $c=\BenchCos$, $\mA=\muR=\BenchMA\,\mathrm{GeV}$, $\Nc=\BenchNc$ and $\nf=\BenchNf$. Tree level: Eq.~\eqref{eq:born}; one loop: published remainder; two loops: series through $\bA^6$. $\mathcal M_1$ and $\mathcal M_2$ are the equal and opposite helicity amplitudes, Eq.~\eqref{eq:helicity}.}
- \label{fig:amplitudes}
-\end{figure*}
-
-
 \paragraph{Origin of the logarithm.}
 
-The logarithm $\mathcal L$ in
-Eq.~\eqref{eq:one-loop-threshold} can be understood
-by examining the Type~II diagrams near $p_T=0$.
-In the diagram of Fig.~\ref{fig:diagrams}(b),
-each incoming gluon splits into two gluons through
-a three-gluon vertex. Gluons from different incoming
-partons then fuse pairwise into the pseudoscalars
-at the two effective vertices. As $p_T\to0$, all
-four internal gluons can become simultaneously
-on shell, with two collinear to each incoming
-gluon. This configuration is the pinch that
-produces the DPS singularity of the
-crossed box~\cite{GauntStirling2011}.
-
+The logarithm $\mathcal L$ in Eq.~\eqref{eq:one-loop-threshold} can be
+understood from the one-loop Type~II diagrams near $p_T=0$, shown in
+Fig.~\ref{fig:diagrams}(b). As $p_T\to0$, all four internal gluons can be
+on shell simultaneously, two of them collinear to each incoming gluon. This
+configuration is the pinch that produces the DPS singularity of the crossed
+box~\cite{GauntStirling2011}.
+%
 The singular contribution can be expressed as
 an integral over transverse momentum of the
 product of the light cone wavefunctions of the
@@ -180,91 +161,47 @@ of Ref.~\cite{GauntStirling2011}.
 
 \paragraph{Helicity selection and weights.}
 
-Whether this logarithm is present also depends
-on the helicities of the complete singular
-configuration. For the fermion loops considered
-in Ref.~\cite{GauntStirling2011}, helicity
-conservation forces the four intermediate
-partons to have $J_z=0$. This restriction does
-not hold for general gluon loops. The condition
-that remains is conservation of $J_z$ between
-the incoming state and the four intermediate
-partons~\cite{DixonEsterlis2016}.
+The logarithm is present only for certain helicities of the partons in the
+singular configuration. For the fermion loops of
+Ref.~\cite{GauntStirling2011}, helicity conservation forces the four
+intermediate partons into $J_z=0$; for gluon loops only conservation of
+$J_z$ between the incoming state and the intermediate partons
+remains~\cite{DixonEsterlis2016}. Here the effective vertices restore the
+restriction. The amplitude for $gg\to A$ vanishes unless the two gluons
+have equal helicities, and the gluons of each fusing pair move in opposite
+beam directions, so each pair has $J_z=0$. A DPS logarithm is therefore
+possible only for incoming gluons with $J_z=0$, which is why
+$\mathcal M_1$ has a logarithm at one loop and $\mathcal M_2$ does not.
 
-For $gg\to AA$, however, each effective vertex
-requires the two fusing gluons to have equal
-helicities: the amplitude for $gg\to A$ vanishes
-for opposite helicities. The gluons in each
-fusing pair travel in opposite beam directions,
-so equal helicities give $J_z=0$. The four
-intermediate gluons therefore have total
-$J_z=0$, and a DPS logarithm is possible only
-for an incoming state with $J_z=0$. This
-explains why the equal helicity coefficient
-$\mathcal M_1$ contains a logarithm at one
-loop, whereas the opposite helicity coefficient
-$\mathcal M_2$ does not.
-
-To determine the dependence of the logarithmic
-coefficient on the momentum fractions, consider
-an incoming gluon of positive helicity splitting
-into gluons $a$ and $b$. Let their longitudinal
-momentum fractions be $z$ and $1-z$. With the
-coupling, colour and transverse momentum factors
-suppressed, the longitudinal weights are
+For a positive-helicity gluon splitting into gluons $a$ and $b$ with
+longitudinal momentum fractions $z$ and $1-z$, the longitudinal weights,
+up to coupling, colour and transverse momentum factors, are
 \begin{align}
  w_{++}(z)&=\frac{1}{\sqrt{z(1-z)}},
  \nonumber\\
  w_{+-}(z)&=\frac{z^2}{\sqrt{z(1-z)}},
 \nonumber\\
- w_{-+}(z)&=\frac{(1-z)^2}{\sqrt{z(1-z)}}.
+ w_{-+}(z)&=\frac{(1-z)^2}{\sqrt{z(1-z)}},
  \label{eq:splitting-weights}
 \end{align}
-The subscripts denote the daughter helicities
-$(h_a,h_b)$~\cite{Mangano:1990by,Dixon:1996wi}.
-These are the longitudinal factors, not the
-complete splitting amplitudes. The sum of
-their squares is
-\begin{equation}
- \frac{1+z^4+(1-z)^4}{z(1-z)},
-\end{equation}
-which gives the momentum fraction dependence of the
-$g\to gg$ splitting function.
+where the subscripts give $(h_a,h_b)$~\cite{Mangano:1990by,Dixon:1996wi}.
+The sum of their squares, $[1+z^4+(1-z)^4]/[z(1-z)]$, is the $z$
+dependence of the $g\to gg$ splitting function. At the DPS point, the first
+pseudoscalar receives a fraction $x$ of the first incoming momentum and,
+since the two pseudoscalars have equal masses, a fraction $1-x$ of the
+second~\cite{GauntStirling2011}; in Fig.~\ref{fig:diagrams}(b),
+$k=xp_1$ and $p_3-k=(1-x)p_2$. Here $x$ and $z$ are momentum fractions,
+not the variables of Eq.~\eqref{eq:xyz-definition}.
 
-At the DPS point, let the first pseudoscalar
-receive a fraction $x$ of the first incoming
-gluon momentum and a fraction $1-x$ of the
-second. The complementary fractions follow
-from the equal final state masses, as in
-Ref.~\cite{GauntStirling2011}. In
-Fig.~\ref{fig:diagrams}(b), this corresponds to
-$k=xp_1$ and $p_3-k=(1-x)p_2$.
-Here $x$ and $z$ denote longitudinal momentum
-fractions, rather than the kinematic variables
-of Eq.~\eqref{eq:xyz-definition}.
-
-The CP properties of the effective vertex fix
-the relative signs in the helicity sum.
-Parity reverses all helicities, and since $A$
-is odd under parity, the amplitudes for
-$g^+g^+\to A$ and $g^-g^-\to A$ have opposite
-signs~\cite{Dixon:1996wi}.
-For two positive-helicity incoming gluons,
-and with the first helicity of each pair
-referring to the gluon that goes to the
-first pseudoscalar, the allowed configurations
-are those in which both splittings produce
-$(+,+)$, both produce $(+,-)$, or both
-produce $(-,+)$.
-In the first configuration both effective
-vertices receive two positive-helicity gluons.
-In each mixed configuration, one vertex
-receives two positive-helicity gluons and the
-other two negative-helicity gluons. The latter
-two contributions therefore enter with the
-opposite sign. Applying the factorised form of
-Ref.~\cite{GauntStirling2011} with these
-weights, their sum gives
+Since $A$ is odd under parity, which reverses all helicities, the
+amplitudes for $g^+g^+\to A$ and $g^-g^-\to A$ have opposite
+signs~\cite{Dixon:1996wi}. For two incoming positive-helicity gluons, with
+the first helicity of each daughter pair referring to the gluon that goes
+to the first pseudoscalar, each vertex requires equal helicities, so both
+splittings produce the same pair: $(+,+)$, $(+,-)$ or $(-,+)$. In the mixed
+cases one vertex receives two negative-helicity gluons, and these
+contributions enter with the opposite sign. The factorised form of
+Ref.~\cite{GauntStirling2011} then gives
 \begin{align}
  F_A(x)
  &=w_{++}(x)w_{++}(1-x)
@@ -272,27 +209,19 @@ weights, their sum gives
  &\quad-w_{+-}(x)w_{+-}(1-x)
        -w_{-+}(x)w_{-+}(1-x)
  \nonumber\\
- &=\frac{1}{x(1-x)}-2x(1-x).
+ &=\frac{1}{x(1-x)}-2x(1-x),
  \label{eq:FA}
 \end{align}
-Each mixed product contributes $x(1-x)$,
-which accounts for the second term.
-
-For a CP-even coupling to $G^2$, the two
-subprocess amplitudes have the same sign.
-The mixed contributions then add, giving
+since each mixed product equals $x(1-x)$. For a CP-even coupling to $G^2$
+the two signs are equal and the mixed terms add:
 \begin{equation}
  F_S(x)=\frac{1}{x(1-x)}+2x(1-x).
  \label{eq:FS}
 \end{equation}
-These weights concern gluon loops with two
-effective vertices. They differ from those of
-the massless quark boxes for $gg\to HH$
-considered in Ref.~\cite{GauntStirling2011}.
-For those boxes, the weight is proportional
-to $x(1-x)$ because internal quarks of equal
-helicity carry complementary momentum
-fractions.
+These weights differ from those of the massless quark boxes for
+$gg\to HH$ in Ref.~\cite{GauntStirling2011}, where internal quarks of equal
+helicity carry complementary momentum fractions and the weight is
+proportional to $x(1-x)$.
 
 \paragraph{Normalisation and the forward limit.}
 
@@ -321,8 +250,7 @@ dependence on $x$ can be tested away from
 threshold. The forward limit $c\to1$ at
 fixed velocity also gives $p_T\to0$, but the
 produced bosons now move along the beam.
-Write $\beta$ and $m$ for their velocity and
-mass, with $\beta=\bA$ and $m=\mA$ for $AA$.
+Since the test is also applied to $gg\to HH$ later, I denote the velocity and mass of the produced bosons by $\beta$ and $m$, with $\beta=\bA$ and $m=\mA$ for $AA$.
 In this limit, the longitudinal velocity of
 the first boson is $2x-1$, so
 $x=(1+\beta)/2$.
@@ -370,12 +298,8 @@ of the relative signs in the helicity sum.
 The splittings and colour factors are
 unchanged, while replacing the CP-odd
 vertices by CP-even ones changes $F_A$
-to $F_S$. I tested this prediction using
-the one-loop Type~II amplitudes for
-$gg\to HH$ at the same mass $m$, computed
-with the code of
-Ref.~\cite{Bhattacharya:2019bmd} after
-replacing the effective vertices.
+to $F_S$.
+I tested this prediction using the one-loop amplitudes for $gg\to HH$ in which each scalar is emitted from its own effective vertex, at the same mass $m$. I computed them with the code of Ref.~\cite{Bhattacharya:2019bmd}, replacing the CP-odd vertices of $O_G$ by those of the CP-even operator $H\,G^a_{\mu\nu}G^{a\mu\nu}$ and leaving the rest of the calculation unchanged.
 The code reproduces the one-loop $AA$
 result of that reference to
 \HHReproduceDigits{} digits, and the
@@ -491,14 +415,90 @@ The leading logarithms of the calculated two-loop coefficient $\mathcal M_1$ can
  \label{eq:log-relation}
 \end{equation}
 with $\beta_0$ as in Eq.~\eqref{eq:normalisation}.
-A similar relation holds in planar $\mathcal N=4$ super Yang--Mills theory. Reference~\cite{DixonEsterlis2016} studied the six-gluon maximally helicity violating (MHV) amplitude, which has two negative and four positive gluon helicities when all momenta are taken as outgoing. Near the configuration that mimics double parton scattering, its singular terms obey an evolution equation that determines the leading logarithms to all orders. The ratio of the leading two-loop and one-loop terms, including their powers of the coupling, is $-(a/6)\ln^2\delta$, where $a=g^2\Nc/(8\pi^2)$ and $\delta$ measures the approach to the singular configuration; at fixed values of the other kinematic variables, $\delta$ is proportional to the squared transverse momentum. With $a=2\Nc\as$ and $\ln\delta=2\mathcal L+\mathrm{const}$, the ratio becomes $-\tfrac43\Nc\as\mathcal L^2$ at leading logarithmic order. This agrees with the ratio of the cubic term in Eq.~\eqref{eq:log-relation} to the one-loop logarithm, once the additional power of $\as$ at two loops is included.
-The second term, $-2\beta_0\mathcal L$, has no counterpart in the $\mathcal N=4$ theory, whose $\beta$ function vanishes, and the number of quark flavours enters it only through $\beta_0$.
+A similar relation holds in planar $\mathcal N=4$ super Yang--Mills theory.
+Reference~\cite{DixonEsterlis2016} studied the six-gluon maximally
+helicity violating (MHV) amplitude in planar $\mathcal N=4$ super
+Yang--Mills theory, which has two negative and four positive helicities
+when all momenta are outgoing. Near the configuration that mimics double
+parton scattering, its singular terms obey an evolution equation, derived
+following the analysis of crossing Wilson lines by Korchemskaya and
+Korchemsky~\cite{KorchemskayaKorchemsky1995}, which fixes the leading
+logarithms to all orders. The ratio of the leading two-loop and one-loop
+terms, including their powers of the coupling, is $-(a/6)\ln^2\delta$,
+where $a=g^2\Nc/(8\pi^2)$ and $\delta$, which measures the approach to the
+singular configuration, is proportional to the squared transverse momentum
+at fixed values of the other kinematic variables. With $a=2\Nc\as$ and
+$\ln\delta=2\mathcal L+\mathrm{const}$, the ratio becomes
+$-\tfrac43\Nc\as\mathcal L^2$ at leading logarithmic order. This is the
+ratio of the cubic term in Eq.~\eqref{eq:log-relation} to the one-loop
+logarithm, once the additional power of $\as$ at two loops is included.
+The second term, $-2\beta_0\mathcal L$, has no counterpart in the
+$\mathcal N=4$ theory; the number of quark
+flavours enters it only through $\beta_0$.
 
-The same $\beta_0$ term appears in the momentum-space kernel for the splitting $g\to gg$ in unpolarised colour singlet double parton distributions at NLO~\cite{Diehl:2019rdh}, where the transverse momentum mismatch $\Delta$ between amplitude and conjugate plays the role of $p_T$.
-Relative to the LO term, the $\beta_0$ part of the coefficient of $\ln^2(\mu^2/\Delta^2)$, given by Eqs.~(50) and (135) of Ref.~\cite{Diehl:2019rdh} in units of $\alpha_s/2\pi$, corresponds to $-2\beta_0\mathcal L$ in the normalisation of $\as$ used here.
-One half comes from the renormalisation of the coupling and the other half from the $\delta$-function parts of the DGLAP kernels, so that the running of the coupling alone would give $-\beta_0\mathcal L$. The remaining terms, one proportional to $C_A\ln[x(1-x)]$ from the plus distributions, which contributes where the two momentum fractions add up to one, and the real emission terms, which contribute where they add up to less than one, have no counterpart in the amplitude.
 
-The $|J_z|=2$ amplitude acquires a logarithm at two loops, $\widehat A_{22}=(\MtwoRelation)\cdot\OneLoopMtwo$, that is the one-loop constant multiplied by $\MtwoRelation\,\mathcal L^2$. The same relation holds away from threshold. In the forward limit $c\to1$ at fixed velocity, where $p_T\to0$ as well, I evaluated the released two-loop remainder of $\mathcal M_2$ at $1-c=$ \JzExponents{} with \JzDigits-digit arithmetic, checked with \JzCheckDigits{} digits, which agree to at least \JzCheckAgreement{} digits, and fitted a quadratic polynomial in $\ln(1-c)$. For $\JzBetaMin\leq\beta\leq\JzBetaMax$ and $(\Nc,\nf)=$ \JzSets, the coefficient of $\ln^2(2p_T/m)$ equals $-4\Nc$ times the forward limit of $\mathcal M_2^{(1)}$ to \JzMaxDev, while that limit itself varies by a factor of \JzKOneRatio{} over this range. The one-loop amplitude and the two-loop logarithm therefore combine as $\as\mathcal M_2^{(1)}\bigl[1-4\Nc\as\ln^2(2p_T/m)\bigr]$, and the logarithm has no velocity or flavour dependence of its own. This factor is the first term of $\exp(-4\Nc\as\mathcal L^2)$, which, multiplied by the one-loop coefficient $\OneLoopAone$ and integrated over $\mathcal L$, gives the cubic term of Eq.~\eqref{eq:log-relation}, and which corresponds at lowest order to the factor $\exp(-\gamma_K\ln^2\delta/8)$ of Ref.~\cite{DixonEsterlis2016}, with the cusp anomalous dimension $\gamma_K=4a$ at lowest order; whether it exponentiates in QCD cannot be decided from two loops. The $J_z$ argument of Sec.~\ref{sec:dps} concerns the one-loop singularity and does not forbid the logarithm. It cannot come from two-loop amplitudes of the subprocesses, since conservation of angular momentum forbids $gg\to A$ for opposite gluon helicities to all orders, and the mechanism that produces it remains open. A related effect occurs in planar $\mathcal N=4$ super Yang--Mills theory: the next-to-MHV (NMHV) six-gluon amplitude, with three negative helicities, has no such singularity at one loop because of $J_z$ conservation, but has logarithmic singularities from two loops on, found where the limit overlaps with multi-Regge kinematics; Dixon and Esterlis suggest that they may come from contributions in which more than one particle crosses a cut~\cite{DixonEsterlis2016}.
+The same $\beta_0$ term appears in the NLO momentum-space kernel for the
+splitting $g\to gg$ in unpolarised colour singlet double parton
+distributions~\cite{Diehl:2019rdh}, in which the transverse momentum
+mismatch $\Delta$ between amplitude and conjugate amplitude plays the role
+of $p_T$. Equations~(50) and (135) of Ref.~\cite{Diehl:2019rdh} give the
+coefficient of $\ln^2(\mu^2/\Delta^2)$ in units of $\alpha_s/2\pi$;
+relative to the LO term, its $\beta_0$ part corresponds to
+$-2\beta_0\mathcal L$ in the normalisation of $\as$ used here. Half of it
+comes from the renormalisation of the coupling and half from the
+$\delta$-function parts of the DGLAP kernels, so that the running of the
+coupling alone would give $-\beta_0\mathcal L$. The other terms of the
+kernel have no counterpart in the amplitude: a term proportional to
+$C_A\ln[x(1-x)]$ from the plus distributions, which contributes where the
+two momentum fractions add up to one, and the real emission terms, which
+contribute where they add up to less than one.
 
-Figure~\ref{fig:amplitudes} compares the three orders. With $\as=\BenchAs$ ($\alpha_s=\BenchAlphaS$), at $\bA=\LoopSizeBeta$ and $c=\BenchCos$, the one- and two-loop terms of $\mathcal M_1$ are \MoneOneLoopRatio{} and \MoneTwoLoopRatio{} times the tree term, and the one-loop term of $\mathcal M_2$ is \MtwoOneLoopRatio{} times the tree term. The last ratio grows as $\bA^{-2}$ towards threshold, since the tree-level $|J_z|=2$ amplitude vanishes there. The one-loop terms include the scale term of Eq.~\eqref{eq:normalisation}. Towards threshold the loop terms of $\mathcal M_1$ grow with $|\mathcal L|$, the two-loop term as $|\mathcal L|^3$ and the one-loop term as $|\mathcal L|$, so that below $\bA\approx\CrossoverBeta$ the two-loop term exceeds the one-loop term at this angle. Because the logarithms are out of phase with the tree amplitude, this growth largely drops out of the cross section (Sec.~\ref{sec:rate}). In panel (b) the one-loop term of $\mathcal M_2$ tends to the constant of Eq.~\eqref{eq:one-loop-threshold}, while the two-loop term grows as $\mathcal L^2$, the logarithm that the $|J_z|=2$ amplitude acquires at two loops.
+
+The $|J_z|=2$ amplitude acquires a logarithm at two loops: the term
+$\widehat A_{22}\mathcal L^2$, with
+$\widehat A_{22}=(\MtwoRelation)\cdot\OneLoopMtwo$, is the one-loop
+constant multiplied by $\MtwoRelation\,\mathcal L^2$. This relation also
+holds away from threshold. In the forward limit $c\to1$ at fixed velocity,
+where $p_T\to0$ as well, I evaluated the released two-loop remainder of
+$\mathcal M_2$ at $1-c=$ \JzExponents{} with \JzDigits-digit arithmetic
+and fitted a quadratic polynomial in $\ln(1-c)$; a repetition with
+\JzCheckDigits{} digits agrees to at least \JzCheckAgreement{} digits. For
+$\JzBetaMin\leq\beta\leq\JzBetaMax$ and $(\Nc,\nf)=$ \JzSets, the real part
+of the coefficient of $\ln^2(2p_T/m)$ equals $-4\Nc$ times the forward
+limit of $\mathcal M_2^{(1)}$ to \JzMaxDev, although that limit varies by a
+factor of \JzKOneRatio{} over this range. The one-loop amplitude and the
+two-loop logarithm therefore combine as
+$\as\mathcal M_2^{(1)}\bigl[1-4\Nc\as\ln^2(2p_T/m)\bigr]$, and the
+logarithm has no velocity or flavour dependence of its own.
+
+
+This factor is the expansion of $\exp(-4\Nc\as\mathcal L^2)$ to first
+order in $\as$. Multiplied by the one-loop coefficient $\OneLoopAone$ and
+integrated over $\mathcal L$, the same exponential gives the cubic term of
+Eq.~\eqref{eq:log-relation}. At lowest order it also corresponds to the
+factor $\exp(-\gamma_K\ln^2\delta/8)$ of Ref.~\cite{DixonEsterlis2016},
+with the cusp anomalous dimension $\gamma_K=4a$. However, two loops cannot
+decide whether this factor exponentiates in QCD. The $J_z$ argument of
+Sec.~\ref{sec:dps} concerns the one-loop singularity and does not forbid
+this logarithm. Nor can it come from two-loop amplitudes of the
+subprocesses, since conservation of angular momentum forbids $gg\to A$ for
+opposite gluon helicities to all orders; its origin remains open. A related
+effect occurs in planar $\mathcal N=4$ super Yang--Mills theory. The
+next-to-MHV (NMHV) six-gluon amplitude, with three negative helicities, has
+no such singularity at one loop because of $J_z$ conservation, but Dixon
+and Esterlis found logarithmic singularities starting at two loops, in the
+region where the limit overlaps with multi-Regge kinematics, and suggested
+that they may come from contributions in which more than one particle
+crosses a cut~\cite{DixonEsterlis2016}.
+
+
+% Defined ahead of the citing text: a page-wide float can only appear at the top of a later page.
+\begin{figure*}[!ht]
+ \centering
+ \includegraphics[width=0.94\textwidth]{figures/fig5_amplitudes.pdf}
+ \caption{Tree-level, one-loop and two-loop terms of the Type~II amplitude, $|\as^n\mathcal M_i^{(n)}|/\mA^2$ with $\as=\BenchAs$ ($\alpha_s=\BenchAlphaS$), at $c=\BenchCos$, $\mA=\muR=\BenchMA\,\mathrm{GeV}$, $\Nc=\BenchNc$ and $\nf=\BenchNf$. Tree level: Eq.~\eqref{eq:born}; one loop: published remainder; two loops: series through $\bA^6$. $\mathcal M_1$ and $\mathcal M_2$ are the equal and opposite helicity amplitudes, Eq.~\eqref{eq:helicity}.}
+ \label{fig:amplitudes}
+\end{figure*}
+%
+Figure~\ref{fig:amplitudes} compares the three orders. With $\as=\BenchAs$ ($\alpha_s=\BenchAlphaS$), at $\bA=\LoopSizeBeta$ and $c=\BenchCos$, the one and two-loop terms of $\mathcal M_1$ are \MoneOneLoopRatio{} and \MoneTwoLoopRatio{} times the tree term, and the one-loop term of $\mathcal M_2$ is \MtwoOneLoopRatio{} times the tree term. The last ratio grows as $\bA^{-2}$ towards threshold, since the tree-level $|J_z|=2$ amplitude vanishes there. The one-loop terms include the scale term of Eq.~\eqref{eq:normalisation}. Towards threshold, the loop terms of $\mathcal M_1$ grow with $|\mathcal L|$, the two-loop term as $|\mathcal L|^3$ and the one-loop term as $|\mathcal L|$, so that below $\bA\approx\CrossoverBeta$ the two-loop term exceeds the one-loop term at this angle. Because the logarithms are out of phase with the tree amplitude, this growth largely drops out of the cross section (Sec.~\ref{sec:rate}). In panel (b) the one-loop term of $\mathcal M_2$ tends to the constant of Eq.~\eqref{eq:one-loop-threshold}, while the two-loop term grows as $\mathcal L^2$, the logarithm that the $|J_z|=2$ amplitude acquires at two loops.
 %
