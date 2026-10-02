@@ -5,7 +5,7 @@ SHELL := /bin/bash
 PYTHON ?= python3
 RUN = $(PYTHON) scripts
 
-.PHONY: provenance nf1-inputs reproduce arxiv crossover dps-hh renorm-2019 layout archive log-share diagrams help all inputs series constants leading-logs one-loop exact-check validation tables figures physics-figures numbers manuscript-data dps fig4-2019 rate-logs top-mass lo virtual normalization test paper clean
+.PHONY: jz2 provenance nf1-inputs reproduce arxiv crossover dps-hh renorm-2019 layout archive log-share diagrams help all inputs series constants leading-logs one-loop exact-check validation tables figures physics-figures numbers manuscript-data dps fig4-2019 rate-logs top-mass lo virtual normalization test paper clean
 
 help:
 	@echo "make inputs        download the arXiv:1909.08993 ancillary files (needed for one-loop)"
@@ -33,6 +33,7 @@ help:
 	@echo "make crossover     velocity below which the two-loop term of M1 exceeds the one-loop term"
 	@echo "make dps-hh        one-loop gg -> HH: forward logarithm against F_S (data/dps_hh; Fig. 3, Sec. IV C)"
 	@echo "make renorm-2019   earlier 2019 run vs published renormalisation; June 2019 pole record (App. B)"
+	@echo "make jz2           forward limit of the two-loop |J_z|=2 amplitude (Sec. IV D), from the stored points; needs inputs"
 	@echo "make provenance    data/construction and data/validation against the outputs of the construction runs (data/runs)"
 	@echo "make nf1-inputs    the two inputs of the P1 n_f construction against the published remainder"
 	@echo "make reproduce     rerun the construction from the published files (needs inputs, Mathematica 13.2, g++; several hours)"
@@ -106,6 +107,12 @@ crossover:
 
 dps-hh:
 	$(RUN)/check_dps_hh.py
+
+jz2:
+	$(RUN)/check_jz2_forward.py --dps 140 --exponents 5 6 7 --workers 1
+	cp results/jz2_forward.txt results/jz2_forward_nc3_nf5_e567.txt
+	$(RUN)/check_jz2_forward.py --dps 140 --exponents 5 6 7 --Nc 4 --nf 2 --workers 1
+	cp results/jz2_forward.txt results/jz2_forward_nc4_nf2_e567.txt
 
 provenance:
 	$(RUN)/check_provenance.py

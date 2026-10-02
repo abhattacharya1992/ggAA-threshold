@@ -121,7 +121,7 @@ def leading_terms():
     lines = [r"\begin{table}[t]", r"\centering",
              r"\caption{Leading terms of the threshold expansion of the two-loop Type II remainders. The second column lists the inverse powers with "
              r"nonzero coefficients in the construction files; they cancel identically after the reductions of "
-             r"Sec.~\ref{sec:cancellations}, as do all odd powers. The last column gives the powers of $\mathcal L$ at leading power.}",
+             r"Sec.~\ref{sec:cancellations}, as do all odd powers. The last column gives the powers of $\mathcal L$, Eq.~\eqref{eq:calL}, at leading power.}",
              r"\label{tab:leading-threshold-inventory}", r"\begin{ruledtabular}", r"\begin{tabular}{lccc}",
              r" & inverse powers & leading & powers \\", r"quantity & in construction & power & of $\mathcal L$ \\", r"\hline"]
     for i in (1, 2):

@@ -78,6 +78,7 @@ series.component(2, 1, "1/10", "1/3")          # coefficient of n_f^1 in M_2
 | velocity below which the two-loop term of M1 exceeds the one-loop term (Fig. 4) | `make crossover` | `results/amplitude_crossover.json` |
 | one-loop gg → HH forward logarithm against F_S; HH points of Fig. 3 (data in `data/dps_hh`) | `make dps-hh` | `results/dps_hh.json` |
 | earlier 2019 run vs published renormalisation, June 2019 pole record (App. B) | `make renorm-2019` | `results/renorm_2019.json` |
+| forward limit of the two-loop \|J_z\|=2 amplitude: ℓ² coefficient = −4N_c × one-loop constant (Sec. IV D) | `make jz2` (summary from `results/jz2_forward_points.jsonl`; the full evaluation takes several hours on 6 cores) | `results/jz2_forward_nc3_nf5_e567.txt`, `results/jz2_forward_nc4_nf2_e567.txt` |
 | construction files and validation records against the outputs of the construction runs | `make provenance` | `results/provenance.json` |
 | inputs of the P1 n_f construction against the published remainder | `make nf1-inputs` | `results/nf1_inputs.txt` |
 | construction rerun from the published files (Mathematica 13.2, several hours) | `make inputs reproduce` | `build/reproduce/` |
@@ -203,7 +204,7 @@ removable 0/0 terms at cos θ = 0 (t = u), so they cannot be evaluated there dir
 
 ## Use of AI tools
 
-AI tools (Claude, Anthropic) were used to help write and debug the code of the
+AI tools (Claude, Anthropic, and ChatGPT, OpenAI) were used to help write and debug the code of the
 construction and validation (`src/construction`), to help write and check parts of the
 analysis and plotting code, and to reorganize this repository. The author defined the
 calculations, ran the code and checked the results reported in the paper.

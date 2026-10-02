@@ -132,3 +132,20 @@ class Renormalisation2019(unittest.TestCase):
         run = subprocess.run([sys.executable, str(script)], capture_output=True, text=True)
         self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
 
+
+class JzForward(unittest.TestCase):
+    def test_forward_double_logarithm(self):
+        """Sec. IV D: in the forward limit the l^2 coefficient of the two-loop M_2 is -4 N_c times the one-loop constant."""
+        import json
+        from ggaa.oneloop import OneLoop as Evaluator
+        path = pathlib.Path(__file__).resolve().parents[1] / "results" / "jz2_forward_points.jsonl"
+        rows = [json.loads(l) for l in path.read_text().splitlines() if l.strip()]
+        amp = Evaluator()
+        for Nc, nf, b in ((3, 5, "0.1"), (4, 2, "0.3")):
+            pick = {r["e"]: r for r in rows if (r["Nc"], r["nf"], r["beta"], r["dps"]) == (Nc, nf, b, 140)}
+            with mp.workdps(60):
+                us = [-e * mp.log(10) for e in (5, 6, 7)]
+                vs = [mp.mpc(mp.mpf(pick[e]["re"]), mp.mpf(pick[e]["im"])) for e in (5, 6, 7)]
+                a2 = 4 * mp.lu_solve(mp.matrix([[u**2, u, 1] for u in us]), mp.matrix(vs))[0]
+                k1 = (amp(2, mp.mpf(b), 1 - mp.mpf(10)**-18, Nc=Nc, nf=nf) / 125**2).real
+                self.assertLess(abs(a2.real / (-4 * Nc * k1) - 1), 1e-4)
