@@ -2,6 +2,13 @@
 \label{sec:physics}
 % Defined ahead of the citing text: a page-wide float can only appear at the top of a later page.
 \input{tables/leading_logs.tex}
+% Defined ahead of the citing text: a page-wide float can only appear at the top of a later page.
+\begin{figure*}[!ht]
+ \centering
+ \includegraphics[width=0.94\textwidth]{figures/fig5_amplitudes.pdf}
+ \caption{Tree-level, one-loop and two-loop terms of the Type~II amplitude, $|\as^n\mathcal M_i^{(n)}|/\mA^2$ with $\as=\BenchAs$ ($\alpha_s=\BenchAlphaS$), at $c=\BenchCos$, $\mA=\muR=\BenchMA\,\mathrm{GeV}$, $\Nc=\BenchNc$ and $\nf=\BenchNf$. Tree level: Eq.~\eqref{eq:born}; one loop: published remainder; two loops: series through $\bA^6$. $\mathcal M_1$ and $\mathcal M_2$ are the equal and opposite helicity amplitudes, Eq.~\eqref{eq:helicity}.}
+ \label{fig:amplitudes}
+\end{figure*}
 
 
 \subsection{Leading power}
@@ -94,14 +101,14 @@ by Eq.~\eqref{eq:xyz-definition}. The two-loop coefficients have no finite limit
 \subsection{One loop}
 \label{sec:one-loop}
 
-Fitting the published one-loop remainders at $\bA=$ \OneLoopFitBetas{} with \OneLoopDigits-digit arithmetic, for $\Nc=$ \OneLoopScanNc, $\nf=$ \OneLoopScanNf{}, two values of $\muR$ and several angles, I find to \OneLoopAgreementDigits{} digits
+Fitting the Ref.\ \cite{Bhattacharya:2019bmd} one-loop remainders at $\bA=$ \OneLoopFitBetas{} with \OneLoopDigits-digit arithmetic, for $\Nc=$ \OneLoopScanNc, $\nf=$ \OneLoopScanNf{}, two values of $\muR$ and several angles, I find to \OneLoopAgreementDigits{} digits
 \begin{align}
  \mathcal M_1^{(1)}&=\mA^2\bigl[\OneLoopAone\,\mathcal L+\widehat A^{(1)}_{10}\bigr]+\Ord(\bA),
  \nonumber\\
  \mathcal M_2^{(1)}&=\OneLoopMtwo\,\mA^2+\Ord(\bA),
  \label{eq:one-loop-threshold}
 \end{align}
-with $\widehat A^{(1)}_{10}=\OneLoopAzero$ for $\Nc=\BenchNc$, $\nf=\BenchNf$ and $\muR=\mA$, in the normalisation of Eq.~\eqref{eq:normalisation}. The constant does not depend on the angle, and by Eq.~\eqref{eq:normalisation} its scale dependence is $\partial\widehat A^{(1)}_{10}/\partial\ln\muR^2=4i\beta_0$. The coefficient of $\mathcal L$ and the limit of $\mathcal M_2^{(1)}$ depend neither on $\nf$ nor on $\muR$. Together with Eqs.~\eqref{eq:born} and \eqref{eq:leading-power}, the behaviour at threshold is summarised in Table~\ref{tab:orders}.
+with $\widehat A^{(1)}_{10}=\OneLoopAzero$ for $\Nc=\BenchNc$, $\nf=\BenchNf$ and $\muR=\mA$, in the normalisation of Eq.~\eqref{eq:normalisation}. The constant does not depend on the angle, and by Eq.~\eqref{eq:normalisation}, its scale dependence is $\partial\widehat A^{(1)}_{10}/\partial\ln\muR^2=4i\beta_0$. The coefficient of $\mathcal L$ and the limit of $\mathcal M_2^{(1)}$ depend neither on $\nf$ nor on $\muR$. Together with Eqs.~\eqref{eq:born} and \eqref{eq:leading-power}, the behaviour at threshold is summarised in Table~\ref{tab:orders}.
 %
 \begin{table}[t]
  \caption{Behaviour of the Type~II coefficients at threshold, $\bA\to0$ at fixed angle: tree-level values, and the highest power of $\mathcal L$ at one and two loops.}
@@ -116,7 +123,7 @@ with $\widehat A^{(1)}_{10}=\OneLoopAzero$ for $\Nc=\BenchNc$, $\nf=\BenchNf$ an
  \end{ruledtabular}
 \end{table}
 %
-The $|J_z|=2$ amplitude is suppressed near threshold only at tree level. According to Eq.~\eqref{eq:helicity}, the helicity amplitude $\mathcal A_{\pm\mp}$ then keeps its dependence $e^{\pm2i\phi}$ on the azimuth of $\vec p_3$ as $|\vec p_3|\to0$. An amplitude that is analytic in $\vec p_3$ at $\vec p_3=0$ cannot behave in this way; the loop amplitudes can, because they depend on $\ln p_T$.
+The $|J_z|=2$ amplitude is suppressed near threshold only at tree level. According to Eq.~\eqref{eq:helicity}, $\mathcal A_{\pm\mp}$ then keeps its dependence $e^{\pm2i\phi}$ on the azimuth of $\vec p_3$ as $|\vec p_3|\to0$. An amplitude that is analytic in $\vec p_3$ at $\vec p_3=0$ cannot behave in this way; the loop amplitudes can, because they depend on $\ln p_T$.
 
 \subsection{The double parton scattering singularity}
 \label{sec:dps}
@@ -276,7 +283,7 @@ fixed above defines
 The last equality is the prediction to be
 tested: no further adjustment of the
 normalisation is made as $\beta$ is varied.
-
+%
 I evaluated $D(\beta)$ from the exact one-loop
 remainders using $1-c=10^{-14}$ and
 $10^{-18}$, over
@@ -372,13 +379,13 @@ Figure~\ref{fig:dps} compares the extracted coefficients with the two helicity w
 
 The factorisation also explains the flavour
 and colour dependence of the one-loop
-logarithm. The vertices of $O_G$ couple only
+logarithm. The $O_G$ vertices couple only
 to gluons, so only gluon splittings enter this
 singular configuration and its coefficient is
 independent of $\nf$. The factor $\Nc$
 comes from the colour contraction of
 the two three-gluon vertices.
-Renormalisation and infrared subtraction
+Renormalisation and IR subtraction
 do not change this logarithmic coefficient:
 at one loop, their contributions are
 proportional to the tree amplitude and
@@ -492,13 +499,6 @@ that they may come from contributions in which more than one particle
 crosses a cut~\cite{DixonEsterlis2016}.
 
 
-% Defined ahead of the citing text: a page-wide float can only appear at the top of a later page.
-\begin{figure*}[!ht]
- \centering
- \includegraphics[width=0.94\textwidth]{figures/fig5_amplitudes.pdf}
- \caption{Tree-level, one-loop and two-loop terms of the Type~II amplitude, $|\as^n\mathcal M_i^{(n)}|/\mA^2$ with $\as=\BenchAs$ ($\alpha_s=\BenchAlphaS$), at $c=\BenchCos$, $\mA=\muR=\BenchMA\,\mathrm{GeV}$, $\Nc=\BenchNc$ and $\nf=\BenchNf$. Tree level: Eq.~\eqref{eq:born}; one loop: published remainder; two loops: series through $\bA^6$. $\mathcal M_1$ and $\mathcal M_2$ are the equal and opposite helicity amplitudes, Eq.~\eqref{eq:helicity}.}
- \label{fig:amplitudes}
-\end{figure*}
 %
 Figure~\ref{fig:amplitudes} compares the three orders. With $\as=\BenchAs$ ($\alpha_s=\BenchAlphaS$), at $\bA=\LoopSizeBeta$ and $c=\BenchCos$, the one and two-loop terms of $\mathcal M_1$ are \MoneOneLoopRatio{} and \MoneTwoLoopRatio{} times the tree term, and the one-loop term of $\mathcal M_2$ is \MtwoOneLoopRatio{} times the tree term. The last ratio grows as $\bA^{-2}$ towards threshold, since the tree-level $|J_z|=2$ amplitude vanishes there. The one-loop terms include the scale term of Eq.~\eqref{eq:normalisation}. Towards threshold, the loop terms of $\mathcal M_1$ grow with $|\mathcal L|$, the two-loop term as $|\mathcal L|^3$ and the one-loop term as $|\mathcal L|$, so that below $\bA\approx\CrossoverBeta$ the two-loop term exceeds the one-loop term at this angle. Because the logarithms are out of phase with the tree amplitude, this growth largely drops out of the cross section (Sec.~\ref{sec:rate}). In panel (b) the one-loop term of $\mathcal M_2$ tends to the constant of Eq.~\eqref{eq:one-loop-threshold}, while the two-loop term grows as $\mathcal L^2$, the logarithm that the $|J_z|=2$ amplitude acquires at two loops.
 %
