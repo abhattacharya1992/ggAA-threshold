@@ -14,3 +14,6 @@ build/
 results/exact_amplitude_cache.json
 results/li22_store.json
 jz2_*.log
+reproduce.log
+reproduce_mem.log
+status.sh
