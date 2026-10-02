@@ -1,8 +1,179 @@
 \section{Conclusions}
 \label{sec:conclusions}
 
-I have expanded the two-loop Type~II finite remainders for $gg\to AA$ about the pair threshold through $\bA^6$ at fixed scattering angle. After the endpoint constants are expressed in a basis of \BasisCountWord{} transcendental constants, all inverse powers of $\bA$ and the odd powers through $\bA^5$ cancel identically, and every coefficient is even in $\cos\theta$. The series reproduce the unexpanded remainders to \PoneErrLePointTwo{} and \PtwoErrLePointTwo{} for $\bA\leq\RecommendedBeta$, including the forward angles tested. They are faster to evaluate than the published expressions and \SizeRatio{} times smaller than the published files. I also found that the released two-loop remainders are larger by a factor of \FileFactor{} than the tree and one-loop amplitudes, and that the released one-loop remainders omit their dependence on the renormalisation scale. With both corrected, the one- and two-loop remainders satisfy the renormalisation group relations exactly.
+I have expanded the two-loop Type~II finite remainders
+for $gg\to AA$ with two $O_G$ insertions about the
+pair production threshold through $\bA^6$ at fixed
+scattering angle. After the endpoint constants are
+expressed in a basis of \BasisCountWord{}
+transcendental constants, all inverse powers of
+$\bA$ and the odd powers through $\bA^5$ cancel
+identically. Every coefficient is even in
+$\cos\theta$, as required by Bose symmetry.
+For $0<\bA\leq\RecommendedBeta$, the maximum
+relative errors of the two complete coefficients
+are \PoneErrLePointTwo{} and
+\PtwoErrLePointTwo{}, respectively, at the
+points tested, including the forward angles.
+The released series files are a factor of
+\SizeRatio{} smaller than the expressions
+released with Ref.~\cite{Bhattacharya:2019bmd}.
+The timing comparisons in
+App.~\ref{app:data} also show faster evaluation
+for the representations tested.
 
-At leading power the angular dependence enters only through the logarithm of the transverse momentum of the pseudoscalars. I identified this logarithm with the double parton scattering singularity of Gaunt and Stirling. At one loop the velocity dependence of its coefficient follows their factorised formula, with the helicity weights of gluon splitting and the sign structure of a CP-odd coupling, to \DPSMaxDeviation{} over the range of velocities tested, once the overall constant is fixed at threshold. The same identification explains why the $|J_z|=2$ amplitude has no logarithm at one loop, why the coefficient depends neither on $\nf$ nor on $\muR$, and why the logarithm is out of phase with the tree amplitude. At two loops the $J_z=0$ amplitude grows as $\ln^3p_T$ and the $|J_z|=2$ amplitude as $\ln^2p_T$, and the leading logarithms are simple multiples of the one-loop terms. The ratio of the leading logarithms is the one found to all orders in planar $\mathcal N=4$ super Yang--Mills theory, and the next logarithm has the $\beta_0$ structure of the next-to-leading order splitting kernel for $g\to gg$. In the finite virtual corrections to the cross section the logarithm cancels at one loop; at two loops $\ln^3p_T$ cancels and the highest power is $\ln^2p_T$, with coefficient $-\tfrac74\pi^2\Nc^2$.
+The comparison between perturbative orders
+required two corrections to the released
+remainders of Ref.~\cite{Bhattacharya:2019bmd}.
+The two-loop expressions carry an overall
+factor of \FileFactor{} relative to the
+normalisation of the tree and one-loop
+amplitudes. The released one-loop expressions
+omit their renormalisation scale dependence
+and coincide with the scale-dependent result
+at $\muR=1$~GeV.
+After restoring this dependence and converting
+all orders to a common normalisation, the
+remainders satisfy the renormalisation group
+relations in Eqs.~\eqref{eq:rg-one} and
+\eqref{eq:rg-two} within the accuracy of
+the checks described in
+App.~\ref{app:normalization}.
+The pole cancellation reported in
+Ref.~\cite{Bhattacharya:2019bmd} is unaffected,
+since all terms of the two-loop subtraction
+carry the same overall factor.
 
-Several questions remain open. The overall normalisation $\pi\Nc m^2$ of the one-loop DPS logarithm, which is the same for $AA$ and $HH$ in units of the tree amplitude, should follow from the factorised formula of Ref.~\cite{GauntStirling2011} with the effective vertices. That formula reproduces the numerical prefactors of the quark boxes, so this is a well-defined calculation. The two-loop logarithms, including those of the $|J_z|=2$ amplitude, require its extension beyond one loop; the evolution equation of planar $\mathcal N=4$ super Yang--Mills theory~\cite{DixonEsterlis2016} and the next-to-leading order splitting kernels of Ref.~\cite{Diehl:2019rdh} suggest the form such an extension might take. If the factorisation carries over to the full theory, the top quark mass changes the normalisation of the DPS logarithm by the on-shell vertex factor of Sec.~\ref{sec:counting}, about \TopMassDPSA{} at $\mA=\TopMassMAA$~GeV; its effect on the remaining terms is not known. On the phenomenological side, the contribution of the physical coefficient $C_J$, which depends on $m_t$, shifts $V_2$ by a constant that is not included here, and the series provide the Type~II two-loop contribution to the hard function for a threshold resummed description of pseudoscalar pairs near $m_{AA}\approx2\mA$. For a pseudoscalar that couples to gluons only through $G\tilde G$, such as an axion-like particle, they give the $O_G$--$O_G$ part of the two-loop virtual corrections at NNLO; combined with the soft and collinear functions of Refs.~\cite{deFlorian:2012za,Bhattacharya:2021nsv}, and together with that term, they would give a soft-virtual NNLO prediction for the invariant mass distribution of such particles near threshold. For Higgs pairs produced through two effective vertices, an explicit one-loop calculation confirms the scalar weight $F_S$, with the constant fixed from $AA$, and the absence of a one-loop logarithm in the $|J_z|=2$ amplitude (Sec.~\ref{sec:dps}). The two-loop amplitudes of this class are known~\cite{Banerjee:2018lfq}, so the two-loop logarithms can be examined as well.
+At leading power, the angular dependence
+enters entirely through the logarithm of
+the transverse momentum of the pseudoscalars.
+I identified the one-loop logarithm with
+the DPS singularity studied in
+Ref.~\cite{GauntStirling2011}.
+The gluon splitting weights and the
+relative signs of the CP-odd subprocess
+amplitudes determine the momentum fraction
+dependence of its coefficient.
+With the overall constant fixed at
+threshold, the resulting expression
+reproduces the velocity dependence
+of the exact one-loop coefficient
+in the forward limit to a relative
+accuracy of \DPSMaxDeviation{} over
+the tested range.
+The same analysis explains the absence
+of a one-loop logarithm in the
+$|J_z|=2$ amplitude, the independence
+of the logarithmic coefficient from
+$\nf$ and $\muR$, and its phase relative
+to the tree amplitude.
+An explicit one-loop calculation of
+$gg\to HH$ through two CP-even vertices
+confirms the corresponding scalar
+weight $F_S$, using the normalisation
+fixed from $AA$ and accounting for
+the relative sign of the tree
+amplitudes. The opposite helicity
+amplitude again has no one-loop
+DPS logarithm.
+
+At two loops, the $J_z=0$ amplitude
+grows as $\ln^3p_T$ and the
+$|J_z|=2$ amplitude as $\ln^2p_T$.
+The ratio of the leading two-loop
+and one-loop logarithms in the
+$J_z=0$ amplitude agrees with the
+corresponding ratio in the all-orders
+result for planar $\mathcal N=4$
+super Yang--Mills
+theory~\cite{DixonEsterlis2016}.
+The coefficient of the quadratic
+logarithm in this amplitude is
+proportional to $\beta_0$, with
+the structure discussed in
+Sec.~\ref{sec:two-loop} in relation
+to the NLO $g\to gg$ splitting
+kernel for double parton
+distributions~\cite{Diehl:2019rdh}.
+The finite virtual corrections
+are less singular than the
+amplitudes. At leading power,
+the one-loop DPS logarithm does
+not contribute to $V_1$, because
+it is out of phase with the
+tree amplitude. The cubic
+logarithm is absent from $V_2$,
+whose highest logarithmic term is
+\[
+ V_2\supset
+ -\frac74\pi^2\Nc^2
+ \ln^2\!\left(\frac{2p_T}{\mA}\right).
+\]
+This coefficient results from a
+partial cancellation between the
+interference of the two-loop amplitude
+with the tree amplitude and the square
+of the one-loop amplitude.
+
+The overall factor $\pi\Nc m^2$
+multiplying the one-loop helicity
+weight remains to be derived
+directly from the factorisation
+formula with the effective
+vertices. Extending the analysis
+beyond one loop would help explain
+the two-loop logarithms, in
+particular the logarithm that
+appears in the $|J_z|=2$ amplitude.
+The known two-loop amplitudes for
+$gg\to HH$ through two effective
+vertices~\cite{Banerjee:2018lfq}
+also permit a comparison with
+the scalar case.
+Finite top quark mass effects
+are a separate question.
+If the one-loop DPS factorisation
+applies to the full theory, the
+on-shell triangle form factors
+in Eq.~\eqref{eq:top-dps} multiply
+the logarithmic coefficient by
+\TopMassDPSA{} at
+$\mA=\TopMassMAA$~GeV.
+This estimate does not determine
+the mass dependence of the
+remaining one-loop terms or of
+the two-loop amplitude.
+
+The series provide the Type~II
+two-loop amplitude input to the
+hard function for the pair
+invariant mass distribution near
+$m_{AA}=2\mA$.
+They enter at NNLO when the
+Type~II tree amplitude is the
+leading amplitude, as for a
+pseudoscalar coupled to gluons
+only through $G\tilde G$.
+In a 2HDM, they first enter at
+N$^3$LO through interference
+with the leading Type~I amplitude.
+A soft-virtual prediction requires
+these remainders to be combined
+with the appropriate lower order
+amplitudes, Wilson coefficients
+and universal soft and collinear
+contributions~\cite{deFlorian:2012za,Bhattacharya:2021nsv}.
+The mixed $O_G$--$O_J$ contribution
+must also be included where
+required by the effective theory
+and its perturbative counting.
+This contribution was omitted
+from the numerical results for
+$V_2$; it gives a kinematically
+constant shift and does not
+change the logarithmic
+coefficients.
+The series, the evaluator, the
+validation records and the code
+of the construction are provided
+with the paper~\cite{SupplementalMaterial}.

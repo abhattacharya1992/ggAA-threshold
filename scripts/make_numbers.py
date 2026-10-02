@@ -380,6 +380,23 @@ def physics():
     define("VtwoMin", f"\\ensuremath{{{min(v2):.2f}}}"); define("VtwoMax", f"\\ensuremath{{{max(v2):.2f}}}")
     define("VirtualBetaMin", f"\\ensuremath{{{power_of_ten(float(v[0]['beta']))}}}")
     define("VirtualBetaMax", f"{float(v[-1]['beta']):g}")
+    # accuracy of the angular quadrature of scripts/virtual_correction.py, against 32 points
+    from ggaa.crosssection import VirtualCorrections
+    nodes = int(re.search(r'"--nodes", type=int, default=(\d+)', (ROOT / "scripts" / "virtual_correction.py").read_text()).group(1))
+    vc, saved = VirtualCorrections(), mp.mp.dps
+    mp.mp.dps = 30
+    dev1 = dev2 = 1e-30
+    betas = ("0.01", "0.1", "0.3")
+    for b in betas:
+        a1, a2 = vc.angle_averaged(mp.mpf(b), nodes=nodes)
+        r1, r2 = vc.angle_averaged(mp.mpf(b), nodes=32)
+        dev1 = max(dev1, float(abs(a1 / r1 - 1))); dev2 = max(dev2, float(abs(a2 / r2 - 1)))
+    mp.mp.dps = saved
+    words = {4: "four", 6: "six", 8: "eight", 10: "ten", 12: "twelve", 16: "sixteen"}
+    define("QuadNodes", words.get(nodes, str(nodes))); define("QuadNodesRef", "32")
+    define("QuadBetas", "$" + "$, $".join(betas[:-1]) + "$ and $" + betas[-1] + "$")
+    define("QuadVoneDev", f"\\ensuremath{{10^{{{math.ceil(math.log10(dev1))}}}}}")
+    define("QuadVtwoDev", f"\\ensuremath{{10^{{{math.ceil(math.log10(dev2))}}}}}")
 
 
 # ---------------------------------------------------------------- timing and sizes

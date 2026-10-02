@@ -1,14 +1,64 @@
 \section{Flavour decomposition}
 \label{app:flavour}
 
-% Table VIII belongs to App. D; defining it here keeps it within a page of that appendix.
+% The timing table is defined here to control its placement.
 \input{tables/timing.tex}
 
-For $\nf=\BenchNf$ the complete coefficients are the sums
+To compare the sizes of the flavour contributions, I evaluate the decomposition of
+Eq.~\eqref{eq:nf-decomposition} at $\nf=\BenchNf$:
 \begin{align}
- \Mfull{i}(\BenchNf)&=\Mflav{i}{0}+\BenchNf\,\Mflav{i}{1}+\BenchNf^2\,\Mflav{i}{2}
+ \Mfull{i}(\BenchNf)
+ &=\Mflav{i}{0}
+   +\BenchNf\,\Mflav{i}{1}
+   +\BenchNf^2\,\Mflav{i}{2}
  \nonumber\\
- &\equiv a_0+a_1+a_2.
+ &\equiv a_0+a_1+a_2,
+ \qquad i=1,2.
  \label{eq:nf5-sum}
 \end{align}
-Figure~\ref{fig:flavour-components} shows $|a_r|/|\Mfull{i}(\BenchNf)|$. The $\nf^0$ term dominates both coefficients. The $\nf^1$ term is sizeable and partly cancels it: for $\mathcal M_1$ the quantity $1-|a_0+a_1+a_2|/(|a_0|+|a_1|+|a_2|)$ lies between \PoneCancellationMin{} and \PoneCancellationMax{} over the velocities shown. At leading power the number of flavours enters with the sign opposite to the gluonic terms, through $\beta_0=(11\Nc-2\nf)/3$ in $\widehat A_{12}$, through $\Nc a_{\mathrm A}-\nf a_{\mathrm F}$ in $\widehat A_{11}$ and through $4\Nc-\nf$ in $\widehat A_{21}$ [Eqs.~\eqref{eq:leading-coefficients} and \eqref{eq:M1-L1}], which accounts for the cancellation at small $\bA$. The $\nf^2$ term of $\mathcal M_2$ is suppressed as $\bA^2(1-c^2)$, Eq.~\eqref{eq:nf2-leading-two}.
+The index $i$ is suppressed in $a_r$. The factors $\BenchNf$ and $\BenchNf^2$
+are included in $a_1$ and $a_2$, respectively, so these quantities are the three
+terms entering the complete remainder, rather than the unweighted flavour coefficients.
+
+Figure~\ref{fig:flavour-components} shows the magnitude of each term divided by
+the magnitude of the complete remainder, $|a_r|/|\Mfull{i}(\BenchNf)|$, at
+$c=\BenchCos$, $\mA=\muR=\BenchMA\,\mathrm{GeV}$ and $\Nc=\BenchNc$. Panels~(a) and~(b)
+correspond to $\mathcal M_1$ and $\mathcal M_2$, respectively. Since the terms are
+complex, their magnitudes do not add to the magnitude of their sum.
+The plotted ratios therefore need not add to unity. A value above
+the horizontal line at unity means that an individual term is larger
+in magnitude than the complete remainder and is partly cancelled
+by the other terms.
+
+The term independent of $\nf$ is
+the largest contribution to both coefficients over the plotted
+range. The term linear in $\nf$ is also sizeable. For
+$\mathcal M_1$, it partly cancels the $\nf^0$ contribution.
+The overall cancellation among the three terms can be quantified
+by
+\[
+ 1-\frac{|a_0+a_1+a_2|}
+          {|a_0|+|a_1|+|a_2|}.
+\]
+This quantity is zero when the terms add with the same phase
+and increases as their sum is reduced by cancellation.
+For $\mathcal M_1$, it lies between \PoneCancellationMin{}
+and \PoneCancellationMax{} over the velocities shown.
+These percentages refer to the reduction in magnitude relative
+to $|a_0|+|a_1|+|a_2|$, not to a reduction in the cross section.
+
+The relative signs of the flavour-dependent and gluonic
+terms can also be seen in the leading power coefficients.
+The combinations $\beta_0=(11\Nc-2\nf)/3$,
+$\Nc a_{\mathrm A}-\nf a_{\mathrm F}$ and $4\Nc-\nf$ enter
+$\widehat A_{12}$, $\widehat A_{11}$ and
+$\widehat A_{21}$, respectively [Eqs.~\eqref{eq:leading-coefficients}
+and \eqref{eq:M1-L1}]. They exhibit the relative minus
+signs in the logarithmic terms; the size of the cancellation
+in the complete remainder also depends on their phases and
+on the powers of $\mathcal L$ that they multiply.
+
+Finally, the $\nf^2$ contribution to $\mathcal M_2$ starts at
+$\bA^2(1-c^2)$, as shown in Eq.~\eqref{eq:nf2-leading-two}.
+This suppression explains why its relative contribution in
+panel~(b) becomes small near threshold.

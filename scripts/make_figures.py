@@ -221,7 +221,7 @@ def fig_dps():
     for (Nc, nf), marker, colour, size in (((3, 5), "o", RED, 6.0), ((4, 2), "s", BLUE, 3.4)):
         pts = [p for p in record["points"] if p["Nc"] == Nc and p["nf"] == nf]
         ax.plot([p["beta"] for p in pts], [p["slope"] / (np.pi * Nc) for p in pts], marker, color=colour, ms=size,
-                mfc="none", mew=0.9, ls="none", label=(r"$gg\to AA$" if (Nc, nf) == (3, 5) else rf"$(N_c,n_f)=({Nc},{nf})$"))
+                mfc="none", mew=0.9, ls="none", label=rf"$gg\to AA$, $(N_c,n_f)=({Nc},{nf})$")
     hh_path = RESULTS / "dps_hh.json"
     if hh_path.exists():   # one-loop gg -> HH, CP-even vertices; sign of its tree at threshold (-1) divided out
         hh = json.load(open(hh_path))["points"]
