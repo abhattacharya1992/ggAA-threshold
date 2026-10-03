@@ -19,7 +19,6 @@ with $r=0,1,2$ and $p=4$ or 6. The coefficients $C^{(i,r)}_{nk}$ depend on $c$, 
 The remainders contain logarithms, classical polylogarithms and the function $\Li_{2,2}$ of weight four~\cite{Frellesvig:2016ske,Vollinga:2004sn}, whose arguments approach correlated endpoints as $\bA\to0$. I expand the rational prefactors exactly and obtain the expansions of the special functions from differential equations in $\bA$, with boundary values at $\bA=0$. These equations have the iterated-integral form familiar from harmonic polylogarithms~\cite{RemiddiVermaseren2000} and from canonical differential equations for Feynman integrals~\cite{Henn2013}; the map $x=(1-\bA)/(1+\bA)$ is one of the transformations under which harmonic polylogarithms are closed~\cite{RemiddiVermaseren2000}.
 The method thus expands the known remainders, not the loop integrals, which could instead be expanded near threshold by the method of regions~\cite{BenekeSmirnov1998}. Expansions of two-loop gluon fusion amplitudes in kinematic limits are also used to obtain compact representations that are fast to evaluate, for example for small transverse momentum and at high energy~\cite{Bellafronte:2022,Davies:2023} and about the top quark pair threshold~\cite{Groeber:2018}; the present expansion is about the pair production threshold of the massless remainders.
 For the dilogarithm, for example, $\dd\Li_2(x)/\dd\bA=2(1-\bA^2)^{-1}\ln[2\bA/(1+\bA)]$ with $\Li_2(1)=\pi^2/6$ gives
-%
 \begin{align}
  \Li_2(x)
  &=
@@ -47,7 +46,7 @@ The boundary values at $\bA=0$ introduce \ConstantCountWord{} constants $\mathrm
  \{\zeta_3,\ \pi^2\ln2,\ \ln^32,\ \pi^4,\ \pi^2\ln^22,\ \ln^42,\ \Li_4(\tfrac12),\ \zeta_3\ln2\},
  \label{eq:constant-basis}
 \end{equation}
-with a largest residual of \PSLQResidual{} (Table~\ref{tab:mb-constants}).
+with a largest residual of \PSLQResidual{} (App.~\ref{app:constants}).
 
 With these reductions, and with the dilogarithms of $(1-c)/2$, $(c-1)/(c+1)$ and $(c+1)/(c-1)$ rewritten through $\Li_2\bigl((1+c)/2\bigr)$ by the reflection and Landen identities, every coefficient $C^{(i,r)}_{nk}$ becomes a polynomial in
 \begin{equation}
@@ -88,7 +87,6 @@ from the tensor basis and the rational prefactors; they are not singularities
 of the amplitude. In the present calculation, the explicit expansion shows
 that the inverse powers cancel and that the remaining singular behaviour is
 logarithmic in $p_T$.
-%
 A remainder of the form $\sum_k a_k\ln^k p_T^2$, with coefficients $a_k$
 analytic in the invariants of Eq.~\eqref{eq:symmetric-invariants} at
 threshold, is therefore a series in $\bA^2$ with logarithms and has no
@@ -151,11 +149,9 @@ where $\mathcal M_i$ is the unexpanded remainder and $\mathcal M_i^{[p]}$ its se
  \caption{Relative truncation errors, Eq.~\eqref{eq:relative-error}, of the complete two-loop coefficients at $\nf=\BenchNf$: $\mathcal M_1$ (left) and $\mathcal M_2$ (right). Upper panels: maximum over the angles and parameter sets of Table~\ref{tab:validation-grid} for the series through $\bA^4$ (circles) and through $\bA^6$ (squares), with lines proportional to $\bA^6$ and $\bA^8$. Lower panels: the same maxima divided by $\bA^6$ and $\bA^8$.}
  \label{fig:validation}
 \end{figure*}
-% Tables II-IV are defined here, in the order in which they are cited, so that they can be placed before Sec. IV.
 \input{tables/validation_grid.tex}
 \input{tables/accuracy.tex}
 \input{tables/forward_angles.tex}
-%
 Figure~\ref{fig:validation} shows these errors for the complete coefficients
 at $\nf=\BenchNf$. The slopes of the curves, discussed below, test the
 scaling $\bA^{p+2}$ expected from the cancellation of the odd powers.
@@ -169,7 +165,6 @@ For the series through $\bA^4$ the same holds for $\mathcal M_1$, while for $\ma
 The maximum is also representative of the grid: at each velocity and
 for both orders the errors at all other points lie within a factor of \ValSpreadWord{}
 of it.
-%
 
 For the series through $\bA^4$, the fitted slopes of the logarithm of the maximum error against $\ln\bA$ over the plotted range are \PoneSlopeFour{}
 for $\mathcal M_1$ and \PtwoSlopeFour{} for $\mathcal M_2$; for the series through $\bA^6$ they are \PoneSlopeSix{} and \PtwoSlopeSix.
@@ -182,10 +177,8 @@ power of $\bA$ as $\bA$ decreases. Towards $\bA=\EdgeBeta$ the scaled errors of 
 
 
 Table~\ref{tab:AA-threshold-accuracy} lists the maximum errors at selected velocities. For $\bA\leq\RecommendedBeta$, the series through $\bA^6$ reproduces $\mathcal M_1$ and $\mathcal M_2$ with relative errors of at most \PoneErrLePointTwo{} and \PtwoErrLePointTwo{}; at $\bA=\EdgeBeta$ the errors are \PoneErrAtPointThree{} and \PtwoErrAtPointThree{}.
-%
 Bose symmetry was checked by comparing the values at $c$ and $-c$: they \BoseStatement{} in \AngularReferenceChecks{} comparisons of the unexpanded coefficients and \AngularSeriesChecks{} of the series.
 The reference values were computed in Mathematica from the expressions of Ref.~\cite{Bhattacharya:2019bmd}. To check their evaluation independently, I wrote a separate Python code with mpmath~\cite{mpmath}. It reads the published files with its own parser and computes $\Li_{2,2}$ from its defining double sum, or from a one-dimensional integral representation where the sum converges slowly. At \ExactPointCount{} points covering the \ExactParameterSets{} parameter sets, the two complete coefficients agree with the reference values to a relative difference of at most \ExactMaxComplete{}, the precision to which the reference values are stored. The \ExactComponentCount{} flavour coefficients, compared at $\bA=\ExactComponentBeta$ and $c=\ExactComponentCos$, agree to \ExactMaxComponent{}. At $c=0$, where $t=u$, the published expressions have removable singularities and are evaluated as limits.
-%
 
 The expansion is made at fixed angle, but $p_T$ vanishes as $c\to\pm1$ at fixed $\bA$, so the series must also be tested close to the beam axis. I therefore compared it with the unexpanded remainders at $c=$ \ForwardCosList{} for $\bA=$ \ForwardBetaList{}. Table~\ref{tab:forward-angles} gives the relative errors of the series through $\bA^6$. \ForwardSummary{} The series thus remains accurate close to the beam, consistent with its coefficients having no poles at $c=\pm1$, only logarithms of $1\pm c$ (Sec.~\ref{sec:leading}).
 

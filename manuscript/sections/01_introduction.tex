@@ -48,7 +48,6 @@ production of axion-like particle pairs, and non-resonant
 $gg\to aa$ production has been used to constrain their
 interactions at the LHC~\cite{Brivio:2026alp}.
 
-%In the HTL, the pseudoscalar couples to gluons through $G\tilde G$ and to light quarks through the divergence of the axial current.
 In the limit of a heavy top quark, a pseudoscalar field
 $\Phi^A(x)$ couples to gluons and light quarks through the
 effective Lagrangian~\cite{Chetyrkin:1998mw}
@@ -73,7 +72,6 @@ axial vector current,
 O_{J}(x)=\partial_{\mu}\left(\bar{\psi}\gamma^{\mu}\gamma^{5}\psi\right) \,.
 \label{eq:Fields EL}
 \end{equation}
-%The effective Lagrangian is obtained after integrating out the top quark fields in the large top mass limit. Hence, the corresponding Wilson coefficients C$_{G}$ and C$_{J}$ depend on the mass of the top quark $m_t$.
 By the Adler--Bardeen theorem~\cite{Adler:1969gk}, $C_G$ receives
 no QCD corrections beyond one loop, whereas $C_J$ starts at second
 order in the strong coupling $\as\equiv g_s^2/16\pi^2=\alpha_s/4\pi$.
@@ -104,7 +102,6 @@ I consider the dominant gluon fusion subprocess
  \label{eq:amp}
 \end{equation}
 with incoming gluon momenta $p_{1,2}^2=0$ and outgoing pseudoscalar momenta $p_{3,4}^2=\mA^2$.
-%
 The amplitude for $gg\to AA$ separates into two classes~\cite{Bhattacharya:2019bmd}. In Type~I, both pseudoscalars originate from a single effective vertex. In Type~II, each pseudoscalar is emitted from its own vertex and the two vertices are connected by gluon exchange in the $t$ or $u$ channel (Fig.~\ref{fig:diagrams}a). In the full theory, the Type~II tree diagrams correspond to two top quark triangles joined by a gluon, the one-particle reducible contributions of Refs.~\cite{DawsonDittmaierSpira1998,Baglio:2023euv}; for Higgs pairs the corresponding class was computed at two loops~\cite{Banerjee:2018lfq}. The two-loop Type~II finite remainders for $gg\to AA$ were obtained in closed form in Ref.~\cite{Bhattacharya:2019bmd}. They contain polylogarithms of weight up to four, among them $\Li_{2,2}$, and inverse powers of the Gram determinant $tu-\mA^4$, which vanishes at the pair threshold. The expressions occupy about \PublishedTwoLoopMB~MB, and large cancellations between their terms make them hard to evaluate close to threshold.
 
 There are two reasons to study this challenging threshold region. The first is phenomenological: in the NLO predictions of Ref.~\cite{Baglio:2023euv}, for $\mA=134.7$~GeV the invariant mass distribution of the pair is larger at $m_{AA}=300$~GeV, about 30~GeV above threshold, than at 400~GeV, and threshold resummation of this distribution requires at each $m_{AA}$ a hard function obtained from the infrared (IR) finite virtual amplitude~\cite{Sterman:1986aj,Catani:1989ne,deFlorian:2012za,deFlorian:2015moa,Bhattacharya:2021nsv}. The point $m_{AA}=300$~GeV corresponds to $\bA\approx\IntroExampleBeta$; the threshold series of this paper is accurate for $\bA\leq\RecommendedBeta$, that is $m_{AA}\lesssim\SeriesMassRatio\times2\mA$, while the forward-limit tests of Sec.~\ref{sec:two-loop} concern selected logarithmic coefficients of the complete amplitude at larger velocities. The second concerns the analytic structure of loop amplitudes. When the transverse momentum $p_T$ of the final state particles vanishes, a one-loop amplitude with massless internal lines can have a Landau singularity~\cite{Landau:1959fi} in which each incoming parton splits into two collinear partons that then take part in two separate $2\to1$ scatterings.
@@ -149,9 +146,7 @@ In this paper, I expand the two-loop Type~II finite remainders of Ref.~\cite{Bha
  \]
  It results from the combination of the interference of the two-loop amplitude with the tree amplitude and the square of the one-loop amplitude.
 \end{enumerate}
-%
-%I also find that the two-loop remainders released with Ref.~\cite{Bhattacharya:2019bmd} are larger by a factor of \FileFactor{} than the tree and one-loop amplitudes of the same reference, and that the released one-loop remainders omit their dependence on the renormalisation scale, so that they are correct only for $\muR=1$~GeV.
-All results are given in a consistent normalisation. The series reproduce the unexpanded remainders with relative errors of at most \PtwoErrLePointTwo{} for $\bA\leq\RecommendedBeta$; they are released together with an evaluator~\cite{SupplementalMaterial}.
+The remainders released with Ref.~\cite{Bhattacharya:2019bmd} are normalised differently at different orders, with a factor \FileFactor{} in the two-loop files and the one-loop files given at $\muR=1$~GeV; I convert them to a common normalisation (App.~\ref{app:normalization}). The series reproduce the unexpanded remainders with relative errors of at most \PtwoErrLePointTwo{} for $\bA\leq\RecommendedBeta$; they are released together with an evaluator~\cite{SupplementalMaterial}.
 
 The paper is organised as follows.
 Section~\ref{sec:setup} sets out the conventions, the normalisation of the remainders and the counting of orders. Section~\ref{sec:expansion} summarises the procedure and describes the expansion and its accuracy. Section~\ref{sec:physics} discusses the leading power terms and their relation to the DPS singularity, and Sec.~\ref{sec:rate} their consequences for the cross section. The conclusions are in Sec.~\ref{sec:conclusions}.

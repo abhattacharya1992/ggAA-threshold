@@ -36,6 +36,9 @@ def manuscript_files():
 
 # local caches that .gitignore also leaves out
 SKIP_FILES = {"results/exact_amplitude_cache.json", "results/li22_store.json"}
+# local files at the top level of the working copy (also in .gitignore)
+LOCAL_SUFFIXES = {".log", ".xz", ".gz", ".tgz"}
+LOCAL_FILES = {"status.sh"}
 
 
 def ancillary_files():
@@ -48,6 +51,8 @@ def ancillary_files():
         if (path.is_dir() or SKIP_DIRS & set(rel.parts) or any(part.startswith(".") for part in rel.parts)
                 or path.suffix in {".pyc", ".tex"} or rel.as_posix() in SKIP_FILES):
             continue
+        if len(rel.parts) == 1 and (path.suffix in LOCAL_SUFFIXES or rel.name in LOCAL_FILES):
+            continue                                   # run logs, monitoring scripts and archives at the top level
         out.append(rel)
     return out
 
