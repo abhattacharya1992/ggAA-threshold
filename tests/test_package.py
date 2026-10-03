@@ -16,7 +16,9 @@ from ggaa.series import ThresholdSeries
 from ggaa.validation import records, relative_error
 
 SERIES = ThresholdSeries()
-
+ONE_LOOP_INPUTS = all(
+    (INPUTS / f"Finite_1Loop_P{i}").exists() for i in (1, 2)
+)
 
 class EndpointConstants(unittest.TestCase):
     def test_reductions(self):
@@ -81,7 +83,7 @@ class TreeLevel(unittest.TestCase):
             self.assertLess(abs(ratio - 1), 1e-3)
 
 
-@unittest.skipUnless((INPUTS / "Finite_1Loop_P1").exists(), "run inputs/fetch_inputs.sh first")
+@unittest.skipUnless(ONE_LOOP_INPUTS, "run inputs/fetch_inputs.sh first")
 class OneLoop(unittest.TestCase):
     def test_reference_values(self):
         from ggaa.oneloop import OneLoop as Evaluator
@@ -115,13 +117,14 @@ class HiggsPairs(unittest.TestCase):
         """One-loop gg -> HH: the forward logarithm follows F_S (data/dps_hh, scripts/check_dps_hh.py)."""
         import csv
         path = pathlib.Path(__file__).resolve().parents[1] / "data" / "dps_hh" / "dps_hh.csv"
-        for r in csv.DictReader(open(path)):
-            x = (1 + float(r["beta"])) / 2
-            fs = 1 / (x * (1 - x)) + 2 * x * (1 - x)
-            fa = 1 / (x * (1 - x)) - 2 * x * (1 - x)
-            self.assertLess(abs(-float(r["HH"]) / fs - 1), 1e-12)
-            self.assertLess(abs(float(r["AA"]) / fa - 1), 1e-12)
-            self.assertLess(float(r["HH_M2/HH_M1"]), 1e-10)
+        with open(path, newline="") as f:
+            for r in csv.DictReader(f):
+                x = (1 + float(r["beta"])) / 2
+                fs = 1 / (x * (1 - x)) + 2 * x * (1 - x)
+                fa = 1 / (x * (1 - x)) - 2 * x * (1 - x)
+                self.assertLess(abs(-float(r["HH"]) / fs - 1), 1e-12)
+                self.assertLess(abs(float(r["AA"]) / fa - 1), 1e-12)
+                self.assertLess(float(r["HH_M2/HH_M1"]), 1e-10)
 
 
 class Renormalisation2019(unittest.TestCase):
@@ -134,6 +137,7 @@ class Renormalisation2019(unittest.TestCase):
 
 
 class JzForward(unittest.TestCase):
+    @unittest.skipUnless(ONE_LOOP_INPUTS, "run inputs/fetch_inputs.sh first")
     def test_forward_double_logarithm(self):
         """Sec. IV D: in the forward limit the l^2 coefficient of the two-loop M_2 is -4 N_c times the one-loop constant."""
         import json
@@ -163,6 +167,7 @@ class M1Forward(unittest.TestCase):
                 self.assertLess(abs(A3.real / p3 - 1), 1e-5)
                 self.assertLess(abs(A2.real / p2 - 1), 5e-5)
 
+    @unittest.skipUnless(ONE_LOOP_INPUTS, "run inputs/fetch_inputs.sh first")
     def test_k1_closed_form(self):
         """Sec. IV D: forward limit of the one-loop |J_z| = 2 remainder, Eq. (K1)."""
         from ggaa import forward as F
