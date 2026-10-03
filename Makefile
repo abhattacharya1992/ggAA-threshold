@@ -5,7 +5,7 @@ SHELL := /bin/bash
 PYTHON ?= python3
 RUN = $(PYTHON) scripts
 
-.PHONY: jz2 nlp-dps m1-forward provenance nf1-inputs reproduce arxiv crossover dps-hh renorm-2019 layout archive log-share diagrams help all inputs series constants leading-logs one-loop exact-check validation tables figures physics-figures numbers manuscript-data dps fig4-2019 rate-logs top-mass lo virtual normalization test paper clean
+.PHONY: jz2 nlp-dps m1-forward provenance nf1-inputs reproduce arxiv crossover dps-hh renorm-2019 layout archive log-share diagrams help all inputs series constants leading-logs one-loop exact-check validation tables figures physics-figures all-figures numbers manuscript-data dps fig4-2019 rate-logs top-mass lo virtual normalization test paper clean
 
 help:
 	@echo "make inputs        download the arXiv:1909.08993 ancillary files (needed for one-loop)"
@@ -21,6 +21,7 @@ help:
 	@echo "make tables        forward-angle and endpoint-constant tables"
 	@echo "make figures       Figs. 1 (diagrams), 2, 4 and 6"
 	@echo "make physics-figures  Figs. 3 and 5 (needs inputs; Fig. 5 needs make virtual)"
+	@echo "make all-figures   regenerate all manuscript figures; runs virtual first for Fig. 5"
 	@echo "make test          quick tests (under a minute)"
 	@echo "make dps           one-loop ln p_T term against the double-parton-scattering singularity (needs inputs)"
 	@echo "make rate-logs     ln p_T terms of the finite virtual corrections V1, V2 (needs inputs)"
@@ -95,6 +96,9 @@ diagrams:
 physics-figures:
 	$(RUN)/make_physics_figures.py
 
+all-figures: figures virtual
+	$(RUN)/make_physics_figures.py
+	
 test:
 	$(PYTHON) -m unittest discover -s tests -v
 

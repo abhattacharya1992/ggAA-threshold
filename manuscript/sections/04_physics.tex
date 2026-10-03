@@ -13,14 +13,14 @@
 \label{sec:leading}
 
 To determine the leading threshold behaviour of the
-two-loop remainders, I first collect the terms of
+two-loop remainders, we first collect the terms of
 order $\bA^0$, including all powers of $\ln\bA$
 that multiply them. The notation $\big|_{\bA^0}$ used below
 denotes this part of the expansion.
 
 In the expanded remainders, the logarithms of $\bA$ and of the angular
 variables appear at leading power in the combination
-$\ln\bA+\tfrac12\ln(1-c^2)$. I therefore introduce
+$\ln\bA+\tfrac12\ln(1-c^2)$. We therefore introduce
 \begin{align}
  \mathcal L
  &=\ln\bA+\tfrac12\ln(1-c^2)+\ln2+\frac{i\pi}{2}
@@ -99,7 +99,7 @@ by Eq.~\eqref{eq:xyz-definition}. The two-loop coefficients have no finite limit
 \subsection{One loop}
 \label{sec:one-loop}
 
-Fitting the one-loop remainders of Ref.~\cite{Bhattacharya:2019bmd} at $\bA=$ \OneLoopFitBetas{} with \OneLoopDigits-digit arithmetic, for $\Nc=$ \OneLoopScanNc, $\nf=$ \OneLoopScanNf{}, two values of $\muR$ and several angles, I find to \OneLoopAgreementDigits{} digits
+Fitting the one-loop remainders of Ref.~\cite{Bhattacharya:2019bmd} at $\bA=$ \OneLoopFitBetas{} with \OneLoopDigits-digit arithmetic, for $\Nc=$ \OneLoopScanNc, $\nf=$ \OneLoopScanNf{}, two values of $\muR$ and several angles, we find to \OneLoopAgreementDigits{} digits
 \begin{align}
  \mathcal M_1^{(1)}&=\mA^2\bigl[\OneLoopAone\,\mathcal L+\widehat A^{(1)}_{10}\bigr]+\Ord(\bA),
  \nonumber\\
@@ -252,7 +252,7 @@ dependence on $x$ can be tested away from
 threshold. The forward limit $c\to1$ at
 fixed velocity also gives $p_T\to0$, but the
 produced bosons now move along the beam.
-Since the test is also applied to $gg\to HH$ later, I denote the velocity and mass of the produced bosons by $\beta$ and $m$, with $\beta=\bA$ and $m=\mA$ for $AA$.
+Since the test is also applied to $gg\to HH$ later, we denote the velocity and mass of the produced bosons by $\beta$ and $m$, with $\beta=\bA$ and $m=\mA$ for $AA$.
 In this limit, the longitudinal velocity of
 the first boson is $2x-1$, so
 $x=(1+\beta)/2$.
@@ -278,7 +278,7 @@ fixed above defines
 The last equality is the prediction to be
 tested: no further adjustment of the
 normalisation is made as $\beta$ is varied.
-I evaluated $D(\beta)$ from the exact one-loop
+We evaluated $D(\beta)$ from the exact one-loop
 remainders using $1-c=10^{-14}$ and
 $10^{-18}$, over
 $\DPSBetaMin\leq\beta\leq\DPSBetaMax$,
@@ -297,7 +297,7 @@ The splittings and colour factors are
 unchanged, while replacing the CP-odd
 vertices by CP-even ones changes $F_A$
 to $F_S$.
-I tested this prediction using the one-loop amplitudes for $gg\to HH$ in which each scalar is emitted from its own effective vertex, at the same mass $m$. I computed them with the code of Ref.~\cite{Bhattacharya:2019bmd}, replacing the CP-odd vertices of $O_G$ by those of the CP-even operator $H\,G^a_{\mu\nu}G^{a\mu\nu}$ and leaving the rest of the calculation unchanged.
+We tested this prediction using the one-loop amplitudes for $gg\to HH$ in which each scalar is emitted from its own effective vertex, at the same mass $m$. We computed them with the code of Ref.~\cite{Bhattacharya:2019bmd}, replacing the CP-odd vertices of $O_G$ by those of the CP-even operator $H\,G^a_{\mu\nu}G^{a\mu\nu}$ and leaving the rest of the calculation unchanged.
 The code reproduces the one-loop $AA$
 result of that reference to
 \HHReproduceDigits{} digits, and the
@@ -443,12 +443,12 @@ The following tests indicate that the relation of Eq.~\eqref{eq:log-relation} ex
 \end{align}
 with $C_1$ from Eq.~\eqref{eq:dps-prediction}. In the threshold series, Eq.~\eqref{eq:forward-relation} holds exactly through $\bA^6$ for general $\Nc$ and $\nf$; at fixed angle, the coefficient of $\mathcal L^3$ follows the expansion of $F_A\bigl((1+\bA)/2\bigr)$ order by order.
 
-Away from threshold I evaluated the released two-loop remainder of $\mathcal M_1$ at $1-c=10^{-6},\ldots,10^{-10}$ with \MoneFwdDigits-digit arithmetic, checked with \MoneFwdCheckDigits{} digits, which agree to at least \MoneFwdCheckAgreement{} digits, and fitted a cubic polynomial in $\ln(1-c)$. For $\MoneFwdBetaMin\leq\beta\leq\MoneFwdBetaMax$ and $(\Nc,\nf)=$ \MoneFwdSets, the real parts of the fitted coefficients of $\mathcal G^3$ and $\mathcal G^2$ agree with Eq.~\eqref{eq:forward-relation} to \MoneFwdDevThree{} and \MoneFwdDevTwo{} (Fig.~\ref{fig:dps}), and their imaginary parts are below \MoneFwdImag{} of their magnitudes, when the point at $1-c=10^{-6}$ is left out; with it, the deviations are about \MoneFwdWindowFactor{} times larger, as expected from power corrections in $1-c$. Within the range tested, the two-loop leading logarithms of $\mathcal M_1$ in the forward limit are therefore the one-loop DPS logarithm, with its helicity weight $F_A(x)$, multiplied by the same factor at every velocity.
+Away from threshold we evaluated the released two-loop remainder of $\mathcal M_1$ at $1-c=10^{-6},\ldots,10^{-10}$ with \MoneFwdDigits-digit arithmetic, checked with \MoneFwdCheckDigits{} digits, which agree to at least \MoneFwdCheckAgreement{} digits, and fitted a cubic polynomial in $\ln(1-c)$. For $\MoneFwdBetaMin\leq\beta\leq\MoneFwdBetaMax$ and $(\Nc,\nf)=$ \MoneFwdSets, the real parts of the fitted coefficients of $\mathcal G^3$ and $\mathcal G^2$ agree with Eq.~\eqref{eq:forward-relation} to \MoneFwdDevThree{} and \MoneFwdDevTwo{} (Fig.~\ref{fig:dps}), and their imaginary parts are below \MoneFwdImag{} of their magnitudes, when the point at $1-c=10^{-6}$ is left out; with it, the deviations are about \MoneFwdWindowFactor{} times larger, as expected from power corrections in $1-c$. Within the range tested, the two-loop leading logarithms of $\mathcal M_1$ in the forward limit are therefore the one-loop DPS logarithm, with its helicity weight $F_A(x)$, multiplied by the same factor at every velocity.
 
 The $|J_z|=2$ amplitude acquires a logarithm at two loops: the term
 $\widehat A_{22}\mathcal L^2$, with
 $\widehat A_{22}=(\MtwoRelation)\cdot\OneLoopMtwo$, is the one-loop
-constant multiplied by $\MtwoRelation\,\mathcal L^2$. The forward-limit calculation described next indicates that the same coefficient relation persists away from threshold. In the forward limit $c\to1$ at fixed velocity, where $p_T\to0$ as well, I evaluated the released two-loop remainder of $\mathcal M_2$ at $1-c=$ \JzExponents{} with \JzDigits-digit arithmetic and fitted a quadratic polynomial in $\ln(1-c)$; a repetition with \JzCheckDigits{} digits agrees to at least \JzCheckAgreement{} digits. For $\JzBetaMin\leq\beta\leq\JzBetaMax$ and $(\Nc,\nf)=$ \JzSets, the real part of the coefficient of $\ln^2(2p_T/m)$ equals $-4\Nc$ times the forward limit of $\mathcal M_2^{(1)}$ to \JzMaxDev, although that limit varies by a factor of \JzKOneRatio{} over this range. Its imaginary part, which vanishes in the proposed coefficient relation, is below \JzImag{} of its magnitude, and including the point at $1-c=10^{-4}$ in the fit increases the deviation to \JzMaxDevWide, as expected from power corrections. Within the range tested, the one-loop amplitude and the fitted two-loop logarithm are therefore consistent with
+constant multiplied by $\MtwoRelation\,\mathcal L^2$. The forward-limit calculation described next indicates that the same coefficient relation persists away from threshold. In the forward limit $c\to1$ at fixed velocity, where $p_T\to0$ as well, we evaluated the released two-loop remainder of $\mathcal M_2$ at $1-c=$ \JzExponents{} with \JzDigits-digit arithmetic and fitted a quadratic polynomial in $\ln(1-c)$; a repetition with \JzCheckDigits{} digits agrees to at least \JzCheckAgreement{} digits. For $\JzBetaMin\leq\beta\leq\JzBetaMax$ and $(\Nc,\nf)=$ \JzSets, the real part of the coefficient of $\ln^2(2p_T/m)$ equals $-4\Nc$ times the forward limit of $\mathcal M_2^{(1)}$ to \JzMaxDev, although that limit varies by a factor of \JzKOneRatio{} over this range. Its imaginary part, which vanishes in the proposed coefficient relation, is below \JzImag{} of its magnitude, and including the point at $1-c=10^{-4}$ in the fit increases the deviation to \JzMaxDevWide, as expected from power corrections. Within the range tested, the one-loop amplitude and the fitted two-loop logarithm are therefore consistent with
 \begin{equation}
  \as\mathcal M_2^{(1)}\bigl[1-4\Nc\as\ln^2(2p_T/m)\bigr],
  \label{eq:jz2-forward}
@@ -478,7 +478,7 @@ The forward limit of $\mathcal M_2^{(1)}$ itself has a closed form. The exact on
  \lim_{c\to1}\frac{\mathcal M_2^{(1)}}{m^2}=\pi\Nc\,\frac{x^4+(1-x)^4}{x(1-x)},\qquad x=\frac{1+\beta}{2},
  \label{eq:K1}
 \end{equation}
-to \KOneClosedDev{} for $\KOneBetaMin\leq\beta\leq\KOneBetaMax$ and both sets of $(\Nc,\nf)$; at threshold it gives $\OneLoopMtwo$. With the weights of Eq.~\eqref{eq:splitting-weights}, the fraction in Eq.~\eqref{eq:K1} equals $w_{+-}(x)w_{-+}(1-x)+w_{-+}(x)w_{+-}(1-x)$: the helicity sum of Sec.~\ref{sec:dps} for the two pairings that an opposite-helicity initial state allows when each effective vertex receives two gluons of equal helicity, with the same overall factor $\pi\Nc$ as in Eq.~\eqref{eq:dps-prediction}. The one-loop constant of $\mathcal M_2$ thus has the form expected if it arose from the DPS region, where the azimuthal phase of these pairings removes the logarithm and leaves a finite term; I have not derived this from the factorisation formula. The two helicity amplitudes therefore provide an explicit two-loop QCD benchmark for a more general description of this singular kinematic region.
+to \KOneClosedDev{} for $\KOneBetaMin\leq\beta\leq\KOneBetaMax$ and both sets of $(\Nc,\nf)$; at threshold it gives $\OneLoopMtwo$. With the weights of Eq.~\eqref{eq:splitting-weights}, the fraction in Eq.~\eqref{eq:K1} equals $w_{+-}(x)w_{-+}(1-x)+w_{-+}(x)w_{+-}(1-x)$: the helicity sum of Sec.~\ref{sec:dps} for the two pairings that an opposite-helicity initial state allows when each effective vertex receives two gluons of equal helicity, with the same overall factor $\pi\Nc$ as in Eq.~\eqref{eq:dps-prediction}. The one-loop constant of $\mathcal M_2$ thus has the form expected if it arose from the DPS region, where the azimuthal phase of these pairings removes the logarithm and leaves a finite term; we have not derived this from the factorisation formula. The two helicity amplitudes therefore provide an explicit two-loop QCD benchmark for a more general description of this singular kinematic region.
 
 
 Figure~\ref{fig:amplitudes} compares the three orders. With $\as=\BenchAs$ ($\alpha_s=\BenchAlphaS$), at $\bA=\LoopSizeBeta$ and $c=\BenchCos$, the one- and two-loop terms of $\mathcal M_1$ are \MoneOneLoopRatio{} and \MoneTwoLoopRatio{} times the tree term, and the one-loop term of $\mathcal M_2$ is \MtwoOneLoopRatio{} times the tree term. The last ratio grows as $\bA^{-2}$ towards threshold, since the tree-level $|J_z|=2$ amplitude vanishes there. The one-loop terms include the scale term of Eq.~\eqref{eq:normalisation}. Towards threshold, the loop terms of $\mathcal M_1$ grow with $|\mathcal L|$, the two-loop term as $|\mathcal L|^3$ and the one-loop term as $|\mathcal L|$, so that below $\bA\approx\CrossoverBeta$ the two-loop term exceeds the one-loop term at this angle. Because the logarithms are out of phase with the tree amplitude, the strongest of them are absent from the finite virtual correction (Sec.~\ref{sec:rate}). In panel (b) the one-loop term of $\mathcal M_2$ tends to the constant of Eq.~\eqref{eq:one-loop-threshold}, while the two-loop term grows as $\mathcal L^2$, the logarithm that the $|J_z|=2$ amplitude acquires at two loops.

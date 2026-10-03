@@ -104,10 +104,10 @@ def fig_validation(table):
         anchor = int(np.argmin(abs(beta - 0.02)))
 
         top = ax[0, col]
-        top.loglog(beta, e4, color=BLACK, marker="o", mfc="none", label=r"through $\beta_A^4$")
-        top.loglog(beta, e6, color=RED, marker="s", mfc="none", ls="--", label=r"through $\beta_A^6$")
-        top.loglog(beta, e4[anchor] * (beta / beta[anchor]) ** 6, color=GREY, ls=":", lw=0.9, label=r"$\propto\beta_A^6$")
-        top.loglog(beta, e6[anchor] * (beta / beta[anchor]) ** 8, color=GREY, ls="-.", lw=0.9, label=r"$\propto\beta_A^8$")
+        top.loglog(beta, e4, color=BLACK, marker="o", mfc=BLACK, ms=4.5, mew=0.8, lw=0.65, zorder=3, label=r"through $\beta_A^4$")
+        top.loglog(beta, e6, color=RED, marker="s", mfc=RED, mec=RED, ls="--", ms=4.5, mew=0.8, lw=0.65, zorder=3, label=r"through $\beta_A^6$")
+        top.loglog(beta, e4[anchor] * (beta / beta[anchor]) ** 6, color=GREY, ls=":", lw=0.7, zorder=1, label=r"$\propto\beta_A^6$")
+        top.loglog(beta, e6[anchor] * (beta / beta[anchor]) ** 8, color=GREY, ls="-.", lw=0.7, zorder=1, label=r"$\propto\beta_A^8$")
         top.set_ylabel("maximum relative error")
         headroom(top, 0.12, log=True)
         finish_axis(top, ("(a)" if col == 0 else "(b)") + rf"  $\mathcal{{M}}_{col + 1}$")
@@ -116,8 +116,8 @@ def fig_validation(table):
             top.legend(loc="lower right")
 
         bottom = ax[1, col]
-        bottom.semilogx(beta, e4 / beta**6, color=BLACK, marker="o", mfc="none", label=r"$E_4/\beta_A^6$")
-        bottom.semilogx(beta, e6 / beta**8, color=RED, marker="s", mfc="none", ls="--", label=r"$E_6/\beta_A^8$")
+        bottom.semilogx(beta, e4 / beta**6, color=BLACK, marker="o", mfc=BLACK, ms=4.5, mew=0.8, lw=0.65, zorder=3, label=r"$E_4/\beta_A^6$")
+        bottom.semilogx(beta, e6 / beta**8, color=RED, marker="s", mfc=RED, ls="--", ms=4.5, mew=0.9, lw=0.65, zorder=3, label=r"$E_6/\beta_A^8$")
         bottom.set_xlabel(r"$\beta_A$")
         bottom.set_ylabel("scaled relative error")
         headroom(bottom, 0.22)
@@ -147,7 +147,7 @@ def fig_flavour(table):
         rows = flavour_terms(table, i)
         x = [r[0] for r in rows]
         for k, (c, m, ls, lab) in enumerate(styles):
-            axes[j].loglog(x, [float(abs(r[1][k]) / abs(r[2])) for r in rows], color=c, marker=m, mfc="none", ls=ls, label=lab)
+            axes[j].loglog(x, [float(abs(r[1][k]) / abs(r[2])) for r in rows], color=c, marker=m, mfc=c, mec=c, ms=4.5, mew=0.8, ls=ls, lw=0.65, zorder=3, label=lab)
         axes[j].axhline(1.0, color=GREY, ls=":", lw=0.8)
         axes[j].set_ylabel(rf"$|a_r|/|\mathcal{{M}}_{i}(5)|$")
         headroom(axes[j], 0.3, log=True)
@@ -167,9 +167,7 @@ def fig_interference(table):
             x.append(b)
             deficit.append(float(1 - abs(total) / sum(size)))
             interference.append(float((abs(total) ** 2 - sum(s**2 for s in size)) / sum(s**2 for s in size)))
-        handles = [axes[j].semilogx(x, deficit, color=INK, marker="o", label=r"magnitude deficit $D_i$")[0],
-                   axes[j].semilogx(x, interference, color=WINE, marker="s", ls="--",
-                                    label=r"signed interference $I_i$")[0]]
+        handles = [axes[j].semilogx( x, deficit, color=INK, marker="o", mfc=INK, mec=INK, ms=4.5, mew=0.8, lw=0.65, zorder=3, label=r"magnitude deficit $D_i$")[0],axes[j].semilogx( x, interference, color=WINE, marker="s", ls="--", mfc=WINE, mec=WINE, ms=4.5, mew=0.8, lw=0.65, zorder=3, label=r"signed interference $I_i$")[0] ]
         axes[j].axhline(0.0, color=GREY, lw=0.75)
         axes[j].set_ylim(-0.62, 0.55)
         axes[j].set_xlabel(r"$\beta_A$")
@@ -187,15 +185,18 @@ def fig_ratio(table):
     plt.subplots_adjust(left=0.09, right=0.985, bottom=0.18, top=0.75, wspace=0.29)
     betas = sorted({k[2] for k in table})
     handles = []
-    for angle, color, marker, ls in ((Fraction(0), INK, "o", "-"), (Fraction(1, 3), WINE, "s", "--"),
-                                     (Fraction(2, 3), TEAL, "^", "-.")):
+    for angle, color, marker, ls, label in (
+        (Fraction(0), INK, "o", "-", r"$c=0$"),
+        (Fraction(1, 3), WINE, "s", "--", r"$c=1/3$"),
+        (Fraction(2, 3), TEAL, "^", "-.", r"$c=2/3$"),
+    ):
         ratios = [complex(table[("M2_nf5", BENCHMARK, b, angle)]["exact"] /
                           table[("M1_nf5", BENCHMARK, b, angle)]["exact"]) for b in betas]
         x = [float(b) for b in betas]
         phase = np.degrees(np.unwrap([math.atan2(r.imag, r.real) for r in ratios]))
-        handles.append(axes[0].semilogx(x, [abs(r) for r in ratios], color=color, marker=marker, ls=ls,
-                                        label=rf"$c={angle}$")[0])
-        axes[1].semilogx(x, phase, color=color, marker=marker, ls=ls)
+        filled_face = "none" if marker in ["+", "x", "1", "2", "3", "4"] else color  
+        handles.append(  axes[0].semilogx(   x,   [abs(r) for r in ratios],   color=color,   marker=marker,   mfc=filled_face,   mec=color,   ms=4.5,   mew=0.8,   ls=ls,   lw=0.65,   zorder=3, label=label)[0] )  
+        axes[1].semilogx(  x,  phase,  color=color,  marker=marker,  mfc=filled_face,  mec=color,  ms=4.5,  mew=0.8,  ls=ls,  lw=0.65,  zorder=3 )
     axes[0].set_ylabel(r"$|\mathcal{M}_2/\mathcal{M}_1|$")
     axes[1].set_ylabel(r"$\arg(\mathcal{M}_2/\mathcal{M}_1)$ [deg]")
     for j, ax in enumerate(axes):
@@ -223,10 +224,12 @@ def fig_dps():
     rows = F.load() if F.POINTS.exists() else []
     narrow = F.table(rows, (7, 8, 9, 10)) if rows else []
     # coefficient -> colour, symbol, size, filled, offset in (b), legend label
-    style = {"AA": (BLACK, "o", 6.4, False, -0.022, r"one loop, $D$ ($AA$)"),
-             "HH": (GREEN, "^", 5.6, False, 0.022, r"one loop, $-D$ ($HH$)"),
-             "G3": (RED, "D", 3.6, True, -0.022, r"two loops, $\mathcal{G}^3$"),
-             "G2": (BLUE, "+", 7.0, False, 0.022, r"two loops, $\mathcal{G}^2$")}
+    style = {
+        "AA": (BLACK, "o", 5.4, True,  -0.018, r"one loop, $D$ ($AA$)"),
+        "HH": (GREEN, "^", 5.6, False,  0.018, r"one loop, $-D$ ($HH$)"),
+        "G3": (RED,   "D", 4.4, True,  -0.018, r"two loops, $\mathcal{G}^3$"),
+        "G2": (BLUE,  "+", 7.0, False,  0.018, r"two loops, $\mathcal{G}^2$")
+    }
     pair = {(3, 5): -0.009, (4, 2): 0.009}           # (b): left (3, 5), right (4, 2)
     fa = lambda b: 1 / (((1 + b) / 2) * ((1 - b) / 2)) - 2 * ((1 + b) / 2) * ((1 - b) / 2)
     series = {}                                       # (coefficient, set) -> (betas, values, deviations)
@@ -243,13 +246,13 @@ def fig_dps():
 
     def draw(axis, x, y, key):
         c, m, size, filled, _, _ = style[key]
-        axis.plot(x, y, m, color=c, ms=size, mfc=c if filled else "none", mec=c, mew=1.0, ls="none", zorder=3)
+        axis.plot(x, y, m, color=c, ms=size, mfc=c if filled else "none", mec=c, mew=0.9, ls="none", zorder=3)
 
     fig, ax = plt.subplots(2, 1, figsize=(3.375, 4.5), sharex=True, gridspec_kw=dict(height_ratios=[1.25, 1]))
     plt.subplots_adjust(left=0.165, right=0.97, bottom=0.09, top=0.985, hspace=0.06)
     xs = np.linspace(0.0, 0.78, 200)
-    ax[0].plot(xs, fa(xs), color=BLACK, lw=0.9, zorder=1)
-    ax[0].plot(xs, fa(xs) + 4 * ((1 + xs) / 2) * ((1 - xs) / 2), color=BLACK, ls="--", lw=0.9, zorder=1)
+    ax[0].plot(xs, fa(xs), color=BLUE, lw=0.75, zorder=1)
+    ax[0].plot(xs, fa(xs) + 4 * ((1 + xs) / 2) * ((1 - xs) / 2), color=RED, ls="--", lw=0.75, zorder=1)
     ax[1].set_yscale("log")
     for (key, st), (bs, vals, devs) in series.items():
         if st == (3, 5):
@@ -261,8 +264,8 @@ def fig_dps():
     ax[0].set_ylim(3.0, 9.8)
     ax[1].set_ylim(3e-17, 3e-3)
     ax[1].set_xlim(-0.05, 0.77)
-    handles = [Line2D([], [], color=BLACK, lw=0.9, label=r"$F_A((1+\beta)/2)$"),
-               Line2D([], [], color=BLACK, lw=0.9, ls="--", label=r"$F_S((1+\beta)/2)$")]
+    handles = [Line2D([], [], color=BLACK, lw=0.85, label=r"$F_A((1+\beta)/2)$"),
+               Line2D([], [], color=BLACK, lw=0.85, ls="--", label=r"$F_S((1+\beta)/2)$")]
     handles += [Line2D([], [], color=c, marker=m, ms=size, mfc=c if filled else "none", mec=c, mew=1.0, ls="none", label=lab)
                 for c, m, size, filled, _, lab in style.values()]
     ax[0].legend(handles=handles, loc="upper left", fontsize=6.8, frameon=False, handlelength=1.8, labelspacing=0.35)

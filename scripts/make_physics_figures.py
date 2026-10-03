@@ -48,7 +48,7 @@ def fig_amplitudes():
         }
         x = [float(b) for b in betas]
         for (label, values), colour, marker, ls in zip(curves.items(), (GREY, BLACK, RED), ("o", "s", "^"), (":", "-", "--")):
-            ax.loglog(x, [float(v) for v in values], color=colour, marker=marker, mfc="none", ls=ls, label=label)
+            ax.loglog(x, [float(v) for v in values], color=colour, marker=marker, mfc=colour, mec=colour, ms=4.5, mew=0.8, ls=ls, lw=0.65, zorder=3, label=label)
         ax.set_xlabel(r"$\beta_A$")
         ax.set_ylabel(rf"$|a_s^n\,\mathcal{{M}}_{i}^{{(n)}}|/m_A^2$")
         headroom(ax, 0.25, log=True)
@@ -63,16 +63,17 @@ def fig_cross_section():
     fig, (left, right) = plt.subplots(1, 2, figsize=(WIDE, 2.7))
     betas = [mp.mpf(10) ** (e / mp.mpf(4)) for e in range(-12, 0)] + [mp.mpf("0.9")]
     left.loglog([float(b) for b in betas], [float(sigma(b, mA=M_A, alpha_s=benchmark.ALPHA_S, cot_beta=benchmark.COT_BETA)) for b in betas],
-                color=BLACK, marker="o", mfc="none")
+                color=BLACK, marker="o", mfc=BLACK, mec=BLACK, ms=4.5, mew=0.8, lw=0.65, zorder=3)
     left.set_xlabel(r"$\beta_A$")
     left.set_ylabel(r"$\hat\sigma_{\rm LO}$ [pb]")
     headroom(left, 0.12, log=True)
     finish_axis(left, "(a)")
-    rows = list(csv.DictReader(open(RESULTS / "virtual_correction.csv")))
+    with open(RESULTS / "virtual_correction.csv", newline="") as f:
+    	rows = list(csv.DictReader(f))
     a_s = benchmark.ALPHA_S / (4 * float(mp.pi))
     x = [float(r["beta"]) for r in rows]
-    right.semilogx(x, [a_s * float(r["V1"]) for r in rows], color=BLACK, marker="o", mfc="none", label=r"$a_s V_1$")
-    right.semilogx(x, [a_s**2 * float(r["V2"]) for r in rows], color=RED, marker="s", mfc="none", ls="--", label=r"$a_s^2 V_2$")
+    right.semilogx( x, [a_s * float(r["V1"]) for r in rows], color=BLACK, marker="o", mfc=BLACK, mec=BLACK, ms=4.5, mew=0.8, lw=0.65, zorder=3, label=r"$a_s V_1$")
+    right.semilogx( x, [a_s**2 * float(r["V2"]) for r in rows], color=RED, marker="s", mfc=RED, mec=RED, ms=4.5, mew=0.8, ls="--", lw=0.65, zorder=3, label=r"$a_s^2 V_2$")
     right.set_xlabel(r"$\beta_A$")
     right.set_ylabel(r"$a_s^n V_n$")
     headroom(right, 0.3)
