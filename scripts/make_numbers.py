@@ -108,6 +108,10 @@ EDGE_BETA = Fraction(3, 10)             # largest validated velocity
 
 def parameters():
     define("RecommendedBeta", f"{float(RECOMMENDED_BETA):g}")
+    # range of the series in m_AA, and the velocity of the example of Ref. [Baglio:2023euv] in Sec. I
+    define("SeriesMassRatio", f"{1 / math.sqrt(1 - float(RECOMMENDED_BETA) ** 2):.2f}")
+    mA_example, mAA_example = 134.7, 300.0          # GeV, quoted from Ref. [Baglio:2023euv] in Sec. I
+    define("IntroExampleBeta", f"{math.sqrt(1 - (2 * mA_example / mAA_example) ** 2):.2f}")
     define("EdgeBeta", f"{float(EDGE_BETA):g}")
     define("BenchMA", benchmark.M_A)
     define("BenchMuR", benchmark.MU_R)

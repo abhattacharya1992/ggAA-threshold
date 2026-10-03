@@ -20,7 +20,7 @@ help:
 	@echo "make normalization checks of the tree, one-loop and two-loop normalization (needs inputs)"
 	@echo "make tables        forward-angle and endpoint-constant tables"
 	@echo "make figures       Figs. 1 (diagrams), 2, 3 and 6"
-	@echo "make physics-figures  Figs. 4 and 5 (needs inputs; Fig. 5 needs make virtual)"
+	@echo "make physics-figures  Figs. 3 and 5 (needs inputs; Fig. 5 needs make virtual)"
 	@echo "make test          quick tests (under a minute)"
 	@echo "make dps           one-loop ln p_T term against the double-parton-scattering singularity (needs inputs)"
 	@echo "make rate-logs     ln p_T terms of the finite virtual corrections V1, V2 (needs inputs)"
@@ -31,7 +31,7 @@ help:
 	@echo "make paper         regenerate tables and numbers, build manuscript/main.pdf, print the layout report (needs inputs)"
 	@echo "make arxiv         after make paper: build/ggAA-threshold-arxiv.tar.gz with main.bbl and anc/"
 	@echo "make crossover     velocity below which the two-loop term of M1 exceeds the one-loop term"
-	@echo "make dps-hh        one-loop gg -> HH: forward logarithm against F_S (data/dps_hh; Fig. 3, Sec. IV C)"
+	@echo "make dps-hh        one-loop gg -> HH: forward logarithm against F_S (data/dps_hh; Fig. 4, Sec. IV C)"
 	@echo "make renorm-2019   earlier 2019 run vs published renormalisation; June 2019 pole record (App. B)"
 	@echo "make jz2           forward limit of the two-loop |J_z|=2 amplitude (Sec. IV D), from the stored points; needs inputs"
 	@echo "make nlp-dps       two-loop DPS logarithms beyond leading power in the threshold series (Sec. IV D)"
@@ -154,8 +154,8 @@ numbers:
 manuscript-data: tables numbers
 
 paper: manuscript-data
-	$(MAKE) -C manuscript
-	$(PYTHON) scripts/check_layout.py
+	@if [ -d manuscript ]; then $(MAKE) -C manuscript && $(PYTHON) scripts/check_layout.py; \
+	else echo "arXiv layout: the manuscript is in the directory above anc/; run pdflatex main.tex there three times."; fi
 
 layout:
 	$(PYTHON) scripts/check_layout.py

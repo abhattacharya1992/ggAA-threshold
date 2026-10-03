@@ -98,6 +98,9 @@ series.component(2, 1, "1/10", "1/3")          # coefficient of n_f^1 in M_2
 | paper | `make inputs paper` | `manuscript/main.pdf` and the layout report |
 | arXiv submission (after `make paper`) | `make arxiv` | `build/ggAA-threshold-arxiv.tar.gz` |
 
+`make paper` works in the repository layout. In the arXiv archive the manuscript is in the
+directory above `anc/`: there run `make manuscript-data` in `anc/` if needed and then
+`pdflatex main.tex` three times in the top directory (`main.bbl` is included).
 `make all` needs the downloaded inputs (`make inputs`) for the numbers of the text; it runs `series`,
 `constants`, `leading-logs`, `validation`, `tables`, `figures` and `numbers`, and the other targets in the
 table are run separately; `make exact-check` takes about 45 minutes. `make constants` takes a few minutes at 110 digits; the other targets take
@@ -113,8 +116,9 @@ at most a few minutes each.
   functions `Log`, `PolyLog[2, (1 + costh)/2]`, `PolyLog[4, 1/2]`, `Zeta[3]`.
 - The expansion is at fixed angle. It was compared with the unexpanded remainders for
   10⁻³ ≤ β_A ≤ 0.3 and |cos θ| ≤ 2/3 on three parameter sets, and for β_A = 0.1, 0.2, 0.3
-  up to |cos θ| = 0.999 (`data/README.md`). Towards the beam the truncation error stays
-  within the range found on the main grid.
+  up to |cos θ| = 0.999 (`data/README.md`). Towards the beam the truncation error stays within the range found on the main grid at
+  the same β_A, except for M₁ at β_A = 0.1, where the value at cos θ = 0.999 is 21% larger
+  (Sec. III C).
 
 ## Main results
 
@@ -184,8 +188,9 @@ Three points limit their interpretation:
   its two-loop output (`make archive`).
   `make normalization` checks both: the corrected one-loop remainders scale correctly, and
   dM⁽²⁾/d ln μ² = 3 β₀ M⁽¹⁾ + (2β₁ − 8H_g⁽²⁾ − 12 C_F n_f) M⁽⁰⁾ holds to the accuracy of the
-  series (the published files give 192 β₀ M⁽¹⁾). Relative errors, cancellations, the
-  structure of the expansion and all ln p_T coefficients do not depend on either correction.
+  series (the published files give 192 β₀ M⁽¹⁾). Relative errors, cancellations and the powers of
+  the logarithms do not depend on either correction; the numerical two-loop coefficients (÷ 64) and
+  their comparison with lower orders do, and the μ_R term changes the one-loop constant and V₁, V₂.
 - V₂ does not include the O_G–O_J contribution proportional to the physical C_J (m_t dependent).
 
 ## Provenance

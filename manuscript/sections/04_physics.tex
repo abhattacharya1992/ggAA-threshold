@@ -432,22 +432,29 @@ flavours enters it only through $\beta_0$.
 
 The same $\beta_0$ term appears in the NLO momentum-space kernel for the
 splitting $g\to gg$ in unpolarised colour singlet double parton
-distributions~\cite{Diehl:2019rdh}, in which the transverse momentum
-mismatch $\Delta$ between amplitude and conjugate amplitude plays the role
-of $p_T$. Equations~(50) and (135) of Ref.~\cite{Diehl:2019rdh} give the
+distributions~\cite{Diehl:2019rdh}, in which the logarithms are of the transverse momentum mismatch $\Delta$ between amplitude and conjugate amplitude, not of the transverse momentum of a produced particle; the comparison concerns the coefficients of the logarithms only. Equations~(50) and (135) of Ref.~\cite{Diehl:2019rdh} give the
 coefficient of $\ln^2(\mu^2/\Delta^2)$ in units of $\alpha_s/2\pi$;
 relative to the LO term, its $\beta_0$ part corresponds to
 $-2\beta_0\mathcal L$ in the normalisation of $\as$ used here. Half of it
 comes from the renormalisation of the coupling and half from the
 $\delta$-function parts of the DGLAP kernels, so that the running of the
-coupling alone would give $-\beta_0\mathcal L$. The other terms of the
-kernel have no counterpart in the amplitude: a term proportional to
+coupling alone would give $-\beta_0\mathcal L$. The other terms of the kernel are not part of this comparison: a term proportional to
 $C_A\ln[x(1-x)]$ from the plus distributions, which contributes where the
 two momentum fractions add up to one, and the real emission terms, which
 contribute where they add up to less than one.
 
 
-The relation of Eq.~\eqref{eq:log-relation} is not restricted to threshold. In the forward limit at fixed velocity a convenient variable is $\mathcal G=\tfrac12\ln[(\mA^4-tu)/\mA^4]=\mathcal L-\ln(1-\bA^2)$, in which the one-loop DPS logarithm is $C_1\mathcal G$ with $C_1=2\pi\Nc m^2F_A\bigl((1+\beta)/2\bigr)$, by Eq.~\eqref{eq:dps-prediction}. In this limit the two-loop logarithms of the threshold series are exactly $C_1\bigl[-\tfrac43\Nc\,\mathcal G^3-2\beta_0\,\mathcal G^2\bigr]$ through $\bA^6$, for general $\Nc$ and $\nf$; at fixed angle, the coefficient of $\mathcal L^3$ follows the expansion of $F_A\bigl((1+\bA)/2\bigr)$ order by order. Away from threshold I evaluated the released two-loop remainder of $\mathcal M_1$ at $1-c=10^{-6},\ldots,10^{-10}$ with \MoneFwdDigits-digit arithmetic, checked with \MoneFwdCheckDigits{} digits, which agree to at least \MoneFwdCheckAgreement{} digits, and fitted a cubic polynomial in $\ln(1-c)$. For $\MoneFwdBetaMin\leq\beta\leq\MoneFwdBetaMax$ and $(\Nc,\nf)=$ \MoneFwdSets, the coefficients of $\mathcal G^3$ and $\mathcal G^2$ agree with this form to \MoneFwdDevThree{} and \MoneFwdDevTwo{} (Fig.~\ref{fig:dps}), with imaginary parts below \MoneFwdImag{} of their magnitudes, when the point at $1-c=10^{-6}$ is left out; with it, the deviations are about \MoneFwdWindowFactor{} times larger, as expected from power corrections in $1-c$. In the forward limit, the two-loop leading logarithms of $\mathcal M_1$ are therefore the one-loop DPS logarithm, with its helicity weight $F_A(x)$, multiplied by the same factor at every velocity tested.
+The following tests indicate that the relation of Eq.~\eqref{eq:log-relation} extends beyond threshold. In the forward limit at fixed velocity a convenient variable is $\mathcal G=\tfrac12\ln[(\mA^4-tu)/\mA^4]=\mathcal L-\ln(1-\bA^2)$, in which the one-loop DPS logarithm is $C_1\mathcal G$ and the relation reads
+\begin{align}
+ \mathcal M_1^{(2)}&\supset C_1\Bigl[-\frac43\Nc\,\mathcal G^3-2\beta_0\,\mathcal G^2\Bigr],
+ \label{eq:forward-relation}
+ \\
+ C_1&=2\pi\Nc m^2F_A\Bigl(\frac{1+\beta}{2}\Bigr),
+ \nonumber
+\end{align}
+with $C_1$ from Eq.~\eqref{eq:dps-prediction}. In the threshold series, Eq.~\eqref{eq:forward-relation} holds exactly through $\bA^6$ for general $\Nc$ and $\nf$; at fixed angle, the coefficient of $\mathcal L^3$ follows the expansion of $F_A\bigl((1+\bA)/2\bigr)$ order by order.
+
+Away from threshold I evaluated the released two-loop remainder of $\mathcal M_1$ at $1-c=10^{-6},\ldots,10^{-10}$ with \MoneFwdDigits-digit arithmetic, checked with \MoneFwdCheckDigits{} digits, which agree to at least \MoneFwdCheckAgreement{} digits, and fitted a cubic polynomial in $\ln(1-c)$. For $\MoneFwdBetaMin\leq\beta\leq\MoneFwdBetaMax$ and $(\Nc,\nf)=$ \MoneFwdSets, the real parts of the fitted coefficients of $\mathcal G^3$ and $\mathcal G^2$ agree with Eq.~\eqref{eq:forward-relation} to \MoneFwdDevThree{} and \MoneFwdDevTwo{} (Fig.~\ref{fig:dps}), and their imaginary parts are below \MoneFwdImag{} of their magnitudes, when the point at $1-c=10^{-6}$ is left out; with it, the deviations are about \MoneFwdWindowFactor{} times larger, as expected from power corrections in $1-c$. Within the range tested, the two-loop leading logarithms of $\mathcal M_1$ in the forward limit are therefore the one-loop DPS logarithm, with its helicity weight $F_A(x)$, multiplied by the same factor at every velocity.
 
 The $|J_z|=2$ amplitude acquires a logarithm at two loops: the term
 $\widehat A_{22}\mathcal L^2$, with
@@ -468,9 +475,7 @@ factor $\exp(-\gamma_K\ln^2\delta/8)$ of Ref.~\cite{DixonEsterlis2016},
 with the cusp anomalous dimension $\gamma_K=4a$. However, two loops cannot
 decide whether this factor exponentiates in QCD. The $J_z$ argument of
 Sec.~\ref{sec:dps} concerns the one-loop singularity and does not forbid
-this logarithm. Nor can it come from two-loop amplitudes of the
-subprocesses, since conservation of angular momentum forbids $gg\to A$ for
-opposite gluon helicities to all orders; its dynamical origin remains open. A related
+this logarithm. Nor can it be explained by loop corrections to the $gg\to A$ subprocess amplitudes, since conservation of angular momentum forbids opposite gluon helicities to all orders; its dynamical origin remains open. A related
 effect occurs in planar $\mathcal N=4$ super Yang--Mills theory. The
 next-to-MHV (NMHV) six-gluon amplitude, with three negative helicities, has
 no such singularity at one loop because of $J_z$ conservation, but Dixon

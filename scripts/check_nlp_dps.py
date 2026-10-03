@@ -34,8 +34,15 @@ def main():
 
     print("(a) M1, coefficient of calL^3 relative to beta^0 (all angles):")
     lead = M1[0].coeff(calL, 3)
+    xh = (1 + b) / 2
+    fa = sp.series(1 / (xh * (1 - xh)) - 2 * xh * (1 - xh), b, 0, 8).removeO()
+    failures = []
     for j, n in enumerate(ORDERS):
-        print(f"    beta^{n}: {sp.factor(sp.cancel(M1[j].coeff(calL, 3) / lead))}")
+        ratio = sp.factor(sp.cancel(M1[j].coeff(calL, 3) / lead))
+        expected = fa.coeff(b, n) / fa.coeff(b, 0)
+        print(f"    beta^{n}: {ratio}   (F_A expansion: {expected})")
+        if sp.simplify(ratio - expected) != 0:
+            failures.append(f"(a) beta^{n}")
 
     print("\n(b) M1, forward limit in G, minus the DPS prediction:")
     total = sum(b**n * M1[j] for j, n in enumerate(ORDERS))
@@ -53,13 +60,19 @@ def main():
             ok &= d == 0
             print(f"    beta^{n} G^{p}: {sp.factor(got)}   difference: {d}")
     print(f"    all match: {ok}")
+    if not ok:
+        failures.append("(b)")
 
     print("\n(c) M2, forward coefficient of calL^2 / (-4 Nc) per order, in units of pi Nc m2 / 2:")
+    guess = sp.series(8 / (1 - b**2) - 7 - b**2, b, 0, 8).removeO()
     for j, n in enumerate(ORDERS):
-        k1 = forward(M2[j].coeff(calL, 2)) / (-4 * W.nc) / (W.PI * W.nc * W.m2 / 2)
-        print(f"    beta^{n}: {sp.simplify(k1)}")
-    guess = sp.series(8 / (1 - b**2) - 7 - b**2, b, 0, 7).removeO()
-    print(f"    compare 8/(1-beta^2) - 7 - beta^2 = {sp.expand(guess)}")
+        k1 = sp.simplify(forward(M2[j].coeff(calL, 2)) / (-4 * W.nc) / (W.PI * W.nc * W.m2 / 2))
+        print(f"    beta^{n}: {k1}   (8/(1-beta^2) - 7 - beta^2: {guess.coeff(b, n)})")
+        if sp.simplify(k1 - guess.coeff(b, n)) != 0:
+            failures.append(f"(c) beta^{n}")
+    if failures:
+        raise SystemExit("FAILED: " + ", ".join(failures))
+    print("\nAll checks passed.")
 
 if __name__ == "__main__":
     main()

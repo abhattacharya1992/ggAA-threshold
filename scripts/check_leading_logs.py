@@ -59,7 +59,7 @@ def write_table(table):
     text = TABLE.replace("BODY", body)
     target = TABLES / "leading_logs.tex"
     target.write_text(text)
-    print(f"wrote {target.relative_to(SERIES.parents[1])}")
+    print(f"wrote {target}")
 
 
 def _tex(x):
