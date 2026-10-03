@@ -207,8 +207,9 @@ def fig_ratio(table):
 
 
 def fig_dps():
-    """Fig. 4: (a) one- and two-loop forward coefficients against the helicity weights (Eqs. FA, FS);
-    (b) their relative deviations from the prediction."""
+    """Fig. 4: (a) forward coefficients at (N_c, n_f) = (3, 5), at their exact velocities, against the
+    helicity weights (Eqs. FA, FS); (b) relative deviations from the prediction for both parameter sets.
+    Each coefficient has one colour and one symbol, the same in both panels."""
     import json
     from matplotlib.lines import Line2D
     from ggaa import forward as F
@@ -220,55 +221,57 @@ def fig_dps():
     hh_path = RESULTS / "dps_hh.json"
     hh = json.load(open(hh_path))["points"] if hh_path.exists() else []
     rows = F.load() if F.POINTS.exists() else []
-    colour = {(3, 5): RED, (4, 2): BLUE}
-    fig, ax = plt.subplots(2, 1, figsize=(3.375, 4.3), sharex=True, gridspec_kw=dict(height_ratios=[1.35, 1]))
-    plt.subplots_adjust(left=0.17, right=0.97, bottom=0.09, top=0.985, hspace=0.07)
-    xs = np.linspace(0.0, 0.75, 200)
-    x = (1 + xs) / 2
-    ax[0].plot(xs, 1 / (x * (1 - x)) - 2 * x * (1 - x), color=BLACK, lw=1.0)
-    ax[0].plot(xs, 1 / (x * (1 - x)) + 2 * x * (1 - x), color=BLACK, ls="--", lw=1.0)
-    for (Nc, nf), c in colour.items():
-        pts = [p for p in record["points"] if p["Nc"] == Nc and p["nf"] == nf]
-        b = [p["beta"] for p in pts]
-        d = [p["slope"] / (np.pi * Nc) for p in pts]
-        ax[0].plot(b, d, "o", color=c, ms=5.5 if Nc == 3 else 3.5, mfc="none", mew=0.9, ls="none")
-        ax[1].semilogy(b, [max(abs(di / p["F_A"] - 1), 1e-16) for di, p in zip(d, pts)], "o", color=c,
-                       ms=5.5 if Nc == 3 else 3.5, mfc="none", mew=0.9, ls="none")
+    narrow = F.table(rows, (7, 8, 9, 10)) if rows else []
+    # coefficient -> colour, symbol, size, filled, offset in (b), legend label
+    style = {"AA": (BLACK, "o", 6.4, False, -0.022, r"one loop, $D$ ($AA$)"),
+             "HH": (GREEN, "^", 5.6, False, 0.022, r"one loop, $-D$ ($HH$)"),
+             "G3": (RED, "D", 3.6, True, -0.022, r"two loops, $\mathcal{G}^3$ coefficient"),
+             "G2": (BLUE, "+", 7.0, False, 0.022, r"two loops, $\mathcal{G}^2$ coefficient")}
+    pair = {(3, 5): -0.009, (4, 2): 0.009}           # (b): left (3, 5), right (4, 2)
+    fa = lambda b: 1 / (((1 + b) / 2) * ((1 - b) / 2)) - 2 * ((1 + b) / 2) * ((1 - b) / 2)
+    series = {}                                       # (coefficient, set) -> (betas, values, deviations)
+    for st in pair:
+        pts = [p for p in record["points"] if (p["Nc"], p["nf"]) == st]
+        series["AA", st] = ([p["beta"] for p in pts], [p["slope"] / (np.pi * st[0]) for p in pts],
+                            [abs(p["slope"] / (np.pi * st[0]) / p["F_A"] - 1) for p in pts])
+        for key, k in (("G3", "3"), ("G2", "2")):
+            sel = [r for r in narrow if (r["Nc"], r["nf"]) == st]
+            bs = [float(r["beta"]) for r in sel]
+            series[key, st] = (bs, [r["ratio" + k] * fa(b) for r, b in zip(sel, bs)], [r["dev" + k] for r in sel])
     if hh:
-        ax[0].plot([p["beta"] for p in hh], [p["HH_tree_sign"] for p in hh], "^", color=GREEN, ms=5.0,
-                   mfc="none", mew=0.9, ls="none")
-        ax[1].semilogy([p["beta"] for p in hh], [max(abs(p["dev_HH"]), 1e-16) for p in hh], "^", color=GREEN,
-                       ms=5.0, mfc="none", mew=0.9, ls="none")
-    if rows:
-        narrow, wide = F.table(rows, (7, 8, 9, 10)), F.table(rows, (6, 7, 8, 9, 10))
-        for t, filled in ((narrow, True), (wide, False)):
-            for (Nc, nf), c in colour.items():
-                sel = [r for r in t if (r["Nc"], r["nf"]) == (Nc, nf)]
-                b = [float(r["beta"]) + (-0.008 if Nc == 3 else 0.008) for r in sel]   # sets side by side
-                for key, marker in (("3", "D"), ("2", "s")):
-                    if filled:
-                        fa = [float(F_A_value) for F_A_value in
-                              (1 / (((1 + bb) / 2) * ((1 - bb) / 2)) - 2 * ((1 + bb) / 2) * ((1 - bb) / 2)
-                               for bb in (float(r["beta"]) for r in sel))]
-                        ax[0].plot(b, [r["ratio" + key] * f for r, f in zip(sel, fa)], marker, color=c,
-                                   ms=3.2, mew=0.0, ls="none", alpha=0.85)
-                    ax[1].semilogy(b, [r["dev" + key] for r in sel], marker, color=c, ms=3.4,
-                                   mfc=c if filled else "none", mew=0.8, ls="none")
-    ax[0].set_ylabel("normalised forward coefficient")
+        series["HH", (3, 5)] = ([p["beta"] for p in hh], [p["HH_tree_sign"] for p in hh], [abs(p["dev_HH"]) for p in hh])
+
+    def draw(axis, x, y, key):
+        c, m, size, filled, _, _ = style[key]
+        axis.plot(x, y, m, color=c, ms=size, mfc=c if filled else "none", mec=c, mew=1.0, ls="none", zorder=3)
+
+    fig, ax = plt.subplots(2, 1, figsize=(3.375, 4.5), sharex=True, gridspec_kw=dict(height_ratios=[1.25, 1]))
+    plt.subplots_adjust(left=0.165, right=0.97, bottom=0.09, top=0.985, hspace=0.06)
+    xs = np.linspace(0.0, 0.78, 200)
+    ax[0].plot(xs, fa(xs), color=BLACK, lw=0.9, zorder=1)
+    ax[0].plot(xs, fa(xs) + 4 * ((1 + xs) / 2) * ((1 - xs) / 2), color=BLACK, ls="--", lw=0.9, zorder=1)
+    ax[1].set_yscale("log")
+    for (key, st), (bs, vals, devs) in series.items():
+        if st == (3, 5):
+            draw(ax[0], np.array(bs), vals, key)
+        draw(ax[1], np.array(bs) + style[key][4] + pair[st], [max(d, 1e-16) for d in devs], key)
+    ax[0].set_ylabel(r"forward coefficient$\,/\,$normalisation")
     ax[1].set_ylabel(r"$|\mathrm{fit}/\mathrm{prediction}-1|$")
     ax[1].set_xlabel(r"$\beta$")
+    ax[0].set_ylim(3.0, 9.8)
     ax[1].set_ylim(3e-17, 3e-3)
-    handles = [Line2D([], [], color=BLACK, lw=1.0, label=r"$F_A$"),
-               Line2D([], [], color=BLACK, lw=1.0, ls="--", label=r"$F_S$"),
-               Line2D([], [], color=GREY, marker="o", mfc="none", ls="none", label="one loop, $AA$"),
-               Line2D([], [], color=GREEN, marker="^", mfc="none", ls="none", label="one loop, $HH$"),
-               Line2D([], [], color=GREY, marker="D", ms=3.2, ls="none", label=r"two loops, $\mathcal{G}^3$"),
-               Line2D([], [], color=GREY, marker="s", ms=3.2, ls="none", label=r"two loops, $\mathcal{G}^2$")]
-    ax[0].legend(handles=handles, loc="upper left", fontsize=7, ncol=2, columnspacing=0.8, handlelength=1.6)
+    ax[1].set_xlim(-0.05, 0.77)
+    handles = [Line2D([], [], color=BLACK, lw=0.9, label=r"$F_A((1+\beta)/2)$"),
+               Line2D([], [], color=BLACK, lw=0.9, ls="--", label=r"$F_S((1+\beta)/2)$")]
+    handles += [Line2D([], [], color=c, marker=m, ms=size, mfc=c if filled else "none", mec=c, mew=1.0, ls="none", label=lab)
+                for c, m, size, filled, _, lab in style.values()]
+    ax[0].legend(handles=handles, loc="upper left", fontsize=6.8, frameon=False, handlelength=1.8, labelspacing=0.35)
+    ax[1].text(0.03, 0.5, "each pair: left $(N_c,n_f)=(3,5)$,\nright $(N_c,n_f)=(4,2)$", transform=ax[1].transAxes,
+               ha="left", va="center", fontsize=6.8)
     finish_axis(ax[0], None)
     finish_axis(ax[1], None)
-    ax[0].text(0.97, 0.06, "(a)", transform=ax[0].transAxes, ha="right", va="bottom", fontsize=8.5)
-    ax[1].text(0.97, 0.06, "(b)", transform=ax[1].transAxes, ha="right", va="bottom", fontsize=8.5)
+    ax[0].text(0.97, 0.04, "(a)", transform=ax[0].transAxes, ha="right", va="bottom", fontsize=8.5)
+    ax[1].text(0.97, 0.94, "(b)", transform=ax[1].transAxes, ha="right", va="top", fontsize=8.5)
     save(fig, "fig7_dps")
 
 def main():
