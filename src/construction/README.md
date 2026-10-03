@@ -41,8 +41,11 @@ and GMP or Boost.Multiprecision, and Python 3.9 or later with sympy and mpmath. 
 SHA-256 of all four input files first, skips stages that have finished when it is run again,
 and ends by comparing the result with every file in `data/construction`. The construction
 driver of the P1 n_f coefficient stops after writing its two series, as it did in September;
-the following check stage then verifies them. The exact rational series of about 14,000 blocks
-take about three hours, the whole run several hours. The validation (about ten hours) is not
+the following check stage then verifies them. On lhcpheno48, with Boost.Multiprecision, the whole run took about 4.5 hours with a peak
+memory of 0.8 GB; the exact rational series of the 14,247 blocks take most of that time. If the
+GMP and Boost headers are not installed, unpack Boost (header-only) in the home directory and set
+`CPLUS_INCLUDE_PATH` to it before starting. `scripts/watch_reproduce.sh` starts the run detached
+from the terminal and stops it if memory runs short. The validation (about ten hours) is not
 repeated by the script.
 
 `make nf1-inputs` checks that `inputs/P1_nf1.wl` is the coefficient of n_f in the published P1

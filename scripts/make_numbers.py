@@ -32,7 +32,7 @@ import sympy as sp
 
 from ggaa import benchmark
 from ggaa.normalization import FILE_FACTOR
-from ggaa.paths import DATA, INPUTS, RESULTS, SERIES
+from ggaa.paths import DATA, INPUTS, MANUSCRIPT, RESULTS, SERIES
 from ggaa.validation import records
 
 ROOT = DATA.parent
@@ -59,6 +59,17 @@ def sci(x, digits=3):
 
 def fixed(x, digits):
     return f"{x:.{digits}f}"
+
+
+def bound(x):
+    """Upper bound of x with one significant digit, e.g. 3.02e-6 -> 4\\times10^{-6}."""
+    e = math.floor(math.log10(x)); m = math.ceil(x / 10**e - 1e-9)
+    if m == 10:
+        m, e = 1, e + 1
+    return f"\\ensuremath{{{m}\\times10^{{{e}}}}}" if m > 1 else f"\\ensuremath{{10^{{{e}}}}}"
+
+
+SMALL_WORDS = {2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten"}
 
 
 def frac(x):
@@ -124,6 +135,31 @@ def validation():
     define("ValBetaMin", f"\\ensuremath{{{power_of_ten(float(betas[0]))}}}")
     define("ValBetaMax", frac(betas[-1]))
     define("ValCosMax", frac(max(angles)))
+
+    from collections import defaultdict
+    from ggaa.validation import relative_error
+    worst, spread, alternates = {}, 1.0, set()
+    for q in ("M1_nf5", "M2_nf5"):
+        for order in (4, 6):
+            per = defaultdict(list)
+            for r in rows:
+                if r["quantity"] == q:
+                    per[r["beta"]].append((float(relative_error(r[f"series{order}"], r["exact"])),
+                                           (r["mA"], r["muR"], r["Nc"]), r["costheta"]))
+            tops = {b: max(v) for b, v in per.items()}
+            spread = max(spread, max(max(v)[0] / min(v)[0] for v in per.values()))
+            points = {(t[1], t[2]) for t in tops.values()}
+            if order == 6:
+                assert len(points) == 1, "the maximum of the sixth order series moves between points"
+                worst[q] = points.pop()
+            elif len(points) > 1:
+                alternates |= {abs(Fraction(str(c))) for _, c in points}
+    assert worst["M1_nf5"] == worst["M2_nf5"], "different maximising points for M1 and M2"
+    (mA, muR, Nc), cos = worst["M1_nf5"]
+    define("ValMaxCos", frac(Fraction(str(cos)))); define("ValMaxMA", int(mA)); define("ValMaxMuR", int(muR))
+    define("ValMaxNc", int(Nc))
+    define("ValAltCos", "$" + "$, $".join(frac(c) for c in sorted(alternates)) + "$" if alternates else "-")
+    define("ValSpreadWord", SMALL_WORDS.get(math.ceil(spread), str(math.ceil(spread))))
 
     acc = json.load(open(RESULTS / "accuracy.json"))
     err = acc["max_error"]
@@ -380,23 +416,11 @@ def physics():
     define("VtwoMin", f"\\ensuremath{{{min(v2):.2f}}}"); define("VtwoMax", f"\\ensuremath{{{max(v2):.2f}}}")
     define("VirtualBetaMin", f"\\ensuremath{{{power_of_ten(float(v[0]['beta']))}}}")
     define("VirtualBetaMax", f"{float(v[-1]['beta']):g}")
-    # accuracy of the angular quadrature of scripts/virtual_correction.py, against 32 points
-    from ggaa.crosssection import VirtualCorrections
-    nodes = int(re.search(r'"--nodes", type=int, default=(\d+)', (ROOT / "scripts" / "virtual_correction.py").read_text()).group(1))
-    vc, saved = VirtualCorrections(), mp.mp.dps
-    mp.mp.dps = 30
-    dev1 = dev2 = 1e-30
-    betas = ("0.01", "0.1", "0.3")
-    for b in betas:
-        a1, a2 = vc.angle_averaged(mp.mpf(b), nodes=nodes)
-        r1, r2 = vc.angle_averaged(mp.mpf(b), nodes=32)
-        dev1 = max(dev1, float(abs(a1 / r1 - 1))); dev2 = max(dev2, float(abs(a2 / r2 - 1)))
-    mp.mp.dps = saved
-    words = {4: "four", 6: "six", 8: "eight", 10: "ten", 12: "twelve", 16: "sixteen"}
-    define("QuadNodes", words.get(nodes, str(nodes))); define("QuadNodesRef", "32")
-    define("QuadBetas", "$" + "$, $".join(betas[:-1]) + "$ and $" + betas[-1] + "$")
-    define("QuadVoneDev", f"\\ensuremath{{10^{{{math.ceil(math.log10(dev1))}}}}}")
-    define("QuadVtwoDev", f"\\ensuremath{{10^{{{math.ceil(math.log10(dev2))}}}}}")
+    # accuracy of the angular quadrature, from scripts/virtual_correction.py (make virtual)
+    q = json.load(open(RESULTS / "virtual_quadrature.json"))
+    define("QuadNodes", str(q["nodes"])); define("QuadNodesRef", str(q["reference_nodes"]))
+    define("QuadBetas", "$" + "$, $".join(q["betas"][:-1]) + "$ and $" + q["betas"][-1] + "$")
+    define("QuadVoneDev", bound(q["max_dev_V1"])); define("QuadVtwoDev", bound(q["max_dev_V2"]))
 
 
 # ---------------------------------------------------------------- timing and sizes
@@ -580,6 +604,55 @@ def jz2():
     define("JzExponents", "$10^{-5}$, $10^{-6}$ and $10^{-7}$")
     ratio = max(max(v) / min(v) for v in k1.values())
     define("JzKOneRatio", f"{ratio:.1f}")
+    imag, wide = 0.0, 0.0
+    for Nc, nf in sets:
+        for b in sorted({r["beta"] for r in rows if (r["Nc"], r["nf"]) == (Nc, nf)}, key=float):
+            pick = {r["e"]: r for r in rows if (r["Nc"], r["nf"], r["beta"], r["dps"]) == (Nc, nf, b, dps)}
+            mp.mp.dps = 60
+            K1 = (amp(2, mp.mpf(b), 1 - mp.mpf(10)**-18, mA=125, muR=125, Nc=Nc, nf=nf) / 125**2).real
+            for es in (exps, (4,) + exps):
+                if not all(e in pick for e in es):
+                    continue
+                us = [-e * mp.log(10) for e in es]
+                vs = [mp.mpc(mp.mpf(pick[e]["re"]), mp.mpf(pick[e]["im"])) for e in es]
+                M = mp.matrix([[u**2, u, 1] for u in us])
+                A = mp.lu_solve(M.T * M, M.T * mp.matrix(vs))[0]
+                if es == exps:
+                    imag = max(imag, float(abs((4 * A).imag) / abs(4 * A)))
+                else:
+                    wide = max(wide, float(abs((4 * A).real / (-4 * Nc * K1) - 1)))
+    mp.mp.dps = saved
+    define("JzImag", bound(imag)); define("JzMaxDevWide", bound(wide))
+
+
+
+# ---------------------------------------------------------------- forward limit of the two-loop M_1
+def m1_forward():
+    """Macros for Sec. IV D from results/m1_forward_points.jsonl (scripts/check_m1_forward.py)."""
+    from ggaa import forward as F
+    rows = F.load()
+    narrow, wide = F.table(rows, (7, 8, 9, 10)), F.table(rows, (6, 7, 8, 9, 10))
+    define("MoneFwdSets", " and ".join(f"$({a},{b})$" for a, b in F.sets(rows)))
+    bs = sorted({r["beta"] for r in narrow}, key=float)
+    define("MoneFwdBetaMin", bs[0]); define("MoneFwdBetaMax", bs[-1])
+    define("MoneFwdDigits", F.MAIN_DPS); define("MoneFwdCheckDigits", F.CHECK_DPS)
+    define("MoneFwdCheckAgreement", int(F.check_digits(rows)))
+    define("MoneFwdDevThree", bound(max(r["dev3"] for r in narrow)))
+    define("MoneFwdDevTwo", bound(max(r["dev2"] for r in narrow)))
+    define("MoneFwdImag", bound(max(max(r["imag3"], r["imag2"]) for r in narrow)))
+    ratios = [a[k] / b[k] for a, b in zip(wide, narrow) for k in ("dev3", "dev2")]
+    define("MoneFwdWindowFactor", SMALL_WORDS[round(sum(ratios) / len(ratios))])
+
+    # closed form of the forward limit of the one-loop |J_z| = 2 remainder
+    from ggaa.oneloop import OneLoop
+    amp, saved, worst, kb = OneLoop(), mp.mp.dps, 0.0, ("0.05", "0.1", "0.3", "0.5", "0.7", "0.9")
+    mp.mp.dps = 120
+    for Nc, nf in ((3, 5), (4, 2)):
+        for b in kb:
+            k1 = amp(2, mp.mpf(b), 1 - mp.mpf(10)**-40, mA=125, muR=125, Nc=Nc, nf=nf) / 125**2
+            worst = max(worst, float(abs(k1.real / F.k1_closed(b, Nc) - 1)))
+    mp.mp.dps = saved
+    define("KOneClosedDev", bound(worst)); define("KOneBetaMin", kb[0]); define("KOneBetaMax", kb[-1])
 
 
 def main():
@@ -596,7 +669,8 @@ def main():
     timing()
     structure()
     jz2()
-    target = ROOT / "manuscript" / "numbers.tex"
+    m1_forward()
+    target = MANUSCRIPT / "numbers.tex"
     lines = ["% Generated by scripts/make_numbers.py from the data and results folders. Do not edit."]
     lines += [f"\\newcommand{{\\{k}}}{{{v}}}" for k, v in sorted(macros.items())]
     target.write_text("\n".join(lines) + "\n")

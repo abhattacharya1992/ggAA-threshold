@@ -28,7 +28,7 @@ two-Higgs-doublet models (2HDM). At the LHC, the dominant production
 mechanism is gluon fusion through top quark loops, so that loop
 amplitudes enter already at LO \cite{Plehn:1996wb,Baglio:2023euv}.
 For pseudoscalar pairs,
-$gg\to AA$, the next-to-LO (NLO) QCD corrections were
+$gg\to AA$, the next-to-leading order (NLO) QCD corrections were
 first computed in the limit of a heavy top
 quark~\cite{DawsonDittmaierSpira1998}, later matched to parton
 showers~\cite{Hespel:2014sla}, and subsequently obtained with the
@@ -105,7 +105,7 @@ I consider the dominant gluon fusion subprocess
 \end{equation}
 with incoming gluon momenta $p_{1,2}^2=0$ and outgoing pseudoscalar momenta $p_{3,4}^2=\mA^2$.
 %
-The amplitude for $gg\to AA$ separates into two classes~\cite{Bhattacharya:2019bmd}. In Type~I, both pseudoscalars originate from a single effective vertex. In Type~II, each pseudoscalar is emitted from its own vertex and the two vertices are connected by gluon exchange in the $t$ or $u$ channel (Fig.~\ref{fig:diagrams}a). In the full theory, the Type~II diagrams correspond to two top quark triangles joined by a gluon, the one-particle reducible contributions of Refs.~\cite{DawsonDittmaierSpira1998,Baglio:2023euv}; for Higgs pairs the corresponding class was computed at two loops \cite{Banerjee:2018lfq}. The two-loop Type~II finite remainders for $gg\to AA$ were obtained in closed form in Ref.~\cite{Bhattacharya:2019bmd}. They contain polylogarithms of weight up to four, among them $\Li_{2,2}$, and inverse powers of the Gram determinant $tu-\mA^4$, which vanishes at the pair threshold. The expressions occupy about \PublishedTwoLoopMB~MB, and large cancellations between their terms make them hard to evaluate close to threshold.
+The amplitude for $gg\to AA$ separates into two classes~\cite{Bhattacharya:2019bmd}. In Type~I, both pseudoscalars originate from a single effective vertex. In Type~II, each pseudoscalar is emitted from its own vertex and the two vertices are connected by gluon exchange in the $t$ or $u$ channel (Fig.~\ref{fig:diagrams}a). In the full theory, the Type~II tree diagrams correspond to two top quark triangles joined by a gluon, the one-particle reducible contributions of Refs.~\cite{DawsonDittmaierSpira1998,Baglio:2023euv}; for Higgs pairs the corresponding class was computed at two loops~\cite{Banerjee:2018lfq}. The two-loop Type~II finite remainders for $gg\to AA$ were obtained in closed form in Ref.~\cite{Bhattacharya:2019bmd}. They contain polylogarithms of weight up to four, among them $\Li_{2,2}$, and inverse powers of the Gram determinant $tu-\mA^4$, which vanishes at the pair threshold. The expressions occupy about \PublishedTwoLoopMB~MB, and large cancellations between their terms make them hard to evaluate close to threshold.
 
 There are two reasons to study this challenging threshold region. The first is phenomenological: in the NLO predictions of Ref.~\cite{Baglio:2023euv}, for $\mA=134.7$~GeV the invariant mass distribution of the pair is larger at $m_{AA}=300$~GeV, about 30~GeV above threshold, than at 400~GeV, and threshold resummation of this distribution requires at each $m_{AA}$ a hard function obtained from the infrared (IR) finite virtual amplitude~\cite{Sterman:1986aj,Catani:1989ne,deFlorian:2012za,deFlorian:2015moa,Bhattacharya:2021nsv}. The second concerns the analytic structure of loop amplitudes. When the transverse momentum $p_T$ of the final state particles vanishes, a one-loop amplitude with massless internal lines can have a Landau singularity~\cite{Landau:1959fi} in which each incoming parton splits into two collinear partons that then take part in two separate $2\to1$ scatterings.
 Gaunt and Stirling showed that this double parton scattering (DPS)
@@ -114,7 +114,7 @@ that, for the processes they considered, it occurs only when the
 incoming state has $J_z=0$. They also derived a factorised formula
 for its coefficient~\cite{GauntStirling2011}.
 Dixon and Esterlis studied the corresponding singularity of six-gluon amplitudes in planar $\mathcal N=4$ super Yang--Mills theory to high loop order~\cite{DixonEsterlis2016}.
-However, it has not been examined beyond one loop in QCD at the level of amplitudes for a $2\to2$ process with a colour singlet final state; NLO corrections to the underlying splitting mechanism are known~\cite{Diehl:2019rdh} for double parton distributions~\cite{DiehlOstermeierSchafer2012}.
+However, it has not been examined beyond one loop in QCD at the level of amplitudes for a $2\to2$ process with a colour singlet final state; NLO corrections to the underlying splitting mechanism are known~\cite{Diehl:2019rdh} for double parton distributions~\cite{DiehlOstermeierSchafer2012}. The availability of a complete multiloop amplitude does not by itself make the behaviour of a particular Landau region explicit: cancellations between kinematic prefactors and logarithms can obscure the singular limit. The threshold expansion below isolates this structure in an explicit two-loop QCD amplitude.
 The Type~II amplitude for $gg\to AA$ contains diagrams with this
 topology: each incoming gluon can split into two gluons, which
 fuse pairwise into the two pseudoscalars at the effective vertices
@@ -136,14 +136,18 @@ DPS has also been observed
 in same-sign $W$ pair production at the
 LHC~\cite{CMS:2022pio,ATLAS:2025dps}. The overlap between single
 and double parton scattering has been re-examined using two-loop
-splitting kernels~\cite{DiehlPloessl2026}.
+splitting kernels~\cite{DiehlPloessl2026}. The amplitude-level singularity studied here is not itself a double parton distribution or a hadronic DPS cross section. It is the corresponding singular region of the single parton scattering loop amplitude, and therefore provides complementary information on the perturbative splitting configuration that also enters the overlap between single and double parton scattering.
 
 In this paper, I expand the two-loop Type~II finite remainders of Ref.~\cite{Bhattacharya:2019bmd} in the velocity $\bA$ through $\bA^6$. The main results are the following:
 \begin{enumerate}
  \item After the constants that arise in the expansion are expressed in a basis of \BasisCountWord{} transcendental constants, all inverse powers of $\bA$ and the odd powers through $\bA^5$ cancel, and every coefficient is even in $\cos\theta$, as required by Bose symmetry. At leading power, the angle enters only through the logarithm of the transverse momentum $p_T$ of the pseudoscalars.
  \item This logarithm is the DPS singularity. At one loop its coefficient follows the factorised formula of Ref.~\cite{GauntStirling2011} for gluon splitting and the opposite signs of the amplitudes for $g^+g^+\to A$ and $g^-g^-\to A$: with the overall constant fixed at threshold, it reproduces the velocity dependence of the exact one-loop coefficient in the forward limit. A one-loop calculation of $gg\to HH$ confirms the corresponding weight for a CP-even coupling.
- \item At two loops the $J_z=0$ amplitude, with equal gluon helicities, grows as $\ln^3p_T$, and the ratio of the leading logarithms at two and one loops is the one found to all orders in planar $\mathcal N=4$ super Yang--Mills theory~\cite{DixonEsterlis2016}. The $|J_z|=2$ amplitude, with opposite helicities, has no DPS logarithm at one loop but grows as $\ln^2p_T$ at two loops; in the forward limit, this logarithm is the one-loop amplitude multiplied by $-4\Nc\as\ln^2(2p_T/\mA)$ at every velocity tested, and its origin remains open.
- \item In the finite virtual corrections to the cross section,  the one-loop logarithm cancels. At two loops, $\ln^3p_T$ cancels, and the highest power is $\ln^2p_T$.
+ \item At two loops the $J_z=0$ amplitude, with equal gluon helicities, grows as $\ln^3p_T$, and the ratio of its leading two- and one-loop logarithms agrees with the corresponding result in planar $\mathcal N=4$ super Yang--Mills theory~\cite{DixonEsterlis2016}; in the forward limit, its two-loop logarithms follow the one-loop helicity weight at all velocities tested. The $|J_z|=2$ amplitude has no DPS logarithm at one loop but develops a $\ln^2p_T$ term at two loops. Forward-limit fits provide numerical evidence that the real coefficient of this double logarithm is $-4\Nc$ times the one-loop forward amplitude over the velocities tested; its dynamical origin remains open.
+ \item In the finite virtual corrections, the one-loop DPS logarithm does not contribute to the interference of the one-loop and tree amplitudes, because it is out of phase with the tree amplitude. At two loops the cubic logarithm is absent, and the leading singular term is
+ \[
+  V_2\supset-\frac74\pi^2\Nc^2\ln^2\!\left(\frac{2p_T}{\mA}\right).
+ \]
+ It results from the combination of the interference of the two-loop amplitude with the tree amplitude and the square of the one-loop amplitude.
 \end{enumerate}
 %
 %I also find that the two-loop remainders released with Ref.~\cite{Bhattacharya:2019bmd} are larger by a factor of \FileFactor{} than the tree and one-loop amplitudes of the same reference, and that the released one-loop remainders omit their dependence on the renormalisation scale, so that they are correct only for $\muR=1$~GeV.

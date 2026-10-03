@@ -18,14 +18,9 @@ with $r=0,1,2$ and $p=4$ or 6. The coefficients $C^{(i,r)}_{nk}$ depend on $c$, 
 
 The remainders contain logarithms, classical polylogarithms and the function $\Li_{2,2}$ of weight four~\cite{Frellesvig:2016ske,Vollinga:2004sn}, whose arguments approach correlated endpoints as $\bA\to0$. I expand the rational prefactors exactly and obtain the expansions of the special functions from differential equations in $\bA$, with boundary values at $\bA=0$. These equations have the iterated-integral form familiar from harmonic polylogarithms~\cite{RemiddiVermaseren2000} and from canonical differential equations for Feynman integrals~\cite{Henn2013}; the map $x=(1-\bA)/(1+\bA)$ is one of the transformations under which harmonic polylogarithms are closed~\cite{RemiddiVermaseren2000}.
 The method thus expands the known remainders, not the loop integrals, which could instead be expanded near threshold by the method of regions~\cite{BenekeSmirnov1998}. Expansions of two-loop gluon fusion amplitudes in kinematic limits are also used to obtain compact representations that are fast to evaluate, for example for small transverse momentum and at high energy~\cite{Bellafronte:2022,Davies:2023} and about the top quark pair threshold~\cite{Groeber:2018}; the present expansion is about the pair production threshold of the massless remainders.
-For the dilogarithm, for example,
+For the dilogarithm, for example, $\dd\Li_2(x)/\dd\bA=2(1-\bA^2)^{-1}\ln[2\bA/(1+\bA)]$ with $\Li_2(1)=\pi^2/6$ gives
 %
 \begin{align}
- \nonumber
- \dd\Li_2(x)/\dd\bA&=2(1-\bA^2)^{-1}\ln[\frac{2\bA}{(1+\bA)}] \text{ with}
- \\\nonumber
- \Li_2(1)&=\pi^2/6 \text{ gives }
- \\
  \Li_2(x)
  &=
  \frac{\pi^2}{6}
@@ -81,16 +76,18 @@ with $p_T^2$ given in Eq.~\eqref{eq:gram-scaling}. The difference
 $t-u=\hat s\bA c$, which is odd in $\bA$, enters only through its square.
 Each invariant depends on $\bA$ only through $\bA^2$ and on $c$ only
 through $c^2$, so a function analytic in them at threshold is a series in
-$\bA^2$ and even in $c$. Odd or inverse powers of $\bA$ can therefore arise
-only from singularities near threshold. An odd power requires a branch
-point at $\hat s=4\mA^2$; there is none, since the loops contain no massive
-particles. An inverse power requires a Coulomb singularity, which is absent
-for a colourless final state, or a power-like singularity at $p_T\to0$. The
-singularity at $p_T\to0$ is the one discussed in Sec.~\ref{sec:dps}, and at
-one loop it is logarithmic~\cite{GauntStirling2011}. The Gram determinant
-$tu-\mA^4$ vanishes at the same point, but its inverse powers come from the
-tensor basis and the rational prefactors; they are not singularities of the
-amplitude.
+$\bA^2$ and even in $c$. Odd or inverse powers of $\bA$ would therefore signal
+non-analytic behaviour at threshold. There is no threshold for a pair of
+massive internal particles at $\hat s=4\mA^2$, since the loops contain no
+massive particles, and the colourless final state has no QCD Coulomb
+singularity. These observations alone do not exclude other Landau
+singularities: the singularity at $p_T\to0$ discussed in Sec.~\ref{sec:dps}
+is one, and at one loop it is logarithmic~\cite{GauntStirling2011}. The Gram
+determinant $tu-\mA^4$ vanishes at the same point, but its inverse powers come
+from the tensor basis and the rational prefactors; they are not singularities
+of the amplitude. In the present calculation, the explicit expansion shows
+that the inverse powers cancel and that the remaining singular behaviour is
+logarithmic in $p_T$.
 %
 A remainder of the form $\sum_k a_k\ln^k p_T^2$, with coefficients $a_k$
 analytic in the invariants of Eq.~\eqref{eq:symmetric-invariants} at
@@ -154,6 +151,10 @@ where $\mathcal M_i$ is the unexpanded remainder and $\mathcal M_i^{[p]}$ its se
  \caption{Relative truncation errors, Eq.~\eqref{eq:relative-error}, of the complete two-loop coefficients at $\nf=\BenchNf$: $\mathcal M_1$ (left) and $\mathcal M_2$ (right). Upper panels: maximum over the angles and parameter sets of Table~\ref{tab:validation-grid} for the series through $\bA^4$ (circles) and through $\bA^6$ (squares), with lines proportional to $\bA^6$ and $\bA^8$. Lower panels: the same maxima divided by $\bA^6$ and $\bA^8$.}
  \label{fig:validation}
 \end{figure*}
+% Tables II-IV are defined here, in the order in which they are cited, so that they can be placed before Sec. IV.
+\input{tables/validation_grid.tex}
+\input{tables/accuracy.tex}
+\input{tables/forward_angles.tex}
 %
 Figure~\ref{fig:validation} shows these errors for the complete coefficients
 at $\nf=\BenchNf$. The slopes of the curves, discussed below, test the
@@ -162,11 +163,11 @@ Because each curve is a maximum over the points of
 Table~\ref{tab:validation-grid}, a change of the point that gives the
 maximum as $\bA$ varies would distort these slopes. For the series through
 $\bA^6$ this does not occur: for both coefficients and at every velocity
-the maximum comes from the same point, $c=0$ with $\mA=150$~GeV,
-$\muR=75$~GeV and $\Nc=4$, so the curves follow the error of a single point.
-For the series through $\bA^4$ the same holds for $\mathcal M_1$, while for $\mathcal M_2$ the maximum alternates between two parameter sets at $|c|=2/3$.
+the maximum comes from the same point, $c=\ValMaxCos$ with $\mA=\ValMaxMA$~GeV,
+$\muR=\ValMaxMuR$~GeV and $\Nc=\ValMaxNc$, so the curves follow the error of a single point.
+For the series through $\bA^4$ the same holds for $\mathcal M_1$, while for $\mathcal M_2$ the maximum alternates between two parameter sets at $|c|=$\ValAltCos.
 The maximum is also representative of the grid: at each velocity and
-for both orders the errors at all other points lie within a factor of eight
+for both orders the errors at all other points lie within a factor of \ValSpreadWord{}
 of it.
 %
 
@@ -179,15 +180,12 @@ The scaled errors vary slowly, because both the omitted terms and the remainders
 An incorrect coefficient at a retained order would instead make them grow as an inverse
 power of $\bA$ as $\bA$ decreases. Towards $\bA=\EdgeBeta$ the scaled errors of the series through $\bA^6$ rise for both coefficients, as the terms beyond the first omitted order begin to contribute.
 
-\input{tables/accuracy.tex}
 
 Table~\ref{tab:AA-threshold-accuracy} lists the maximum errors at selected velocities. For $\bA\leq\RecommendedBeta$, the series through $\bA^6$ reproduces $\mathcal M_1$ and $\mathcal M_2$ with relative errors of at most \PoneErrLePointTwo{} and \PtwoErrLePointTwo{}; at $\bA=\EdgeBeta$ the errors are \PoneErrAtPointThree{} and \PtwoErrAtPointThree{}.
 %
 Bose symmetry was checked by comparing the values at $c$ and $-c$: they \BoseStatement{} in \AngularReferenceChecks{} comparisons of the unexpanded coefficients and \AngularSeriesChecks{} of the series.
-The reference values were computed in Mathematica from the Ref.\ \cite{Bhattacharya:2019bmd} expressions. To check their evaluation independently, I wrote a separate Python code with mpmath~\cite{mpmath}. It reads the published files with its own parser and computes $\Li_{2,2}$ from its defining double sum, or from a one-dimensional integral representation where the sum converges slowly. At \ExactPointCount{} points covering the \ExactParameterSets{} parameter sets, the two complete coefficients agree with the reference values to a relative difference of at most \ExactMaxComplete{}, the precision to which the reference values are stored. The \ExactComponentCount{} flavour coefficients, compared at $\bA=\ExactComponentBeta$ and $c=\ExactComponentCos$, agree to \ExactMaxComponent{}. At $c=0$, where $t=u$, the published expressions have removable singularities and are evaluated as limits.
+The reference values were computed in Mathematica from the expressions of Ref.~\cite{Bhattacharya:2019bmd}. To check their evaluation independently, I wrote a separate Python code with mpmath~\cite{mpmath}. It reads the published files with its own parser and computes $\Li_{2,2}$ from its defining double sum, or from a one-dimensional integral representation where the sum converges slowly. At \ExactPointCount{} points covering the \ExactParameterSets{} parameter sets, the two complete coefficients agree with the reference values to a relative difference of at most \ExactMaxComplete{}, the precision to which the reference values are stored. The \ExactComponentCount{} flavour coefficients, compared at $\bA=\ExactComponentBeta$ and $c=\ExactComponentCos$, agree to \ExactMaxComponent{}. At $c=0$, where $t=u$, the published expressions have removable singularities and are evaluated as limits.
 %
-\input{tables/validation_grid.tex}
 
 The expansion is made at fixed angle, but $p_T$ vanishes as $c\to\pm1$ at fixed $\bA$, so the series must also be tested close to the beam axis. I therefore compared it with the unexpanded remainders at $c=$ \ForwardCosList{} for $\bA=$ \ForwardBetaList{}. Table~\ref{tab:forward-angles} gives the relative errors of the series through $\bA^6$. \ForwardSummary{} The series thus remains accurate close to the beam, consistent with its coefficients having no poles at $c=\pm1$, only logarithms of $1\pm c$ (Sec.~\ref{sec:leading}).
 
-\input{tables/forward_angles.tex}

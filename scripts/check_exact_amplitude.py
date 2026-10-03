@@ -102,6 +102,8 @@ def main():
 
     if args.skip_flavour:
         print(f"\nLargest relative difference: {mp.nstr(worst, 3)}")
+        if worst > 1e-25:
+            sys.exit("independent evaluation does not reproduce the validation table")
         return
     params, beta, costh = POINTS[0]
     print(f"\nFlavour coefficients at (mA, muR, Nc) = {params}, beta = {beta}, cos = {costh} (160 digits)")

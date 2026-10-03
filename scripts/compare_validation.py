@@ -40,6 +40,9 @@ def evaluate(series, rec, order):
     return series.component(i, int(nf), **kwargs)
 
 
+REPRODUCTION_TOLERANCE = 1e-30   # the stored series values keep 40 digits
+
+
 def main():
     series = ThresholdSeries()
     worst_reproduction = 0
@@ -82,6 +85,10 @@ def main():
             out.write(f"{b}," + ",".join(f"{errors[q, o][b]:.6e}" for q in ("M1_nf5", "M2_nf5") for o in (4, 6)) + "\n")
     write_table(errors)
     print("\nwrote results/accuracy.csv and manuscript/tables/accuracy.tex")
+    if worst_reproduction > REPRODUCTION_TOLERANCE:
+        sys.exit(f"FAILED: the series evaluation differs from the stored values by "
+                 f"{mp.nstr(worst_reproduction, 3)} (tolerance {REPRODUCTION_TOLERANCE:g})")
+    print(f"Reproduction check passed (tolerance {REPRODUCTION_TOLERANCE:g}).")
 
 
 SHOWN = [Fraction(1, 100), Fraction(1, 20), Fraction(1, 10), Fraction(1, 5), Fraction(3, 10)]

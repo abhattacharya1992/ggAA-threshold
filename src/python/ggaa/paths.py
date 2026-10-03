@@ -10,5 +10,19 @@ VALIDATION = DATA / "validation"
 CONSTANTS = DATA / "constants"
 INPUTS = ROOT / "inputs" / "arXiv-1909.08993" / "anc"
 RESULTS = ROOT / "results"
-FIGURES = ROOT / "manuscript" / "figures"
-TABLES = ROOT / "manuscript" / "tables"
+
+
+def _manuscript():
+    """manuscript/ in the repository; in the arXiv tarball the package is anc/ and the
+    manuscript (main.tex) is the directory above it."""
+    local = ROOT / "manuscript"
+    if local.is_dir():
+        return local
+    if (ROOT.parent / "main.tex").exists():
+        return ROOT.parent
+    return local
+
+
+MANUSCRIPT = _manuscript()
+FIGURES = MANUSCRIPT / "figures"
+TABLES = MANUSCRIPT / "tables"

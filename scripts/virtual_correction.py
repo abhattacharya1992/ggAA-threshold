@@ -33,7 +33,8 @@ from ggaa.paths import INPUTS, RESULTS
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--alpha-s", type=float, default=benchmark.ALPHA_S)
-    parser.add_argument("--nodes", type=int, default=8, help="Gauss-Legendre nodes in cos(theta)")
+    parser.add_argument("--nodes", type=int, default=64, help="Gauss-Legendre nodes in cos(theta)")
+    parser.add_argument("--reference-nodes", type=int, default=128, help="nodes of the convergence check")
     args = parser.parse_args()
     if not (INPUTS / "Finite_1Loop_P1").exists():
         sys.exit("run inputs/fetch_inputs.sh first")
@@ -56,6 +57,19 @@ def main():
         out.write("beta,V1,V2\n")
         for b, v1, v2 in rows:
             out.write(f"{float(b)},{mp.nstr(v1, 12)},{mp.nstr(v2, 12)}\n")
+
+    # convergence of the angular quadrature, quoted in Sec. V B
+    check = ("0.01", "0.1", "0.3")
+    dev1 = dev2 = 0.0
+    for b in check:
+        a1, a2 = corrections.angle_averaged(mp.mpf(b), nodes=args.nodes)
+        r1, r2 = corrections.angle_averaged(mp.mpf(b), nodes=args.reference_nodes)
+        dev1 = max(dev1, float(abs(a1 / r1 - 1))); dev2 = max(dev2, float(abs(a2 / r2 - 1)))
+    print(f"quadrature: {args.nodes} against {args.reference_nodes} nodes at beta = {', '.join(check)}: "
+          f"V1 changes by at most {dev1:.1e}, V2 by at most {dev2:.1e}")
+    import json
+    json.dump(dict(nodes=args.nodes, reference_nodes=args.reference_nodes, betas=list(check),
+                   max_dev_V1=dev1, max_dev_V2=dev2), open(RESULTS / "virtual_quadrature.json", "w"), indent=1)
 
     fig, ax = plt.subplots(figsize=(3.6, 2.8))
     x = [float(r[0]) for r in rows]

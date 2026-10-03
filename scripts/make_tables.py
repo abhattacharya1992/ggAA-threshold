@@ -26,7 +26,7 @@ import sympy as sp
 
 from ggaa.paths import DATA, RESULTS
 
-TABLES = DATA.parent / "manuscript" / "tables"
+from ggaa.paths import TABLES
 
 
 def sci(x):

@@ -1,0 +1,23 @@
+(a) M1, coefficient of calL^3 relative to beta^0 (all angles):
+    beta^0: 1
+    beta^2: 9/7
+    beta^4: 8/7
+    beta^6: 8/7
+
+(b) M1, forward limit in G, minus the DPS prediction:
+    beta^0 G^3: -28*PI*m2*nc**2/3   difference: 0
+    beta^0 G^2: 14*PI*m2*nc*(2*n_f - 11*nc)/3   difference: 0
+    beta^2 G^3: -12*PI*m2*nc**2   difference: 0
+    beta^2 G^2: 6*PI*m2*nc*(2*n_f - 11*nc)   difference: 0
+    beta^4 G^3: -32*PI*m2*nc**2/3   difference: 0
+    beta^4 G^2: 16*PI*m2*nc*(2*n_f - 11*nc)/3   difference: 0
+    beta^6 G^3: -32*PI*m2*nc**2/3   difference: 0
+    beta^6 G^2: 16*PI*m2*nc*(2*n_f - 11*nc)/3   difference: 0
+    all match: True
+
+(c) M2, forward coefficient of calL^2 / (-4 Nc) per order, in units of pi Nc m2 / 2:
+    beta^0: 1
+    beta^2: 7
+    beta^4: 8
+    beta^6: 8
+    compare 8/(1-beta^2) - 7 - beta^2 = 8*beta**6 + 8*beta**4 + 7*beta**2 + 1

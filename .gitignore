@@ -17,3 +17,6 @@ jz2_*.log
 reproduce.log
 reproduce_mem.log
 status.sh
+*.tar.xz
+reproduce*.log
+/*.log

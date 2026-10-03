@@ -17,7 +17,7 @@ import sympy as sp
 
 from ggaa import benchmark
 from ggaa import wolfram as W
-from ggaa.paths import CONSTRUCTION, RESULTS, SERIES
+from ggaa.paths import CONSTRUCTION, RESULTS, SERIES, TABLES
 
 calL, nf = sp.symbols("calL n_f")
 
@@ -57,7 +57,7 @@ def write_table(table):
             rows.append(f"$\\mathcal M_{i}$ & ${power}$ & {exact_tex} & ${_tex(value.real)}$ & ${_tex(value.imag)}$ \\\\")
     body = "\n".join(rows)
     text = TABLE.replace("BODY", body)
-    target = SERIES.parents[1] / "manuscript" / "tables" / "leading_logs.tex"
+    target = TABLES / "leading_logs.tex"
     target.write_text(text)
     print(f"wrote {target.relative_to(SERIES.parents[1])}")
 

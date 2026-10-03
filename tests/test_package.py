@@ -149,3 +149,27 @@ class JzForward(unittest.TestCase):
                 a2 = 4 * mp.lu_solve(mp.matrix([[u**2, u, 1] for u in us]), mp.matrix(vs))[0]
                 k1 = (amp(2, mp.mpf(b), 1 - mp.mpf(10)**-18, Nc=Nc, nf=nf) / 125**2).real
                 self.assertLess(abs(a2.real / (-4 * Nc * k1) - 1), 1e-4)
+
+
+class M1Forward(unittest.TestCase):
+    def test_two_loop_logarithms(self):
+        """Sec. IV D: forward G^3 and G^2 coefficients of the two-loop M_1 follow C1 [-(4/3) N_c, -2 beta_0]."""
+        from ggaa import forward as F
+        rows = F.load()
+        for Nc, nf in F.sets(rows):
+            for b in ("0.05", "0.7"):
+                A3, A2 = F.fit(rows, b, Nc, nf, (7, 8, 9, 10))
+                p3, p2 = F.prediction(b, Nc, nf)
+                self.assertLess(abs(A3.real / p3 - 1), 1e-5)
+                self.assertLess(abs(A2.real / p2 - 1), 5e-5)
+
+    def test_k1_closed_form(self):
+        """Sec. IV D: forward limit of the one-loop |J_z| = 2 remainder, Eq. (K1)."""
+        from ggaa import forward as F
+        from ggaa.oneloop import OneLoop
+        amp = OneLoop()
+        with mp.workdps(120):
+            for Nc, nf, b in ((3, 5, "0.3"), (4, 2, "0.9")):
+                k1 = amp(2, mp.mpf(b), 1 - mp.mpf(10)**-40, Nc=Nc, nf=nf) / 125**2
+                self.assertLess(abs(k1.real / F.k1_closed(b, Nc) - 1), 1e-30)
+

@@ -33,7 +33,8 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-MAN = ROOT / "manuscript"
+sys.path.insert(0, str(ROOT / "src" / "python"))
+from ggaa.paths import MANUSCRIPT as MAN
 
 
 def expand(path):

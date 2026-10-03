@@ -141,7 +141,8 @@ def fig_flavour(table):
     """Single-column figure: the two form factors stacked."""
     fig, axes = plt.subplots(2, 1, figsize=(3.375, 3.9), sharex=True)
     plt.subplots_adjust(left=0.19, right=0.97, bottom=0.11, top=0.985, hspace=0.07)
-    styles = [(BLACK, "o", "-", r"$n_f^0$ term"), (RED, "s", "--", r"$5\,n_f$ term"), (BLUE, "^", "-.", r"$25\,n_f^2$ term")]
+    styles = [(BLACK, "o", "-", r"$a_0=\mathcal{M}_{i,0}^{(2)}$"), (RED, "s", "--", r"$a_1=5\,\mathcal{M}_{i,1}^{(2)}$"),
+              (BLUE, "^", "-.", r"$a_2=25\,\mathcal{M}_{i,2}^{(2)}$")]
     for j, i in enumerate((1, 2)):
         rows = flavour_terms(table, i)
         x = [r[0] for r in rows]
@@ -206,33 +207,69 @@ def fig_ratio(table):
 
 
 def fig_dps():
-    """Fig. 3: forward coefficient D(beta) of ln pT^2 in the one-loop M_1 against the helicity weights (Eq. 33)."""
+    """Fig. 4: (a) one- and two-loop forward coefficients against the helicity weights (Eqs. FA, FS);
+    (b) their relative deviations from the prediction."""
     import json
+    from matplotlib.lines import Line2D
+    from ggaa import forward as F
     path = RESULTS / "dps_check.json"
     if not path.exists():
         print("skipped fig7_dps: run make dps first")
         return
     record = json.load(open(path))
-    fig, ax = plt.subplots(figsize=(3.375, 2.5))
+    hh_path = RESULTS / "dps_hh.json"
+    hh = json.load(open(hh_path))["points"] if hh_path.exists() else []
+    rows = F.load() if F.POINTS.exists() else []
+    colour = {(3, 5): RED, (4, 2): BLUE}
+    fig, ax = plt.subplots(2, 1, figsize=(3.375, 4.3), sharex=True, gridspec_kw=dict(height_ratios=[1.35, 1]))
+    plt.subplots_adjust(left=0.17, right=0.97, bottom=0.09, top=0.985, hspace=0.07)
     xs = np.linspace(0.0, 0.75, 200)
     x = (1 + xs) / 2
-    ax.plot(xs, 1 / (x * (1 - x)) - 2 * x * (1 - x), color=BLACK, label=r"$F_A(x)$")
-    ax.plot(xs, 1 / (x * (1 - x)) + 2 * x * (1 - x), color=BLACK, ls="--", label=r"$F_S(x)$")
-    for (Nc, nf), marker, colour, size in (((3, 5), "o", RED, 6.0), ((4, 2), "s", BLUE, 3.4)):
+    ax[0].plot(xs, 1 / (x * (1 - x)) - 2 * x * (1 - x), color=BLACK, lw=1.0)
+    ax[0].plot(xs, 1 / (x * (1 - x)) + 2 * x * (1 - x), color=BLACK, ls="--", lw=1.0)
+    for (Nc, nf), c in colour.items():
         pts = [p for p in record["points"] if p["Nc"] == Nc and p["nf"] == nf]
-        ax.plot([p["beta"] for p in pts], [p["slope"] / (np.pi * Nc) for p in pts], marker, color=colour, ms=size,
-                mfc="none", mew=0.9, ls="none", label=rf"$gg\to AA$, $(N_c,n_f)=({Nc},{nf})$")
-    hh_path = RESULTS / "dps_hh.json"
-    if hh_path.exists():   # one-loop gg -> HH, CP-even vertices; sign of its tree at threshold (-1) divided out
-        hh = json.load(open(hh_path))["points"]
-        ax.plot([p["beta"] for p in hh], [p["HH_tree_sign"] for p in hh], "^", color=GREEN, ms=5.0,
-                mfc="none", mew=0.9, ls="none", label=r"$gg\to HH$")
-    ax.set_xlabel(r"$\beta$")
-    ax.set_ylabel(r"$D(\beta)$")
-    ax.legend(loc="upper left")
-    finish_axis(ax, None)
+        b = [p["beta"] for p in pts]
+        d = [p["slope"] / (np.pi * Nc) for p in pts]
+        ax[0].plot(b, d, "o", color=c, ms=5.5 if Nc == 3 else 3.5, mfc="none", mew=0.9, ls="none")
+        ax[1].semilogy(b, [max(abs(di / p["F_A"] - 1), 1e-16) for di, p in zip(d, pts)], "o", color=c,
+                       ms=5.5 if Nc == 3 else 3.5, mfc="none", mew=0.9, ls="none")
+    if hh:
+        ax[0].plot([p["beta"] for p in hh], [p["HH_tree_sign"] for p in hh], "^", color=GREEN, ms=5.0,
+                   mfc="none", mew=0.9, ls="none")
+        ax[1].semilogy([p["beta"] for p in hh], [max(abs(p["dev_HH"]), 1e-16) for p in hh], "^", color=GREEN,
+                       ms=5.0, mfc="none", mew=0.9, ls="none")
+    if rows:
+        narrow, wide = F.table(rows, (7, 8, 9, 10)), F.table(rows, (6, 7, 8, 9, 10))
+        for t, filled in ((narrow, True), (wide, False)):
+            for (Nc, nf), c in colour.items():
+                sel = [r for r in t if (r["Nc"], r["nf"]) == (Nc, nf)]
+                b = [float(r["beta"]) + (-0.008 if Nc == 3 else 0.008) for r in sel]   # sets side by side
+                for key, marker in (("3", "D"), ("2", "s")):
+                    if filled:
+                        fa = [float(F_A_value) for F_A_value in
+                              (1 / (((1 + bb) / 2) * ((1 - bb) / 2)) - 2 * ((1 + bb) / 2) * ((1 - bb) / 2)
+                               for bb in (float(r["beta"]) for r in sel))]
+                        ax[0].plot(b, [r["ratio" + key] * f for r, f in zip(sel, fa)], marker, color=c,
+                                   ms=3.2, mew=0.0, ls="none", alpha=0.85)
+                    ax[1].semilogy(b, [r["dev" + key] for r in sel], marker, color=c, ms=3.4,
+                                   mfc=c if filled else "none", mew=0.8, ls="none")
+    ax[0].set_ylabel("normalised forward coefficient")
+    ax[1].set_ylabel(r"$|\mathrm{fit}/\mathrm{prediction}-1|$")
+    ax[1].set_xlabel(r"$\beta$")
+    ax[1].set_ylim(3e-17, 3e-3)
+    handles = [Line2D([], [], color=BLACK, lw=1.0, label=r"$F_A$"),
+               Line2D([], [], color=BLACK, lw=1.0, ls="--", label=r"$F_S$"),
+               Line2D([], [], color=GREY, marker="o", mfc="none", ls="none", label="one loop, $AA$"),
+               Line2D([], [], color=GREEN, marker="^", mfc="none", ls="none", label="one loop, $HH$"),
+               Line2D([], [], color=GREY, marker="D", ms=3.2, ls="none", label=r"two loops, $\mathcal{G}^3$"),
+               Line2D([], [], color=GREY, marker="s", ms=3.2, ls="none", label=r"two loops, $\mathcal{G}^2$")]
+    ax[0].legend(handles=handles, loc="upper left", fontsize=7, ncol=2, columnspacing=0.8, handlelength=1.6)
+    finish_axis(ax[0], None)
+    finish_axis(ax[1], None)
+    ax[0].text(0.97, 0.06, "(a)", transform=ax[0].transAxes, ha="right", va="bottom", fontsize=8.5)
+    ax[1].text(0.97, 0.06, "(b)", transform=ax[1].transAxes, ha="right", va="bottom", fontsize=8.5)
     save(fig, "fig7_dps")
-
 
 def main():
     style()

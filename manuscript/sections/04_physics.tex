@@ -6,7 +6,7 @@
 \begin{figure*}[!ht]
  \centering
  \includegraphics[width=0.94\textwidth]{figures/fig5_amplitudes.pdf}
- \caption{Tree-level, one-loop and two-loop terms of the Type~II amplitude, $|\as^n\mathcal M_i^{(n)}|/\mA^2$ with $\as=\BenchAs$ ($\alpha_s=\BenchAlphaS$), at $c=\BenchCos$, $\mA=\muR=\BenchMA\,\mathrm{GeV}$, $\Nc=\BenchNc$ and $\nf=\BenchNf$. Tree level: Eq.~\eqref{eq:born}; one loop: published remainder; two loops: series through $\bA^6$. $\mathcal M_1$ and $\mathcal M_2$ are the equal and opposite helicity amplitudes, Eq.~\eqref{eq:helicity}.}
+ \caption{Tree-level, one-loop and two-loop terms of the Type~II amplitude, $|\as^n\mathcal M_i^{(n)}|/\mA^2$ with $\as=\BenchAs$ ($\alpha_s=\BenchAlphaS$), at $c=\BenchCos$, $\mA=\muR=\BenchMA\,\mathrm{GeV}$, $\Nc=\BenchNc$ and $\nf=\BenchNf$. Tree level: Eq.~\eqref{eq:born}; one loop: remainder of Ref.~\cite{Bhattacharya:2019bmd} with the scale dependence of Eq.~\eqref{eq:normalisation} restored; two loops: series through $\bA^6$. $\mathcal M_1$ and $\mathcal M_2$ are the equal and opposite helicity amplitudes, Eq.~\eqref{eq:helicity}.}
  \label{fig:amplitudes}
 \end{figure*}
 
@@ -123,7 +123,7 @@ with $\widehat A^{(1)}_{10}=\OneLoopAzero$ for $\Nc=\BenchNc$, $\nf=\BenchNf$ an
  \end{ruledtabular}
 \end{table}
 %
-The $|J_z|=2$ amplitude is suppressed near threshold only at tree level. According to Eq.~\eqref{eq:helicity}, $\mathcal A_{\pm\mp}$ then keeps its dependence $e^{\pm2i\phi}$ on the azimuth of $\vec p_3$ as $|\vec p_3|\to0$. An amplitude that is analytic in $\vec p_3$ at $\vec p_3=0$ cannot behave in this way; the loop amplitudes can, because they depend on $\ln p_T$.
+The $|J_z|=2$ amplitude is suppressed near threshold only at tree level. According to Eq.~\eqref{eq:helicity}, $\mathcal A_{\pm\mp}$ retains the azimuthal factor $e^{\pm2i\phi}$ as $|\vec p_3|\to0$. The loop amplitude therefore has a direction-dependent limit and is not analytic in $\vec p_3$ at the origin. At one loop $\mathcal M_2$ approaches a nonzero constant without a DPS logarithm; at two loops it also acquires the logarithm discussed in Sec.~\ref{sec:two-loop}.
 
 \subsection{The double parton scattering singularity}
 \label{sec:dps}
@@ -155,9 +155,9 @@ are $gg\to A$ through $O_G$.
 For a gluon splitting into a collinear pair,
 the daughter helicities add to $0$ or $\pm2$,
 whereas the parent helicity is $\pm1$.
-The splitting amplitude therefore vanishes in
-the exactly collinear limit. For the allowed
-tree helicity configurations, its numerator
+The numerator of the splitting vertex therefore
+vanishes in the exactly collinear limit; for the
+allowed tree helicity configurations it
 is linear in the relative transverse momentum.
 After including the propagator, the corresponding
 light cone wavefunction behaves as the inverse
@@ -338,7 +338,7 @@ logarithmic coefficients at threshold is
 
 The opposite helicity amplitude again
 has no logarithm. Its extracted forward
-coefficient is below \HHMtwoMax{} times
+coefficient is about \HHMtwoMax{} times
 that of $\mathcal M_1$.
 For this check, the diagram containing
 the four-gluon term of the CP-even
@@ -348,30 +348,16 @@ included. Neither depends on $p_T$,
 so neither changes the logarithmic
 coefficient being tested.
 
-Figure~\ref{fig:dps} compares the extracted coefficients with the two helicity weights. The $AA$ points for $(\Nc,\nf)=(3,5)$ and $(4,2)$ lie on top of each other and on the curve $F_A$, so that after the normalisation of Eq.~\eqref{eq:dps-prediction} the coefficient does not depend on $\Nc$ or $\nf$. The $HH$ points (triangles), plotted with their sign reversed, lie on the curve $F_S$, which is separated from $F_A$ by
+Figure~\ref{fig:dps}(a) compares the extracted coefficients with the two helicity weights. The $AA$ points for $(\Nc,\nf)=(3,5)$ and $(4,2)$ lie on top of each other and on the curve $F_A$, so that after the normalisation of Eq.~\eqref{eq:dps-prediction} the coefficient does not depend on $\Nc$ or $\nf$. The $HH$ points (triangles), plotted with their sign reversed, lie on the curve $F_S$, which is separated from $F_A$ by
 \begin{equation}
  F_S-F_A=4x(1-x)=1-\beta^2.
 \end{equation}
+Panel~(b) shows the relative deviations from the prediction, at most \DPSMaxDeviation{} for $AA$ and \HHDpsMaxDev{} for $HH$; the two-loop points are discussed in Sec.~\ref{sec:two-loop}.
 %
 \begin{figure}[!htb]
  \centering
  \includegraphics[width=\columnwidth]{figures/fig7_dps.pdf}
- \caption{
- Comparison of the forward logarithmic coefficients
- with the helicity weights. Circles and squares
- show $D(\beta)$ for $gg\to AA$, defined in
- Eq.~\eqref{eq:dps-prediction}, for
- $(\Nc,\nf)=(3,5)$ and $(4,2)$, respectively.
- The circles and squares coincide.
- Triangles show $-D(\beta)$ for $gg\to HH$
- through two CP-even effective vertices at
- $(\Nc,\nf)=(3,5)$. The sign reversal accounts
- for the relative sign of the scalar and
- pseudoscalar tree amplitudes at threshold.
- The solid and dashed curves are
- $F_A((1+\beta)/2)$ and $F_S((1+\beta)/2)$,
- respectively.
- }
+ \caption{Forward coefficients and helicity weights. (a) Circles: $D(\beta)$ for $gg\to AA$, Eq.~\eqref{eq:dps-prediction}, for $(\Nc,\nf)=(3,5)$ (red, large) and $(4,2)$ (blue, small), which coincide. Triangles: $-D(\beta)$ for $gg\to HH$ through two CP-even effective vertices at $(\Nc,\nf)=(3,5)$; the sign reversal accounts for the relative sign of the scalar and pseudoscalar tree amplitudes at threshold. Filled diamonds and squares: the coefficients of $\mathcal G^3$ and $\mathcal G^2$ in the forward limit of the two-loop remainder of $gg\to AA$, divided by $-\tfrac43\Nc\cdot2\pi\Nc m^2$ and $-2\beta_0\cdot2\pi\Nc m^2$ (Sec.~\ref{sec:two-loop}), for the same two sets (red and blue, drawn side by side). Solid and dashed curves: $F_A((1+\beta)/2)$ and $F_S((1+\beta)/2)$. (b) Relative deviations from these predictions; for the two-loop coefficients, filled symbols are fits over $1-c=10^{-7},\ldots,10^{-10}$ and open symbols include $1-c=10^{-6}$.}
  \label{fig:dps}
 \end{figure}
 
@@ -461,26 +447,21 @@ two momentum fractions add up to one, and the real emission terms, which
 contribute where they add up to less than one.
 
 
+The relation of Eq.~\eqref{eq:log-relation} is not restricted to threshold. In the forward limit at fixed velocity a convenient variable is $\mathcal G=\tfrac12\ln[(\mA^4-tu)/\mA^4]=\mathcal L-\ln(1-\bA^2)$, in which the one-loop DPS logarithm is $C_1\mathcal G$ with $C_1=2\pi\Nc m^2F_A\bigl((1+\beta)/2\bigr)$, by Eq.~\eqref{eq:dps-prediction}. In this limit the two-loop logarithms of the threshold series are exactly $C_1\bigl[-\tfrac43\Nc\,\mathcal G^3-2\beta_0\,\mathcal G^2\bigr]$ through $\bA^6$, for general $\Nc$ and $\nf$; at fixed angle, the coefficient of $\mathcal L^3$ follows the expansion of $F_A\bigl((1+\bA)/2\bigr)$ order by order. Away from threshold I evaluated the released two-loop remainder of $\mathcal M_1$ at $1-c=10^{-6},\ldots,10^{-10}$ with \MoneFwdDigits-digit arithmetic, checked with \MoneFwdCheckDigits{} digits, which agree to at least \MoneFwdCheckAgreement{} digits, and fitted a cubic polynomial in $\ln(1-c)$. For $\MoneFwdBetaMin\leq\beta\leq\MoneFwdBetaMax$ and $(\Nc,\nf)=$ \MoneFwdSets, the coefficients of $\mathcal G^3$ and $\mathcal G^2$ agree with this form to \MoneFwdDevThree{} and \MoneFwdDevTwo{}, with imaginary parts below \MoneFwdImag{} of their magnitudes, when the point at $1-c=10^{-6}$ is left out; with it, the deviations are about \MoneFwdWindowFactor{} times larger, as expected from power corrections in $1-c$ (Fig.~\ref{fig:dps}). In the forward limit, the two-loop leading logarithms of $\mathcal M_1$ are therefore the one-loop DPS logarithm, with its helicity weight $F_A(x)$, multiplied by the same factor at every velocity tested.
+
 The $|J_z|=2$ amplitude acquires a logarithm at two loops: the term
 $\widehat A_{22}\mathcal L^2$, with
 $\widehat A_{22}=(\MtwoRelation)\cdot\OneLoopMtwo$, is the one-loop
-constant multiplied by $\MtwoRelation\,\mathcal L^2$. This relation also
-holds away from threshold. In the forward limit $c\to1$ at fixed velocity,
-where $p_T\to0$ as well, I evaluated the released two-loop remainder of
-$\mathcal M_2$ at $1-c=$ \JzExponents{} with \JzDigits-digit arithmetic
-and fitted a quadratic polynomial in $\ln(1-c)$; a repetition with
-\JzCheckDigits{} digits agrees to at least \JzCheckAgreement{} digits. For
-$\JzBetaMin\leq\beta\leq\JzBetaMax$ and $(\Nc,\nf)=$ \JzSets, the real part
-of the coefficient of $\ln^2(2p_T/m)$ equals $-4\Nc$ times the forward
-limit of $\mathcal M_2^{(1)}$ to \JzMaxDev, although that limit varies by a
-factor of \JzKOneRatio{} over this range. The one-loop amplitude and the
-two-loop logarithm therefore combine as
-$\as\mathcal M_2^{(1)}\bigl[1-4\Nc\as\ln^2(2p_T/m)\bigr]$, and the
-logarithm has no velocity or flavour dependence of its own.
+constant multiplied by $\MtwoRelation\,\mathcal L^2$. The forward-limit calculation described next indicates that the same coefficient relation persists away from threshold. In the forward limit $c\to1$ at fixed velocity, where $p_T\to0$ as well, I evaluated the released two-loop remainder of $\mathcal M_2$ at $1-c=$ \JzExponents{} with \JzDigits-digit arithmetic and fitted a quadratic polynomial in $\ln(1-c)$; a repetition with \JzCheckDigits{} digits agrees to at least \JzCheckAgreement{} digits. For $\JzBetaMin\leq\beta\leq\JzBetaMax$ and $(\Nc,\nf)=$ \JzSets, the real part of the coefficient of $\ln^2(2p_T/m)$ equals $-4\Nc$ times the forward limit of $\mathcal M_2^{(1)}$ to \JzMaxDev, although that limit varies by a factor of \JzKOneRatio{} over this range. Its imaginary part, which should vanish, is below \JzImag{} of its magnitude, and including the point at $1-c=10^{-4}$ in the fit increases the deviation to \JzMaxDevWide, as expected from power corrections. Within the range tested, the one-loop amplitude and the fitted two-loop logarithm are therefore consistent with
+\begin{equation}
+ \as\mathcal M_2^{(1)}\bigl[1-4\Nc\as\ln^2(2p_T/m)\bigr],
+ \label{eq:jz2-forward}
+\end{equation}
+with no additional velocity or flavour dependence resolved in the coefficient of the double logarithm.
 
 
-This factor is the expansion of $\exp(-4\Nc\as\mathcal L^2)$ to first
-order in $\as$. Multiplied by the one-loop coefficient $\OneLoopAone$ and
+The observed combination has the form of the expansion of
+$\exp(-4\Nc\as\mathcal L^2)$ to first order in $\as$. Multiplied by the one-loop coefficient $\OneLoopAone$ and
 integrated over $\mathcal L$, the same exponential gives the cubic term of
 Eq.~\eqref{eq:log-relation}. At lowest order it also corresponds to the
 factor $\exp(-\gamma_K\ln^2\delta/8)$ of Ref.~\cite{DixonEsterlis2016},
@@ -489,7 +470,7 @@ decide whether this factor exponentiates in QCD. The $J_z$ argument of
 Sec.~\ref{sec:dps} concerns the one-loop singularity and does not forbid
 this logarithm. Nor can it come from two-loop amplitudes of the
 subprocesses, since conservation of angular momentum forbids $gg\to A$ for
-opposite gluon helicities to all orders; its origin remains open. A related
+opposite gluon helicities to all orders; its dynamical origin remains open. A related
 effect occurs in planar $\mathcal N=4$ super Yang--Mills theory. The
 next-to-MHV (NMHV) six-gluon amplitude, with three negative helicities, has
 no such singularity at one loop because of $J_z$ conservation, but Dixon
@@ -497,6 +478,13 @@ and Esterlis found logarithmic singularities starting at two loops, in the
 region where the limit overlaps with multi-Regge kinematics, and suggested
 that they may come from contributions in which more than one particle
 crosses a cut~\cite{DixonEsterlis2016}.
+
+The forward limit of $\mathcal M_2^{(1)}$ itself has a closed form. The exact one-loop remainders agree with
+\begin{equation}
+ \lim_{c\to1}\frac{\mathcal M_2^{(1)}}{m^2}=\pi\Nc\,\frac{x^4+(1-x)^4}{x(1-x)},\qquad x=\frac{1+\beta}{2},
+ \label{eq:K1}
+\end{equation}
+to \KOneClosedDev{} for $\KOneBetaMin\leq\beta\leq\KOneBetaMax$ and both sets of $(\Nc,\nf)$; at threshold it gives $\OneLoopMtwo$. With the weights of Eq.~\eqref{eq:splitting-weights}, the fraction in Eq.~\eqref{eq:K1} equals $w_{+-}(x)w_{-+}(1-x)+w_{-+}(x)w_{+-}(1-x)$: the helicity sum of Sec.~\ref{sec:dps} for the two pairings that an opposite-helicity initial state allows when each effective vertex receives two gluons of equal helicity, with the same overall factor $\pi\Nc$ as in Eq.~\eqref{eq:dps-prediction}. The one-loop constant of $\mathcal M_2$ thus has the form expected if it arose from the DPS region, where the azimuthal phase of these pairings removes the logarithm and leaves a finite term; I have not derived this from the factorisation formula. The two helicity amplitudes therefore provide an explicit two-loop QCD benchmark for a more general description of this singular kinematic region.
 
 
 %

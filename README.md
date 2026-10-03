@@ -37,7 +37,8 @@ inputs/              download script and checksums for the arXiv:1909.08993 anci
 Python 3.9 or later with `sympy >= 1.12`, `mpmath`, `numpy` and `matplotlib`
 (`pip install -r requirements.txt`). The manuscript needs a TeX installation with
 REVTeX 4.2. A Wolfram kernel is needed only for `src/mathematica` and for rerunning the
-construction (`make reproduce`, which also needs g++ with GMP or Boost.Multiprecision).
+construction (`make reproduce`, which also needs g++ with the GMP or Boost.Multiprecision headers; Boost is
+header-only and can be unpacked in the home directory and passed with `export CPLUS_INCLUDE_PATH=…/boost_1_86_0`).
 
 ## Quick start
 
@@ -71,17 +72,19 @@ series.component(2, 1, "1/10", "1/3")          # coefficient of n_f^1 in M_2
 | one-loop threshold and forward limits | `make inputs one-loop` | `results/one_loop.txt` |
 | independent evaluation of the exact two-loop remainders | `make inputs exact-check` | `results/exact_amplitude.txt` |
 | Table III, error slopes | `make validation` | `manuscript/tables/accuracy.tex`, `results/compare_validation.txt` |
-| Figs. 2, 3 and 6 (validation, DPS weight, flavour), Fig. 1 (diagrams); interference and ratio plots for the supplement | `make figures` | `manuscript/figures/fig1, fig7, fig2, fig0 (fig3, fig4)` |
-| Figs. 4 and 5 (amplitudes by order, cross section) | `make inputs virtual physics-figures` | `manuscript/figures/fig5, fig6` |
+| Figs. 2, 4 and 6 (validation, DPS weights with the one- and two-loop forward coefficients, flavour), Fig. 1 (diagrams); interference and ratio plots for the supplement | `make figures` | `manuscript/figures/fig1, fig7, fig2, fig0 (fig3, fig4)` |
+| Figs. 3 and 5 (amplitudes by order, cross section) | `make inputs virtual physics-figures` | `manuscript/figures/fig5, fig6` |
 | one-loop ln p_T coefficient against the DPS helicity weight F_A(x) | `make inputs dps` | `results/dps_check.{txt,json}` |
 | ln p_T terms of V1, V2; coefficient −(7/4)π²N_c²; v0, v1 at three angles and two scales; maximum of V2 | `make inputs rate-logs` | `results/rate_logs.json` |
-| velocity below which the two-loop term of M1 exceeds the one-loop term (Fig. 4) | `make crossover` | `results/amplitude_crossover.json` |
-| one-loop gg → HH forward logarithm against F_S; HH points of Fig. 3 (data in `data/dps_hh`) | `make dps-hh` | `results/dps_hh.json` |
+| velocity below which the two-loop term of M1 exceeds the one-loop term (Fig. 3) | `make crossover` | `results/amplitude_crossover.json` |
+| one-loop gg → HH forward logarithm against F_S; HH points of Fig. 4 (checks the supplied amplitude values in `data/dps_hh`; the code that generated them is not included and is available on request) | `make dps-hh` | `results/dps_hh.json` |
 | earlier 2019 run vs published renormalisation, June 2019 pole record (App. B) | `make renorm-2019` | `results/renorm_2019.json` |
 | forward limit of the two-loop \|J_z\|=2 amplitude: ℓ² coefficient = −4N_c × one-loop constant (Sec. IV D) | `make jz2` (summary from `results/jz2_forward_points.jsonl`; the full evaluation takes several hours on 6 cores) | `results/jz2_forward_nc3_nf5_e567.txt`, `results/jz2_forward_nc4_nf2_e567.txt` |
+| two-loop DPS logarithms beyond leading power in the threshold series: ℒ³ coefficient follows F_A order by order; forward G³, G² coefficients = C₁[−(4/3)N_c, −2β₀] exactly through β⁶ (Sec. IV D) | `make nlp-dps` | `results/nlp_dps.txt` |
+| forward limit of the two-loop M₁ from the exact remainder, (N_c, n_f) = (3, 5) and (4, 2), 0.05 ≤ β ≤ 0.7 (Sec. IV D, Fig. 4) | `make m1-forward` (summary from `results/m1_forward_points.jsonl`; the full evaluation takes several hours on 8 cores) | `results/m1_forward_Nc3_nf5.txt`, `results/m1_forward_Nc4_nf2.txt` (fits over 1 − c = 10⁻⁷…10⁻¹⁰; the `_e6-10` files include 10⁻⁶) |
 | construction files and validation records against the outputs of the construction runs | `make provenance` | `results/provenance.json` |
 | inputs of the P1 n_f construction against the published remainder | `make nf1-inputs` | `results/nf1_inputs.txt` |
-| construction rerun from the published files (Mathematica 13.2, several hours) | `make inputs reproduce` | `build/reproduce/` |
+| construction rerun from the published files (Mathematica 13.2; about 4.5 h and 0.8 GB peak memory on lhcpheno48; start it detached with `setsid nohup bash scripts/watch_reproduce.sh 60 15 > /dev/null 2>&1 < /dev/null &`, which also stops it if memory runs short) | `make inputs reproduce` | `build/reproduce/`, `reproduce.log`, `reproduce_mem.log` |
 | diagrams of Fig. 1 | `make diagrams` | `manuscript/figures/fig0_diagrams_tikz.tex`, fallback `fig0_diagrams.pdf` |
 | share of the ln p_T terms in V2 at fixed angle | `make inputs log-share` | `results/log_share.json` |
 | 2019 archive against the published files (one loop: mu_R term; two loops: factor 64) | `make inputs archive` | `results/archive_2019.json` |
@@ -95,8 +98,9 @@ series.component(2, 1, "1/10", "1/3")          # coefficient of n_f^1 in M_2
 | paper | `make inputs paper` | `manuscript/main.pdf` and the layout report |
 | arXiv submission (after `make paper`) | `make arxiv` | `build/ggAA-threshold-arxiv.tar.gz` |
 
-`make all` needs the downloaded inputs (`make inputs`) for the numbers of the text; it runs everything
-except the one-loop and exact-amplitude checks; `make exact-check` takes about 45 minutes. `make constants` takes a few minutes at 110 digits; the other targets take
+`make all` needs the downloaded inputs (`make inputs`) for the numbers of the text; it runs `series`,
+`constants`, `leading-logs`, `validation`, `tables`, `figures` and `numbers`, and the other targets in the
+table are run separately; `make exact-check` takes about 45 minutes. `make constants` takes a few minutes at 110 digits; the other targets take
 at most a few minutes each.
 
 ## Conventions
@@ -125,8 +129,9 @@ All two-loop numbers are in the common normalization (published files ÷ 64).
   M₁ = π m_A² [ −(28/3) N_c² ℒ³ − (14/3) N_c (11N_c − 2n_f) ℒ² + … ],
   M₂ = π m_A² [ −2 N_c² ℒ² − (4/3) N_c (4N_c − n_f) ℒ + … ] + O(β_A²).
 
-- At one loop, M₁ = m_A² (7π N_c ℒ + const) and M₂ → (π/2) N_c m_A² at threshold, both
-  independent of n_f and μ_R.
+- At one loop, M₁ = m_A² (7π N_c ℒ + const) and M₂ → (π/2) N_c m_A² at threshold. The coefficient
+  7π N_c and the limit (π/2) N_c m_A² are independent of n_f and μ_R; the constant in M₁ is not.
+  In the forward limit, M₂⁽¹⁾/m_A² → π N_c [x⁴ + (1−x)⁴]/[x(1−x)] at every velocity (Sec. IV D).
 - The ln p_T term is the double parton scattering singularity (Gaunt and Stirling,
   arXiv:1103.1888). In the forward limit the one-loop coefficient of ln p_T² equals
   π N_c m_A² F_A(x), with F_A(x) = 1/(x(1−x)) − 2x(1−x) and x = (1+β_A)/2, to 3×10⁻¹⁵
