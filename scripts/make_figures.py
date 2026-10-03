@@ -225,8 +225,8 @@ def fig_dps():
     # coefficient -> colour, symbol, size, filled, offset in (b), legend label
     style = {"AA": (BLACK, "o", 6.4, False, -0.022, r"one loop, $D$ ($AA$)"),
              "HH": (GREEN, "^", 5.6, False, 0.022, r"one loop, $-D$ ($HH$)"),
-             "G3": (RED, "D", 3.6, True, -0.022, r"two loops, $\mathcal{G}^3$ coefficient"),
-             "G2": (BLUE, "+", 7.0, False, 0.022, r"two loops, $\mathcal{G}^2$ coefficient")}
+             "G3": (RED, "D", 3.6, True, -0.022, r"two loops, $\mathcal{G}^3$"),
+             "G2": (BLUE, "+", 7.0, False, 0.022, r"two loops, $\mathcal{G}^2$")}
     pair = {(3, 5): -0.009, (4, 2): 0.009}           # (b): left (3, 5), right (4, 2)
     fa = lambda b: 1 / (((1 + b) / 2) * ((1 - b) / 2)) - 2 * ((1 + b) / 2) * ((1 - b) / 2)
     series = {}                                       # (coefficient, set) -> (betas, values, deviations)
@@ -255,8 +255,8 @@ def fig_dps():
         if st == (3, 5):
             draw(ax[0], np.array(bs), vals, key)
         draw(ax[1], np.array(bs) + style[key][4] + pair[st], [max(d, 1e-16) for d in devs], key)
-    ax[0].set_ylabel(r"forward coefficient$\,/\,$normalisation")
-    ax[1].set_ylabel(r"$|\mathrm{fit}/\mathrm{prediction}-1|$")
+    ax[0].set_ylabel("normalised coefficient")
+    ax[1].set_ylabel("relative deviation from curve")
     ax[1].set_xlabel(r"$\beta$")
     ax[0].set_ylim(3.0, 9.8)
     ax[1].set_ylim(3e-17, 3e-3)
@@ -266,7 +266,7 @@ def fig_dps():
     handles += [Line2D([], [], color=c, marker=m, ms=size, mfc=c if filled else "none", mec=c, mew=1.0, ls="none", label=lab)
                 for c, m, size, filled, _, lab in style.values()]
     ax[0].legend(handles=handles, loc="upper left", fontsize=6.8, frameon=False, handlelength=1.8, labelspacing=0.35)
-    ax[1].text(0.03, 0.5, "each pair: left $(N_c,n_f)=(3,5)$,\nright $(N_c,n_f)=(4,2)$", transform=ax[1].transAxes,
+    ax[1].text(0.03, 0.5, "pairs: $(N_c,n_f)=(3,5)$ left, $(4,2)$ right", transform=ax[1].transAxes,
                ha="left", va="center", fontsize=6.8)
     finish_axis(ax[0], None)
     finish_axis(ax[1], None)
