@@ -19,7 +19,7 @@ help:
 	@echo "make virtual       finite virtual corrections V1, V2 relative to LO (needs inputs)"
 	@echo "make normalization checks of the tree, one-loop and two-loop normalization (needs inputs)"
 	@echo "make tables        forward-angle and endpoint-constant tables"
-	@echo "make figures       Figs. 1 (diagrams), 2, 3 and 6"
+	@echo "make figures       Figs. 1 (diagrams), 2, 4 and 6"
 	@echo "make physics-figures  Figs. 3 and 5 (needs inputs; Fig. 5 needs make virtual)"
 	@echo "make test          quick tests (under a minute)"
 	@echo "make dps           one-loop ln p_T term against the double-parton-scattering singularity (needs inputs)"

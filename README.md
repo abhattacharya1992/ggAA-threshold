@@ -214,10 +214,11 @@ removable 0/0 terms at cos θ = 0 (t = u), so they cannot be evaluated there dir
 
 ## Use of AI tools
 
-AI tools (Claude, Anthropic, and ChatGPT, OpenAI) were used to help write and debug the code of the
-construction and validation (`src/construction`), to help write and check parts of the
-analysis and plotting code, and to reorganize this repository. The author defined the
-calculations, ran the code and checked the results reported in the paper.
+Large language models, Claude Opus 5.5 and Claude Fable 5.1 (Anthropic) and GPT-6 Pro and GPT-5.6 Pro
+(OpenAI), were used to help write and debug the code of the construction, the validation and the figures,
+to draft and edit the text, and to reorganise this repository. All code was checked through the tests in this package (comparison with
+the unexpanded remainders, the renormalisation group relations, an independent Python evaluation); the
+author is responsible for all results and the text.
 
 ## Licence and citation
 

@@ -1,7 +1,7 @@
 \section{Threshold expansion}
 \label{sec:expansion}
 
-The calculation has four steps, each checked independently. First, the finite remainders of Ref.~\cite{Bhattacharya:2019bmd} are split into their flavour coefficients and brought to the normalisation of Eq.~\eqref{eq:normalisation} (App.~\ref{app:normalization}). Second, each flavour coefficient is expanded about $\bA=0$ at fixed angle, through $\bA^4$ and, independently, through $\bA^6$ (Sec.~\ref{sec:construction}). Third, the constants that arise at the endpoints are reduced to a basis of \BasisCountWord{} transcendental constants, after which the inverse and odd powers of $\bA$ cancel identically (Sec.~\ref{sec:cancellations} and App.~\ref{app:constants}). Fourth, the series are compared with the unexpanded remainders, evaluated in Mathematica at increasing working precision and, at selected points, with an independent Python code (Sec.~\ref{sec:validation}). The leading power terms obtained in this way are analysed in Sec.~\ref{sec:physics}, where the forward limit of the one-loop remainders and a one-loop calculation of $gg\to HH$ test their relation to the DPS singularity, and their consequences for the cross section in Sec.~\ref{sec:rate}. The software and the computing environment are described in App.~\ref{app:data}.
+The calculation has four steps, each checked independently. First, the finite remainders of Ref.~\cite{Bhattacharya:2019bmd} are split into their flavour coefficients and brought to the normalisation of Eq.~\eqref{eq:normalisation} (App.~\ref{app:normalization}). Second, each flavour coefficient is expanded about $\bA=0$ at fixed angle, through $\bA^4$ and, independently, through $\bA^6$ (Sec.~\ref{sec:construction}). Third, the constants that arise at the endpoints are reduced to a basis of \BasisCountWord{} transcendental constants, after which the inverse and odd powers of $\bA$ cancel identically (Sec.~\ref{sec:cancellations} and App.~\ref{app:constants}). Fourth, the series are compared with the unexpanded remainders, evaluated in Mathematica at increasing working precision and, at selected points, with an independent Python code (Sec.~\ref{sec:validation}). The leading power terms are analysed in Sec.~\ref{sec:physics}, where forward limits of the one-loop remainders and a separate one-loop $gg\to HH$ calculation test their relation to the DPS singularity. Their consequences for the finite virtual contribution are discussed in Sec.~\ref{sec:rate}. The software and the computing environment are described in App.~\ref{app:data}.
 
 \subsection{Construction}
 \label{sec:construction}
@@ -41,14 +41,14 @@ Since the prefactors start at $\bA^{-4}$, the special functions have to be expan
 \subsection{Endpoint constants and exact cancellations}
 \label{sec:cancellations}
 
-The boundary values at $\bA=0$ introduce \ConstantCountWord{} constants $\mathrm{MB}[p,q,a,w]$, defined in Eq.~\eqref{eq:mb-definition} of App.~\ref{app:constants}. Their arguments take the values $\pm1$ and $\tfrac12$, so they are alternating Euler sums of weight three and four~\cite{Blumlein:2009cf}. An integer relation search with the PSLQ algorithm~\cite{Ferguson:1999} at \PSLQDigits{} digits expresses each of them in the basis
+The boundary values at $\bA=0$ introduce \ConstantCountWord{} constants $\mathrm{MB}[p,q,a,w]$, defined in Eq.~\eqref{eq:mb-definition} of App.~\ref{app:constants}. Their arguments take the values $\pm1$ and $\tfrac12$; the integer relation search below reduces them to a basis of constants of weight three and four, of the type that occurs for alternating Euler sums~\cite{Blumlein:2009cf}. An integer relation search with the PSLQ algorithm~\cite{Ferguson:1999} at \PSLQDigits{} digits expresses each of them in the basis
 \begin{equation}
  \{\zeta_3,\ \pi^2\ln2,\ \ln^32,\ \pi^4,\ \pi^2\ln^22,\ \ln^42,\ \Li_4(\tfrac12),\ \zeta_3\ln2\},
  \label{eq:constant-basis}
 \end{equation}
 with a largest residual of \PSLQResidual{} (App.~\ref{app:constants}).
 
-With these reductions, and with the dilogarithms of $(1-c)/2$, $(c-1)/(c+1)$ and $(c+1)/(c-1)$ rewritten through $\Li_2\bigl((1+c)/2\bigr)$ by the reflection and Landen identities, every coefficient $C^{(i,r)}_{nk}$ becomes a polynomial in
+With these reductions, and with the dilogarithms of $(1-c)/2$, $(c-1)/(c+1)$ and $(c+1)/(c-1)$ rewritten through $\Li_2\bigl((1+c)/2\bigr)$ by the reflection and Landen identities, after extracting the overall factor $\mA^2$, the coefficient of each power $\bA^n$ is a polynomial in
 \begin{equation}
  \bigl\{\ln\bA,\ \ln(1\pm c),\ \Li_2\bigl(\tfrac{1+c}{2}\bigr),\ \ln\tfrac{\mA^2}{\muR^2}\bigr\}\cup\{\ln2,\ \pi,\ \zeta_3,\ \Li_4(\tfrac12)\}
  \label{eq:function-basis}
@@ -168,7 +168,7 @@ of it.
 
 For the series through $\bA^4$, the fitted slopes of the logarithm of the maximum error against $\ln\bA$ over the plotted range are \PoneSlopeFour{}
 for $\mathcal M_1$ and \PtwoSlopeFour{} for $\mathcal M_2$; for the series through $\bA^6$ they are \PoneSlopeSix{} and \PtwoSlopeSix.
-The expected values are 6 and 8 (Sec.~\ref{sec:cancellations}), while a surviving odd power would give values close to 5 and 7. The small deviations from 6 and 8 come from the powers of $\ln\bA$ in the omitted terms.
+The expected values are 6 and 8 (Sec.~\ref{sec:cancellations}), while a surviving odd power would give values close to 5 and 7. The small deviations from 6 and 8 are consistent with the powers of $\ln\bA$ and the higher terms omitted from the series.
 
 In the lower panels, exact power behaviour would give horizontal lines.
 The scaled errors vary slowly, because both the omitted terms and the remainders that normalise the errors contain powers of $\ln\bA$, and over the tested range they change by less than a factor of two.
