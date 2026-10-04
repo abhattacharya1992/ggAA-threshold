@@ -2,26 +2,19 @@
 \label{sec:introduction}
 
 Precision tests of the Standard Model (SM) and searches for new particles
-at the Large Hadron Collider (LHC) require theoretical predictions
-for production rates and differential cross sections. The accuracy
-of these predictions is important when comparing different models
-or determining whether a discrepancy with a measurement indicates
-a new interaction.
+at the Large Hadron Collider (LHC) require theoretical predictions for
+production rates and differential cross sections.
 QCD radiative corrections in gluon fusion processes can be sizeable, and
-calculations beyond leading order (LO) are needed to assess their effect on
-the predicted rates and distributions~\cite{Baglio:2023euv}.
-Loop amplitudes enter the virtual
-contributions to these corrections.
-Their calculation requires the evaluation of loop integrals and control over their behaviour in the physical region.
-In particular, amplitudes
-can develop singularities at special kinematic configurations even
-when the corresponding tree amplitudes are regular. The location
-and strength of these singularities matter for numerical
-evaluation and for the behaviour of differential cross
-sections~\cite{GauntStirling2011,DixonEsterlis2016}.
-An expansion about such a configuration allows the singular terms
-to be studied explicitly, together with the regular terms needed
-for a quantitative prediction.
+calculations beyond leading order (LO) are needed to assess their effect
+on the predicted rates and distributions~\cite{Baglio:2023euv}.
+Loop amplitudes enter the virtual contributions to these corrections.
+They can develop singularities at special kinematic configurations even
+when the corresponding tree amplitudes are regular.
+The location and strength of these singularities matter for numerical
+evaluation and for the behaviour of differential cross sections~\cite{GauntStirling2011,DixonEsterlis2016}.
+n expansion about such a configuration allows the singular terms to be
+studied explicitly, together with the regular terms needed for a
+quantitative prediction.
 
 A relevant example is neutral Higgs boson pair production in
 two-Higgs-doublet models (2HDM). At the LHC, the dominant production
@@ -139,15 +132,18 @@ splitting kernels~\cite{DiehlPloessl2026}. The amplitude-level singularity studi
 In this paper, we expand the two-loop Type~II finite remainders of Ref.~\cite{Bhattacharya:2019bmd} in the velocity $\bA$ through $\bA^6$. The main results are the following:
 \begin{enumerate}
  \item After the constants that arise in the expansion are expressed in a basis of \BasisCountWord{} transcendental constants, all inverse powers of $\bA$ and the odd powers through $\bA^5$ cancel, and every coefficient is even in $\cos\theta$, as required by Bose symmetry. At leading power, the angle enters only through the logarithm of the transverse momentum $p_T$ of the pseudoscalars.
+
  \item This logarithm is the DPS singularity. At one loop its coefficient follows the factorised formula of Ref.~\cite{GauntStirling2011} for gluon splitting and the opposite signs of the amplitudes for $g^+g^+\to A$ and $g^-g^-\to A$: with the overall constant fixed at threshold, it reproduces the velocity dependence of the exact one-loop coefficient in the forward limit. A one-loop calculation of $gg\to HH$ confirms the corresponding weight for a CP-even coupling.
- \item At two loops the $J_z=0$ amplitude, with equal gluon helicities, grows as $\ln^3p_T$, and the ratio of its leading two- and one-loop logarithms agrees with the corresponding result in planar $\mathcal N=4$ super Yang--Mills theory~\cite{DixonEsterlis2016}; in the forward limit, its two-loop logarithms follow the one-loop helicity weight at all velocities tested. The $|J_z|=2$ amplitude has no DPS logarithm at one loop but develops a $\ln^2p_T$ term at two loops. Forward-limit fits provide numerical evidence that the real coefficient of this double logarithm is $-4\Nc$ times the one-loop forward amplitude over the velocities tested; its dynamical origin remains open.
- \item In the finite virtual corrections, the one-loop DPS logarithm does not contribute to the interference of the one-loop and tree amplitudes, because it is out of phase with the tree amplitude. At two loops the cubic logarithm is absent, and the leading singular term is
- \[
-  V_2\supset-\frac74\pi^2\Nc^2\ln^2\!\left(\frac{2p_T}{\mA}\right).
- \]
- Here $V_2$ is the two-loop finite virtual coefficient normalised to the squared Type~II tree amplitude, as defined in Sec.~\ref{sec:rate}. It results from the combination of the interference of the two-loop amplitude with the tree amplitude and the square of the one-loop amplitude.
+
+ \item At two loops the $J_z=0$ amplitude, with equal gluon helicities, grows as $\ln^3(2p_T/m_A)$. The ratio of its leading two and one-loop logarithms agrees with the corresponding leading-logarithmic ratio in planar $\mathcal{N}=4$ super Yang--Mills theory~\cite{DixonEsterlis2016}. Forward-limit fits support the coefficient relations in Eq.\ \ref{eq:forward-relation} at the tested velocities in $0.05\leq\beta_A\leq0.7$. The $|J_z|=2$ amplitude has no DPS logarithm at one loop but develops a $\ln^2(2p_T/m_A)$ term at two loops. Fits at the tested velocities in $0.05\leq\beta_A\leq0.5$ support a real coefficient equal to $-4N_c$ times the one-loop forward amplitude. The origin of this double logarithm remains open.
+
+ \item At leading power, the one-loop DPS logarithm does not contribute to the finite virtual interference with the tree amplitude because the two are out of phase. At the next order, the cubic logarithm of the two-loop amplitude gives a quadratic logarithm in its interference with the tree amplitude. Combining this interference with the square of the one-loop amplitude gives
+ \[V_2\supset-\frac{7}{4}\pi^2N_c^2 \ln^2\left(\frac{2p_T}{m_A}\right). \]
+ Here $V_2$ is the finite virtual coefficient at two-loop order, normalised to the squared Type II tree amplitude, as defined in Sec.~\ref{sec:use}.
 \end{enumerate}
-The remainders released with Ref.~\cite{Bhattacharya:2019bmd} are normalised differently at different orders, with a factor \FileFactor{} in the two-loop files and the one-loop files given at $\muR=1$~GeV; we convert them to a common normalisation (App.~\ref{app:normalization}). The series reproduce the unexpanded remainders with relative errors of at most \PtwoErrLePointTwo{} for $\bA\leq\RecommendedBeta$; they are released together with an evaluator~\cite{SupplementalMaterial}.
+%
+We use the common normalisation defined in Sec.~\ref{sec:normalization} and checked
+in App.~\ref{app:normalization}. At the tested points with $0<\beta_A\leq0.2$, the series reproduce the two complete unexpanded remainders with relative errors of at most $6.77\times10^{-5}$. The series and code for their numerical evaluation are provided with the paper \cite{SupplementalMaterial}.
 
 The paper is organised as follows.
 Section~\ref{sec:setup} sets out the conventions, the normalisation of the remainders and the counting of orders. Section~\ref{sec:expansion} summarises the procedure and describes the expansion and its accuracy. Section~\ref{sec:physics} discusses the leading power terms and their relation to the DPS singularity, and Sec.~\ref{sec:rate} their consequences for the cross section. The conclusions are in Sec.~\ref{sec:conclusions}.

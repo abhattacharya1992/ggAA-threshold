@@ -257,12 +257,10 @@ In this limit, the longitudinal velocity of
 the first boson is $2x-1$, so
 $x=(1+\beta)/2$.
 
-To extract the logarithmic coefficient, I
-differentiate the real part of the one-loop
-remainder with respect to $\ln p_T^2$ at
-fixed $\beta$ and $m$, and then take the
-forward limit. Dividing by the normalisation
-fixed above defines
+To extract the logarithmic coefficient, we differentiate the real part
+of the one-loop remainder with respect to $\ln(p_T^2/m^2)$ at fixed
+$\beta$ and $m$, and then take the forward limit.
+Dividing by the normalisation fixed above defines
 \begin{align}
  D(\beta)
  &\equiv
@@ -418,10 +416,13 @@ The second term, $-2\beta_0\mathcal L$, has no counterpart in the
 $\mathcal N=4$ theory; the number of quark
 flavours enters it only through $\beta_0$.
 
-
-The same $\beta_0$ term appears in the NLO momentum-space kernel for the
-splitting $g\to gg$ in unpolarised colour singlet double parton
-distributions~\cite{Diehl:2019rdh}, in which the logarithms are of the transverse momentum mismatch $\Delta$ between amplitude and conjugate amplitude, not of the transverse momentum of a produced particle; the comparison concerns the coefficients of the logarithms only. Equations~(50) and (135) of Ref.~\cite{Diehl:2019rdh} give the
+A corresponding $\beta_0$ coefficient appears in the NLO momentum-space
+kernel for $g\to gg$ splitting in unpolarised colour singlet double
+parton distributions~\cite{Diehl:2019rdh}.
+There the logarithm involves the transverse momentum mismatch $\Delta$
+between amplitude and conjugate amplitude, rather than the transverse
+momentum of a produced particle. The comparison concerns the logarithmic coefficients.
+Equations~(50) and (135) of Ref.~\cite{Diehl:2019rdh} give the
 coefficient of $\ln^2(\mu^2/\Delta^2)$ in units of $\alpha_s/2\pi$;
 relative to the LO term, its $\beta_0$ part corresponds to
 $-2\beta_0\mathcal L$ in the normalisation of $\as$ used here. Half of it
@@ -455,14 +456,17 @@ constant multiplied by $\MtwoRelation\,\mathcal L^2$. The forward-limit calculat
 \end{equation}
 with no additional velocity or flavour dependence resolved in the coefficient of the double logarithm.
 
-
-The observed combination has the form of the expansion of
-$\exp(-4\Nc\as\mathcal L^2)$ to first order in $\as$. Multiplied by the one-loop coefficient $\OneLoopAone$ and
-integrated over $\mathcal L$, the same exponential gives the cubic term of
-Eq.~\eqref{eq:log-relation}. At lowest order it also corresponds to the
-factor $\exp(-\gamma_K\ln^2\delta/8)$ of Ref.~\cite{DixonEsterlis2016},
-with the cusp anomalous dimension $\gamma_K=4a$. However, two loops cannot
-decide whether this factor exponentiates in QCD. The $J_z$ argument of
+The first-order expansion of $\exp[-4N_ca_s\ln^2(2p_T/m)]$, multiplied by the one-loop amplitude, reproduces Eq.~\ref{eq:jz2-forward} at double-logarithmic accuracy.
+The cubic term in Eq.~\ref{eq:forward-relation} is likewise obtained from $\OneLoopAone \int d\mathcal{L}\,(-4N_c\mathcal{L}^2)$.
+These comparisons concern the highest logarithmic powers only.
+The exponent also agrees at leading order with $-\gamma_K\ln^2\delta/8$ in Ref.~\cite{DixonEsterlis2016}, using $\gamma_K=4a$, $a=2N_ca_s$ and $\ln\delta=2\mathcal{L}+\mathrm{const}$ at leading-logarithmic accuracy.
+These coefficient relations do not establish exponentiation in QCD.
+%
+%
+%The observed combination has the form of the expansion of $\exp(-4\Nc\as\mathcal L^2)$ to first order in $\as$. Multiplied by the one-loop coefficient $\OneLoopAone$ and integrated over $\mathcal L$, the same exponential gives the cubic term of Eq.~\eqref{eq:log-relation}. At lowest order it also corresponds to the factor $\exp(-\gamma_K\ln^2\delta/8)$ of Ref.~\cite{DixonEsterlis2016}, with the cusp anomalous dimension $\gamma_K=4a$. However, two loops cannot decide whether this factor exponentiates in QCD.
+%
+%
+The $J_z$ argument of
 Sec.~\ref{sec:dps} concerns the one-loop singularity and does not forbid
 this logarithm. Nor can it be explained by loop corrections to the $gg\to A$ subprocess amplitudes, since conservation of angular momentum forbids $gg\to A$ for opposite gluon helicities to all orders; its dynamical origin remains open. A related
 effect occurs in planar $\mathcal N=4$ super Yang--Mills theory. The

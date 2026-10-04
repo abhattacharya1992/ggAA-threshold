@@ -5,14 +5,11 @@
 \subsection{Theoretical framework}
 
 To study the threshold behaviour of $gg\to AA$ through two loops,
-we use the amplitudes from Ref.~\cite{Bhattacharya:2019bmd} with the effective Lagrangian
-of Eq.~\eqref{eq:EL}. The labels Type~I and Type~II follow
+we use the amplitudes from Ref.~\cite{Bhattacharya:2019bmd} with the effective Lagrangian of Eq.~\eqref{eq:EL}. The labels Type~I and Type~II follow
 that reference and distinguish the two classes of diagrams.
 They are unrelated to the Yukawa types of 2HDMs.
-The Type~II tree diagrams correspond, in the full theory, to
-two top quark triangles connected by a gluon, i.e. the
-one-particle reducible contribution of
-Ref.~\cite{Baglio:2023euv}. Here we consider the contribution
+%The Type~II tree diagrams correspond, in the full theory, to two top quark triangles connected by a gluon, i.e. the one-particle reducible contribution of Ref.~\cite{Baglio:2023euv}.
+Here we consider the contribution
 with two $O_G$ insertions and omit the superscript
 $\mathrm{II}$ from the amplitudes. Diagrams with one $O_G$
 and one $O_J$ insertion first contribute at one loop.
@@ -155,8 +152,9 @@ We use dimensional regularisation with $d=4+\epsilon$, following Ref.~\cite{Bhat
  \mathcal M^{(2)}&=4I^{(2)}\mathcal M^{(0)}+2I^{(1)}\mathcal M^{(1)}+\mathcal M^{(2),\Fin}.
  \label{eq:catani}
 \end{align}
-From here on $\mathcal M^{(n)}$ denotes the finite remainder
-$\mathcal M^{(n),\Fin}$.
+We use the subtraction operators implemented in the original calculation, including the convention for the $H_g^{(2)}$ term specified in App.\ \ref{app:normalization}.
+From here on $\mathcal{M}^{(n)}$ denotes the finite remainder
+$\mathcal{M}^{(n),\mathrm{fin}}$.
 
 At two loops, we decompose each finite remainder into powers
 of the number of light quark flavours,
@@ -177,10 +175,13 @@ Furthermore, the remainders released with Ref.~\cite{Bhattacharya:2019bmd} are n
  \Mfull{i}&=\frac{1}{\FileFactor}\,\mathcal M_{i,\mathrm{publ}}^{(2)},
  \label{eq:normalisation}
 \end{align}
-with $\beta_0=(11\Nc-2\nf)/3$ and masses in GeV.
-The added term restores the scale dependence required by the renormalisation group equations; with both conversions in place, the released one- and two-loop remainders are consistent with each other at every tested point.
-Appendix~\ref{app:normalization} gives the evidence.
-The conversion leaves the powers of the threshold logarithms and the relative truncation errors unchanged. The numerical two-loop coefficients, and their comparison with lower orders, require the common normalisation; restoring the one-loop scale dependence changes the one-loop constant and the finite virtual corrections of Sec.~\ref{sec:rate}.
+with $\beta_0=(11N_c-2n_f)/3$ and masses in GeV. The first line restores the renormalisation-scale dependence absent from the released one-loop files.
+The second removes the overall factor $64$ from the released two-loop files.
+Appendix~\ref{app:normalization} checks both conversions against the original calculation and the renormalisation group relations.
+The two-loop rescaling leaves the relative truncation errors unchanged.
+Restoring the one-loop scale dependence changes the one-loop constant and the finite virtual corrections, but not the coefficient of the DPS logarithm.
+All comparisons between perturbative orders below use Eq.~\ref{eq:normalisation}.
+
 
 The one-loop amplitude with one $O_G$ and one $O_J$ insertion enters at $\Ord(\as^4)$, the order of the two-loop $O_G$--$O_G$ amplitude, since $C_J=\Ord(\as)\,C_G$. It is proportional to the tree amplitude: in the normalisation of Eqs.~(3.6) and (3.7) of Ref.~\cite{Bhattacharya:2019bmd},
 \begin{equation}

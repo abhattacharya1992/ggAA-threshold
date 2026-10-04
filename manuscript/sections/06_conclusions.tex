@@ -9,12 +9,8 @@ $\bA$ and the odd powers through $\bA^5$ cancel identically, and every
 coefficient is even in $\cos\theta$. For $0<\bA\leq\RecommendedBeta$ the
 series reproduce the two complete coefficients to \PoneErrLePointTwo{} and
 \PtwoErrLePointTwo{} at the points tested, including the forward angles, in
-files a factor of \SizeRatio{} smaller than those of
-Ref.~\cite{Bhattacharya:2019bmd}. The remainders of that reference are
-normalised differently at different orders, with a factor \FileFactor{} at
-two loops and $\muR=1$~GeV at one loop; after conversion to a common
-normalisation they satisfy the renormalisation group relations of
-Eqs.~\eqref{eq:rg-one} and \eqref{eq:rg-two} (App.~\ref{app:normalization}).
+files a factor of \SizeRatio{} smaller than those of Ref.~\cite{Bhattacharya:2019bmd}.
+The remainders, converted according to Eq.~\ref{eq:normalisation}, satisfy the renormalisation group checks of Eqs.~\eqref{eq:rg-one} and \eqref{eq:rg-two} (App.~\ref{app:normalization}).
 
 At leading power the angular dependence enters only through the logarithm
 of the transverse momentum, which we identified with the DPS singularity of
@@ -23,21 +19,16 @@ relative sign of the CP-odd subprocess amplitudes fix the momentum fraction
 dependence of its coefficient; with the overall constant fixed at
 threshold, this reproduces the exact one-loop coefficient in the forward
 limit to \DPSMaxDeviation{}, and a one-loop $gg\to HH$ calculation confirms
-the CP-even weight with the same constant. At two loops the $J_z=0$
-amplitude grows as $\ln^3p_T$, with the leading logarithmic ratio of planar
-$\mathcal N=4$ super Yang--Mills theory~\cite{DixonEsterlis2016} and a
-$\beta_0$ term with the structure of the NLO $g\to gg$ splitting
-kernel~\cite{Diehl:2019rdh}; in the forward limit both logarithms follow
-the one-loop helicity weight at all velocities tested. The $|J_z|=2$
-amplitude, which has no one-loop logarithm, grows as $\ln^2p_T$, and the
-forward fits identify the real part of its coefficient, within the
-velocities tested, as $-4\Nc$ times the one-loop forward amplitude of
-Eq.~\eqref{eq:K1}. In the finite virtual corrections the one-loop
-logarithm drops out because it is out of phase with the tree amplitude, and
-at two loops the cubic logarithm cancels, leaving
-$-\tfrac74\pi^2\Nc^2\ln^2(2p_T/\mA)$ in $V_2$, which results from the
-combination of the interference of the two-loop amplitude with the tree
-amplitude and the square of the one-loop amplitude.
+the CP-even weight with the same constant.
+%
+%
+At two loops the $J_z=0$ and $|J_z|=2$ remainders develop leading logarithms $\mathcal{L}^3$ and $\mathcal{L}^2$, respectively.
+The equal-helicity leading-logarithmic ratio agrees with the corresponding result in planar $\mathcal{N}=4$ super Yang--Mills theory \cite{DixonEsterlis2016}, and the comparison with the NLO $g\to gg$ splitting kernel for double parton distributions concerns its $\beta_0$ coefficient \cite{Diehl:2019rdh}.
+In the forward variable $\mathcal{G}$, fits support Eq.~\ref{eq:forward-relation} at the tested velocities in $0.05\leq\beta_A\leq0.7$.
+For the opposite-helicity remainder, fits at the tested velocities in $0.05\leq\beta_A\leq0.5$ support a real double-logarithmic coefficient equal to $-4N_c$ times the one-loop forward remainder of Eq.~\eqref{eq:K1}.
+At leading power, the one-loop DPS logarithm drops out of the tree interference because of their relative phase.
+At the next order, the cubic logarithm of the two-loop remainder gives a quadratic logarithm in this interference.
+Combining the interference with the one-loop square gives $V_2\supset-\frac{7}{4}\pi^2N_c^2\ln^2(2p_T/m_A)$.
 
 Several questions remain open: the derivation of the overall factor
 $\pi\Nc m^2$ from the factorisation formula with the effective vertices,
@@ -48,15 +39,10 @@ amplitudes, their colour and flavour dependence and the reduced singularity
 of the finite virtual correction; the present results provide explicit
 two-loop QCD benchmarks for it, and the known two-loop $gg\to HH$
 amplitudes with two effective vertices~\cite{Banerjee:2018lfq} permit the
-same comparison for the scalar case. If the one-loop factorisation applies
-to the full theory, the on-shell triangle form factors of
-Eq.~\eqref{eq:top-dps} multiply the logarithmic coefficient by
-\TopMassDPSA{} at $\mA=\TopMassMAA$~GeV; this does not determine the mass
-dependence of the other terms.
+same comparison for the scalar case.
 
 The series provide the two-loop Type~II input to the hard function for the
 pair invariant mass distribution near $m_{AA}=2\mA$, at NNLO for a
 pseudoscalar coupled to gluons only through $G\tilde G$ and at N$^3$LO in a
-2HDM (Sec.~\ref{sec:use}). The series, the evaluator, the validation
-records and the code of the construction are provided with the
-paper~\cite{SupplementalMaterial}.
+2HDM (Sec.~\ref{sec:use}).
+The series, code for their numerical evaluation, construction code and validation records are provided with the paper~\cite{SupplementalMaterial}.
