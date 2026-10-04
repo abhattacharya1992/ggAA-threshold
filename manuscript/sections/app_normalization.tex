@@ -1,56 +1,142 @@
 \section{Normalisation of the released remainders}
 \label{app:normalization}
 
-Six checks establish the normalisation of Eq.~\eqref{eq:normalisation} for the tree, one-loop and two-loop amplitudes. They use the tree amplitudes and the one- and two-loop remainders of Ref.~\cite{Bhattacharya:2019bmd}, together with the Mathematica code of the original calculation.
+Six checks establish the normalisation in Eq.~\eqref{eq:normalisation},
+using the tree amplitudes, finite remainders and Mathematica code of
+the original calculation~\cite{Bhattacharya:2019bmd}.
 
-\emph{Tree level.} The projections of the two tree diagrams from the original calculation give Eq.~\eqref{eq:born}, after removing a colour factor $\Nc^2-1$ that is included in the file for $T_1$ but not in the file for $T_2$. A direct evaluation of the two diagrams with the vertex $iC_G\varepsilon_{\mu\alpha\rho\beta}k_1^\mu k_2^\rho\delta^{ab}$, which follows from Eq.~\eqref{eq:EL}, gives $|\mathcal A_{\pm\pm}|=C_G^2|\mathcal M_1^{(0)}|$ and $|\mathcal A_{\pm\mp}|=C_G^2|\mathcal M_2^{(0)}|$ to \FeynmanDigits{} digits.
+\emph{Tree level.}
+The projections of the two tree diagrams reproduce Eq.~\eqref{eq:born}
+after removing a colour factor $\Nc^2-1$ present only in the $T_1$ file.
+Evaluating the diagrams directly with the vertex
+$iC_G\varepsilon_{\mu\alpha\rho\beta}k_1^\mu k_2^\rho\delta^{ab}$,
+obtained from Eq.~\eqref{eq:EL}, gives
+$|\mathcal A_{\pm\pm}|=C_G^2|\mathcal M_1^{(0)}|$ and
+$|\mathcal A_{\pm\mp}|=C_G^2|\mathcal M_2^{(0)}|$
+to \FeynmanDigits{} digits.
 
-\emph{Tree and one loop.} The coefficient of $\nf$ in $\mathcal M_i^{(1)}$, divided by $\mathcal M_i^{(0)}$, is the same for $i=1,2$ at threshold, and its imaginary part equals $-2\pi/3$ to \CataniImagDigits{} digits at every tested point. This is the value that the subtraction term $2I^{(1)}\mathcal M^{(0)}$ of Eq.~\eqref{eq:catani} produces through the $\nf$ part of $\beta_0$ multiplying $\ln(-\hat s/\muR^2)$; the one-loop diagrams proportional to $\nf$ have no cut in the $\hat s$ channel. This check fixes the normalisation and phase of the tree amplitude relative to the one-loop remainders.
+\emph{Tree and one loop.}
+At threshold, the ratio of the $\nf$ coefficient in
+$\mathcal M_i^{(1)}$ to $\mathcal M_i^{(0)}$ is the same for $i=1,2$.
+Its imaginary part equals $-2\pi/3$ to \CataniImagDigits{} digits
+at every tested point.
+The one-loop diagrams proportional to $\nf$ have no cut in the
+$\hat s$ channel. This imaginary part therefore comes from the
+$\nf$ part of $\beta_0\ln(-\hat s/\muR^2)$ in the subtraction term
+$2I^{(1)}\mathcal M^{(0)}$ of Eq.~\eqref{eq:catani}.
+The check fixes the tree normalisation and phase relative to the
+one-loop remainders.
 
-\emph{Scale dependence at one loop.} Apart from the overall factor $\mA^2$, a remainder with the dimension of $\mA^2$ can depend on $\mA$ and $\muR$ only through their ratio. The released one-loop remainders do not have this property: when $\mA$ and $\muR$ are multiplied by a common factor $\lambda$ at fixed $\bA$ and $c$, $\mathcal M_{i,\mathrm{publ}}^{(1)}/\mA^2$ changes by $-2\beta_0\ln\lambda^2\,\mathcal M_i^{(0)}/\mA^2$, to a relative accuracy of \ScalingRawDev. They are independent of $\muR$, since their eight $\ln\muR^2$ terms cancel. In the original calculation, the amplitude is renormalised with $Z_{GG}^2$, where $Z_{GG}=Z_{a_s}$, and $C_G\propto\as$. With the subtraction operators of Eq.~\eqref{eq:catani}, whose scale dependence enters through $(-\hat s/\muR^2)^{\epsilon/2}$ at one loop, renormalisation group invariance of Eq.~\eqref{eq:perturbative-expansion} then requires
+\emph{Scale dependence at one loop.}
+At fixed $\bA$ and $c$, dimensional analysis requires
+$\mathcal M_i^{(1)}/\mA^2$ to depend on $\mA$ and $\muR$ only
+through their ratio.
+The released remainders are instead independent of $\muR$ because
+their eight $\ln\muR^2$ terms cancel.
+Under $(\mA,\muR)\to(\lambda\mA,\lambda\muR)$,
+$\mathcal M_{i,\mathrm{publ}}^{(1)}/\mA^2$ changes by
+$-2\beta_0\ln\lambda^2\,\mathcal M_i^{(0)}/\mA^2$,
+to a relative accuracy of \ScalingRawDev{}.
+The original calculation renormalises the amplitude with $Z_{GG}^2$,
+where $Z_{GG}=Z_{a_s}$ and $C_G\propto\as$.
+Together with the scale factor
+$(-\hat s/\muR^2)^{\epsilon/2}$ in the one-loop subtraction operator
+of Eq.~\eqref{eq:catani}, renormalisation group invariance of
+Eq.~\eqref{eq:perturbative-expansion} requires
 \begin{equation}
- \frac{\partial\mathcal M^{(1)}}{\partial\ln\muR^2}=2\beta_0\,\mathcal M^{(0)} .
+ \frac{\partial\mathcal M^{(1)}}{\partial\ln\muR^2}
+ =2\beta_0\,\mathcal M^{(0)} .
  \label{eq:rg-one}
 \end{equation}
-The first line of Eq.~\eqref{eq:normalisation} adds this dependence, and the resulting remainders are invariant under the rescaling to \ScalingFixedDev.
+The first line of Eq.~\eqref{eq:normalisation} restores this dependence.
+The corrected ratios $\mathcal M_i^{(1)}/\mA^2$ are invariant under
+the common rescaling to a relative accuracy of \ScalingFixedDev{}.
 
 \input{sections/app_floats.tex}
 
-\emph{Scale dependence at two loops.} The same ingredients determine the scale dependence at two loops. The subtraction operator $I^{(2)}$ of the original code differs from Eq.~(3.4) of Ref.~\cite{Bhattacharya:2019bmd} in one respect: it does not multiply the constant
+\emph{Scale dependence at two loops.}
+The subtraction operator $I^{(2)}$ implemented in the original code
+differs from Eq.~(3.4) of Ref.~\cite{Bhattacharya:2019bmd}
+by omitting the factor $(-\hat s/\muR^2)^\epsilon$ multiplying
 \begin{align}
- H_g^{(2)}&=\tfrac12\Bigl[C_A^2\bigl(-\tfrac{5}{12}-\tfrac{11}{24}\zeta_2-\tfrac12\zeta_3\bigr)+C_A\nf\bigl(\tfrac{29}{27}+\tfrac{\zeta_2}{12}\bigr)
+ H_g^{(2)}
+ &=\tfrac12\Bigl[
+ C_A^2\bigl(-\tfrac{5}{12}-\tfrac{11}{24}\zeta_2-\tfrac12\zeta_3\bigr)
+ +C_A\nf\bigl(\tfrac{29}{27}+\tfrac{\zeta_2}{12}\bigr)
  \nonumber\\
- &\qquad-\tfrac12C_F\nf-\tfrac{5}{27}\nf^2\Bigr]
+ &\qquad-\tfrac12C_F\nf-\tfrac{5}{27}\nf^2\Bigr].
  \label{eq:H2}
 \end{align}
-by $(-\hat s/\muR^2)^{\epsilon}$. With this operator, one finds
+With this convention, the scale dependence is
 \begin{equation}
- \frac{\partial\Mfull{}}{\partial\ln\muR^2}=3\beta_0\,\mathcal M^{(1)}+\bigl(2\beta_1-8H_g^{(2)}-12C_F\nf\bigr)\mathcal M^{(0)},
+ \frac{\partial\Mfull{}}{\partial\ln\muR^2}
+ =3\beta_0\,\mathcal M^{(1)}
+ +\bigl(2\beta_1-8H_g^{(2)}-12C_F\nf\bigr)\mathcal M^{(0)},
  \label{eq:rg-two}
 \end{equation}
-where $\beta_1=\tfrac{34}{3}C_A^2-2C_F\nf-\tfrac{10}{3}C_A\nf$. The last term comes from the counterterm of the $O_G$--$O_J$ amplitude, Eq.~\eqref{eq:gj-proportional}, in the renormalisation of Ref.~\cite{Bhattacharya:2019bmd}. We fitted $\partial\Mfull{}/\partial\ln\muR^2=a\,\beta_0\mathcal M^{(1)}+b\,\mathcal M^{(0)}$ to the series at two kinematic points, for $(\Nc,\nf,\mA)=$ \RGSets. With both lines of Eq.~\eqref{eq:normalisation}, the fit gives $a=\RGCoefficient$ to \RGaDev{}, and $b$ agrees with Eq.~\eqref{eq:rg-two} to \RGbDev, the accuracy of the series at these velocities. The second derivative equals $6\beta_0^2\mathcal M^{(0)}$, the value implied by Eqs.~\eqref{eq:rg-one} and \eqref{eq:rg-two}, to \RGSecondDev. Without the division by \FileFactor{}, the fit gives $a=\RGCoefficientPublished$. Without the scale term of the one-loop remainders, $b$ differs from Eq.~\eqref{eq:rg-two} by $6\beta_0^2\ln(\mA^2/\mathrm{GeV}^2)$. The agreement therefore also fixes the reference scale of the released one-loop remainders at $\muR=1$~GeV.
+where
+$\beta_1=\tfrac{34}{3}C_A^2-2C_F\nf-\tfrac{10}{3}C_A\nf$.
+The term $-12C_F\nf\mathcal M^{(0)}$ comes from the counterterm
+of the $O_G$--$O_J$ amplitude, Eq.~\eqref{eq:gj-proportional},
+in the renormalisation of Ref.~\cite{Bhattacharya:2019bmd}.
 
-\emph{Origin of the factor \FileFactor.} The code of the original calculation documents this factor~\cite{Bhattacharya:2019bmd}. The two-loop renormalisation step multiplies the $O_G$--$O_G$ amplitude by $\FileFactor=\FileFactorRoot^2$, including the tree and one-loop amplitudes that enter the infrared subtraction, whereas the one-loop step does not. The pole cancellation of Ref.~\cite{Bhattacharya:2019bmd} is unaffected, since all terms of the two-loop subtraction carry the same factor. The code and data released with this article use the normalisation of Eq.~\eqref{eq:normalisation}.
+We fitted
+$\partial\Mfull{}/\partial\ln\muR^2
+=a\,\beta_0\mathcal M^{(1)}+b\,\mathcal M^{(0)}$
+to the series at two kinematic points, for
+$(\Nc,\nf,\mA)=$ \RGSets{}.
+With both conversions in Eq.~\eqref{eq:normalisation}, the fit gives
+$a=\RGCoefficient$ to \RGaDev{} and agreement for $b$ with
+Eq.~\eqref{eq:rg-two} to \RGbDev{}, the accuracy of the series
+at these velocities.
+The second derivative agrees with $6\beta_0^2\mathcal M^{(0)}$,
+as implied by Eqs.~\eqref{eq:rg-one} and \eqref{eq:rg-two},
+to \RGSecondDev{}.
+Without division by \FileFactor{}, the fit gives
+$a=\RGCoefficientPublished$.
+Without the one-loop scale term, $b$ differs from
+Eq.~\eqref{eq:rg-two} by
+$6\beta_0^2\ln(\mA^2/\mathrm{GeV}^2)$.
+The agreement also fixes the reference scale of the released
+one-loop remainders at $\muR=1$~GeV.
 
+\emph{Origin of the factor \FileFactor{}.}
+The original code multiplies the $O_G$--$O_G$ amplitude by
+$\FileFactor=\FileFactorRoot^2$ during two-loop renormalisation,
+including the tree and one-loop amplitudes used in infrared subtraction.
+The one-loop step does not apply this factor.
+The pole cancellation of Ref.~\cite{Bhattacharya:2019bmd} is unaffected
+because all terms of the two-loop subtraction carry the same factor.
+The accompanying code and data use the normalisation of
+Eq.~\eqref{eq:normalisation}.
 
-\emph{The original output.} The Mathematica output of the original
-calculation confirms both conversions. Its one-loop remainders, normalised
-to the tree amplitude, depend on $\muR$ as in Eq.~\eqref{eq:rg-one} and
-agree with the first line of Eq.~\eqref{eq:normalisation} to
-\ArchiveOneLoopDev; the released one-loop files coincide with them at
-$\muR=1$~GeV. For two loops, an earlier run of the renormalisation step,
-without the factor \FileFactor{} and with the $O_J$ contribution switched
-off, was evaluated at $x=1/11$, $z=3/11$. There the real part of the
-released $P_1$ remainder agrees to \ArchiveTwoLoopDev{} with \FileFactor{}
-times this result, multiplied by the tree amplitude, plus the
-$O_G$--$O_J$ counterterm; the imaginary parts differ by $32C_F$ times the
-one-loop $O_G$--$O_J$ amplitude, a multiple of the tree amplitude. The
-earlier run is not an alternative result: its renormalisation constant
-exceeds $Z_{GG}^2=Z_{a_s}^2$ by a $2\beta_1\as^2/\epsilon$ pole and it has
-no $O_G$--$O_J$ counterterm, so its single poles do not cancel with the IR
-subtraction of the released version. In the released version, the
-normalisation of this counterterm is fixed by the cancellation of the
-$C_F\nf$ single pole, and a June 2019 record of the original calculation
-requires the same factor in both projections at \RenormPointsWord{}
-kinematic points. The files and a script that reproduce these comparisons
-are released with this article.
+\emph{The original output.}
+The Mathematica output of the original calculation confirms both
+conversions.
+Its one-loop remainders, normalised to the tree amplitude, have the
+scale dependence of Eq.~\eqref{eq:rg-one} and agree with the first
+line of Eq.~\eqref{eq:normalisation} to \ArchiveOneLoopDev{}.
+The released one-loop files coincide with these outputs at
+$\muR=1$~GeV.
+
+An earlier two-loop renormalisation run, without the factor
+\FileFactor{} and with the $O_J$ contribution switched off,
+was evaluated at $x=1/11$, $z=3/11$.
+Multiplying this result by \FileFactor{} and the tree amplitude,
+then adding the $O_G$--$O_J$ counterterm, reproduces the real part
+of the released $P_1$ remainder to \ArchiveTwoLoopDev{}.
+The imaginary parts differ by $32C_F$ times the one-loop
+$O_G$--$O_J$ amplitude, which is proportional to the tree amplitude.
+
+The earlier run is not an alternative result.
+Its renormalisation constant exceeds $Z_{GG}^2=Z_{a_s}^2$ by a
+$2\beta_1\as^2/\epsilon$ pole, and the $O_G$--$O_J$ counterterm
+is absent.
+Its single poles therefore do not cancel with the infrared subtraction
+of the released version.
+In the released version, cancellation of the $C_F\nf$ single pole
+fixes the normalisation of this counterterm.
+A June 2019 record of the original calculation requires the same
+factor in both projections at \RenormPointsWord{} kinematic points.
+The files and a script reproducing these comparisons are provided
+with this article.
