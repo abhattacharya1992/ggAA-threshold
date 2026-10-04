@@ -19,3 +19,4 @@ Fitted error slopes d ln(max error)/d ln(beta)
   M2_nf5 through beta^6: 8.034
 
 wrote results/accuracy.csv and manuscript/tables/accuracy.tex
+Reproduction check passed (tolerance 1e-30).

@@ -108,10 +108,6 @@ class OneLoop(unittest.TestCase):
             self.assertLess(abs((raw[1] - raw[0]) - shift), 1e-40)
 
 
-if __name__ == "__main__":
-    unittest.main()
-
-
 class HiggsPairs(unittest.TestCase):
     def test_forward_weight(self):
         """One-loop gg -> HH: the forward logarithm follows F_S (data/dps_hh, scripts/check_dps_hh.py)."""
@@ -178,3 +174,5 @@ class M1Forward(unittest.TestCase):
                 k1 = amp(2, mp.mpf(b), 1 - mp.mpf(10)**-40, Nc=Nc, nf=nf) / 125**2
                 self.assertLess(abs(k1.real / F.k1_closed(b, Nc) - 1), 1e-30)
 
+if __name__ == "__main__":
+    unittest.main()

@@ -101,7 +101,8 @@ def write_table(errors):
         for b in SHOWN:
             cells = [_latex(errors[q, o][b]) for q in ("M1_nf5", "M2_nf5") for o in (4, 6)]
             out.write(f"{float(b):.2f} & " + " & ".join(cells) + " \\\\\n")
-            out.write("\\bottomrule\n\\end{tabular}\n\\end{table}\n")
+
+        out.write("\\bottomrule\n\\end{tabular}\n\\end{ruledtabular}\n\\end{table}\n")
 
 
 def table_only():
