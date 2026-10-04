@@ -4,7 +4,7 @@
 \begin{figure*}[!ht]
  \centering
  \includegraphics[width=0.94\textwidth]{figures/fig5_amplitudes.pdf}
- \caption{Tree-level, one-loop and two-loop terms of the Type~II amplitude, $|\as^n\mathcal M_i^{(n)}|/\mA^2$ with $\as=\BenchAs$ ($\alpha_s=\BenchAlphaS$), at $c=\BenchCos$, $\mA=\muR=\BenchMA\,\mathrm{GeV}$, $\Nc=\BenchNc$ and $\nf=\BenchNf$. Tree level: Eq.~\eqref{eq:born}; one loop: remainder of Ref.~\cite{Bhattacharya:2019bmd} with the scale dependence of Eq.~\eqref{eq:normalisation} restored; two loops: series through $\bA^6$. $\mathcal M_1$ and $\mathcal M_2$ are the equal and opposite helicity amplitudes, Eq.~\eqref{eq:helicity}.}
+ \caption{Tree-level, one-loop and two-loop terms of the Type~II amplitude, $|\as^n\mathcal M_i^{(n)}|/\mA^2$ with $\alpha_s=\BenchAlphaS$, at $c=\BenchCos$, $\mA=\muR=\BenchMA\,\mathrm{GeV}$, $\Nc=\BenchNc$ and $\nf=\BenchNf$. Tree level: Eq.~\eqref{eq:born}; one loop: remainder of Ref.~\cite{Bhattacharya:2019bmd} with the scale dependence of Eq.~\eqref{eq:normalisation} restored; two loops: series through $\bA^6$. $\mathcal M_1$ and $\mathcal M_2$ are the equal and opposite helicity amplitudes, Eq.~\eqref{eq:helicity}.}
  \label{fig:amplitudes}
 \end{figure*}
 
@@ -482,7 +482,21 @@ The forward limit of $\mathcal M_2^{(1)}$ itself has a closed form. The exact on
  \lim_{c\to1}\frac{\mathcal M_2^{(1)}}{m^2}=\pi\Nc\,\frac{x^4+(1-x)^4}{x(1-x)},\qquad x=\frac{1+\beta}{2},
  \label{eq:K1}
 \end{equation}
-to \KOneClosedDev{} for $\KOneBetaMin\leq\beta\leq\KOneBetaMax$ and both sets of $(\Nc,\nf)$; at threshold it gives $\OneLoopMtwo$. With the weights of Eq.~\eqref{eq:splitting-weights}, the fraction in Eq.~\eqref{eq:K1} equals $w_{+-}(x)w_{-+}(1-x)+w_{-+}(x)w_{+-}(1-x)$: the helicity sum of Sec.~\ref{sec:dps} for the two pairings that an opposite-helicity initial state allows when each effective vertex receives two gluons of equal helicity, with the same overall factor $\pi\Nc$ as in Eq.~\eqref{eq:dps-prediction}. The one-loop constant of $\mathcal M_2$ thus has the form expected if it arose from the DPS region, where the azimuthal phase of these pairings removes the logarithm and leaves a finite term; we have not derived this from the factorisation formula. The two helicity amplitudes therefore provide an explicit two-loop QCD benchmark for a more general description of this singular kinematic region.
+to \KOneClosedDev{} for $\KOneBetaMin\leq\beta\leq\KOneBetaMax$ and both sets of $(\Nc,\nf)$; at threshold it gives $\OneLoopMtwo$.
+With the weights in Eq.~\eqref{eq:splitting-weights}, the fraction
+in Eq.~\eqref{eq:K1} equals
+$w_{+-}(x)w_{-+}(1-x)+w_{-+}(x)w_{+-}(1-x)$.
+This is the sum over the two helicity pairings allowed for an
+opposite-helicity initial state, with equal gluon helicities at each
+effective vertex (Sec.~\ref{sec:dps}).
+The prefactor $\pi\Nc$ in Eq.~\eqref{eq:K1} also matches that in
+Eq.~\eqref{eq:dps-prediction}.
+This structure suggests a DPS origin for the finite one-loop forward
+limit of $\mathcal M_2$, with the azimuthal phase removing the
+logarithm but leaving a finite term.
+We have not derived this term from the factorisation formula.
+The two helicity amplitudes provide an explicit two-loop QCD
+benchmark for a general description of this singular region.
 
 
 Figure~\ref{fig:amplitudes} compares the three orders. With $\as=\BenchAs$ ($\alpha_s=\BenchAlphaS$), at $\bA=\LoopSizeBeta$ and $c=\BenchCos$, the one- and two-loop terms of $\mathcal M_1$ are \MoneOneLoopRatio{} and \MoneTwoLoopRatio{} times the tree term, and the one-loop term of $\mathcal M_2$ is \MtwoOneLoopRatio{} times the tree term. The last ratio grows as $\bA^{-2}$ towards threshold, since the tree-level $|J_z|=2$ amplitude vanishes there. The one-loop terms include the scale term of Eq.~\eqref{eq:normalisation}. Towards threshold, the loop terms of $\mathcal M_1$ grow with $|\mathcal L|$, the two-loop term as $|\mathcal L|^3$ and the one-loop term as $|\mathcal L|$, so that below $\bA\approx\CrossoverBeta$ the two-loop term exceeds the one-loop term at this angle. Because the logarithms are out of phase with the tree amplitude, the strongest of them are absent from the finite virtual correction (Sec.~\ref{sec:rate}). In panel (b) the one-loop term of $\mathcal M_2$ tends to the constant of Eq.~\eqref{eq:one-loop-threshold}, while the two-loop term grows as $\mathcal L^2$, the logarithm that the $|J_z|=2$ amplitude acquires at two loops.
