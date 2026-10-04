@@ -116,7 +116,7 @@ def table_only():
     print("wrote manuscript/tables/accuracy.tex from results/accuracy.csv")
 
 
-TABLE_HEAD = r"""\begin{table}[t]
+TABLE_HEAD = r"""\begin{table}[!htb]
 \centering
 \caption{Maximum relative errors of the complete Type II coefficients on the validation grid. At each value of $\beta_A$, the maximum is taken over the \AnglePointCount{} angles and \ParameterSetCount{} parameter sets of Table~\ref{tab:validation-grid}.}
 \label{tab:AA-threshold-accuracy}
