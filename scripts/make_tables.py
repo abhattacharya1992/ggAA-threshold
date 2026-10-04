@@ -82,7 +82,7 @@ def mb_constants():
         tex = tex.replace(r"\zeta\left(3\right)", r"\zeta_3")
         tex = re.sub(r"\\ln 2\^\{(\d)\}", r"\\ln^{\1}2", tex)
         lines.append(f"$[{r['p']},{r['q']},{r['a']},{r['w']}]$ & ${tex}$ \\\\")
-    lines += [r"\end{tabular}", r"\end{ruledtabular}", r"\end{table}"]
+    lines += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
     (TABLES / "mb_constants.tex").write_text("\n".join(lines) + "\n")
     print("wrote manuscript/tables/mb_constants.tex")
 

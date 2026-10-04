@@ -107,17 +107,18 @@ Fitting the one-loop remainders of Ref.~\cite{Bhattacharya:2019bmd} at $\bA=$ \O
  \label{eq:one-loop-threshold}
 \end{align}
 with $\widehat A^{(1)}_{10}=\OneLoopAzero$ for $\Nc=\BenchNc$, $\nf=\BenchNf$ and $\muR=\mA$, in the normalisation of Eq.~\eqref{eq:normalisation}. The constant does not depend on the angle, and by Eq.~\eqref{eq:normalisation}, its scale dependence is $\partial\widehat A^{(1)}_{10}/\partial\ln\muR^2=4i\beta_0$. The coefficient of $\mathcal L$ and the limit of $\mathcal M_2^{(1)}$ depend neither on $\nf$ nor on $\muR$. Together with Eqs.~\eqref{eq:born} and \eqref{eq:leading-power}, the behaviour at threshold is summarised in Table~\ref{tab:orders}.
-\begin{table}[t]
- \caption{Behaviour of the Type~II coefficients at threshold, $\bA\to0$ at fixed angle: tree-level values, and the highest power of $\mathcal L$ at one and two loops.}
- \label{tab:orders}
- \begin{ruledtabular}
+\begin{table}[!htb]
+\centering
  \begin{tabular}{lccc}
+\toprule
   & tree level & one loop & two loops \\
-  \hline
+  \midrule
   $\mathcal M_1$ ($J_z=0$) & $2i\mA^2$ & $\mathcal L$ & $\mathcal L^3$\\
-  $\mathcal M_2$ ($|J_z|=2$) & $2i\mA^2\bA^2(1-c^2)$ & $\mathcal L^0$ & $\mathcal L^2$
- \end{tabular}
- \end{ruledtabular}
+  $\mathcal M_2$ ($|J_z|=2$) & $2i\mA^2\bA^2(1-c^2)$ & $\mathcal L^0$ & $\mathcal L^2$ \\
+\bottomrule
+\end{tabular}
+\caption{Behaviour of the Type~II coefficients at threshold, $\bA\to0$ at fixed angle: tree-level values, and the highest power of $\mathcal L$ at one and two loops.}
+\label{tab:orders}
 \end{table}
 The $|J_z|=2$ amplitude is suppressed near threshold only at tree level. According to Eq.~\eqref{eq:helicity}, $\mathcal A_{\pm\mp}$ retains the azimuthal factor $e^{\pm2i\phi}$ as $|\vec p_3|\to0$. The loop amplitude therefore has a direction-dependent limit and is not analytic in $\vec p_3$ at the origin. At one loop $\mathcal M_2$ approaches a nonzero constant without a DPS logarithm; at two loops it also acquires the logarithm discussed in Sec.~\ref{sec:two-loop}.
 
@@ -343,7 +344,7 @@ Figure~\ref{fig:dps}(a) compares the extracted coefficients with the two helicit
 Panel~(b) shows the relative deviations from the predictions; the two-loop points are discussed in Sec.~\ref{sec:two-loop}.
 \begin{figure}[!htb]
  \centering
- \includegraphics[width=\columnwidth]{figures/fig7_dps.pdf}
+ \includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{figures/fig7_dps.pdf}
  \caption{Forward coefficients of the DPS logarithms and the helicity weights; each coefficient has the same symbol in both panels. (a) $(\Nc,\nf)=(3,5)$. Circles: $D(\beta)$ for $gg\to AA$, Eq.~\eqref{eq:dps-prediction}. Triangles: $-D(\beta)$ for $gg\to HH$ through two CP-even effective vertices; the sign reversal removes the relative sign of the scalar and pseudoscalar tree amplitudes at threshold. Diamonds and crosses: the real parts of the fitted coefficients of $\mathcal G^3$ and $\mathcal G^2$ in the forward limit of the two-loop remainder of $gg\to AA$, fitted over $1-c=10^{-7},\ldots,10^{-10}$ and divided by $-\tfrac43\Nc\cdot2\pi\Nc m^2$ and $-2\beta_0\cdot2\pi\Nc m^2$ (Sec.~\ref{sec:two-loop}). Solid and dashed curves: $F_A((1+\beta)/2)$ and $F_S((1+\beta)/2)$. The values for $(\Nc,\nf)=(4,2)$ coincide with those shown. (b) Relative deviation of each point from its curve in (a), for $(\Nc,\nf)=(3,5)$ and, for $gg\to AA$, $(4,2)$; the symbols are displaced horizontally for legibility.}
  \label{fig:dps}
 \end{figure}
@@ -457,9 +458,7 @@ constant multiplied by $\MtwoRelation\,\mathcal L^2$. The forward-limit calculat
 with no additional velocity or flavour dependence resolved in the coefficient of the double logarithm.
 
 The first-order expansion of $\exp[-4N_ca_s\ln^2(2p_T/m)]$, multiplied by the one-loop amplitude, reproduces Eq.~\ref{eq:jz2-forward} at double-logarithmic accuracy.
-At threshold, integrating $-4\Nc\mathcal L^2$ with respect to
-$\mathcal L$ and multiplying by $\OneLoopAone$ reproduces the
-cubic term of Eq.~\eqref{eq:log-relation}.
+At threshold, integrating $-4\Nc\mathcal L^2$ with respect to $\mathcal L$ and multiplying by $\OneLoopAone$ reproduces the cubic term of Eq.~\eqref{eq:log-relation}.
 These comparisons concern the highest logarithmic powers only.
 The exponent also agrees at leading order with $-\gamma_K\ln^2\delta/8$ in Ref.~\cite{DixonEsterlis2016}, using $\gamma_K=4a$, $a=2N_ca_s$ and $\ln\delta=2\mathcal{L}+\mathrm{const}$ at leading-logarithmic accuracy.
 These coefficient relations do not establish exponentiation in QCD.

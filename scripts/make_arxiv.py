@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the arXiv submission tarball (run after `make paper`, which writes manuscript/main.bbl).
 
-arXiv does not run BibTeX, so the tarball carries main.bbl.  The code and data of this package go
+The tarball carries main.bbl and the JHEP style files.  The code and data of this package go
 into anc/ as ancillary files; following arXiv's rules, no TeX files are placed there, so anc/ holds
 everything except manuscript/, and the downloaded files of arXiv:1909.08993 (inputs/arXiv-1909.08993,
 fetched by inputs/fetch_inputs.sh and checked against inputs/SHA256SUMS) are left out.
@@ -21,7 +21,7 @@ SKIP_DIRS = {"manuscript", "build", "__pycache__", ".git", "arXiv-1909.08993"}
 
 def manuscript_files():
     """main.tex, main.bbl and every file main.tex reads, found by following \\input and \\includegraphics."""
-    files, todo = {"main.tex", "main.bbl"}, ["main.tex"]
+    files, todo = {'JHEP.bst', 'jheppub.sty', 'main.bbl', 'main.tex', 'references.bib'}, ["main.tex"]
     while todo:
         text = re.sub(r"(?<!\\)%.*", "", (MAN / todo.pop()).read_text())
         for name in re.findall(r"\\input\{([^}]*)\}", text):
@@ -59,7 +59,7 @@ def ancillary_files():
 
 def main():
     if not (MAN / "main.bbl").exists():
-        sys.exit("manuscript/main.bbl is missing: run `make paper` first (arXiv does not run BibTeX)")
+        sys.exit("manuscript/main.bbl is missing: run `make paper` first")
     paper = manuscript_files()
     missing = [f for f in paper if not (MAN / f).exists()]
     if missing:

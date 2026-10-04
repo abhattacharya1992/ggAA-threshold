@@ -138,9 +138,15 @@ def flavour_terms(table, i):
 
 
 def fig_flavour(table):
-    """Single-column figure: the two form factors stacked."""
-    fig, axes = plt.subplots(2, 1, figsize=(3.375, 3.9), sharex=True)
-    plt.subplots_adjust(left=0.19, right=0.97, bottom=0.11, top=0.985, hspace=0.07)
+    """Two form factors side by side."""
+    fig, axes = plt.subplots(1, 2, figsize=(WIDE, 2.75), sharex=True)
+    plt.subplots_adjust(
+        left=0.085,
+        right=0.985,
+        bottom=0.18,
+        top=0.76,
+        wspace=0.30
+    )
     styles = [(BLACK, "o", "-", r"$a_0=\mathcal{M}_{i,0}^{(2)}$"), (RED, "s", "--", r"$a_1=5\,\mathcal{M}_{i,1}^{(2)}$"),
               (BLUE, "^", "-.", r"$a_2=25\,\mathcal{M}_{i,2}^{(2)}$")]
     for j, i in enumerate((1, 2)):
@@ -152,8 +158,20 @@ def fig_flavour(table):
         axes[j].set_ylabel(rf"$|a_r|/|\mathcal{{M}}_{i}(5)|$")
         headroom(axes[j], 0.3, log=True)
         finish_axis(axes[j], "(a)" if j == 0 else "(b)")
-    axes[1].legend(loc="center left", bbox_to_anchor=(0.0, 0.40))
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(
+        handles,
+        labels,
+        loc="upper center",
+        bbox_to_anchor=(0.535, 0.98),
+        ncol=3,
+        frameon=False,
+        handlelength=2.2
+    )
+
+    axes[0].set_xlabel(r"$\beta_A$")
     axes[1].set_xlabel(r"$\beta_A$")
+
     save(fig, "fig2_flavour")
 
 
@@ -248,8 +266,8 @@ def fig_dps():
         c, m, size, filled, _, _ = style[key]
         axis.plot(x, y, m, color=c, ms=size, mfc=c if filled else "none", mec=c, mew=0.9, ls="none", zorder=3)
 
-    fig, ax = plt.subplots(2, 1, figsize=(3.375, 4.5), sharex=True, gridspec_kw=dict(height_ratios=[1.25, 1]))
-    plt.subplots_adjust(left=0.165, right=0.97, bottom=0.09, top=0.985, hspace=0.06)
+    fig, ax = plt.subplots(1, 2, figsize=(7.0, 3.0), sharex=True)
+    plt.subplots_adjust(left=0.09, right=0.985, bottom=0.17, top=0.97, wspace=0.30)
     xs = np.linspace(0.0, 0.78, 200)
     ax[0].plot(xs, fa(xs), color=BLUE, lw=0.75, zorder=1)
     ax[0].plot(xs, fa(xs) + 4 * ((1 + xs) / 2) * ((1 - xs) / 2), color=RED, ls="--", lw=0.75, zorder=1)
@@ -260,6 +278,8 @@ def fig_dps():
         draw(ax[1], np.array(bs) + style[key][4] + pair[st], [max(d, 1e-16) for d in devs], key)
     ax[0].set_ylabel("normalised coefficient")
     ax[1].set_ylabel("relative deviation from curve")
+
+    ax[0].set_xlabel(r"$\beta$")
     ax[1].set_xlabel(r"$\beta$")
     ax[0].set_ylim(3.0, 9.8)
     ax[1].set_ylim(3e-17, 3e-3)
@@ -273,7 +293,7 @@ def fig_dps():
                ha="left", va="center", fontsize=6.8)
     finish_axis(ax[0], None)
     finish_axis(ax[1], None)
-    ax[0].text(0.97, 0.04, "(a)", transform=ax[0].transAxes, ha="right", va="bottom", fontsize=8.5)
+    ax[0].text(0.97, 0.94, "(a)", transform=ax[0].transAxes, ha="right", va="top", fontsize=8.5)
     ax[1].text(0.97, 0.94, "(b)", transform=ax[1].transAxes, ha="right", va="top", fontsize=8.5)
     save(fig, "fig7_dps")
 

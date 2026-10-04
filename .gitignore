@@ -20,3 +20,9 @@ status.sh
 *.tar.xz
 reproduce*.log
 /*.log
+
+manuscript/*.toc
+manuscript/*.synctex.gz
+
+manuscript/*.toc
+manuscript/*.synctex.gz

@@ -1,8 +1,9 @@
-\documentclass[aps,prd,reprint,nofootinbib,longbibliography]{revtex4-2}
+\documentclass[a4paper,11pt]{article}
+\pdfoutput=1
 
+\usepackage{jheppub}
 \usepackage[T1]{fontenc}
-\usepackage{amsmath,amsfonts,amssymb,bm}
-\usepackage{graphicx}
+\usepackage{amsfonts,bm}
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{braket}
@@ -10,37 +11,21 @@
 \usepackage{multirow}
 \usepackage{placeins}
 
-\usepackage[
-  colorlinks=true,
-  linkcolor=blue,
-  urlcolor=blue,
-  citecolor=blue,
-  anchorcolor=blue
-]{hyperref}
-
 \input{diagram_setup.tex}
 \input{metadata.tex}
 \input{macros.tex}
 \input{numbers.tex}
 
-\begin{document}
+\hypersetup{pdftitle={\PaperTitlePDF},pdfauthor={\PaperAuthor}}
 
-\title{Two-loop $gg\to AA$ amplitudes near threshold and the double parton scattering singularity}
+\title{\boldmath Two-loop $gg\to AA$ amplitudes near threshold and the double parton scattering singularity}
 
-\author{Arunima Bhattacharya\,
-\href{https://orcid.org/0000-0003-4409-0901}
-{\includegraphics[scale=0.05]{orcidid.pdf}}}
-\email{\PaperEmail}
-\affiliation{Theory Division, IFIC, University of Valencia--CSIC,
+\author{Arunima Bhattacharya\,\href{https://orcid.org/0000-0003-4409-0901}{\includegraphics[scale=0.05]{orcidid.pdf}}}
+\affiliation{Theory Division, IFIC, University of Valencia--CSIC,\\
 E-46980 Paterna, Valencia, Spain}
-%
-%\title{\PaperTitle}
-%\author{\PaperAuthor}
-%\thanks{Contact author: \href{mailto:\PaperEmail}{\PaperEmail}}
-%\affiliation{\PaperAffiliation}
-%\date{\today}
+\emailAdd{\PaperEmail}
 
-\begin{abstract}
+\abstract{
 We study the two-loop Type II finite remainders for pseudoscalar pair
 production, $gg\to AA$, near threshold in the heavy top quark limit,
 where each pseudoscalar is emitted from its own effective gluon vertex.
@@ -72,9 +57,14 @@ For $0<\beta_A\leq0.2$, the maximum relative error of the two complete
 remainders at the tested points is $6.77\times10^{-5}$.
 The threshold series and code for their numerical evaluation are
 provided with the paper.
-\end{abstract}
+}
 
+\keywords{Scattering Amplitudes, Higher-Order Perturbative Calculations, Higgs Production}
+
+\begin{document}
 \maketitle
+\flushbottom
+
 
 \input{sections/01_introduction.tex}
 \input{sections/02_setup.tex}
@@ -85,13 +75,13 @@ provided with the paper.
 
 \input{sections/data_availability.tex}
 
-\begin{acknowledgments}
+\acknowledgments
 I thank IFIC, University of Valencia, and Prof.\ Francisco
 Campanario for providing the computing resources used in
 this work.
 %
 The calculations, analysis, and code in this work were developed by the author. Claude 5.5 (Anthropic) and GPT-5.6 Pro (OpenAI) were used in a limited supporting role to assist with code debugging and optimisation and with grammatical corrections to the manuscript. The code was independently checked using the tests described in Secs.~\ref{sec:expansion} and~\ref{sec:physics} and App.~\ref{app:normalization}, including comparison with the unexpanded remainders, the renormalisation group relations, and an independent Python evaluation. These tests are included in the released package.
-\end{acknowledgments}
+
 
 \appendix
 \input{sections/app_constants.tex}
@@ -103,6 +93,7 @@ The calculations, analysis, and code in this work were developed by the author. 
 \label{end-of-appendices}
 %\FloatBarrier
 \label{start-of-references}
+\bibliographystyle{JHEP}
 \bibliography{references}
 
 \end{document}
