@@ -1,13 +1,5 @@
 \section{Leading power and the double parton scattering singularity}
 \label{sec:physics}
-\input{tables/leading_logs.tex}
-\begin{figure*}[!ht]
- \centering
- \includegraphics[width=0.94\textwidth]{figures/fig5_amplitudes.pdf}
- \caption{Tree-level, one-loop and two-loop terms of the Type~II amplitude, $|\as^n\mathcal M_i^{(n)}|/\mA^2$ with $\alpha_s=\BenchAlphaS$, at $c=\BenchCos$, $\mA=\muR=\BenchMA\,\mathrm{GeV}$, $\Nc=\BenchNc$ and $\nf=\BenchNf$. Tree level: Eq.~\eqref{eq:born}; one loop: remainder of Ref.~\cite{Bhattacharya:2019bmd} with the scale dependence of Eq.~\eqref{eq:normalisation} restored; two loops: series through $\bA^6$. $\mathcal M_1$ and $\mathcal M_2$ are the equal and opposite helicity amplitudes, Eq.~\eqref{eq:helicity}.}
- \label{fig:amplitudes}
-\end{figure*}
-
 
 \subsection{Leading power}
 \label{sec:leading}
@@ -87,6 +79,9 @@ where
  \nonumber
 \end{align}
 and $L_\mu=\ln(\mA^2/\muR^2)$. Table~\ref{tab:leading-log-benchmark} gives all coefficients for $\Nc=\BenchNc$, $\nf=\BenchNf$ and $\muR=\mA$. At $\bA^2$, $\bA^4$ and $\bA^6$ the same substitution again removes every $\ln(1\pm c)$ and $\Li_2$; the remaining dependence on the angle is rational, even in $c$ and free of poles at $c=\pm1$.
+%
+\input{tables/leading_logs.tex}
+%
 
 
 Up to the constant $i\pi/2$ and power corrections, $\mathcal L$ is the logarithm of the transverse momentum of the pseudoscalars or, equivalently, of the Gram determinant $tu-\mA^4$. The exact one-loop remainders already contain it, since they depend on
@@ -95,6 +90,14 @@ Up to the constant $i\pi/2$ and power corrections, $\mathcal L$ is the logarithm
  &(y-x)(z-x)=yz-1=(tu-\mA^4)/\mA^4
 \end{align*}
 by Eq.~\eqref{eq:xyz-definition}. The two-loop coefficients have no finite limit as $\bA\to0$; they grow as $\mathcal L^3$ and $\mathcal L^2$ (Fig.~\ref{fig:amplitudes}).
+%
+\begin{figure*}[!htb]
+ \centering
+ \includegraphics[width=0.94\textwidth]{figures/fig5_amplitudes.pdf}
+ \caption{Tree-level, one-loop and two-loop terms of the Type~II amplitude, $|\as^n\mathcal M_i^{(n)}|/\mA^2$ with $\alpha_s=\BenchAlphaS$, at $c=\BenchCos$, $\mA=\muR=\BenchMA\,\mathrm{GeV}$, $\Nc=\BenchNc$ and $\nf=\BenchNf$. Tree level: Eq.~\eqref{eq:born}; one loop: remainder of Ref.~\cite{Bhattacharya:2019bmd} with the scale dependence of Eq.~\eqref{eq:normalisation} restored; two loops: series through $\bA^6$. $\mathcal M_1$ and $\mathcal M_2$ are the equal and opposite helicity amplitudes, Eq.~\eqref{eq:helicity}.}
+ \label{fig:amplitudes}
+\end{figure*}
+
 
 \subsection{One loop}
 \label{sec:one-loop}
