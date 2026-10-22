@@ -6,7 +6,7 @@ The calculation has four steps, each checked independently. First, the finite re
 \subsection{Construction}
 \label{sec:construction}
 
-The remainders of Ref.~\cite{Bhattacharya:2019bmd} are functions of $x$, $y$ and $z$ (Eq.~\eqref{eq:xyz-definition}). We replace these variables by their expressions in $\bA$ and $c$ from Eq.~\eqref{eq:threshold-map}, and expand each flavour coefficient about $\bA=0$ at fixed $c$,
+The remainders of Ref.~\cite{Bhattacharya:2019bmd} are functions of $v$, $y$ and $z$ (Eq.~\eqref{eq:xyz-definition}). We replace these variables by their expressions in $\bA$ and $c$ from Eq.~\eqref{eq:threshold-map}, and expand each flavour coefficient about $\bA=0$ at fixed $c$,
 \begin{equation}
  \Mflav{i}{r}(\bA,c)
  =\sum_{n=-4}^{p}\sum_k
@@ -16,11 +16,11 @@ The remainders of Ref.~\cite{Bhattacharya:2019bmd} are functions of $x$, $y$ and
 \end{equation}
 with $r=0,1,2$ and $p=4$ or 6. The coefficients $C^{(i,r)}_{nk}$ depend on $c$, $\mA^2$, $\muR^2$ and $\Nc$, and $\mathcal O_{\log}(\bA^n)$ stands for $\bA^n$ times a polynomial in $\ln\bA$. Inverse powers appear in intermediate steps because the tensor basis and the rational prefactors contain inverse Gram determinants, Eq.~\eqref{eq:gram-scaling}. They must be kept until all contributions at a given power have been combined.
 
-The remainders contain logarithms, classical polylogarithms and the function $\Li_{2,2}$ of weight four~\cite{Frellesvig:2016ske,Vollinga:2004sn}, whose arguments approach correlated endpoints as $\bA\to0$. We expand the rational prefactors exactly and obtain the expansions of the special functions from differential equations in $\bA$, with boundary values at $\bA=0$. These equations have the iterated-integral form familiar from harmonic polylogarithms~\cite{RemiddiVermaseren2000} and from canonical differential equations for Feynman integrals~\cite{Henn2013}; the map $x=(1-\bA)/(1+\bA)$ is one of the transformations under which harmonic polylogarithms are closed~\cite{RemiddiVermaseren2000}.
+The remainders contain logarithms, classical polylogarithms and the function $\Li_{2,2}$ of weight four~\cite{Frellesvig:2016ske,Vollinga:2004sn}, whose arguments approach correlated endpoints as $\bA\to0$. We expand the rational prefactors exactly and obtain the expansions of the special functions from differential equations in $\bA$, with boundary values at $\bA=0$. These equations have the iterated-integral form familiar from harmonic polylogarithms~\cite{RemiddiVermaseren2000} and from canonical differential equations for Feynman integrals~\cite{Henn2013}; the map $v=(1-\bA)/(1+\bA)$ is one of the transformations under which harmonic polylogarithms are closed~\cite{RemiddiVermaseren2000}.
 The method thus expands the known remainders, not the loop integrals, which could instead be expanded near threshold by the method of regions~\cite{BenekeSmirnov1998}. Expansions of two-loop gluon fusion amplitudes in kinematic limits are also used to obtain compact representations that are fast to evaluate, for example for small transverse momentum and at high energy~\cite{Bellafronte:2022,Davies:2023} and about the top quark pair threshold~\cite{Groeber:2018}; the present expansion is about the pair production threshold of the massless remainders.
-For the dilogarithm, for example, $\dd\Li_2(x)/\dd\bA=2(1-\bA^2)^{-1}\ln[2\bA/(1+\bA)]$ with $\Li_2(1)=\pi^2/6$ gives
+For the dilogarithm, for example, $\dd\Li_2(v)/\dd\bA=2(1-\bA^2)^{-1}\ln[2\bA/(1+\bA)]$ with $\Li_2(1)=\pi^2/6$ gives
 \begin{align}
- \Li_2(x)
+ \Li_2(v)
  &=
  \frac{\pi^2}{6}
  +2\bA\bigl[\ln(2\bA)-1\bigr]
@@ -130,12 +130,12 @@ factors.
 
 The coefficient of $\nf^2$ is the simplest:
 \begin{align}
- \Mflav{1}{2}(\bA,c)&=K+\Ord(\bA^2),
+ \Mflav{1}{2}(\bA,c)&=K_{\nf}+\Ord(\bA^2),
  \label{eq:nf2-leading-one}\\
- \Mflav{2}{2}(\bA,c)&=\bA^2(1-c^2)K+\Ord(\bA^4),
+ \Mflav{2}{2}(\bA,c)&=\bA^2(1-c^2)K_{\nf}+\Ord(\bA^4),
  \label{eq:nf2-leading-two}
 \end{align}
-where $K$ does not depend on the angle. It is the only flavour coefficient that follows the tree-level pattern $\mathcal M_2\propto\bA^2(1-c^2)$ of Eq.~\eqref{eq:born}, with the same ratio to the tree amplitude in both tensor structures. The complete expressions through $\bA^6$ are released as Wolfram Language files (App.~\ref{app:data}).
+where $K_{\nf}$ does not depend on the angle. It is the only flavour coefficient that follows the tree-level pattern $\mathcal M_2\propto\bA^2(1-c^2)$ of Eq.~\eqref{eq:born}, with the same ratio to the tree amplitude in both tensor structures. The complete expressions through $\bA^6$ are released as Wolfram Language files (App.~\ref{app:data}).
 
 \subsection{Accuracy}
 \label{sec:validation}

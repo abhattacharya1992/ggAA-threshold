@@ -38,7 +38,9 @@ Substituting the expressions for $tu-\mA^4$ and $p_T^2$ gives
 \end{align}
 The last term is of order $\bA^2$. Near threshold, $\mathcal L$ is therefore
 the logarithm of the transverse momentum of the pseudoscalars, up to the
-constant phase $i\pi/2$ and power corrections.
+constant phase $i\pi/2$ and power corrections. Away from threshold the
+natural variable is $\mathcal G=\tfrac12\ln[(\mA^4-tu)/\mA^4]=\mathcal L-\ln(1-\bA^2)$,
+used in Sec.~\ref{sec:two-loop}.
 
 When the leading power terms are rewritten in terms of $\mathcal L$, no
 separate $\ln(1\pm c)$ or $\Li_2\bigl((1+c)/2\bigr)$ remains, and the
@@ -87,8 +89,8 @@ and $L_\mu=\ln(\mA^2/\muR^2)$. Table~\ref{tab:leading-log-benchmark} gives all c
 
 Up to the constant $i\pi/2$ and power corrections, $\mathcal L$ is the logarithm of the transverse momentum of the pseudoscalars or, equivalently, of the Gram determinant $tu-\mA^4$. The exact one-loop remainders already contain it, since they depend on
 \begin{align*}
- &\ln(y-x)+\ln(z-x) \text{ and }\\
- &(y-x)(z-x)=yz-1=(tu-\mA^4)/\mA^4
+ &\ln(y-v)+\ln(z-v) \text{ and }\\
+ &(y-v)(z-v)=yz-1=(tu-\mA^4)/\mA^4
 \end{align*}
 by Eq.~\eqref{eq:xyz-definition}. The two-loop coefficients have no finite limit as $\bA\to0$; they grow as $\mathcal L^3$ and $\mathcal L^2$ (Fig.~\ref{fig:amplitudes}).
 %
@@ -163,7 +165,7 @@ The corresponding light cone wavefunction behaves as the inverse of that momentu
 The transverse momentum integral is consequently at most logarithmically singular, as in the massless quark examples
 of Ref.~\cite{GauntStirling2011}.
 
-\paragraph{Helicity selection and weights.}
+\paragraph{Helicity selection and wavefunction factors.}
 
 The logarithm is present only for certain helicities of the partons in the
 singular configuration. For the fermion loops of
@@ -178,24 +180,25 @@ possible only for incoming gluons with $J_z=0$, which is why
 $\mathcal M_1$ has a logarithm at one loop and $\mathcal M_2$ does not.
 
 For a positive-helicity gluon splitting into gluons $a$ and $b$ with
-longitudinal momentum fractions $z$ and $1-z$, the longitudinal weights,
-up to coupling, colour and transverse momentum factors, are
+longitudinal momentum fractions $\xi$ and $1-\xi$, the light cone wavefunction is,
+for each pair of daughter helicities, a function of $\xi$ times a phase and a power
+of the relative transverse momentum; with the coupling, colour and transverse momentum
+factors removed, the functions of $\xi$ are
 \begin{align}
- w_{++}(z)&=\frac{1}{\sqrt{z(1-z)}},
+ w_{++}(\xi)&=\frac{1}{\sqrt{\xi(1-\xi)}},
  \nonumber\\
- w_{+-}(z)&=\frac{z^2}{\sqrt{z(1-z)}},
+ w_{+-}(\xi)&=\frac{\xi^2}{\sqrt{\xi(1-\xi)}},
 \nonumber\\
- w_{-+}(z)&=\frac{(1-z)^2}{\sqrt{z(1-z)}},
+ w_{-+}(\xi)&=\frac{(1-\xi)^2}{\sqrt{\xi(1-\xi)}},
  \label{eq:splitting-weights}
 \end{align}
 where the subscripts give $(h_a,h_b)$~\cite{Mangano:1990by,Dixon:1996wi}.
-The sum of their squares, $[1+z^4+(1-z)^4]/[z(1-z)]$, is the $z$
+The sum of their squares, $[1+\xi^4+(1-\xi)^4]/[\xi(1-\xi)]$, is the $\xi$
 dependence of the $g\to gg$ splitting function. At the DPS point, the first
 pseudoscalar receives a fraction $x$ of the first incoming momentum and,
 since the two pseudoscalars have equal masses, a fraction $1-x$ of the
 second~\cite{GauntStirling2011}; in Fig.~\ref{fig:diagrams}(b),
-$k=xp_1$ and $p_3-k=(1-x)p_2$. Here $x$ and $z$ are momentum fractions,
-not the variables of Eq.~\eqref{eq:xyz-definition}.
+$k=xp_1$ and $p_3-k=(1-x)p_2$.
 
 Since $A$ is odd under parity, which reverses all helicities, the
 amplitudes for $g^+g^+\to A$ and $g^-g^-\to A$ have opposite
@@ -222,9 +225,12 @@ the two signs are equal and the mixed terms add:
  F_S(x)=\frac{1}{x(1-x)}+2x(1-x).
  \label{eq:FS}
 \end{equation}
-These weights differ from those of the massless quark boxes for
+We call $F_A$ and $F_S$ helicity sums: they are sums over the daughter helicities of
+products of two wavefunction factors, overlaps of amplitudes rather than probabilities, and
+the relative signs in $F_A$ come from the interference of the helicity configurations.
+These helicity sums differ from those of the massless quark boxes for
 $gg\to HH$ in Ref.~\cite{GauntStirling2011}, where internal quarks of equal
-helicity carry complementary momentum fractions and the weight is
+helicity carry complementary momentum fractions and the sum is
 proportional to $x(1-x)$.
 
 \paragraph{Normalisation and the forward limit.}
@@ -338,7 +344,7 @@ included. Neither depends on $p_T$,
 so neither changes the logarithmic
 coefficient being tested.
 
-Figure~\ref{fig:dps}(a) compares the extracted coefficients with the two helicity weights. The $AA$ points lie on the curve $F_A$ for both $(\Nc,\nf)=(3,5)$ and $(4,2)$, so that after the normalisation of Eq.~\eqref{eq:dps-prediction} the coefficient does not depend on $\Nc$ or $\nf$. The $HH$ points (triangles), plotted with their sign reversed, lie on the curve $F_S$, which is separated from $F_A$ by
+Figure~\ref{fig:dps}(a) compares the extracted coefficients with the two helicity sums. The $AA$ points lie on the curve $F_A$ for both $(\Nc,\nf)=(3,5)$ and $(4,2)$, so that after the normalisation of Eq.~\eqref{eq:dps-prediction} the coefficient does not depend on $\Nc$ or $\nf$. The $HH$ points (triangles), plotted with their sign reversed, lie on the curve $F_S$, which is separated from $F_A$ by
 \begin{equation}
  F_S-F_A=4x(1-x)=1-\beta^2.
 \end{equation}
@@ -346,7 +352,7 @@ Panel~(b) shows the relative deviations from the predictions; the two-loop point
 \begin{figure}[!htb]
  \centering
  \includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{figures/fig7_dps.pdf}
- \caption{Forward coefficients of the DPS logarithms and the helicity weights; each coefficient has the same symbol in both panels. (a) $(\Nc,\nf)=(3,5)$. Circles: $D(\beta)$ for $gg\to AA$, Eq.~\eqref{eq:dps-prediction}. Triangles: $-D(\beta)$ for $gg\to HH$ through two CP-even effective vertices; the sign reversal removes the relative sign of the scalar and pseudoscalar tree amplitudes at threshold. Diamonds and crosses: the real parts of the fitted coefficients of $\mathcal G^3$ and $\mathcal G^2$ in the forward limit of the two-loop remainder of $gg\to AA$, fitted over $1-c=10^{-7},\ldots,10^{-10}$ and divided by $-\tfrac43\Nc\cdot2\pi\Nc m^2$ and $-2\beta_0\cdot2\pi\Nc m^2$ (Sec.~\ref{sec:two-loop}). Solid and dashed curves: $F_A((1+\beta)/2)$ and $F_S((1+\beta)/2)$. The values for $(\Nc,\nf)=(4,2)$ coincide with those shown. (b) Relative deviation of each point from its curve in (a), for $(\Nc,\nf)=(3,5)$ and, for $gg\to AA$, $(4,2)$; the symbols are displaced horizontally for legibility.}
+ \caption{Forward coefficients of the DPS logarithms and the helicity sums $F_A$, $F_S$; each coefficient has the same symbol in both panels. (a) $(\Nc,\nf)=(3,5)$. Circles: $D(\beta)$ for $gg\to AA$, Eq.~\eqref{eq:dps-prediction}. Triangles: $-D(\beta)$ for $gg\to HH$ through two CP-even effective vertices; the sign reversal removes the relative sign of the scalar and pseudoscalar tree amplitudes at threshold. Diamonds and crosses: the real parts of the fitted coefficients of $\mathcal G^3$ and $\mathcal G^2$ in the forward limit of the two-loop remainder of $gg\to AA$, fitted over $1-c=10^{-7},\ldots,10^{-10}$ and divided by $-\tfrac43\Nc\cdot2\pi\Nc m^2$ and $-2\beta_0\cdot2\pi\Nc m^2$ (Sec.~\ref{sec:two-loop}). Solid and dashed curves: $F_A((1+\beta)/2)$ and $F_S((1+\beta)/2)$. The values for $(\Nc,\nf)=(4,2)$ coincide with those shown. (b) Relative deviation of each point from its curve in (a), for $(\Nc,\nf)=(3,5)$ and, for $gg\to AA$, $(4,2)$; the symbols are displaced horizontally for legibility.}
  \label{fig:dps}
 \end{figure}
 
@@ -446,7 +452,7 @@ The following tests indicate that the relation of Eq.~\eqref{eq:log-relation} ex
 \end{align}
 with $C_1$ from Eq.~\eqref{eq:dps-prediction}. In the threshold series, Eq.~\eqref{eq:forward-relation} holds exactly through $\bA^6$ for general $\Nc$ and $\nf$; at fixed angle, the coefficient of $\mathcal L^3$ follows the expansion of $F_A\bigl((1+\bA)/2\bigr)$ order by order.
 
-Away from threshold we evaluated the released two-loop remainder of $\mathcal M_1$ at $1-c=10^{-6},\ldots,10^{-10}$ with \MoneFwdDigits-digit arithmetic, checked with \MoneFwdCheckDigits{} digits, which agree to at least \MoneFwdCheckAgreement{} digits, and fitted a cubic polynomial in $\ln(1-c)$. For $\MoneFwdBetaMin\leq\beta\leq\MoneFwdBetaMax$ and $(\Nc,\nf)=$ \MoneFwdSets, the real parts of the fitted coefficients of $\mathcal G^3$ and $\mathcal G^2$ agree with Eq.~\eqref{eq:forward-relation} to \MoneFwdDevThree{} and \MoneFwdDevTwo{} (Fig.~\ref{fig:dps}), and their imaginary parts are below \MoneFwdImag{} of their magnitudes, when the point at $1-c=10^{-6}$ is left out; with it, the deviations are about \MoneFwdWindowFactor{} times larger, as expected from power corrections in $1-c$. Within the range tested, the two-loop leading logarithms of $\mathcal M_1$ in the forward limit are therefore the one-loop DPS logarithm, with its helicity weight $F_A(x)$, multiplied by the same factor at every velocity.
+Away from threshold we evaluated the released two-loop remainder of $\mathcal M_1$ at $1-c=10^{-6},\ldots,10^{-10}$ with \MoneFwdDigits-digit arithmetic, checked with \MoneFwdCheckDigits{} digits, which agree to at least \MoneFwdCheckAgreement{} digits, and fitted a cubic polynomial in $\ln(1-c)$. For $\MoneFwdBetaMin\leq\beta\leq\MoneFwdBetaMax$ and $(\Nc,\nf)=$ \MoneFwdSets, the real parts of the fitted coefficients of $\mathcal G^3$ and $\mathcal G^2$ agree with Eq.~\eqref{eq:forward-relation} to \MoneFwdDevThree{} and \MoneFwdDevTwo{} (Fig.~\ref{fig:dps}), and their imaginary parts are below \MoneFwdImag{} of their magnitudes, when the point at $1-c=10^{-6}$ is left out; with it, the deviations are about \MoneFwdWindowFactor{} times larger, as expected from power corrections in $1-c$. Within the range tested, the two-loop leading logarithms of $\mathcal M_1$ in the forward limit are therefore the one-loop DPS logarithm, with its helicity sum $F_A(x)$, multiplied by the same factor at every velocity.
 
 The $|J_z|=2$ amplitude acquires a logarithm at two loops: the term
 $\widehat A_{22}\mathcal L^2$, with
@@ -481,13 +487,13 @@ crosses a cut~\cite{DixonEsterlis2016}.
 
 The forward limit of $\mathcal M_2^{(1)}$ itself has a closed form. The exact one-loop remainders agree with
 \begin{equation}
- \lim_{c\to1}\frac{\mathcal M_2^{(1)}}{m^2}=\pi\Nc\,\frac{x^4+(1-x)^4}{x(1-x)},\qquad x=\frac{1+\beta}{2},
+ \lim_{c\to1}\frac{\mathcal M_2^{(1)}}{m^2}=\pi\Nc\,W(x),\qquad
+ W(x)=\frac{x^4+(1-x)^4}{x(1-x)},\qquad x=\frac{1+\beta}{2},
  \label{eq:K1}
 \end{equation}
 to \KOneClosedDev{} for $\KOneBetaMin\leq\beta\leq\KOneBetaMax$ and both sets of $(\Nc,\nf)$; at threshold it gives $\OneLoopMtwo$.
-With the weights in Eq.~\eqref{eq:splitting-weights}, the fraction
-in Eq.~\eqref{eq:K1} equals
-$w_{+-}(x)w_{-+}(1-x)+w_{-+}(x)w_{+-}(1-x)$.
+With the factors of Eq.~\eqref{eq:splitting-weights},
+$W(x)=w_{+-}(x)w_{-+}(1-x)+w_{-+}(x)w_{+-}(1-x)$.
 This is the sum over the two helicity pairings allowed for an
 opposite-helicity initial state, with equal gluon helicities at each
 effective vertex (Sec.~\ref{sec:dps}).
