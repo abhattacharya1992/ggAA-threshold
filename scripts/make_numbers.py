@@ -108,9 +108,9 @@ EDGE_BETA = Fraction(3, 10)             # largest validated velocity
 
 def parameters():
     define("RecommendedBeta", f"{float(RECOMMENDED_BETA):g}")
-    # range of the series in m_AA, and the velocity of the example of Ref. [Baglio:2023euv] in Sec. I
+    # range of the series in m_AA, and the velocity of the example of Ref. [Baglio:2023euv] in Sec. 1
     define("SeriesMassRatio", f"{1 / math.sqrt(1 - float(RECOMMENDED_BETA) ** 2):.2f}")
-    mA_example, mAA_example = 134.7, 300.0          # GeV, quoted from Ref. [Baglio:2023euv] in Sec. I
+    mA_example, mAA_example = 134.7, 300.0          # GeV, quoted from Ref. [Baglio:2023euv] in Sec. 1
     define("IntroExampleBeta", f"{math.sqrt(1 - (2 * mA_example / mAA_example) ** 2):.2f}")
     define("EdgeBeta", f"{float(EDGE_BETA):g}")
     define("BenchMA", benchmark.M_A)
@@ -565,7 +565,7 @@ def structure():
 
 # ---------------------------------------------------------------- forward limit of the two-loop |J_z| = 2 amplitude
 def jz2():
-    """Macros for Sec. IV D from results/jz2_forward_points.jsonl (scripts/check_jz2_forward.py).
+    """Macros for Sec. 4.4 from results/jz2_forward_points.jsonl (scripts/check_jz2_forward.py).
 
     For each colour and flavour set and velocity, the two-loop M_2 at 1 - c = 10^-5, 10^-6, 10^-7
     (140 digits) is fitted exactly by A u^2 + B u + C, u = ln(1 - c); a2 = 4 A is the coefficient of
@@ -632,7 +632,7 @@ def jz2():
 
 # ---------------------------------------------------------------- forward limit of the two-loop M_1
 def m1_forward():
-    """Macros for Sec. IV D from results/m1_forward_points.jsonl (scripts/check_m1_forward.py)."""
+    """Macros for Sec. 4.4 from results/m1_forward_points.jsonl (scripts/check_m1_forward.py)."""
     from ggaa import forward as F
     rows = F.load()
     narrow, wide = F.table(rows, (7, 8, 9, 10)), F.table(rows, (6, 7, 8, 9, 10))

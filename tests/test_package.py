@@ -135,7 +135,7 @@ class Renormalisation2019(unittest.TestCase):
 class JzForward(unittest.TestCase):
     @unittest.skipUnless(ONE_LOOP_INPUTS, "run inputs/fetch_inputs.sh first")
     def test_forward_double_logarithm(self):
-        """Sec. IV D: in the forward limit the l^2 coefficient of the two-loop M_2 is -4 N_c times the one-loop constant."""
+        """Sec. 4.4: in the forward limit the l^2 coefficient of the two-loop M_2 is -4 N_c times the one-loop constant."""
         import json
         from ggaa.oneloop import OneLoop as Evaluator
         path = pathlib.Path(__file__).resolve().parents[1] / "results" / "jz2_forward_points.jsonl"
@@ -153,7 +153,7 @@ class JzForward(unittest.TestCase):
 
 class M1Forward(unittest.TestCase):
     def test_two_loop_logarithms(self):
-        """Sec. IV D: forward G^3 and G^2 coefficients of the two-loop M_1 follow C1 [-(4/3) N_c, -2 beta_0]."""
+        """Sec. 4.4: forward G^3 and G^2 coefficients of the two-loop M_1 follow C1 [-(4/3) N_c, -2 beta_0]."""
         from ggaa import forward as F
         rows = F.load()
         for Nc, nf in F.sets(rows):
@@ -165,7 +165,7 @@ class M1Forward(unittest.TestCase):
 
     @unittest.skipUnless(ONE_LOOP_INPUTS, "run inputs/fetch_inputs.sh first")
     def test_k1_closed_form(self):
-        """Sec. IV D: forward limit of the one-loop |J_z| = 2 remainder, Eq. (K1)."""
+        """Sec. 4.4: forward limit of the one-loop |J_z| = 2 remainder, eq. (4.17)."""
         from ggaa import forward as F
         from ggaa.oneloop import OneLoop
         amp = OneLoop()

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Leading-order partonic cross section of the Type-II amplitude for g g -> A A.
 
-In the effective theory of Eq. (3) of the paper, whose only coupling of A to gluons is
+In the effective theory of eq. (1.1) of the paper, whose only coupling of A to gluons is
 -(1/8) C_G Phi_A O_G, the two Type-II diagrams are the complete tree-level amplitude.
 Prints sigma_hat and d sigma_hat / d cos(theta) and writes results/lo_cross_section.{csv,pdf}.
 

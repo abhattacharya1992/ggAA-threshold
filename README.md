@@ -1,5 +1,23 @@
 # Two-loop gg → AA amplitudes near threshold and the double parton scattering singularity
 
+Paper: A. Bhattacharya, *Two-loop gg → AA amplitudes near threshold and the double parton
+scattering singularity*, [arXiv:2610.19024](https://arxiv.org/abs/2610.19024) [hep-ph].
+
+```bibtex
+@article{Bhattacharya:2026ggAA,
+    author        = "Bhattacharya, Arunima",
+    title         = "{Two-loop $gg\to AA$ amplitudes near threshold and the double parton scattering singularity}",
+    eprint        = "2610.19024",
+    archivePrefix = "arXiv",
+    primaryClass  = "hep-ph",
+    year          = "2026"
+}
+```
+
+Versions: the tag `arxiv-v1` (commit 097cce7) is the state submitted as arXiv v1; its
+`manuscript/main.pdf` is the arXiv v1 PDF. The `main` branch is the current state. The older tags
+v7.2.0 to v9.0.0 are development snapshots from before the submission.
+
 This repository contains the threshold expansion of the two-loop Type II finite
 remainders M₁ and M₂ for gg → AA in the heavy top quark effective theory, the data
 used to validate it, and scripts for reproducing the numerical results, tables
@@ -135,7 +153,7 @@ checksums. Targets that need these files include it explicitly in the table.
 | Leading-power coefficients in terms of ℒ | `make leading-logs` | `results/leading_logs.txt`, `manuscript/tables/leading_logs.tex` |
 | One-loop threshold and forward limits | `make inputs one-loop` | `results/one_loop.txt` |
 | Independent evaluation of the exact two-loop remainders | `make inputs exact-check` | `results/exact_amplitude.txt` |
-| Table III and error slopes | `make validation` | `manuscript/tables/accuracy.tex`, `results/compare_validation.txt` |
+| Table 3 and error slopes | `make validation` | `manuscript/tables/accuracy.tex`, `results/compare_validation.txt` |
 | Figs. 1, 2, 4 and 6; additional interference and ratio plots | `make figures` | `manuscript/figures/` |
 | Figs. 3 and 5, amplitudes by order and Type II cross section | `make inputs virtual physics-figures` | `manuscript/figures/fig5_amplitudes.pdf`, `manuscript/figures/fig6_cross_section.pdf` |
 | One-loop DPS logarithm against the helicity weight F_A(x) | `make inputs dps` | `results/dps_check.txt`, `results/dps_check.json` |
@@ -143,9 +161,9 @@ checksums. Targets that need these files include it explicitly in the table.
 | Velocity at which the two-loop term of M₁ exceeds the one-loop term, Fig. 3 | `make inputs crossover` | `results/amplitude_crossover.json` |
 | Supplied one-loop gg → HH forward coefficients against F_S, Fig. 4 | `make dps-hh` | `results/dps_hh.json` |
 | Earlier 2019 renormalisation and the June 2019 pole record, App. B | `make renorm-2019` | `results/renorm_2019.json` |
-| Opposite-helicity forward fits supporting the real ℓ² coefficient −4N_c times the one-loop forward remainder, Sec. IV D | `make inputs jz2` | `results/jz2_forward_nc3_nf5_e567.txt`, `results/jz2_forward_nc4_nf2_e567.txt` |
-| Two-loop logarithmic coefficient relations through β_A⁶, including terms beyond leading power, Sec. IV D | `make nlp-dps` | `results/nlp_dps.txt` |
-| Equal-helicity forward fits at the tested velocities in 0.05 ≤ β_A ≤ 0.7, Sec. IV D and Fig. 4 | `make inputs m1-forward` | `results/m1_forward_Nc3_nf5.txt`, `results/m1_forward_Nc4_nf2.txt` |
+| Opposite-helicity forward fits supporting the real ℓ² coefficient −4N_c times the one-loop forward remainder, Sec. 4.4 | `make inputs jz2` | `results/jz2_forward_nc3_nf5_e567.txt`, `results/jz2_forward_nc4_nf2_e567.txt` |
+| Two-loop logarithmic coefficient relations through β_A⁶, including terms beyond leading power, Sec. 4.4 | `make nlp-dps` | `results/nlp_dps.txt` |
+| Equal-helicity forward fits at the tested velocities in 0.05 ≤ β_A ≤ 0.7, Sec. 4.4 and Fig. 4 | `make inputs m1-forward` | `results/m1_forward_Nc3_nf5.txt`, `results/m1_forward_Nc4_nf2.txt` |
 | Construction files and validation records against the archived run outputs | `make provenance` | `results/provenance.json` |
 | Supplied P1 n_f construction inputs against reference values and each other | `make nf1-inputs` | `results/nf1_inputs.txt` |
 | Rerun the threshold construction | `make inputs reproduce` | `build/reproduce/`, `build/reproduce/reproduce.log` |
@@ -189,7 +207,7 @@ so that an interrupted run resumes from completed calculations. Runtimes depend
 on the machine and on existing cached results.
 
 The full construction took about 4.5 hours with 0.8 GB peak memory on
-lhcpheno48 using Mathematica 13.2 and Boost.Multiprecision. `make reproduce`
+the reference machine using Mathematica 13.2 and Boost.Multiprecision. `make reproduce`
 reruns the construction and compares its coefficients with the supplied files;
 it does not repeat the original long validation scan. For a detached run with
 memory monitoring, first download the inputs and then use, for example:
@@ -206,7 +224,7 @@ is reached. Finished construction stages are reused when the run is restarted.
 ## Conventions and validation range
 
 - β_A = (1 − 4m_A²/ŝ)^{1/2}. The scattering angle θ is measured between p₁ and p₃
-  in the partonic centre-of-mass frame, as in Sec. II B of the paper.
+  in the partonic centre-of-mass frame, as in Sec. 2.2 of the paper.
 - Overall couplings and Wilson coefficients are stripped from M₁ and M₂.
   These quantities are finite remainders.
 - The series files use `beta`, `costh`, `m2` = m_A², `mu2` = μ_R² and
@@ -215,7 +233,7 @@ is reached. Finished construction stages are reused when the run is restarted.
 - The fixed-angle series were compared with the unexpanded remainders for
   10⁻³ ≤ β_A ≤ 0.3 and |cos θ| ≤ 2/3 on three parameter sets. Additional
   tests at β_A = 0.1, 0.2 and 0.3 extend to |cos θ| = 0.999. See
-  `data/README.md` and Sec. III C of the paper.
+  `data/README.md` and Sec. 3.3 of the paper.
 - Towards the beam, the complete-remainder errors stay within the range found
   on the main grid at the same velocity, except for M₁ at β_A = 0.1. There
   the error at cos θ = 0.999 is 21% larger than the main-grid maximum.
@@ -257,7 +275,7 @@ published files divided by 64.
   gg → HH coefficients support the corresponding CP-even weight
   F_S(x) = 1/[x(1 − x)] + 2x(1 − x) with the same overall constant.
 - The two-loop forward fits support the coefficient relations described in
-  Sec. IV D. The opposite-helicity remainder develops a double logarithm even
+  Sec. 4.4. The opposite-helicity remainder develops a double logarithm even
   though it has no one-loop DPS logarithm. These fits do not establish
   exponentiation in QCD.
 - At leading power, the one-loop DPS logarithm drops out of the tree
@@ -292,7 +310,7 @@ M₁⁽⁰⁾ = i ŝ/2
 M₂⁽⁰⁾ = i m_A² (x − z)(x² + 1)(xz − 1)/[4xz(x² − xz + 1)]
 ```
 
-Here x and z are the scattering variables of Sec. II B. This x differs from
+Here x and z are the scattering variables of Sec. 2.2. This x differs from
 the momentum fraction x = (1 + β_A)/2 used in the DPS formulae above.
 The tree normalization is checked against a direct evaluation of the two
 Feynman diagrams (`data/born/README.md`). The helicity amplitudes have the
@@ -316,7 +334,7 @@ scheme dependence and are not observables or cross-section K factors.
 The following points specify their use:
 
 - The Type II tree amplitude is leading when the pseudoscalar couples to
-  gluons only through the operator of Eq. (3). In a 2HDM, Type I enters at a
+  gluons only through the operator O_G of eqs. (1.1)–(1.2). In a 2HDM, Type I enters at a
   lower order in a_s, and a complete prediction also includes Type I and its
   interference with Type II. The Type II tree cross section is about 10⁻⁸ pb
   near threshold for the paper's benchmark parameters with cot β_H = 1.
@@ -325,7 +343,7 @@ The following points specify their use:
 - The amplitude is normalized as
   C_G²[M⁽⁰⁾ + a_s M⁽¹⁾ + a_s² M⁽²⁾]δ^{ab} at every order.
 - V₂ does not include the mixed O_G–O_J contribution proportional to the
-  physical C_J, which depends on m_t. Its treatment is described in Sec. V.
+  physical C_J, which depends on m_t. Its treatment is described in Sec. 5.2.
 
 The two normalization conversions are implemented as follows:
 
@@ -407,13 +425,12 @@ the validation of the scientific calculation.
 
 ## Licence and citation
 
-Code is released under the BSD 3-Clause licence (`LICENSE`). Data and figures
-are released under CC BY 4.0.
+Code is released under the BSD 3-Clause licence (`LICENSE`). Data, tables and figures
+are released under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
 
 The downloaded ancillary files of arXiv:1909.08993 are excluded from the
 arXiv submission bundle. `inputs/fetch_inputs.sh` downloads them and checks
-their checksums. A full working archive may already contain these downloaded
-inputs. The package includes the coefficient of n_f in the P1 two-loop
+their checksums. The package includes the coefficient of n_f in the P1 two-loop
 remainder, `src/construction/inputs/P1_nf1.wl`, and its compact form, which
 are used by the construction. It also includes the original records needed
 for the provenance checks.
@@ -424,9 +441,7 @@ Please cite the accompanying paper; see `CITATION.cff`.
 
 ## Building the paper and checking the layout
 
-Extract each release into an empty directory to avoid retaining files from
-an older copy. The manuscript source is `manuscript/main.tex`; there is no
-nested `manuscript/manuscript/` directory.
+The manuscript source is `manuscript/main.tex`.
 
 After editing the manuscript, run these commands from the package root:
 

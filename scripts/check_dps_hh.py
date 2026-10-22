@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-loop gg -> HH through two CP-even effective vertices: the forward logarithm (Sec. IV C, Fig. 3).
+"""One-loop gg -> HH through two CP-even effective vertices: the forward logarithm (Sec. 4.3, Fig. 4).
 
 Reads data/dps_hh/dps_hh.csv and data/dps_hh/hh_dps.log (see data/dps_hh/README.md) and checks
 - that the HH forward coefficient of ln pT^2, in units of pi N_c m^2 and multiplied by the sign of the

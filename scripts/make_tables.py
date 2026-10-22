@@ -93,7 +93,7 @@ def frac_tex(x):
 
 
 def validation_grid():
-    """Single-column Table II; long value lists are broken into lines of a few entries."""
+    """Single-column Table 2; long value lists are broken into lines of a few entries."""
     rows = list(csv.DictReader(open(DATA / "validation" / "validation_1080.csv")))
     betas = sorted({Fraction(r["beta"]) for r in rows})
     angles = sorted({Fraction(r["costheta"]) for r in rows})

@@ -5,8 +5,8 @@ Two things are checked:
   * the Python evaluation of data/series reproduces the series values stored in the
     validation table (which were computed in Mathematica from the unreduced series);
   * the truncation errors with respect to the unexpanded remainders, which give
-    Table II and the error slopes of Fig. 1.
-Writes results/accuracy.csv and manuscript/tables/accuracy.tex (Table II).
+    Table 3 and the error slopes of Fig. 2.
+Writes results/accuracy.csv and manuscript/tables/accuracy.tex (Table 3).
 """
 
 import csv
@@ -95,7 +95,7 @@ SHOWN = [Fraction(1, 100), Fraction(1, 20), Fraction(1, 10), Fraction(1, 5), Fra
 
 
 def write_table(errors):
-    """Single-column table (Table III); the numbers come from the comparison above or results/accuracy.csv."""
+    """Single-column table (Table 3); the numbers come from the comparison above or results/accuracy.csv."""
     with open(TABLES / "accuracy.tex", "w") as out:
         out.write(TABLE_HEAD)
         for b in SHOWN:

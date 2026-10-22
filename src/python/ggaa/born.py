@@ -5,7 +5,7 @@ With the vertex from -(1/8) C_G Phi_A eps_{mu nu rho sigma} G^{a mu nu} G^{a rho
     V^{ab}_{alpha beta}(k1, k2) = i C_G eps_{mu alpha rho beta} k1^mu k2^rho delta^{ab},
 
 the two diagrams (t- and u-channel gluon exchange) give, after projection onto the
-tensors T_1 and T_2 of Eqs. (6)-(7) of the paper and with C_G^2 and delta^{ab} stripped,
+tensors T_1 and T_2 of eqs. (2.7)-(2.8) of the paper and with C_G^2 and delta^{ab} stripped,
 
     M_1^(0) = i s / 2,
     M_2^(0) = i m_A^2 (x - z)(x^2 + 1)(x z - 1) / (4 x z (x^2 - x z + 1)),
