@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Velocity below which the two-loop term of M_1 exceeds the one-loop term (Fig. 4, Sec. IV D).
+"""Velocity below which the two-loop term of M_1 exceeds the one-loop term (Fig. 3, Sec. 4.4).
 
 Towards threshold |a_s^2 M_1^(2)| grows as L^3 and |a_s M_1^(1)| as L, so the two-loop term overtakes
 the one-loop term at small beta_A.  The crossing is located by bisection in ln(beta_A) at the

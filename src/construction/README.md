@@ -13,7 +13,7 @@ Mathematica 13.2; the outputs of those runs are in `data/runs`.
 | `validation/` | evaluation of the unexpanded remainders and comparison with the saved series at 1080 records (`validate_saved.wl`) |
 | `inputs/` | the coefficient of n_f in the published P1 remainder (`P1_nf1.wl`) and its compact form (`P1_nf1_compact.wl`) |
 
-The special functions are expanded as in Sec. III A of the paper: their derivatives in β are
+The special functions are expanded as in Sec. 3.1 of the paper: their derivatives in β are
 expanded and integrated term by term from their values at β = 0. The endpoint constants
 `MB[p,q,a,w]` are the integrals of Eq. (A1); their reduction to the basis of eight constants
 and the exact cancellations are done by `make constants` and `make series`.
@@ -41,7 +41,7 @@ and GMP or Boost.Multiprecision, and Python 3.9 or later with sympy and mpmath. 
 SHA-256 of all four input files first, skips stages that have finished when it is run again,
 and ends by comparing the result with every file in `data/construction`. The construction
 driver of the P1 n_f coefficient stops after writing its two series, as it did in September;
-the following check stage then verifies them. On lhcpheno48, with Boost.Multiprecision, the whole run took about 4.5 hours with a peak
+the following check stage then verifies them. On the reference machine, with Boost.Multiprecision, the whole run took about 4.5 hours with a peak
 memory of 0.8 GB; the exact rational series of the 14,247 blocks take most of that time. If the
 GMP and Boost headers are not installed, unpack Boost (header-only) in the home directory and set
 `CPLUS_INCLUDE_PATH` to it before starting. `scripts/watch_reproduce.sh` starts the run detached

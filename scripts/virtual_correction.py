@@ -58,7 +58,7 @@ def main():
         for b, v1, v2 in rows:
             out.write(f"{float(b)},{mp.nstr(v1, 12)},{mp.nstr(v2, 12)}\n")
 
-    # convergence of the angular quadrature, quoted in Sec. V B
+    # convergence of the angular quadrature, quoted in Sec. 5.2
     check = ("0.01", "0.1", "0.3")
     dev1 = dev2 = 0.0
     for b in check:

@@ -3,7 +3,25 @@ message: "If you use the threshold series or the evaluator, please cite the asso
 title: "Threshold expansion of the two-loop Type-II finite remainders for gg -> AA: series, evaluator and checks"
 version: "7.3.3"
 license: BSD-3-Clause
+repository-code: "https://github.com/abhattacharya1992/ggAA-threshold"
 authors:
   - family-names: "Bhattacharya"
     given-names: "Arunima"
     affiliation: "IFIC, University of Valencia-CSIC"
+    orcid: "https://orcid.org/0000-0003-4409-0901"
+identifiers:
+  - type: other
+    value: "arXiv:2610.19024"
+    description: "The accompanying article"
+preferred-citation:
+  type: article
+  title: "Two-loop gg -> AA amplitudes near threshold and the double parton scattering singularity"
+  authors:
+    - family-names: "Bhattacharya"
+      given-names: "Arunima"
+      orcid: "https://orcid.org/0000-0003-4409-0901"
+  year: 2026
+  url: "https://arxiv.org/abs/2610.19024"
+  identifiers:
+    - type: other
+      value: "arXiv:2610.19024"

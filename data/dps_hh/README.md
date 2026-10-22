@@ -1,6 +1,6 @@
 # One-loop gg → HH through two CP-even effective vertices: the forward logarithm
 
-Test of Sec. IV C: for a CP-even coupling, H G^a_{μν} G^{aμν}, the double parton scattering configuration
+Test of Sec. 4.3: for a CP-even coupling, H G^a_{μν} G^{aμν}, the double parton scattering configuration
 gives the scalar helicity weight F_S(x) = 1/[x(1−x)] + 2x(1−x) instead of F_A, x = (1+β)/2, with the
 same constant as for AA once each coefficient is expressed in units of its tree amplitude at threshold.
 
@@ -38,4 +38,4 @@ The FORM and Mathematica code of this calculation, which builds on the one-loop 
 arXiv:1909.08993, is not part of this package. It is available from the author on request.
 
 `scripts/check_dps_hh.py` (`make dps-hh`) reads these files and writes `results/dps_hh.json`, which
-supplies the numbers of Sec. IV C and the HH points of Fig. 3.
+supplies the numbers of Sec. 4.3 and the HH points of Fig. 4.

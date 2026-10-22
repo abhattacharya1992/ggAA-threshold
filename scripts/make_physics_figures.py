@@ -91,7 +91,7 @@ def main():
     if (RESULTS / "virtual_correction.csv").exists():
         fig_cross_section()
     else:
-        print("results/virtual_correction.csv missing: run `make virtual` for Figure 6")
+        print("results/virtual_correction.csv missing: run `make virtual` for Figure 5")
 
 
 if __name__ == "__main__":

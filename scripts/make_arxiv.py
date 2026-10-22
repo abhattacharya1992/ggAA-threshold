@@ -3,8 +3,9 @@
 
 The tarball carries main.bbl and the JHEP style files.  The code and data of this package go
 into anc/ as ancillary files; following arXiv's rules, no TeX files are placed there, so anc/ holds
-everything except manuscript/, and the downloaded files of arXiv:1909.08993 (inputs/arXiv-1909.08993,
-fetched by inputs/fetch_inputs.sh and checked against inputs/SHA256SUMS) are left out.
+the maintained code and data, excluding manuscript/, historical manuscript snapshots, build
+products, and the downloaded files of arXiv:1909.08993 (inputs/arXiv-1909.08993, fetched by
+inputs/fetch_inputs.sh and checked against inputs/SHA256SUMS).
 Writes build/ggAA-threshold-arxiv.tar.gz and lists what it contains.
 """
 
@@ -16,7 +17,7 @@ import tarfile
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 MAN = ROOT / "manuscript"
 OUT = ROOT / "build" / "ggAA-threshold-arxiv.tar.gz"
-SKIP_DIRS = {"manuscript", "build", "__pycache__", ".git", "arXiv-1909.08993"}
+SKIP_DIRS = {"manuscript", "history", "manuscript_arXiv_v1", "build", "__pycache__", ".git", "arXiv-1909.08993"}
 
 
 def manuscript_files():
@@ -42,14 +43,14 @@ LOCAL_FILES = {"status.sh"}
 
 
 def ancillary_files():
-    """Package files for anc/: no manuscript (arXiv: no TeX in anc/), no hidden files, no caches.
+    """Package files for anc/: no current or historical manuscripts, hidden files or caches.
 
     Data files are kept whatever their extension (data/born/original/BornSqr.log is FORM output)."""
     out = []
     for path in sorted(ROOT.rglob("*")):
         rel = path.relative_to(ROOT)
         if (path.is_dir() or SKIP_DIRS & set(rel.parts) or any(part.startswith(".") for part in rel.parts)
-                or path.suffix in {".pyc", ".tex"} or rel.as_posix() in SKIP_FILES):
+                or path.suffix in {".pyc", ".tex", ".zip"} or rel.as_posix() in SKIP_FILES):
             continue
         if len(rel.parts) == 1 and (path.suffix in LOCAL_SUFFIXES or rel.name in LOCAL_FILES):
             continue                                   # run logs, monitoring scripts and archives at the top level

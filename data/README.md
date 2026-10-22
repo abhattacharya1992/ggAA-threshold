@@ -45,7 +45,7 @@ n_f = 5 coefficients at m_A = μ_R = 125 GeV, N_c = 3: β_A ∈ {1/10, 1/5, 3/10
 cos θ ∈ {9/10, 99/100, 999/1000, −99/100}. Relative errors were computed at high precision;
 the amplitude values are given in double precision. The rows at cos θ = ±99/100 agree, as
 required by Bose symmetry. All errors are below the maximum on the main grid at the same β_A, except
-for M1 at β_A = 1/10, where the value at cos θ = 999/1000 exceeds it by 21% (Sec. III C).
+for M1 at β_A = 1/10, where the value at cos θ = 999/1000 exceeds it by 21% (Sec. 3.3).
 
 `one_loop_reference.csv`: the published one-loop remainders at six points, evaluated at
 75 digits, used by `scripts/check_one_loop.py` and the tests.
@@ -53,7 +53,7 @@ for M1 at β_A = 1/10, where the value at cos θ = 999/1000 exceeds it by 21% (S
 ## dps_hh/
 
 One-loop gg → HH through two CP-even effective vertices: forward coefficient of ln p_T² against the scalar
-weight F_S (Sec. IV C, Fig. 3). How the numbers were obtained, the checks and the files: `dps_hh/README.md`.
+weight F_S (Sec. 4.3, Fig. 4). How the numbers were obtained, the checks and the files: `dps_hh/README.md`.
 
 ## constants/
 
