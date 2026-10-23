@@ -414,15 +414,13 @@ threshold series are regular at cos θ = 0.
 
 ## Use of AI tools
 
-The author developed and directed the calculations, analysis and software.
-Large language models were used as supporting tools in the preparation,
-debugging and editing of code and text, and in repository organisation.
-The author is responsible for the scientific results and the released material.
-
-The package includes comparisons with the unexpanded remainders,
-renormalisation-group checks and an independent Python evaluation.
-The accompanying manuscript describes the supporting use of AI tools and
-the validation of the scientific calculation.
+The calculations, analysis, and code in this work were developed by the author. 
+Claude 5.5 (Anthropic) and GPT-5.6 Pro (OpenAI) were used in a limited supporting 
+role to assist with code debugging and optimisation and with grammatical corrections 
+to the manuscript. The code was independently checked using the tests described in 
+Secs. 3 and 4 and App. B, including comparison with the unexpanded remainders, the 
+renormalisation group relations, and an independent Python evaluation. These tests 
+are included in the released package.
 
 ## Licence and citation
 
