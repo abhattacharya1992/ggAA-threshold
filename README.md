@@ -1,5 +1,7 @@
 # Two-loop gg → AA amplitudes near threshold and the double parton scattering singularity
 
+[![DOI](https://zenodo.org/badge/1400116886.svg)](https://doi.org/10.5281/zenodo.23597489)
+
 Paper: A. Bhattacharya, *Two-loop gg → AA amplitudes near threshold and the double parton
 scattering singularity*, [arXiv:2610.19024](https://arxiv.org/abs/2610.19024) [hep-ph].
 
@@ -15,9 +17,10 @@ scattering singularity*, [arXiv:2610.19024](https://arxiv.org/abs/2610.19024) [h
 ```
 
 Versions: `manuscript/` on the `main` branch is the v2 manuscript; `manuscript/CHANGES_v2.md`
-lists the changes from v1. The tag `arxiv-v1` (commit 097cce7) is the state submitted as arXiv v1;
-its `manuscript/main.pdf` is the arXiv v1 PDF. The older tags v7.2.0 to v9.0.0 are development
-snapshots from before the submission.
+lists the changes from v1. Releases are archived at Zenodo,
+[doi:10.5281/zenodo.23597489](https://doi.org/10.5281/zenodo.23597489) (all versions; release
+v2.0.0 is doi:10.5281/zenodo.23597490). The tag `arxiv-v1` (commit 097cce7) is the state
+submitted as arXiv v1; its `manuscript/main.pdf` is the arXiv v1 PDF.
 
 This repository contains the threshold expansion of the two-loop Type II finite
 remainders M₁ and M₂ for gg → AA in the heavy top quark effective theory, the data
