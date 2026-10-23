@@ -3,7 +3,7 @@
 The arXiv v1 source is the tag `arxiv-v1` (commit 097cce7) of this repository; its
 `manuscript/main.pdf` is the arXiv v1 PDF. Compare with `git diff arxiv-v1 -- manuscript`.
 
-The notation changes align the paper with the follow-up paper (Paper 2).
+The notation changes make each symbol stand for one quantity only.
 No change to the numerical data is intended by the notation changes below.
 
 1. **The variable of the amplitude files is now v, not x.** Eqs. (2.2), (2.4), (2.12), Sec. 3.1
@@ -12,7 +12,7 @@ No change to the numerical data is intended by the notation changes below.
    sentence "Here x and z are momentum fractions, not the variables of Eq. (2.2)" is gone.
 2. **The argument of the g → gg factors is ξ** (eq. 4.8 and the two sentences around it), so that
    z is only the file variable.
-3. **The n_f² threshold constant of eqs. (3.6)–(3.7) is K_{n_f}** (it was K, which Paper 2 uses for
+3. **The n_f² threshold constant of eqs. (3.6)–(3.7) is K_{n_f}** (it was K, which also denotes
    the one-loop forward limit of M₂).
 4. **Eq. (4.17) names the function: W(x) = [x⁴ + (1−x)⁴]/[x(1−x)]**, and the sentence after it
    gives W(x) in terms of the factors of eq. (4.8).
@@ -25,10 +25,6 @@ No change to the numerical data is intended by the notation changes below.
 6. **ℒ and 𝒢.** After eq. (4.2): "Away from threshold the natural variable is
    𝒢 = ½ ln[(m_A⁴ − tu)/m_A⁴] = ℒ − ln(1 − β_A²), used in Sec. 4.4." (Sec. 4.4 already had the
    relation.)
-7. **Reference to Paper 2.** Sec. 6: "The first two [open questions], and the comparison with the
-   scalar case named below, are taken up in Ref. [Bhattacharya:P2]", with a bibliography entry
-   "in preparation" (`references.bib`, key `Bhattacharya:P2`); replace by the arXiv number when
-   Paper 2 is submitted.
 
 The package code is untouched: `src/python/ggaa` keeps `x` as the name of the file variable
 internally, as the published files do.
