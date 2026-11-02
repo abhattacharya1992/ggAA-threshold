@@ -85,8 +85,7 @@ of Sec. 4 are renumbered by one.
 
 The acknowledgments are not changed here.
 
-- **Abstract.** "IR-finite amplitudes" and "unexpanded amplitudes" are now "IR-finite remainders"
-  and "unexpanded remainders". ln³p_T and ln²p_T are written as ln³(2p_T/m_A) and
+- **Abstract.** ln³p_T and ln²p_T are written as ln³(2p_T/m_A) and
   ln²(2p_T/m_A), and the sentence on planar N = 4 super Yang–Mills theory states that the
   ratio of the leading two- and one-loop logarithms agrees. The forward-limit agreement of the
   one-loop coefficient is stated as exact (eq. (4.12)) instead of "to 3×10⁻¹⁵".
