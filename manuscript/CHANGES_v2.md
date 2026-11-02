@@ -80,3 +80,39 @@ of Sec. 4 are renumbered by one.
   p_T = m_A/256. The numerical values are unchanged.
 - **Fig. 5(b)** (file `fig6_cross_section.pdf`). The axis label and the legend show the
   angular averages a_s⟨V₁⟩ and a_s²⟨V₂⟩, as in the caption (`scripts/make_physics_figures.py`).
+
+## Further corrections on 2 November 2026
+
+The acknowledgments are not changed here.
+
+- **Abstract.** "IR-finite amplitudes" and "unexpanded amplitudes" are now "IR-finite remainders"
+  and "unexpanded remainders". ln³p_T and ln²p_T are written as ln³(2p_T/m_A) and
+  ln²(2p_T/m_A), and the sentence on planar N = 4 super Yang–Mills theory states that the
+  ratio of the leading two- and one-loop logarithms agrees. The forward-limit agreement of the
+  one-loop coefficient is stated as exact (eq. (4.12)) instead of "to 3×10⁻¹⁵".
+- **Eq. (4.7).** The corrections are written as O_log(β_A²) instead of O(β_A). A new sentence
+  states that they are of order β_A² ln β_A for M₁⁽¹⁾ and β_A² for M₂⁽¹⁾, from evaluations at
+  10⁻⁶ ≤ β_A ≤ 10⁻³ (part 5 of `scripts/check_one_loop.py`).
+- **Eq. (4.12) is derived.** In the physical region all logarithms of the published one-loop
+  remainder have positive arguments and all dilogarithms have arguments between 0 and 1, so the
+  real part follows from the explicit factors of i. `scripts/derive_one_loop_real.py` evaluates
+  it in exact arithmetic over Q(x, z, m_A², μ_R², N_c, n_f): it contains no dilogarithms and
+  equals eq. (4.12) identically (output in `results/one_loop_real.txt`, run by `make one-loop`;
+  test `OneLoop.test_real_part_derivation`). Sec. 4.3 now says so and describes the comparison
+  at 1350 points as a numerical check.
+- **Eq. (4.18).** "The forward limit of M₂⁽¹⁾ itself has a closed form. The exact one-loop
+  remainders agree with" is replaced by "In the forward limit the one-loop remainders agree
+  with". This relation is established numerically, not derived.
+- **Sec. 4.4 and Fig. 4.** The quoted forward coefficients are determined from four points
+  (cubic polynomial, M₁) and three points (quadratic polynomial, M₂); the text no longer calls
+  this a fit. The comparison with one more point is described as a least-squares fit. Fig. 4
+  caption: "fitted over" is replaced by "determined from".
+- **Conclusions.** "including forward angles" is replaced by "including points close to the
+  beam axis (|c| ≤ 0.999)", and the forward-limit agreement is stated as exact, with a reference
+  to eq. (4.12).
+- **App. D.** The reproducibility sentence now says that Fig. 1 is generated from its diagram
+  source and that the gg → HH check starts from the supplied coefficients.
+- **References.** Gröber and Mühlleitner are spelled with umlauts in the entry for
+  arXiv:1705.05314.
+- **Package version 2.1.0** (`CITATION.cff`, `ggaa.__version__`). After merging, publish a
+  GitHub release v2.1.0 so that Zenodo archives this version under the concept DOI.

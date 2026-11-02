@@ -54,3 +54,13 @@
    N_c=2 n_f=1 m_A=125 mu_R=125: 8.87e-106
    N_c=2 n_f=1 m_A=125 mu_R=250: 8.87e-106
    N_c=2 n_f=1 m_A=300 mu_R= 40: 4.61e-106
+
+5. Beyond leading power: R1 = M1/m_A^2 - (A1 calL + A0) and R2 = M2/m_A^2 - M2(beta->0)/m_A^2
+   cos=  1/3 beta=1e-3:  |R1|/beta^2 =    639.7318722   |R2|/beta^2 = 89.05904796
+   cos=  1/3 beta=1e-4:  |R1|/beta^2 =    834.0386546   |R2|/beta^2 = 89.05905914
+   cos=  1/3 beta=1e-5:  |R1|/beta^2 =    1028.726633   |R2|/beta^2 = 89.05905925
+   cos=  1/3 beta=1e-6:  |R1|/beta^2 =    1223.613583   |R2|/beta^2 = 89.05905925
+   cos= -2/3 beta=1e-3:  |R1|/beta^2 =    651.8183045   |R2|/beta^2 = 51.12220272
+   cos= -2/3 beta=1e-4:  |R1|/beta^2 =    845.4123786   |R2|/beta^2 = 51.12209407
+   cos= -2/3 beta=1e-5:  |R1|/beta^2 =    1039.649697   |R2|/beta^2 = 51.12209299
+   cos= -2/3 beta=1e-6:  |R1|/beta^2 =    1234.226317   |R2|/beta^2 = 51.12209298

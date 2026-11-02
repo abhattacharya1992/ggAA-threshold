@@ -107,12 +107,12 @@ by Eq.~\eqref{eq:xyz-definition}. The two-loop coefficients have no finite limit
 
 Fitting the one-loop remainders of Ref.~\cite{Bhattacharya:2019bmd} at $\bA=$ \OneLoopFitBetas{} with \OneLoopDigits-digit arithmetic, for $\Nc=$ \OneLoopScanNc, $\nf=$ \OneLoopScanNf{}, two values of $\muR$ and several angles, we find to \OneLoopAgreementDigits{} digits
 \begin{align}
- \mathcal M_1^{(1)}&=\mA^2\bigl[\OneLoopAone\,\mathcal L+\widehat A^{(1)}_{10}\bigr]+\Ord(\bA),
+ \mathcal M_1^{(1)}&=\mA^2\bigl[\OneLoopAone\,\mathcal L+\widehat A^{(1)}_{10}\bigr]+\Ord_{\log}(\bA^2),
  \nonumber\\
- \mathcal M_2^{(1)}&=\OneLoopMtwo\,\mA^2+\Ord(\bA),
+ \mathcal M_2^{(1)}&=\OneLoopMtwo\,\mA^2+\Ord_{\log}(\bA^2),
  \label{eq:one-loop-threshold}
 \end{align}
-with $\widehat A^{(1)}_{10}=\OneLoopAzero$ for $\Nc=\BenchNc$, $\nf=\BenchNf$ and $\muR=\mA$, in the normalisation of Eq.~\eqref{eq:normalisation}. The constant does not depend on the angle, and by Eq.~\eqref{eq:normalisation}, its scale dependence is $\partial\widehat A^{(1)}_{10}/\partial\ln\muR^2=4i\beta_0$. The coefficient of $\mathcal L$ and the limit of $\mathcal M_2^{(1)}$ depend neither on $\nf$ nor on $\muR$. Together with Eqs.~\eqref{eq:born}, \eqref{eq:leading-power-M1} and \eqref{eq:leading-power}, the behaviour at threshold is summarised in Table~\ref{tab:orders}.
+with $\widehat A^{(1)}_{10}=\OneLoopAzero$ for $\Nc=\BenchNc$, $\nf=\BenchNf$ and $\muR=\mA$, in the normalisation of Eq.~\eqref{eq:normalisation}. Evaluations at $\OneLoopPowerBetaMin\leq\bA\leq\OneLoopPowerBetaMax$ show that the first corrections are of order $\bA^2\ln\bA$ for $\mathcal M_1^{(1)}$ and $\bA^2$ for $\mathcal M_2^{(1)}$. The constant does not depend on the angle, and by Eq.~\eqref{eq:normalisation}, its scale dependence is $\partial\widehat A^{(1)}_{10}/\partial\ln\muR^2=4i\beta_0$. The coefficient of $\mathcal L$ and the limit of $\mathcal M_2^{(1)}$ depend neither on $\nf$ nor on $\muR$. Together with Eqs.~\eqref{eq:born}, \eqref{eq:leading-power-M1} and \eqref{eq:leading-power}, the behaviour at threshold is summarised in Table~\ref{tab:orders}.
 \begin{table}[!htb]
 \centering
  \begin{tabular}{lccc}
@@ -294,8 +294,14 @@ The largest relative deviation from
 Eq.~\eqref{eq:dps-prediction} was
 \DPSMaxDeviation{}.
 
-The real part of the one-loop remainder
-can also be written in closed form,
+All logarithms in the one-loop remainder
+of Ref.~\cite{Bhattacharya:2019bmd} have
+positive arguments in the physical region,
+and all dilogarithms have arguments between
+0 and~1. These functions are therefore real,
+and the real part of the remainder follows
+from its explicit factors of $i$. It
+contains no dilogarithms and simplifies to
 \begin{equation}
  \Real\mathcal M_1^{(1)}
  =\pi m^2\left[\Nc\,F_A\!\left(\frac{1+\beta}{2}\right)
@@ -304,8 +310,8 @@ can also be written in closed form,
  \label{eq:re-one-loop}
 \end{equation}
 which does not depend on $\muR$.
-It agrees with the remainder of
-Ref.~\cite{Bhattacharya:2019bmd} at
+As a numerical check, it agrees with the
+remainder of Ref.~\cite{Bhattacharya:2019bmd} at
 \ClosedFormPoints{} points with
 $\ClosedFormBetaMin\leq\beta\leq\ClosedFormBetaMax$
 and $|c|\leq\ClosedFormCosMax$, for
@@ -313,7 +319,9 @@ $(\Nc,\nf)=$ \ClosedFormSets{} and
 $(m,\muR)=$ \ClosedFormScales{}~GeV.
 With \ClosedFormDigits-digit arithmetic
 the relative differences are below
-\ClosedFormDev{}.
+\ClosedFormDev{}. The simplification, in
+exact arithmetic, and this check are part
+of the released package.
 At fixed $\beta$ and $m$,
 $\ln p_T^2=\ln(1-c^2)+\text{const}$, so
 \[
@@ -390,7 +398,7 @@ Panel~(b) shows the relative deviations from the predictions; the two-loop point
 \begin{figure}[!htb]
  \centering
  \includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{figures/fig7_dps.pdf}
- \caption{Forward coefficients of the DPS logarithms and the helicity sums $F_A$, $F_S$; each coefficient has the same symbol in both panels. (a) $(\Nc,\nf)=(3,5)$. Circles: $D(\beta)$ for $gg\to AA$, Eq.~\eqref{eq:dps-prediction}. Triangles: $-D(\beta)$ for $gg\to HH$ through two CP-even effective vertices; the sign reversal removes the relative sign of the scalar and pseudoscalar tree amplitudes at threshold. Diamonds and crosses: the real parts of the fitted coefficients of $\mathcal G^3$ and $\mathcal G^2$ in the forward limit of the two-loop remainder of $gg\to AA$, fitted over $1-c=10^{-7},\ldots,10^{-10}$ and divided by $-\tfrac43\Nc\cdot2\pi\Nc m^2$ and $-2\beta_0\cdot2\pi\Nc m^2$ (Sec.~\ref{sec:two-loop}). Solid and dashed curves: $F_A((1+\beta)/2)$ and $F_S((1+\beta)/2)$. The values for $(\Nc,\nf)=(4,2)$ coincide with those shown. (b) Relative deviation of each point from its curve in (a), for $(\Nc,\nf)=(3,5)$ and, for $gg\to AA$, $(4,2)$; the symbols are displaced horizontally for legibility.}
+ \caption{Forward coefficients of the DPS logarithms and the helicity sums $F_A$, $F_S$; each coefficient has the same symbol in both panels. (a) $(\Nc,\nf)=(3,5)$. Circles: $D(\beta)$ for $gg\to AA$, Eq.~\eqref{eq:dps-prediction}. Triangles: $-D(\beta)$ for $gg\to HH$ through two CP-even effective vertices; the sign reversal removes the relative sign of the scalar and pseudoscalar tree amplitudes at threshold. Diamonds and crosses: the real parts of the coefficients of $\mathcal G^3$ and $\mathcal G^2$ in the forward limit of the two-loop remainder of $gg\to AA$, determined from $1-c=10^{-7},\ldots,10^{-10}$ and divided by $-\tfrac43\Nc\cdot2\pi\Nc m^2$ and $-2\beta_0\cdot2\pi\Nc m^2$ (Sec.~\ref{sec:two-loop}). Solid and dashed curves: $F_A((1+\beta)/2)$ and $F_S((1+\beta)/2)$. The values for $(\Nc,\nf)=(4,2)$ coincide with those shown. (b) Relative deviation of each point from its curve in (a), for $(\Nc,\nf)=(3,5)$ and, for $gg\to AA$, $(4,2)$; the symbols are displaced horizontally for legibility.}
  \label{fig:dps}
 \end{figure}
 
@@ -490,12 +498,12 @@ The following tests indicate that the relation of Eq.~\eqref{eq:log-relation} ex
 \end{align}
 with $C_1$ from Eq.~\eqref{eq:dps-prediction}. In the threshold series, Eq.~\eqref{eq:forward-relation} holds exactly through $\bA^6$ for general $\Nc$ and $\nf$; at fixed angle, the coefficient of $\mathcal L^3$ follows the expansion of $F_A\bigl((1+\bA)/2\bigr)$ order by order.
 
-Away from threshold we evaluated the released two-loop remainder of $\mathcal M_1$ at $1-c=10^{-6},\ldots,10^{-10}$ with \MoneFwdDigits-digit arithmetic, checked with \MoneFwdCheckDigits{} digits, which agree to at least \MoneFwdCheckAgreement{} digits, and fitted a cubic polynomial in $\ln(1-c)$. For $\MoneFwdBetaMin\leq\beta\leq\MoneFwdBetaMax$ and $(\Nc,\nf)=$ \MoneFwdSets, the real parts of the fitted coefficients of $\mathcal G^3$ and $\mathcal G^2$ agree with Eq.~\eqref{eq:forward-relation} to \MoneFwdDevThree{} and \MoneFwdDevTwo{} (Fig.~\ref{fig:dps}), and their imaginary parts are below \MoneFwdImag{} of their magnitudes, when the point at $1-c=10^{-6}$ is left out; with it, the deviations are about \MoneFwdWindowFactor{} times larger, as expected from power corrections in $1-c$. Within the range tested, the two-loop leading logarithms of $\mathcal M_1$ in the forward limit are therefore the one-loop DPS logarithm, with its helicity sum $F_A(x)$, multiplied by the same factor at every velocity.
+Away from threshold we evaluated the released two-loop remainder of $\mathcal M_1$ at $1-c=10^{-6},\ldots,10^{-10}$ with \MoneFwdDigits-digit arithmetic, checked with \MoneFwdCheckDigits{} digits, which agree to at least \MoneFwdCheckAgreement{} digits. The four points with $1-c\leq10^{-7}$ determine the four coefficients of a cubic polynomial in $\ln(1-c)$. For $\MoneFwdBetaMin\leq\beta\leq\MoneFwdBetaMax$ and $(\Nc,\nf)=$ \MoneFwdSets, the real parts of the resulting coefficients of $\mathcal G^3$ and $\mathcal G^2$ agree with Eq.~\eqref{eq:forward-relation} to \MoneFwdDevThree{} and \MoneFwdDevTwo{} (Fig.~\ref{fig:dps}), and their imaginary parts are below \MoneFwdImag{} of their magnitudes. A least-squares fit that also includes the point at $1-c=10^{-6}$ gives deviations about \MoneFwdWindowFactor{} times larger, as expected from power corrections in $1-c$. Within the range tested, the two-loop leading logarithms of $\mathcal M_1$ in the forward limit are therefore the one-loop DPS logarithm, with its helicity sum $F_A(x)$, multiplied by the same factor at every velocity.
 
 The $|J_z|=2$ amplitude acquires a logarithm at two loops: the term
 $\widehat A_{22}\mathcal L^2$, with
 $\widehat A_{22}=(\MtwoRelation)\cdot\OneLoopMtwo$, is the one-loop
-constant multiplied by $\MtwoRelation\,\mathcal L^2$. The forward-limit calculation described next indicates that the same coefficient relation persists away from threshold. In the forward limit $c\to1$ at fixed velocity, where $p_T\to0$ as well, we evaluated the released two-loop remainder of $\mathcal M_2$ at $1-c=$ \JzExponents{} with \JzDigits-digit arithmetic and fitted a quadratic polynomial in $\ln(1-c)$; a repetition with \JzCheckDigits{} digits agrees to at least \JzCheckAgreement{} digits. For $\JzBetaMin\leq\beta\leq\JzBetaMax$ and $(\Nc,\nf)=$ \JzSets, the real part of the coefficient of $\ln^2(2p_T/m)$ equals $-4\Nc$ times the forward limit of $\mathcal M_2^{(1)}$ to \JzMaxDev, although that limit varies by a factor of \JzKOneRatio{} over this range. Its imaginary part, which vanishes in the proposed coefficient relation, is below \JzImag{} of its magnitude, and including the point at $1-c=10^{-4}$ in the fit increases the deviation to \JzMaxDevWide, as expected from power corrections. Within the range tested, the one-loop amplitude and the fitted two-loop logarithm are therefore consistent with
+constant multiplied by $\MtwoRelation\,\mathcal L^2$. The forward-limit calculation described next indicates that the same coefficient relation persists away from threshold. In the forward limit $c\to1$ at fixed velocity, where $p_T\to0$ as well, we evaluated the released two-loop remainder of $\mathcal M_2$ at $1-c=$ \JzExponents{} with \JzDigits-digit arithmetic; a repetition with \JzCheckDigits{} digits agrees to at least \JzCheckAgreement{} digits. These three points determine the three coefficients of a quadratic polynomial in $\ln(1-c)$. For $\JzBetaMin\leq\beta\leq\JzBetaMax$ and $(\Nc,\nf)=$ \JzSets, the real part of the coefficient of $\ln^2(2p_T/m)$ equals $-4\Nc$ times the forward limit of $\mathcal M_2^{(1)}$ to \JzMaxDev, although that limit varies by a factor of \JzKOneRatio{} over this range. Its imaginary part, which vanishes in the proposed coefficient relation, is below \JzImag{} of its magnitude. A least-squares fit that also includes the point at $1-c=10^{-4}$ increases the deviation to \JzMaxDevWide, as expected from power corrections. Within the range tested, the one-loop amplitude and the extracted two-loop logarithm are therefore consistent with
 \begin{equation}
  \as\mathcal M_2^{(1)}\bigl[1-4\Nc\as\ln^2(2p_T/m)\bigr],
  \label{eq:jz2-forward}
@@ -523,7 +531,7 @@ region where the limit overlaps with multi-Regge kinematics, and suggested
 that they may come from contributions in which more than one particle
 crosses a cut~\cite{DixonEsterlis2016,DixonEsterlis2016Erratum}.
 
-The forward limit of $\mathcal M_2^{(1)}$ itself has a closed form. The exact one-loop remainders agree with
+In the forward limit the one-loop remainders agree with
 \begin{equation}
  \lim_{c\to1}\frac{\mathcal M_2^{(1)}}{m^2}=\pi\Nc\,W(x),\qquad
  W(x)=\frac{x^4+(1-x)^4}{x(1-x)},\qquad x=\frac{1+\beta}{2},

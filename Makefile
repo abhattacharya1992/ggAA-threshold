@@ -62,6 +62,7 @@ leading-logs:
 one-loop:
 	@mkdir -p results
 	$(RUN)/check_one_loop.py | tee results/one_loop.txt
+	$(RUN)/derive_one_loop_real.py | tee results/one_loop_real.txt
 
 exact-check:
 	@mkdir -p results

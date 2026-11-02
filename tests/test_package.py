@@ -118,6 +118,15 @@ class OneLoop(unittest.TestCase):
                 value = amp(1, b, c, mA=mA, muR=muR, Nc=Nc, nf=nf).real
                 self.assertLess(abs(value / real_m1(b, c, mA=mA, Nc=Nc, nf=nf) - 1), 1e-60)
 
+    def test_real_part_derivation(self):
+        """Sec. 4.3: Eq. (4.12) follows from the published remainder in exact arithmetic."""
+        import importlib.util
+        path = pathlib.Path(__file__).resolve().parents[1] / "scripts" / "derive_one_loop_real.py"
+        spec = importlib.util.spec_from_file_location("derive_one_loop_real", path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        self.assertEqual(module.difference(), {})
+
 
 class HiggsPairs(unittest.TestCase):
     def test_forward_weight(self):

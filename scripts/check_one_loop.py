@@ -7,7 +7,10 @@ Uses the published one-loop expressions (run inputs/fetch_inputs.sh first).
      A0, A1; prints A1 and M_2(beta -> 0) for several N_c, n_f and mu_R.
   3. Fixed beta, cos(theta) -> 1: M_1 grows like ln(1 - c), M_2 tends to a constant.
   4. Compares the closed form of Re M_1 (ggaa.oneloop.real_m1, Sec. 4.3) with the
-     published remainder on a grid of velocities, angles, N_c, n_f, m_A and mu_R.
+     published remainder on a grid of velocities, angles, N_c, n_f, m_A and mu_R
+     (scripts/derive_one_loop_real.py derives it in exact arithmetic).
+  5. Size of the first corrections to the leading-power forms of item 2: of order
+     beta^2 ln(beta) for M_1 and beta^2 for M_2.
 """
 
 import csv
@@ -107,6 +110,27 @@ def main():
                              "betas": [str(b) for b in betas], "cosines": [str(c) for c in cosines],
                              "sets": [list(s) for s in sets], "scales": [list(s) for s in scales],
                              "max_relative_difference": mp.nstr(worst, 5)}
+
+    # The constant A0 and the limit of M2 do not depend on the angle; take them at cos = 1/3.
+    ref = next(a for a in record["angles"] if a["cos"] == mp.nstr(mp.mpf(1) / 3, 6))
+    a1, a0, m2_limit = mp.mpf(ref["A1"]), mp.mpc(ref["A0_re"], ref["A0_im"]), mp.mpf(ref["M2_limit"])
+    exponents, angles = (3, 4, 5, 6), (Fraction(1, 3), Fraction(-2, 3))
+    print("\n5. Beyond leading power: R1 = M1/m_A^2 - (A1 calL + A0) and R2 = M2/m_A^2 - M2(beta->0)/m_A^2")
+    power = {"betas": [f"1e-{e}" for e in exponents], "cosines": [str(c) for c in angles],
+             "R1_over_beta2": [], "R2_over_beta2": []}
+    for c in angles:
+        r1s, r2s = [], []
+        for e in exponents:
+            b = mp.mpf(10) ** -e
+            r1 = amp(1, b, exact(c)) / M2 - (a1 * (mp.log(b) + calL_shift(exact(c))) + a0)
+            r2 = amp(2, b, exact(c)) / M2 - m2_limit
+            r1s.append(abs(r1) / b**2)
+            r2s.append(abs(r2) / b**2)
+            print(f"   cos={str(c):>5} beta=1e-{e}:  |R1|/beta^2 = {mp.nstr(r1s[-1], 10):>14}"
+                  f"   |R2|/beta^2 = {mp.nstr(r2s[-1], 10)}")
+        power["R1_over_beta2"].append([mp.nstr(v, 15) for v in r1s])
+        power["R2_over_beta2"].append([mp.nstr(v, 15) for v in r2s])
+    record["power_corrections"] = power
     json.dump(record, open(RESULTS / "one_loop.json", "w"), indent=1)
 
 
