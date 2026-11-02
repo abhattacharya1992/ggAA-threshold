@@ -172,7 +172,7 @@ singular configuration. For the fermion loops of
 Ref.~\cite{GauntStirling2011}, helicity conservation forces the four
 intermediate partons into $J_z=0$; for gluon loops only conservation of
 $J_z$ between the incoming state and the intermediate partons
-remains~\cite{DixonEsterlis2016}. Here the effective vertices restore the
+remains~\cite{DixonEsterlis2016,DixonEsterlis2016Erratum}. Here the effective vertices restore the
 restriction. The amplitude for $gg\to A$ vanishes unless the two gluons
 have equal helicities, and the gluons of each fusing pair move in opposite
 beam directions, so each pair has $J_z=0$. A DPS logarithm is therefore
@@ -294,6 +294,44 @@ The largest relative deviation from
 Eq.~\eqref{eq:dps-prediction} was
 \DPSMaxDeviation{}.
 
+The real part of the one-loop remainder
+can also be written in closed form,
+\begin{equation}
+ \Real\mathcal M_1^{(1)}
+ =\pi m^2\left[\Nc\,F_A\!\left(\frac{1+\beta}{2}\right)
+ \ln\frac{\beta^2(1-c^2)}{1-\beta^2c^2}
+ -\frac{2\beta_0}{1-\beta^2}\right],
+ \label{eq:re-one-loop}
+\end{equation}
+which does not depend on $\muR$.
+It agrees with the remainder of
+Ref.~\cite{Bhattacharya:2019bmd} at
+\ClosedFormPoints{} points with
+$\ClosedFormBetaMin\leq\beta\leq\ClosedFormBetaMax$
+and $|c|\leq\ClosedFormCosMax$, for
+$(\Nc,\nf)=$ \ClosedFormSets{} and
+$(m,\muR)=$ \ClosedFormScales{}~GeV.
+With \ClosedFormDigits-digit arithmetic
+the relative differences are below
+\ClosedFormDev{}.
+At fixed $\beta$ and $m$,
+$\ln p_T^2=\ln(1-c^2)+\text{const}$, so
+\[
+ \frac{\partial\,\Real\mathcal M_1^{(1)}}
+      {\partial\ln p_T^2}
+ =\pi\Nc m^2F_A\!\left(\frac{1+\beta}{2}\right)
+ \frac{1-\beta^2}{1-\beta^2c^2},
+\]
+which tends to
+$\pi\Nc m^2F_A\bigl((1+\beta)/2\bigr)$
+as $c\to1$.
+Equation~\eqref{eq:dps-prediction} therefore
+holds for all $\beta$. At threshold,
+Eq.~\eqref{eq:re-one-loop} gives
+$\Real\widehat A^{(1)}_{10}=-\pi(7\Nc\ln2+2\beta_0)$,
+in agreement with the value quoted after
+Eq.~\eqref{eq:one-loop-threshold}.
+
 
 \paragraph{Comparison with scalar pair production.}
 
@@ -340,9 +378,9 @@ For this check, the diagram with
 the four-gluon term of the CP-even
 operator and the contact counterterm
 for two such insertions were not
-included. Neither depends on $p_T$,
-so neither changes the logarithmic
-coefficient being tested.
+included. Neither produces a logarithm
+of $p_T$ as $p_T\to0$, so neither changes
+the logarithmic coefficient being tested.
 
 Figure~\ref{fig:dps}(a) compares the extracted coefficients with the two helicity sums. The $AA$ points lie on the curve $F_A$ for both $(\Nc,\nf)=(3,5)$ and $(4,2)$, so that after the normalisation of Eq.~\eqref{eq:dps-prediction} the coefficient does not depend on $\Nc$ or $\nf$. The $HH$ points (triangles), plotted with their sign reversed, lie on the curve $F_S$, which is separated from $F_A$ by
 \begin{equation}
@@ -404,7 +442,7 @@ The leading logarithms of the calculated two-loop coefficient $\mathcal M_1$ can
 \end{equation}
 with $\beta_0$ as in Eq.~\eqref{eq:normalisation}.
 A similar relation holds in planar $\mathcal N=4$ super Yang--Mills theory.
-Reference~\cite{DixonEsterlis2016} studied the six-gluon maximally
+Reference~\cite{DixonEsterlis2016,DixonEsterlis2016Erratum} studied the six-gluon maximally
 helicity violating (MHV) amplitude in planar $\mathcal N=4$ super
 Yang--Mills theory, which has two negative and four positive helicities
 when all momenta are outgoing. Near the configuration that mimics double
@@ -467,7 +505,7 @@ with no additional velocity or flavour dependence resolved in the coefficient of
 The first-order expansion of $\exp[-4N_ca_s\ln^2(2p_T/m)]$, multiplied by the one-loop amplitude, reproduces Eq.~\eqref{eq:jz2-forward} at double-logarithmic accuracy.
 At threshold, integrating $-4\Nc\mathcal L^2$ with respect to $\mathcal L$ and multiplying by $\OneLoopAone$ reproduces the cubic term of Eq.~\eqref{eq:log-relation}.
 These comparisons concern the highest logarithmic powers only.
-The exponent also agrees at leading order with $-\gamma_K\ln^2\delta/8$ in Ref.~\cite{DixonEsterlis2016}, using $\gamma_K=4a$, $a=2N_ca_s$ and $\ln\delta=2\mathcal{L}+\mathrm{const}$ at leading-logarithmic accuracy.
+The exponent also agrees at leading order with $-\gamma_K\ln^2\delta/8$ in Ref.~\cite{DixonEsterlis2016,DixonEsterlis2016Erratum}, using $\gamma_K=4a$, $a=2N_ca_s$ and $\ln\delta=2\mathcal{L}+\mathrm{const}$ at leading-logarithmic accuracy.
 These coefficient relations do not establish exponentiation in QCD.
 %
 %
@@ -483,7 +521,7 @@ no such singularity at one loop because of $J_z$ conservation, but Dixon
 and Esterlis found logarithmic singularities starting at two loops, in the
 region where the limit overlaps with multi-Regge kinematics, and suggested
 that they may come from contributions in which more than one particle
-crosses a cut~\cite{DixonEsterlis2016}.
+crosses a cut~\cite{DixonEsterlis2016,DixonEsterlis2016Erratum}.
 
 The forward limit of $\mathcal M_2^{(1)}$ itself has a closed form. The exact one-loop remainders agree with
 \begin{equation}

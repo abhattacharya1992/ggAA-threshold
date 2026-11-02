@@ -40,3 +40,43 @@ internally, as the published files do.
 - Labelled the M₁ leading-power line, eq. (4.3), and cited (4.3)–(4.4).
 - Added Manohar–Waalewijn, Gaunt (2013) and Buffing–Diehl–Kasemets (with erratum)
   to the SPS/DPS overlap sentence.
+
+## Corrections on 2 November 2026
+
+Equation numbers refer to the corrected version. Eq. (4.12) is new, so the later equations
+of Sec. 4 are renumbered by one.
+
+- **p_T dependence of the omitted HH diagrams** (Sec. 4.3, after eq. (4.13), and
+  `data/dps_hh/README.md`). The diagram with the four-gluon term of the CP-even operator
+  does depend on p_T: its bubble gives a term proportional to (ε₁·q)(ε₂·q) ∝ p_T², which is
+  regular at p_T = 0. "Neither depends on p_T" is replaced by "Neither produces a logarithm
+  of p_T as p_T → 0". The tested logarithmic coefficient is not affected.
+- **Cross-references.** Sec. 1: V₂ is defined in eq. (5.2) (the text said "Sec. 5.3").
+  App. B: I⁽²⁾ and H_g⁽²⁾ are eqs. (3.3) and (3.5) of arXiv:1909.08993 (the text cited
+  eq. (3.4), which defines K).
+- **Errata in the bibliography.** JHEP.bst does not print the `note` field, so the errata of
+  Dixon–Esterlis (JHEP 08 (2016) 131), Diehl–Ostermeier–Schäfer (JHEP 03 (2016) 001) and
+  Plehn–Spira–Zerwas (Nucl. Phys. B 531 (1998) 655) did not appear in the bibliography. They
+  are now separate entries, cited with the original papers, as for Borowka et al. and
+  Buffing et al.
+- **Status of the endpoint relations** (Sec. 3.2, Sec. 6). The relations between the endpoint
+  constants are identified numerically with PSLQ and have not been proved analytically.
+  Sec. 3.2 now says so and describes the cancellations as exact once these relations are
+  used; its title is "Endpoint constants and cancellations".
+- **Data availability.** "form a self-contained package" is replaced by "form one package, in
+  which the one-loop gg → HH coefficients enter as computed values". The code that generated
+  these coefficients is available on request, as before.
+- **Closed form of Re M₁⁽¹⁾** (Sec. 4.3, new eq. (4.12)):
+  Re M₁⁽¹⁾ = π m² [N_c F_A((1+β)/2) ln(β²(1−c²)/(1−β²c²)) − 2β₀/(1−β²)].
+  It agrees with the published one-loop remainder at 1350 points with 0.001 ≤ β ≤ 0.99,
+  |c| ≤ 0.999, (N_c, n_f) = (3,5), (3,0), (4,2), (5,6), (2,1) and
+  (m_A, μ_R) = (125,125), (125,250), (300,40) GeV; with 120-digit arithmetic the relative
+  differences are below 10⁻¹⁰⁵. Code: `ggaa.oneloop.real_m1`, part 4 of
+  `scripts/check_one_loop.py` (results in `results/one_loop.json`), and the test
+  `OneLoop.test_real_part_closed_form`. The closed form implies eq. (4.11) for all β and
+  gives Re Â₁₀⁽¹⁾ = −π(7N_c ln 2 + 2β₀).
+- **v₁ and ℓ_max** (Sec. 5.2). With this constant the β₀ terms cancel, so
+  v₁ = −(49/2)π²N_c² ln 2, independent of n_f and μ_R, and ℓ_max = −7 ln 2, that is,
+  p_T = m_A/256. The numerical values are unchanged.
+- **Fig. 5(b)** (file `fig6_cross_section.pdf`). The axis label and the legend show the
+  angular averages a_s⟨V₁⟩ and a_s²⟨V₂⟩, as in the caption (`scripts/make_physics_figures.py`).

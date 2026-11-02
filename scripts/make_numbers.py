@@ -296,6 +296,17 @@ def one_loop():
     v = list(csv.DictReader(open(RESULTS / "virtual_correction.csv")))
     assert abs(float(v[0]["V1"]) - v1_threshold) < 0.05, "V1 at the smallest beta does not approach its threshold value"
     define("VoneThreshold", f"{v1_threshold:.2f}")
+    # closed form of Re M_1^(1), Sec. 4.3
+    cf = d["closed_form"]
+    define("ClosedFormDev", bound(max(float(mp.mpf(cf["max_relative_difference"])), 10.0 ** -cf["digits"])))
+    define("ClosedFormPoints", cf["points"])
+    define("ClosedFormDigits", cf["digits"])
+    bs = [Fraction(b) for b in cf["betas"]]
+    define("ClosedFormBetaMin", f"{float(min(bs)):g}")
+    define("ClosedFormBetaMax", f"{float(max(bs)):g}")
+    define("ClosedFormCosMax", f"{float(max(abs(Fraction(c)) for c in cf['cosines'])):g}")
+    define("ClosedFormSets", listing([f"$({a},{b})$" for a, b in cf["sets"]]))
+    define("ClosedFormScales", listing([f"$({a},{b})$" for a, b in cf["scales"]]))
     return a1, m2
 
 

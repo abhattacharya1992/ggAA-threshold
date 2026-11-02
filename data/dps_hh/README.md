@@ -30,7 +30,9 @@ Checks recorded in `hh_dps.log`:
 
 Not included in the calculation: the diagram with the four-gluon term of the CP-even operator (a bubble
 carrying the momentum of one Higgs boson) and the contact counterterm of two such vertices. Neither
-depends on p_T, so neither affects the logarithm; both are needed only for the complete finite remainder.
+produces a logarithm of p_T as p_T → 0, so neither affects the coefficient tested here; both are needed
+for the complete finite remainder. (The four-gluon diagram does depend on p_T: its bubble gives a term
+proportional to (ε₁·q)(ε₂·q) ∝ p_T², which is regular at p_T = 0.)
 
 ## Code
 
