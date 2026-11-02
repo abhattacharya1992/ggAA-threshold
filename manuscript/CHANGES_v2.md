@@ -114,5 +114,5 @@ The acknowledgments are not changed here.
   source and that the gg → HH check starts from the supplied coefficients.
 - **References.** Gröber and Mühlleitner are spelled with umlauts in the entry for
   arXiv:1705.05314.
-- **Package version 2.1.0** (`CITATION.cff`, `ggaa.__version__`). After merging, publish a
-  GitHub release v2.1.0 so that Zenodo archives this version under the concept DOI.
+- **Package version 2.0.1** (`CITATION.cff`, `ggaa.__version__`), released on GitHub as v2.0.1
+  and archived at Zenodo under the concept DOI 10.5281/zenodo.23597489.
