@@ -72,10 +72,10 @@ def fig_cross_section():
     	rows = list(csv.DictReader(f))
     a_s = benchmark.ALPHA_S / (4 * float(mp.pi))
     x = [float(r["beta"]) for r in rows]
-    right.semilogx( x, [a_s * float(r["V1"]) for r in rows], color=BLACK, marker="o", mfc=BLACK, mec=BLACK, ms=4.5, mew=0.8, lw=0.65, zorder=3, label=r"$a_s V_1$")
-    right.semilogx( x, [a_s**2 * float(r["V2"]) for r in rows], color=RED, marker="s", mfc=RED, mec=RED, ms=4.5, mew=0.8, ls="--", lw=0.65, zorder=3, label=r"$a_s^2 V_2$")
+    right.semilogx( x, [a_s * float(r["V1"]) for r in rows], color=BLACK, marker="o", mfc=BLACK, mec=BLACK, ms=4.5, mew=0.8, lw=0.65, zorder=3, label=r"$a_s\langle V_1\rangle$")
+    right.semilogx( x, [a_s**2 * float(r["V2"]) for r in rows], color=RED, marker="s", mfc=RED, mec=RED, ms=4.5, mew=0.8, ls="--", lw=0.65, zorder=3, label=r"$a_s^2\langle V_2\rangle$")
     right.set_xlabel(r"$\beta_A$")
-    right.set_ylabel(r"$a_s^n V_n$")
+    right.set_ylabel(r"$a_s^n\langle V_n\rangle$")
     headroom(right, 0.3)
     right.legend(loc="lower left")
     finish_axis(right, "(b)")

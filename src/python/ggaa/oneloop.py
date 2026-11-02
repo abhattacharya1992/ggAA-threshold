@@ -67,3 +67,17 @@ class OneLoop:
             beta0 = (11 * mp.mpf(Nc) - 2 * mp.mpf(nf)) / 3
             value += 2 * beta0 * mp.log(mp.mpf(muR) ** 2) * born(i, b, c, mA)
         return value
+
+
+def real_m1(beta, costh, mA=125, Nc=3, nf=5):
+    """Closed form of Re M_1^{II,(1),fin} (Sec. 4.3 of the paper), masses in GeV,
+
+        pi m_A^2 [N_c F_A((1+b)/2) ln(b^2 (1-c^2)/(1-b^2 c^2)) - 2 beta0/(1-b^2)],
+
+    with F_A((1+b)/2) = 4/(1-b^2) - (1-b^2)/2.  Since M_1^(0) is imaginary, the scale term
+    of __call__ does not contribute and the real part does not depend on mu_R."""
+    b, c = mp.mpf(beta), mp.mpf(costh)
+    beta0 = (11 * mp.mpf(Nc) - 2 * mp.mpf(nf)) / 3
+    f_a = 4 / (1 - b**2) - (1 - b**2) / 2
+    return mp.pi * mp.mpf(mA) ** 2 * (Nc * f_a * mp.log(b**2 * (1 - c**2) / (1 - b**2 * c**2))
+                                      - 2 * beta0 / (1 - b**2))

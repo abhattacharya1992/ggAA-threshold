@@ -214,11 +214,12 @@ The coefficient of the linear logarithm follows from the same expansion:
  &=\frac72\pi\Nc\Real\widehat A^{(1)}_{10}
    +7\pi^2\Nc\beta_0.
 \end{align*}
-For the benchmark parameters, this gives $v_1=\VoneFit$, in agreement with
+With $\Real\widehat A^{(1)}_{10}=-\pi(7\Nc\ln2+2\beta_0)$ from
+Eq.~\eqref{eq:re-one-loop}, the terms proportional to $\beta_0$ cancel and
+$v_1=-\tfrac{49}{2}\pi^2\Nc^2\ln2$.
+For $\Nc=\BenchNc$ this gives $v_1=\VoneFit$, in agreement with
 the numerical fit to a relative difference of \VoneFormulaDev{}.
-The coefficient is independent of $\muR$, since
-$\Real\widehat A^{(1)}_{10}$ is scale independent. The same is true
-of $v_2$. At leading power, the explicit scale dependence of $V_2$
+Neither $v_1$ nor $v_2$ depends on $\nf$ or $\muR$. At leading power, the explicit scale dependence of $V_2$
 is therefore confined to $v_0$, which changes from \VzeroBench{}
 to \VzeroTwoMu{} when $\muR$ is increased from $\mA$ to $2\mA$.
 
@@ -236,8 +237,10 @@ function of velocity. The leading power expression has a maximum at
 \[
  \ell_{\mathrm{max}}
  =-\frac{v_1}{2v_2}
- =\VtwoPeakEll.
+ =-7\ln2
+ =\VtwoPeakEll,
 \]
+that is, $p_T=\mA/256$.
 At $c=\BenchCos$, this corresponds to $\bA\simeq\VtwoPeakBeta$.
 For larger $\bA$, $\ell$ increases and the leading power value of
 $V_2$ decreases. The same balance between the linear and quadratic

@@ -155,7 +155,7 @@ checksums. Targets that need these files include it explicitly in the table.
 | Inverse and odd powers cancel; final series | `make series` | `data/series/`, `results/reduce_series.txt` |
 | Endpoint-constant reductions, App. A | `make constants` | `data/constants/mb_constants.csv`, `results/mb_constants.txt` |
 | Leading-power coefficients in terms of ℒ | `make leading-logs` | `results/leading_logs.txt`, `manuscript/tables/leading_logs.tex` |
-| One-loop threshold and forward limits | `make inputs one-loop` | `results/one_loop.txt` |
+| One-loop threshold and forward limits; closed form of Re M₁⁽¹⁾, Sec. 4.3 | `make inputs one-loop` | `results/one_loop.txt`, `results/one_loop_real.txt` |
 | Independent evaluation of the exact two-loop remainders | `make inputs exact-check` | `results/exact_amplitude.txt` |
 | Table 3 and error slopes | `make validation` | `manuscript/tables/accuracy.tex`, `results/compare_validation.txt` |
 | Figs. 1, 2, 4 and 6; additional interference and ratio plots | `make figures` | `manuscript/figures/` |
@@ -278,6 +278,15 @@ published files divided by 64.
   at the tested velocities in 0.001 ≤ β_A ≤ 0.7 (`make dps`). The supplied
   gg → HH coefficients support the corresponding CP-even weight
   F_S(x) = 1/[x(1 − x)] + 2x(1 − x) with the same overall constant.
+- The real part of the one-loop equal-helicity remainder has the closed form
+  Re M₁⁽¹⁾ = π m_A² [N_c F_A(x) ln(β_A²(1 − c²)/(1 − β_A²c²)) − 2β₀/(1 − β_A²)],
+  with x = (1 + β_A)/2 and c = cos θ (`ggaa.oneloop.real_m1`). In the physical region
+  all logarithms and dilogarithms of the published remainder are real, and
+  `scripts/derive_one_loop_real.py` reduces its real part to this form in exact
+  arithmetic; it also agrees numerically at 1350 points (`make inputs one-loop`).
+  It gives the forward coefficient F_A(x) for all β_A, the threshold constant
+  Re Â₁₀⁽¹⁾ = −π(7N_c ln 2 + 2β₀), and the coefficient −(49/2)π²N_c² ln 2 of
+  ln(2p_T/m_A) in V₂ at leading power.
 - The two-loop forward fits support the coefficient relations described in
   Sec. 4.4. The opposite-helicity remainder develops a double logarithm even
   though it has no one-loop DPS logarithm. These fits do not establish

@@ -1,7 +1,7 @@
 \section{Threshold expansion}
 \label{sec:expansion}
 
-The calculation has four steps, each checked independently. First, the finite remainders of Ref.~\cite{Bhattacharya:2019bmd} are split into their flavour coefficients and brought to the normalisation of Eq.~\eqref{eq:normalisation} (App.~\ref{app:normalization}). Second, each flavour coefficient is expanded about $\bA=0$ at fixed angle, through $\bA^4$ and, independently, through $\bA^6$ (Sec.~\ref{sec:construction}). Third, the constants that arise at the endpoints are reduced to a basis of \BasisCountWord{} transcendental constants, after which the inverse and odd powers of $\bA$ cancel identically (Sec.~\ref{sec:cancellations} and App.~\ref{app:constants}). Fourth, the series are compared with the unexpanded remainders, evaluated in Mathematica at increasing working precision and, at selected points, with an independent Python code (Sec.~\ref{sec:validation}).  The software and the computing environment are described in App.~\ref{app:data}.
+The calculation has four steps, each checked independently. First, the finite remainders of Ref.~\cite{Bhattacharya:2019bmd} are split into their flavour coefficients and brought to the normalisation of Eq.~\eqref{eq:normalisation} (App.~\ref{app:normalization}). Second, each flavour coefficient is expanded about $\bA=0$ at fixed angle, through $\bA^4$ and, independently, through $\bA^6$ (Sec.~\ref{sec:construction}). Third, the constants that arise at the endpoints are reduced to a basis of \BasisCountWord{} transcendental constants, after which, with the numerically identified relations, the inverse and odd powers of $\bA$ cancel identically (Sec.~\ref{sec:cancellations} and App.~\ref{app:constants}). Fourth, the series are compared with the unexpanded remainders, evaluated in Mathematica at increasing working precision and, at selected points, with an independent Python code (Sec.~\ref{sec:validation}).  The software and the computing environment are described in App.~\ref{app:data}.
 
 \subsection{Construction}
 \label{sec:construction}
@@ -38,7 +38,7 @@ For the dilogarithm, for example, $\dd\Li_2(v)/\dd\bA=2(1-\bA^2)^{-1}\ln[2\bA/(1
 \end{align}
 Since the prefactors start at $\bA^{-4}$, the special functions have to be expanded four orders beyond the final accuracy. The fourth and sixth order expansions were constructed independently, and all coefficients common to both agree.
 
-\subsection{Endpoint constants and exact cancellations}
+\subsection{Endpoint constants and cancellations}
 \label{sec:cancellations}
 
 The boundary values at $\bA=0$ involve \ConstantCountWord{} constants
@@ -55,6 +55,8 @@ whose elements have weight three or four and are of the type
 encountered in alternating Euler sums~\cite{Blumlein:2009cf}.
 The numerically identified relations are listed in
 Table~\ref{tab:mb-constants}; the largest residual is \PSLQResidual{}.
+These relations are identified numerically and have not been proved
+analytically; the cancellations below are exact once they are used.
 
 After substituting these relations, we use the reflection and Landen
 identities to express the dilogarithms with arguments $(1-c)/2$,

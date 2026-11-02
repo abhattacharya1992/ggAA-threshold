@@ -107,6 +107,26 @@ class OneLoop(unittest.TestCase):
             shift = -2 * mp.mpf(23) / 3 * mp.log(4) * born(1, b, c, 125) / 125**2
             self.assertLess(abs((raw[1] - raw[0]) - shift), 1e-40)
 
+    def test_real_part_closed_form(self):
+        """Sec. 4.3: closed form of Re M_1^(1)."""
+        from ggaa.oneloop import OneLoop as Evaluator, real_m1
+        amp = Evaluator()
+        with mp.workdps(80):
+            for (p, q), (r, s), mA, muR, Nc, nf in (((1, 50), (-2, 3), 125, 125, 3, 5), ((3, 10), (1, 7), 125, 250, 4, 2),
+                                                    ((9, 10), (99, 100), 300, 40, 5, 0)):
+                b, c = mp.mpf(p) / q, mp.mpf(r) / s
+                value = amp(1, b, c, mA=mA, muR=muR, Nc=Nc, nf=nf).real
+                self.assertLess(abs(value / real_m1(b, c, mA=mA, Nc=Nc, nf=nf) - 1), 1e-60)
+
+    def test_real_part_derivation(self):
+        """Sec. 4.3: Eq. (4.12) follows from the published remainder in exact arithmetic."""
+        import importlib.util
+        path = pathlib.Path(__file__).resolve().parents[1] / "scripts" / "derive_one_loop_real.py"
+        spec = importlib.util.spec_from_file_location("derive_one_loop_real", path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        self.assertEqual(module.difference(), {})
+
 
 class HiggsPairs(unittest.TestCase):
     def test_forward_weight(self):
@@ -165,7 +185,7 @@ class M1Forward(unittest.TestCase):
 
     @unittest.skipUnless(ONE_LOOP_INPUTS, "run inputs/fetch_inputs.sh first")
     def test_k1_closed_form(self):
-        """Sec. 4.4: forward limit of the one-loop |J_z| = 2 remainder, eq. (4.17)."""
+        """Sec. 4.4: forward limit of the one-loop |J_z| = 2 remainder, eq. (4.18)."""
         from ggaa import forward as F
         from ggaa.oneloop import OneLoop
         amp = OneLoop()

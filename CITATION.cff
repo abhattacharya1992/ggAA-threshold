@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use the threshold series or the evaluator, please cite the associated article."
 title: "Threshold expansion of the two-loop Type-II finite remainders for gg -> AA: series, evaluator and checks"
-version: "2.0.0"
+version: "2.1.0"
 doi: "10.5281/zenodo.23597489"
 license: BSD-3-Clause
 repository-code: "https://github.com/abhattacharya1992/ggAA-threshold"
