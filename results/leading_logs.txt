@@ -1,0 +1,37 @@
+M1 nf^0 beta^0:  33 terms, angular functions outside calL: 0, rational angular dependence: no, even in cos(theta): True
+M1 nf^1 beta^0:  21 terms, angular functions outside calL: 0, rational angular dependence: no, even in cos(theta): True
+M1 nf^2 beta^0:  10 terms, angular functions outside calL: 0, rational angular dependence: no, even in cos(theta): True
+M1 nf^0 beta^2:  33 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M1 nf^1 beta^2:  21 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M1 nf^2 beta^2:  10 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M1 nf^0 beta^4:  33 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M1 nf^1 beta^4:  21 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M1 nf^2 beta^4:  10 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M1 nf^0 beta^6:  33 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M1 nf^1 beta^6:  21 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M1 nf^2 beta^6:  10 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+
+M1 at beta^0, in units of pi m_A^2, for general n_f:
+   calL^3: -28*nc**2/3
+   calL^2: 14*nc*(2*n_f - 11*nc)/3
+   calL^1: nc*(126*LMU*n_f - 693*LMU*nc + 252*LN2**2*nc - 84*LN2*n_f + 462*LN2*nc - 42*PI**2*nc - 126*I*PI*n_f + 693*I*PI*nc - 152*n_f + 1454*nc)/9
+
+M2 nf^0 beta^0:   8 terms, angular functions outside calL: 0, rational angular dependence: no, even in cos(theta): True
+M2 nf^1 beta^0:   5 terms, angular functions outside calL: 0, rational angular dependence: no, even in cos(theta): True
+M2 nf^2 beta^0:   0 terms, angular functions outside calL: 0, rational angular dependence: no, even in cos(theta): True
+M2 nf^0 beta^2:  19 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M2 nf^1 beta^2:  16 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M2 nf^2 beta^2:  10 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M2 nf^0 beta^4:  21 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M2 nf^1 beta^4:  16 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M2 nf^2 beta^4:  10 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M2 nf^0 beta^6:  21 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M2 nf^1 beta^6:  16 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+M2 nf^2 beta^6:  10 terms, angular functions outside calL: 0, rational angular dependence: yes, even in cos(theta): True
+
+M2 at beta^0, in units of pi m_A^2, for general n_f:
+   calL^2: -2*nc**2
+   calL^1: 4*nc*(n_f - 4*nc)/3
+
+wrote manuscript/tables/leading_logs.tex
+Angle enters only through calL, and every coefficient is even in cos(theta): True

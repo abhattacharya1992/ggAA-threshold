@@ -1,0 +1,9 @@
+Published one-loop remainder M_1: 31 terms in the logarithms, dilogarithms, pi and I.
+Real part (all functions real in the physical region):
+   PI * ln_1_minus_xz:  (x**4*M2*N + 4*x**3*M2*N + 4*x**2*M2*N + 4*x*M2*N + M2*N)/(x**3 + 2*x**2 + x)
+   PI * ln_1_plus_x_plus_x2_minus_xz:  (-x**4*M2*N - 4*x**3*M2*N - 4*x**2*M2*N - 4*x*M2*N - M2*N)/(x**3 + 2*x**2 + x)
+   PI * ln_1_plus_z:  (-x**4*M2*N - 4*x**3*M2*N - 4*x**2*M2*N - 4*x*M2*N - M2*N)/(x**3 + 2*x**2 + x)
+   PI * ln_z_minus_x:  (x**4*M2*N + 4*x**3*M2*N + 4*x**2*M2*N + 4*x*M2*N + M2*N)/(x**3 + 2*x**2 + x)
+   PI:  (-11*x**2*M2*N + 2*x**2*M2*Nf - 22*x*M2*N + 4*x*M2*Nf - 11*M2*N + 2*M2*Nf)/(6*x)
+
+Re M_1^(1) - Eq. (4.12): identically zero

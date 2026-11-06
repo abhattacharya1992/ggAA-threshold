@@ -1,0 +1,69 @@
+\documentclass[a4paper,11pt]{article}
+\pdfoutput=1
+
+\usepackage{jheppub}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts,bm}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{braket}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{placeins}
+
+\input{diagram_setup.tex}
+\input{metadata.tex}
+\input{macros.tex}
+\input{numbers.tex}
+
+\hypersetup{pdftitle={\PaperTitlePDF},pdfauthor={\PaperAuthor}}
+
+\title{\boldmath Two-loop $gg\to AA$ amplitudes near threshold and the double parton scattering singularity}
+
+\author{Arunima Bhattacharya\,\href{https://orcid.org/0000-0003-4409-0901}{\includegraphics[scale=0.05]{orcidid.pdf}}}
+\affiliation{Theory Division, IFIC, University of Valencia--CSIC,\\
+E-46980 Paterna, Valencia, Spain}
+\emailAdd{\PaperEmail}
+
+\abstract{
+The two-loop amplitudes for pseudoscalar pair production in gluon fusion, $gg\to AA$, with each pseudoscalar emitted from its own effective gluon vertex, are known in closed form, but large cancellations near threshold obscure their analytic structure. We expand the IR-finite amplitudes in the pseudoscalar velocity $\beta_A$ through $\beta_A^6$ at fixed scattering angle. All inverse powers of $\beta_A$ and the odd powers through $\beta_A^5$ cancel, and at leading power the angular dependence enters only through $\ln(2p_T/m_A)$. We identify this logarithm with the double parton scattering (DPS) singularity: with the overall constant fixed at threshold, the factorisation formula of Gaunt and Stirling reproduces the velocity dependence of its one-loop coefficient in the forward limit exactly, and a one-loop $gg\to HH$ analysis confirms the corresponding CP-even helicity sum. At two loops the equal-helicity amplitude grows as $\ln^3(2p_T/m_A)$, and the ratio of its leading two- and one-loop logarithms agrees with that in planar $\mathcal N=4$ super Yang-Mills theory, while the opposite-helicity amplitude, which has no one-loop DPS logarithm, grows as $\ln^2(2p_T/m_A)$. In the finite virtual correction, relative to the squared tree amplitude, the highest logarithm at order $\alpha_s^2$ is $-\tfrac{7}{64}\alpha_s^2N_c^2\ln^2(2p_T/m_A)$. For $\beta_A\leq0.2$ the series reproduce the unexpanded amplitudes with relative errors of at most $6.77\times10^{-5}$ at the tested points; they provide this two-loop contribution to the hard function for soft-gluon resummation of the pair invariant-mass distribution near $m_{AA}=2m_A$ and are released with code for their numerical evaluation.
+}
+
+\keywords{Scattering Amplitudes, Higher-Order Perturbative Calculations, Higgs Production}
+
+\begin{document}
+\maketitle
+\flushbottom
+
+
+\input{sections/01_introduction.tex}
+\input{sections/02_setup.tex}
+\input{sections/03_expansion.tex}
+\input{sections/04_physics.tex}
+\input{sections/05_rate.tex}
+\input{sections/06_conclusions.tex}
+
+\input{sections/data_availability.tex}
+
+\acknowledgments
+I thank IFIC, University of Valencia, and Prof.\ Francisco
+Campanario for providing the computing resources used in
+this work.
+%
+The calculations, analysis, and code in this work were developed by the author. Claude 5.5 (Anthropic) and GPT-5.6 Pro (OpenAI) were used in a limited supporting role to assist with code debugging and optimisation and with grammatical corrections to the manuscript. The code was independently checked using the tests described in Secs.~\ref{sec:expansion} and~\ref{sec:physics} and App.~\ref{app:normalization}, including comparison with the unexpanded remainders, the renormalisation group relations, and an independent Python evaluation. These tests are included in the released package.
+
+
+\appendix
+\input{sections/app_constants.tex}
+\input{sections/app_normalization.tex}
+\input{sections/app_flavour.tex}
+\input{sections/app_data.tex}
+
+% Page markers for scripts/check_layout.py (no output).
+\label{end-of-appendices}
+%\FloatBarrier
+\label{start-of-references}
+\bibliographystyle{JHEP}
+\bibliography{references}
+
+\end{document}

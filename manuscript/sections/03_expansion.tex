@@ -1,0 +1,210 @@
+\section{Threshold expansion}
+\label{sec:expansion}
+
+The calculation has four steps, each checked independently. First, the finite remainders of Ref.~\cite{Bhattacharya:2019bmd} are split into their flavour coefficients and brought to the normalisation of Eq.~\eqref{eq:normalisation} (App.~\ref{app:normalization}). Second, each flavour coefficient is expanded about $\bA=0$ at fixed angle, through $\bA^4$ and, independently, through $\bA^6$ (Sec.~\ref{sec:construction}). Third, the constants that arise at the endpoints are reduced to a basis of \BasisCountWord{} transcendental constants, after which, with the numerically identified relations, the inverse and odd powers of $\bA$ cancel identically (Sec.~\ref{sec:cancellations} and App.~\ref{app:constants}). Fourth, the series are compared with the unexpanded remainders, evaluated in Mathematica at increasing working precision and, at selected points, with an independent Python code (Sec.~\ref{sec:validation}).  The software and the computing environment are described in App.~\ref{app:data}.
+
+\subsection{Construction}
+\label{sec:construction}
+
+The remainders of Ref.~\cite{Bhattacharya:2019bmd} are functions of $v$, $y$ and $z$ (Eq.~\eqref{eq:xyz-definition}). We replace these variables by their expressions in $\bA$ and $c$ from Eq.~\eqref{eq:threshold-map}, and expand each flavour coefficient about $\bA=0$ at fixed $c$,
+\begin{equation}
+ \Mflav{i}{r}(\bA,c)
+ =\sum_{n=-4}^{p}\sum_k
+ C^{(i,r)}_{nk}\,\bA^n\ln^k\bA
+ +\mathcal O_{\log}(\bA^{p+1}),
+ \label{eq:series-structure}
+\end{equation}
+with $r=0,1,2$ and $p=4$ or 6. The coefficients $C^{(i,r)}_{nk}$ depend on $c$, $\mA^2$, $\muR^2$ and $\Nc$, and $\mathcal O_{\log}(\bA^n)$ stands for $\bA^n$ times a polynomial in $\ln\bA$. Inverse powers appear in intermediate steps because the tensor basis and the rational prefactors contain inverse Gram determinants, Eq.~\eqref{eq:gram-scaling}. They must be kept until all contributions at a given power have been combined.
+
+The remainders contain logarithms, classical polylogarithms and the function $\Li_{2,2}$ of weight four~\cite{Frellesvig:2016ske,Vollinga:2004sn}, whose arguments approach correlated endpoints as $\bA\to0$. We expand the rational prefactors exactly and obtain the expansions of the special functions from differential equations in $\bA$, with boundary values at $\bA=0$. These equations have the iterated-integral form familiar from harmonic polylogarithms~\cite{RemiddiVermaseren2000} and from canonical differential equations for Feynman integrals~\cite{Henn2013}; the map $v=(1-\bA)/(1+\bA)$ is one of the transformations under which harmonic polylogarithms are closed~\cite{RemiddiVermaseren2000}.
+The method thus expands the known remainders, not the loop integrals, which could instead be expanded near threshold by the method of regions~\cite{BenekeSmirnov1998}. Expansions of two-loop gluon fusion amplitudes in kinematic limits are also used to obtain compact representations that are fast to evaluate, for example for small transverse momentum and at high energy~\cite{Bellafronte:2022,Davies:2023} and about the top quark pair threshold~\cite{Groeber:2018}; the present expansion is about the pair production threshold of the massless remainders.
+For the dilogarithm, for example, $\dd\Li_2(v)/\dd\bA=2(1-\bA^2)^{-1}\ln[2\bA/(1+\bA)]$ with $\Li_2(1)=\pi^2/6$ gives
+\begin{align}
+ \Li_2(v)
+ &=
+ \frac{\pi^2}{6}
+ +2\bA\bigl[\ln(2\bA)-1\bigr]
+ -\bA^2
+ \nonumber\\
+ &\quad
+ +\bA^3
+ \left[
+   \frac{2}{3}\ln(2\bA)
+   +\frac{1}{9}
+ \right]
+ -\frac{2}{3}\bA^4
+ +\Ord\!\left(\bA^5\ln\bA\right).
+ \label{eq:li2-threshold-example}
+\end{align}
+Since the prefactors start at $\bA^{-4}$, the special functions have to be expanded four orders beyond the final accuracy. The fourth and sixth order expansions were constructed independently, and all coefficients common to both agree.
+
+\subsection{Endpoint constants and cancellations}
+\label{sec:cancellations}
+
+The boundary values at $\bA=0$ involve \ConstantCountWord{} constants
+$\mathrm{MB}[p,q,a,w]$, defined in Eq.~\eqref{eq:mb-definition}
+of App.~\ref{app:constants}, with $a,w\in\{-1,\tfrac12,1\}$.
+Using the PSLQ algorithm~\cite{Ferguson:1999} at \PSLQDigits{} digits,
+we identify integer relations expressing these constants in the basis
+\begin{equation}
+ \{\zeta_3,\ \pi^2\ln2,\ \ln^32,\ \pi^4,\ \pi^2\ln^22,\
+ \ln^42,\ \Li_4(\tfrac12),\ \zeta_3\ln2\},
+ \label{eq:constant-basis}
+\end{equation}
+whose elements have weight three or four and are of the type
+encountered in alternating Euler sums~\cite{Blumlein:2009cf}.
+The numerically identified relations are listed in
+Table~\ref{tab:mb-constants}; the largest residual is \PSLQResidual{}.
+These relations are identified numerically and have not been proved
+analytically; the cancellations below are exact once they are used.
+
+After substituting these relations, we use the reflection and Landen
+identities to express the dilogarithms with arguments $(1-c)/2$,
+$(c-1)/(c+1)$ and $(c+1)/(c-1)$ in terms of
+$\Li_2\bigl((1+c)/2\bigr)$.
+With the overall factor $\mA^2$ extracted, the coefficient of each
+power $\bA^n$ is a polynomial in
+\begin{equation}
+ \bigl\{\ln\bA,\ \ln(1\pm c),\
+ \Li_2\bigl(\tfrac{1+c}{2}\bigr),\
+ \ln\tfrac{\mA^2}{\muR^2}\bigr\}
+ \cup\{\ln2,\ \pi,\ \zeta_3,\ \Li_4(\tfrac12)\},
+ \label{eq:function-basis}
+\end{equation}
+with coefficients rational in $c$ and $\Nc$.
+Treating the listed quantities as algebraically independent,
+we verify symbolically that
+\begin{enumerate}
+ \item the coefficients of $\bA^{-4},\dots,\bA^{-1}$ vanish
+ identically in every flavour coefficient;
+ \item the coefficients of $\bA$, $\bA^3$ and $\bA^5$ vanish
+ identically, so that through $\bA^6$ the expansion is a series
+ in $\bA^2$ with logarithms;
+ \item the \LeadCheckedCount{} coefficients at orders $\bA^0$,
+ $\bA^2$, $\bA^4$ and $\bA^6$ across the six flavour components
+ are even in $c$, so that Bose symmetry holds order by order.
+\end{enumerate}
+%
+The cancellations and the reductions of the constants were confirmed independently in Mathematica.
+
+
+The cancellations have a simple origin. Exchanging the pseudoscalars
+exchanges $t$ and $u$, so the remainders depend on the kinematics through
+invariants that are symmetric under this exchange,
+\begin{equation}
+ \hat s=\frac{4\mA^2}{1-\bA^2},\qquad
+ (t-u)^2=\hat s^2\bA^2c^2,\qquad
+ tu-\mA^4=\hat s\,p_T^2,
+ \label{eq:symmetric-invariants}
+\end{equation}
+with $p_T^2$ given in Eq.~\eqref{eq:gram-scaling}. The difference
+$t-u=\hat s\bA c$, which is odd in $\bA$, enters only through its square.
+Each invariant depends on $\bA$ only through $\bA^2$ and on $c$ only
+through $c^2$, so a function analytic in them at threshold is a series in
+$\bA^2$ and even in $c$. Odd or inverse powers of $\bA$ would therefore signal
+non-analytic behaviour at threshold. There is no threshold for a pair of
+massive internal particles at $\hat s=4\mA^2$, since the loops contain no
+massive particles, and the colourless final state has no QCD Coulomb
+singularity. These observations alone do not exclude other Landau
+singularities: the singularity at $p_T\to0$ discussed in Sec.~\ref{sec:dps}
+is one, and at one loop it is logarithmic~\cite{BDFS2011,BDFS2012,GauntStirling2011}. The Gram
+determinant $tu-\mA^4$ vanishes at the same point, but its inverse powers come
+from the tensor basis and the rational prefactors; they are not singularities
+of the amplitude. In the present calculation, the explicit expansion shows
+that the inverse powers cancel and that the remaining singular behaviour is
+logarithmic in $p_T$.
+A remainder of the form $\sum_k a_k\ln^k p_T^2$, with coefficients $a_k$
+analytic in the invariants of Eq.~\eqref{eq:symmetric-invariants} at
+threshold, is therefore a series in $\bA^2$ with logarithms and has no
+inverse powers. This accounts for the form of the cancellations found above.
+At two loops it is not an independent proof, because there the logarithmic
+nature of the singularity is established only by the calculation itself.
+
+Table~\ref{tab:leading-threshold-inventory} lists the leading terms. Since
+the odd powers vanish, the first omitted term is expected to be
+$\Ord_{\log}(\bA^{p+2})$ rather than the $\Ord_{\log}(\bA^{p+1})$ of
+Eq.~\eqref{eq:series-structure}. The truncation errors should therefore
+scale as $\bA^6$ for $p=4$ and as $\bA^8$ for $p=6$, up to logarithmic
+factors.
+
+
+\input{tables/leading_terms.tex}
+
+The coefficient of $\nf^2$ is the simplest:
+\begin{align}
+ \Mflav{1}{2}(\bA,c)&=K_{\nf}+\Ord(\bA^2),
+ \label{eq:nf2-leading-one}\\
+ \Mflav{2}{2}(\bA,c)&=\bA^2(1-c^2)K_{\nf}+\Ord(\bA^4),
+ \label{eq:nf2-leading-two}
+\end{align}
+where $K_{\nf}$ does not depend on the angle. It is the only flavour coefficient that follows the tree-level pattern $\mathcal M_2\propto\bA^2(1-c^2)$ of Eq.~\eqref{eq:born}, with the same ratio to the tree amplitude in both tensor structures. The complete expressions through $\bA^6$ are released as Wolfram Language files (App.~\ref{app:data}).
+
+\subsection{Accuracy}
+\label{sec:validation}
+
+We compared the series with the unexpanded remainders on
+the grid in Table~\ref{tab:validation-grid}, which contains
+\BetaPointCount{} values of $\bA$ between \ValBetaMin{}
+and $\ValBetaMax$, \AnglePointCount{} scattering angles
+and \ParameterSetCount{} combinations of mass,
+renormalisation scale and number of colours.
+At each of the \GridPointCount{} points, the comparison
+included the six flavour coefficients and the two complete
+coefficients, giving \ValidationRows{} comparisons in total.
+Each unexpanded remainder was evaluated with 80, 120, 160,
+220 and 300 digits of working precision, and a value was
+accepted once two successive precisions agreed to a relative
+difference below $10^{-25}$, with at least 30 significant
+digits in both. The parameter set with $\Nc\neq3$ was
+included to test the colour dependence; all physical
+results use $\Nc=\BenchNc$.
+The relative truncation error is defined as
+\begin{equation}
+ E_i^{(p)}
+ =
+ \frac{\left|\mathcal M_i^{[p]}-\mathcal M_i\right|}
+      {\left|\mathcal M_i\right|},
+ \qquad p=4,6,
+ \label{eq:relative-error}
+\end{equation}
+where $\mathcal M_i$ is the unexpanded remainder and $\mathcal M_i^{[p]}$ its series through $\bA^p$.
+
+\begin{figure*}[!htb]
+ \centering
+ \includegraphics[width=0.98\textwidth]{figures/fig1_validation.pdf}
+ \caption{Relative truncation errors, Eq.~\eqref{eq:relative-error}, of the complete two-loop coefficients at $\nf=\BenchNf$: $\mathcal M_1$ (left) and $\mathcal M_2$ (right). Upper panels: maximum over the angles and parameter sets of Table~\ref{tab:validation-grid} for the series through $\bA^4$ (circles) and through $\bA^6$ (squares), with lines proportional to $\bA^6$ and $\bA^8$. Lower panels: the same maxima divided by $\bA^6$ and $\bA^8$.}
+ \label{fig:validation}
+\end{figure*}
+\input{tables/validation_grid.tex}
+\input{tables/accuracy.tex}
+\input{tables/forward_angles.tex}
+Figure~\ref{fig:validation} shows these errors for the complete coefficients
+at $\nf=\BenchNf$. The slopes of the curves, discussed below, test the
+scaling $\bA^{p+2}$ expected from the cancellation of the odd powers.
+Because each curve is a maximum over the points of
+Table~\ref{tab:validation-grid}, a change of the point that gives the
+maximum as $\bA$ varies would distort these slopes. For the series through
+$\bA^6$ this does not occur: for both coefficients and at every velocity
+the maximum comes from the same point, $c=\ValMaxCos$ with $\mA=\ValMaxMA$~GeV,
+$\muR=\ValMaxMuR$~GeV and $\Nc=\ValMaxNc$, so the curves follow the error of a single point.
+For the series through $\bA^4$ the same holds for $\mathcal M_1$, while for $\mathcal M_2$ the maximum alternates between two parameter sets at $|c|=$\ValAltCos.
+The maximum is also representative of the grid: at each velocity and
+for both orders the errors at all other points lie within a factor of \ValSpreadWord{}
+of it.
+
+For the series through $\bA^4$, the fitted slopes of the logarithm of the maximum error against $\ln\bA$ over the plotted range are \PoneSlopeFour{}
+for $\mathcal M_1$ and \PtwoSlopeFour{} for $\mathcal M_2$; for the series through $\bA^6$ they are \PoneSlopeSix{} and \PtwoSlopeSix.
+The expected values are 6 and 8 (Sec.~\ref{sec:cancellations}), while a surviving odd power would give values close to 5 and 7. The small deviations from 6 and 8 are consistent with the powers of $\ln\bA$ and the higher terms omitted from the series.
+
+In the lower panels, exact power behaviour would give horizontal lines.
+The scaled errors vary slowly, because both the omitted terms and the remainders that normalise the errors contain powers of $\ln\bA$, and over the tested range they change by less than a factor of two.
+An incorrect coefficient at a retained order would instead make them grow as an inverse
+power of $\bA$ as $\bA$ decreases. Towards $\bA=\EdgeBeta$ the scaled errors of the series through $\bA^6$ rise for both coefficients, as the terms beyond the first omitted order begin to contribute.
+
+
+Table~\ref{tab:AA-threshold-accuracy} lists the maximum errors at selected velocities. For $\bA\leq\RecommendedBeta$, the series through $\bA^6$ reproduces $\mathcal M_1$ and $\mathcal M_2$ with relative errors of at most \PoneErrLePointTwo{} and \PtwoErrLePointTwo{}; at $\bA=\EdgeBeta$ the errors are \PoneErrAtPointThree{} and \PtwoErrAtPointThree{}.
+Bose symmetry was checked by comparing the values at $c$ and $-c$: they \BoseStatement{} in \AngularReferenceChecks{} comparisons of the unexpanded coefficients and \AngularSeriesChecks{} of the series.
+The reference values were computed in Mathematica from the expressions of Ref.~\cite{Bhattacharya:2019bmd}. To check their evaluation independently, we wrote a separate Python code with mpmath~\cite{mpmath}. It reads the published files with its own parser and computes $\Li_{2,2}$ from its defining double sum, or from a one-dimensional integral representation where the sum converges slowly. At \ExactPointCount{} points covering the \ExactParameterSets{} parameter sets, the two complete coefficients agree with the reference values to a relative difference of at most \ExactMaxComplete{}, the precision to which the reference values are stored. The \ExactComponentCount{} flavour coefficients, compared at $\bA=\ExactComponentBeta$ and $c=\ExactComponentCos$, agree to \ExactMaxComponent{}. At $c=0$, where $t=u$, the published expressions have removable singularities and are evaluated as limits.
+
+The expansion is made at fixed angle, but $p_T$ vanishes as $c\to\pm1$ at fixed $\bA$, so the series must also be tested close to the beam axis. We therefore compared it with the unexpanded remainders at $c=$ \ForwardCosList{} for $\bA=$ \ForwardBetaList{}. Table~\ref{tab:forward-angles} gives the relative errors of the series through $\bA^6$. \ForwardSummary{} The series thus remains accurate close to the beam, consistent with its coefficients having no poles at $c=\pm1$, only logarithms of $1\pm c$ (Sec.~\ref{sec:leading}).
+

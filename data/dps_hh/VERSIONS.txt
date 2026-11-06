@@ -1,0 +1,4 @@
+FORM:        FORM 5.0 (Apr 12 2023)
+Mathematica: "13.1.0 for Linux x86 (64-bit) (June 16, 2022)"
+LiteRed:     1.82 (Common/LiteRedV1.82)
+QGRAF:       3.1.4 (diagram files in qgraf/ are its 2019 output)

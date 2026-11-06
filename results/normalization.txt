@@ -1,0 +1,30 @@
+1. Born against BornSqr.log (n = 4)
+   beta=0.1 cos= 0.333: ratio = 0.25
+   beta=0.3 cos=-0.667: ratio = 0.25
+   beta=0.6 cos=   0.2: ratio = 0.25
+
+2. Born against the Feynman diagrams
+   beta=0.1 cos= 0.333: |A(++)|/|M1| = 1.000000000000   |A(+-)|/|M2| = 1.000000000000
+   beta=0.3 cos=-0.667: |A(++)|/|M1| = 1.000000000000   |A(+-)|/|M2| = 1.000000000000
+   beta=0.6 cos=   0.2: |A(++)|/|M1| = 1.000000000000   |A(+-)|/|M2| = 1.000000000000
+
+3. n_f term of the one-loop remainder divided by the Born (expect equal values, Im = -2 pi/3 = -2.0944)
+   beta=1.0e-6 cos= 0.333 M1: (-0.186914870363 - 2.09439510239j)
+   beta=1.0e-6 cos= 0.333 M2: (-0.186914870363 - 2.09439510239j)
+   beta=0.2 cos=-0.667 M1: (-0.129007456956 - 2.09439510239j)
+   beta=0.2 cos=-0.667 M2: (-0.173838608078 - 2.09439510239j)
+
+4. Dimensional analysis: M/m_A^2 at fixed beta, c and mu_R/m_A must not change when m_A and mu_R are scaled together
+   beta=0.1 cos= 0.333 M1: published files change by -2 beta0 ln4 M0 (relative deviation 1.1e-58); with the scale term the change is 2.0e-59
+   beta=0.1 cos= 0.333 M2: published files change by -2 beta0 ln4 M0 (relative deviation 7.2e-56); with the scale term the change is 6.2e-57
+   beta=0.3 cos=-0.667 M1: published files change by -2 beta0 ln4 M0 (relative deviation 7.3e-60); with the scale term the change is 1.8e-60
+   beta=0.3 cos=-0.667 M2: published files change by -2 beta0 ln4 M0 (relative deviation 1.5e-56); with the scale term the change is 6.1e-57
+
+5. Scale dependence of the two-loop series: dM2/dln(mu^2) = a beta0 M1 + b M0
+   expect a = 3 and b = 2 beta1 - 8 H2g - 12 C_F n_f (Catani operators and O_G-O_J counterterm of the 2019 code)
+   beta=0.05 cos= 0.333 N_c=3 n_f=5 m_A=125: a = 3.000000002, b = 20.29450459 (expected 20.29450677), d2M2/dL2 / (6 beta0^2 M0) = 1.0
+   beta=0.05 cos= 0.333 N_c=4 n_f=2 m_A=150: a = 3.000000002, b = 334.423316 (expected 334.4233219), d2M2/dL2 / (6 beta0^2 M0) = 1.0
+   beta=0.05 cos= 0.333 N_c=3 n_f=0 m_A=300: a = 3.000000002, b = 267.7784324 (expected 267.7784364), d2M2/dL2 / (6 beta0^2 M0) = 1.0
+   beta=0.1 cos=-0.667 N_c=3 n_f=5 m_A=125: a = 2.999999536, b = 20.29493377 (expected 20.29450677), d2M2/dL2 / (6 beta0^2 M0) = 0.99999999
+   beta=0.1 cos=-0.667 N_c=4 n_f=2 m_A=150: a = 2.999999538, b = 334.4245015 (expected 334.4233219), d2M2/dL2 / (6 beta0^2 M0) = 0.99999999
+   beta=0.1 cos=-0.667 N_c=3 n_f=0 m_A=300: a = 2.999999539, b = 267.7792204 (expected 267.7784364), d2M2/dL2 / (6 beta0^2 M0) = 0.99999999

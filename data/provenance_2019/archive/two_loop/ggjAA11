@@ -1,0 +1,16 @@
+((12*I)*CJ*ma2*nf*(1 + x)^2*z)/(x*(1 + z)) + ((12*I)*CJ*ma2*nf*(1 + x)^4)/
+  (x*(1 + z)*(1 + x + x^2 - x*z)) + 
+ ((12*I)*CJ*ma2*nf*(1 + x)^2*(1 + x^2 - x*z))/(x*(1 + x + x^2 - x*z)) + 
+ (6*CJ*eps*ma2*nf*(1 + x)^4*(-I + Pi + I*Log[ma2]))/
+  (x*(1 + z)*(1 + x + x^2 - x*z)) + 
+ ((6*I)*CJ*eps*ma2*nf*(1 + x)^2*(1 + x^2 - x*z)*
+   (-1 + Log[ma2] + Log[(1 + x^2)/x - z]))/(x*(1 + x + x^2 - x*z)) + 
+ ((6*I)*CJ*eps*ma2*nf*(1 + x)^2*z*(-1 + Log[ma2] + Log[z]))/(x*(1 + z)) + 
+ (((3*I)/2)*CJ*eps^2*ma2*nf*(1 + x)^2*(1 + x^2 - x*z)*
+   (2 - 2*Log[ma2] + Log[ma2]^2 - 2*Log[(1 + x^2)/x - z] + 
+    2*Log[ma2]*Log[(1 + x^2)/x - z] + Log[(1 + x^2)/x - z]^2 - zeta[2]))/
+  (x*(1 + x + x^2 - x*z)) + (((3*I)/2)*CJ*eps^2*ma2*nf*(1 + x)^2*z*
+   (2 - 2*Log[ma2] + Log[ma2]^2 - 2*Log[z] + 2*Log[ma2]*Log[z] + Log[z]^2 - 
+    zeta[2]))/(x*(1 + z)) + (3*CJ*eps^2*ma2*nf*(1 + x)^4*
+   (2*I - 2*Pi - I*Pi^2 - (2*I)*Log[ma2] + 2*Pi*Log[ma2] + I*Log[ma2]^2 - 
+    I*zeta[2]))/(2*x*(1 + z)*(1 + x + x^2 - x*z))

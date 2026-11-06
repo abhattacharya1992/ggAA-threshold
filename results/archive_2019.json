@@ -1,0 +1,27 @@
+{
+ "one_loop": {
+  "max_rel_dev_from_corrected": "4.63e-56",
+  "max_rel_dev_mu_shift": "5.24e-57",
+  "max_rel_dev_offset_2b0_ln_mu2": "7.66e-56"
+ },
+ "two_loop": {
+  "point": {
+   "beta": "5/6",
+   "cos": "-29/30",
+   "x": "1/11",
+   "z": "3/11"
+  },
+  "archive_ratio": [
+   "1776.699433389066965722091",
+   "2629.491557327937621069167"
+  ],
+  "published_P1": [
+   "-17927086315.21065411764791",
+   "12702413831.15675739284252"
+  ],
+  "real_part_rel_dev": "5.3e-31",
+  "G0_over_M0": "240.0",
+  "residual_over_M0": "10240.0",
+  "residual_over_32CF_G0": "1.0"
+ }
+}
