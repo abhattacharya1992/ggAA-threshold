@@ -115,3 +115,13 @@ The acknowledgments are not changed here.
   arXiv:1705.05314.
 - **Package version 2.1.0** (`CITATION.cff`, `ggaa.__version__`). After merging, publish a
   GitHub release v2.1.0 so that Zenodo archives this version under the concept DOI.
+
+## References added on 6 November 2026
+
+- **Sec. 1.** The papers of Blok, Dokshitzer, Frankfurt and Strikman are cited:
+  Phys. Rev. D 83 (2011) 071501, Eur. Phys. J. C 72 (2012) 1963 and Eur. Phys. J. C 74 (2014)
+  2926. A new sentence before the description of the work of Gaunt and Stirling states that
+  they found the one-loop contribution to four-jet production in which both incident partons
+  split to be enhanced only logarithmically when the transverse momenta of the two jet pairs
+  balance. The three papers are also cited for the contribution in which only one of the two
+  parton pairs arises from a perturbative splitting.
