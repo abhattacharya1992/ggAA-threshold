@@ -125,3 +125,18 @@ The acknowledgments are not changed here.
   split to be enhanced only logarithmically when the transverse momenta of the two jet pairs
   balance. The three papers are also cited for the contribution in which only one of the two
   parton pairs arises from a perturbative splitting.
+- **Further citations.**
+  - The sentence on the logarithmic one-loop contribution cites Phys. Rev. D 83 (2011) 071501
+    together with Eur. Phys. J. C 72 (2012) 1963, since the latter attributes the result to
+    the former.
+  - Eur. Phys. J. C 72 (2012) 1963 is also cited where Sec. 1 says that these singularities
+    matter for differential cross sections; Phys. Rev. D 83 (2011) 071501 and Eur. Phys. J. C 72
+    (2012) 1963 are also cited in Sec. 3 for the logarithmic one-loop behaviour.
+  - Diehl and Schäfer, Phys. Lett. B 698 (2011) 389, and Eur. Phys. J. C 72 (2012) 1963 and
+    74 (2014) 2926 are cited for the double counting between single and double parton
+    scattering; "subtracted" is replaced by "removed", since these papers exclude the
+    overlap rather than subtract it.
+  - Diehl and Schäfer (2011) and Ryskin and Snigirev, Phys. Rev. D 83 (2011) 114047, are cited
+    for the contribution with one perturbative splitting.
+  - After the same-sign WW observations, Eur. Phys. J. C 74 (2014) 2926 is cited for estimates
+    of the effective cross section that include this contribution.
