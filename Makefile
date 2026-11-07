@@ -159,6 +159,7 @@ numbers:
 manuscript-data: tables numbers
 
 paper: manuscript-data
+	$(PYTHON) scripts/format_jhep_tables.py
 	@if [ -d manuscript ]; then $(MAKE) -C manuscript && $(PYTHON) scripts/check_layout.py; \
 	else echo "arXiv layout: the manuscript is in the directory above anc/; run pdflatex main.tex there three times."; fi
 
