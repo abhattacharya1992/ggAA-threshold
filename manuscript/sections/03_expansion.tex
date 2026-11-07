@@ -41,8 +41,9 @@ Since the prefactors start at $\bA^{-4}$, the special functions have to be expan
 \subsection{Endpoint constants and cancellations}
 \label{sec:cancellations}
 
-The boundary values at $\bA=0$ involve \ConstantCountWord{} constants
-$\mathrm{MB}[p,q,a,w]$, defined in Eq.~\eqref{eq:mb-definition}
+The boundary values at $\bA=0$ involve \ConstantCountWord{} nontrivial constants
+$\mathrm{MB}[p,q,a,w]$, in addition to two elementary values.
+They are defined in Eq.~\eqref{eq:mb-definition}
 of App.~\ref{app:constants}, with $a,w\in\{-1,\tfrac12,1\}$.
 Using the PSLQ algorithm~\cite{Ferguson:1999} at \PSLQDigits{} digits,
 we identify integer relations expressing these constants in the basis
@@ -151,11 +152,13 @@ renormalisation scale and number of colours.
 At each of the \GridPointCount{} points, the comparison
 included the six flavour coefficients and the two complete
 coefficients, giving \ValidationRows{} comparisons in total.
-Each unexpanded remainder was evaluated with 80, 120, 160,
-220 and 300 digits of working precision, and a value was
-accepted once two successive precisions agreed to a relative
-difference below $10^{-25}$, with at least 30 significant
-digits in both. The parameter set with $\Nc\neq3$ was
+Each unexpanded remainder was evaluated using an adaptive sequence
+of working precisions: 80, 120, 160, 220 and 300 digits.
+Evaluation stopped at the first pair of successive precisions
+that agreed to a relative difference below $10^{-25}$,
+with at least 30 significant digits in both. All reference values
+on the reported validation grid were accepted at the 80/120-digit pair.
+The parameter set with $\Nc\neq3$ was
 included to test the colour dependence; all physical
 results use $\Nc=\BenchNc$.
 The relative truncation error is defined as
