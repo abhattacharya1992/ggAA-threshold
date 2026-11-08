@@ -49,7 +49,7 @@ def exact(q):
 
 
 def evaluate(i, beta, costh, params, nf, digits):
-    key = f"M{i} {params} beta={beta} cos={costh} nf={nf} digits={digits}"
+    key = f"{twoloop.CACHE_VERSION}:M{i} {params} beta={beta} cos={costh} nf={nf} digits={digits}"
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
     if key in cache:
         re, im = cache[key]
