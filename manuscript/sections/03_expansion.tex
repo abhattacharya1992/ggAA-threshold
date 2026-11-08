@@ -49,11 +49,16 @@ Using the PSLQ algorithm~\cite{Ferguson:1999} at \PSLQDigits{} digits,
 we identify integer relations expressing these constants in the basis
 \begin{equation}
  \{\zeta_3,\ \pi^2\ln2,\ \ln^32,\ \pi^4,\ \pi^2\ln^22,\
- \ln^42,\ \Li_4(\tfrac12),\ \zeta_3\ln2\},
+ \ln^42,\ \Li_4(\tfrac12),\ \zeta_3\ln2\}.
  \label{eq:constant-basis}
 \end{equation}
-whose elements have weight three or four and are of the type
-encountered in alternating Euler sums~\cite{Blumlein:2009cf}.
+We use the conventional transcendental-weight assignment:
+$\ln 2$ and $\pi$ have weight one, while $\zeta_n$ and
+$\Li_n(1/2)$ have weight $n$; weights add under multiplication.
+The first three constants in Eq.~\eqref{eq:constant-basis}
+have weight three and the remaining five have weight four.
+Constants of this type occur in alternating Euler
+sums~\cite{Blumlein:2009cf}.
 The numerically identified relations are listed in
 Table~\ref{tab:mb-constants}; the largest residual is \PSLQResidual{}.
 These relations are identified numerically and have not been proved
@@ -131,14 +136,17 @@ factors.
 
 \input{tables/leading_terms.tex}
 
-The coefficient of $\nf^2$ is the simplest:
+The coefficients of $\nf^2$ in Eq.~\eqref{eq:nf-decomposition}
+have the simplest threshold behaviour:
 \begin{align}
  \Mflav{1}{2}(\bA,c)&=K_{\nf}+\Ord(\bA^2),
  \label{eq:nf2-leading-one}\\
  \Mflav{2}{2}(\bA,c)&=\bA^2(1-c^2)K_{\nf}+\Ord(\bA^4),
  \label{eq:nf2-leading-two}
 \end{align}
-where $K_{\nf}$ does not depend on the angle. It is the only flavour coefficient that follows the tree-level pattern $\mathcal M_2\propto\bA^2(1-c^2)$ of Eq.~\eqref{eq:born}, with the same ratio to the tree amplitude in both tensor structures. The complete expressions through $\bA^6$ are released as Wolfram Language files (App.~\ref{app:data}).
+where $K_{\nf}$ is the angle-independent threshold value of
+$\Mflav{1}{2}$, with the overall factor $\nf^2$ excluded.
+The $\nf^2$ component is the only flavour component that follows the tree-level pattern $\mathcal M_2\propto\bA^2(1-c^2)$ of Eq.~\eqref{eq:born}, with the same ratio to the tree amplitude in both tensor structures. The complete expressions through $\bA^6$ are released as Wolfram Language files (App.~\ref{app:data}).
 
 \subsection{Accuracy}
 \label{sec:validation}
