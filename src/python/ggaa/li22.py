@@ -16,25 +16,33 @@ is used; it follows from the definition by writing 1/i^2 = -Integral_0^1 t^(i-1)
 import mpmath as mp
 
 SERIES_LIMIT = 0.99
+CACHE_VERSION = "li22-tail-v1"
 
 
 def li22_series(x, y):
     rate = max(abs(x), abs(x * y))
     if rate >= 1:
         raise ValueError(f"Li22 series does not converge at ({x}, {y})")
-    tolerance = mp.eps * (1 - rate) / 4
+    if x == 0 or y == 0:
+        return mp.mpf(0)
+    tolerance = mp.eps / 4
+    tail_scale = mp.zeta(2) / (1 - rate)
+    rate_power = mp.mpf(1)
     inner = mp.mpf(0)          # sum_{j < i} y^j / j^2
     x_power, y_power = mp.mpf(1), mp.mpf(1)
     total = mp.mpf(0)
     i = 1
     while True:
         x_power *= x
+        rate_power *= rate
         term = x_power * inner / i**2
         total += term
         y_power *= y
         inner += y_power / i**2
-        if i > 2 and abs(term) <= tolerance * abs(total):
-            # the next terms are bounded by a geometric series in `rate`
+        # |x|**n * |y|**j <= rate**n for 1 <= j < n. Summing
+        # 1/j**2 and bounding the remaining outer tail gives this bound.
+        tail_bound = tail_scale * rate_power * rate / (i + 1)**2
+        if i > 2 and tail_bound <= tolerance * abs(total):
             return total
         i += 1
 

@@ -18,7 +18,7 @@ import re
 
 import mpmath as mp
 
-from .li22 import li22
+from .li22 import CACHE_VERSION, li22
 from .paths import INPUTS
 
 FILES = {(1, 1): "Finite_1Loop_P1", (2, 1): "Finite_1Loop_P2",
@@ -67,7 +67,7 @@ class Evaluator:
             elif name == "Zeta":
                 value = mp.zeta(int(args[0]))
             elif name == "Li22":
-                label = f"{mp.mp.dps}:" + ",".join(mp.nstr(a, mp.mp.dps - 8) for a in args)
+                label = f"{CACHE_VERSION}:{mp.mp.dps}:" + ",".join(mp.nstr(a, mp.mp.dps - 8) for a in args)
                 if label in self._store:
                     value = mp.mpmathify(self._store[label])
                 else:
